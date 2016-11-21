@@ -55,8 +55,8 @@
     <header id="first">
         <div class="header-content">
             <div class="inner">
-                <h1 class="cursive">Simple, One Page Design</h1>
-                <h4>A free landing page theme with video background</h4>
+                <h1 class="cursive">WhereHouse</h1>
+                <h4>where is my house..?</h4>
                 <hr>
                 <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">Toggle Video</a> &nbsp; <a href="#one" class="btn btn-primary btn-xl page-scroll">Get Started</a>
             </div>
