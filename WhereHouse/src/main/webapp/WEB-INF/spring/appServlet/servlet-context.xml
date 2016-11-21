@@ -35,6 +35,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="com.WhereHouse.www" />
+	<context:component-scan base-package="com.WhereHouse.member.controller" />
 
 
 
