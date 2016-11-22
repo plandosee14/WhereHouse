@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
+  <script type="text/javascript"
+	src="resources/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>WH</title>
@@ -380,11 +382,34 @@
         		<h5 class="text-center">
         		    Welcome WhereHouse
         		</h5>
+        		<form action="Login">
         		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3%;"><br>
         		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
 				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign in <i class="ion-android-arrow-forward"></i></button>
-        		<p class="text-center" style="margin-top: 3%;"><a>Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
+				</form>
+        		<p class="text-center" style="margin-top: 3%;"><a data-toggle="modal" data-target="#RegisterModal" >Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
         		<br/>
+        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
+        	</div>
+        </div>
+        </div>
+    </div>
+    <div id="RegisterModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        	<div class="modal-body">
+        		<h2 class="text-center">Register Account</h2>
+        		<h5 class="text-center">
+        		    Welcome WhereHouse
+        		</h5>
+        		<form action="Register">
+        		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3%;"><br>
+        		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="name" name="name" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="phone" name="phone" style="margin-bottom: 3%;">
+				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign up <i class="ion-android-arrow-forward"></i></button>
+        		<br/>
+        		</form>
         		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
         	</div>
         </div>
