@@ -26,13 +26,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO login(MemberVO vo) throws Exception {
-		vo.setM_pass(new Encryption("chlvlfgkschlvlfgks").aesDecode(vo.getM_pass()));
-		return dao.login(vo);// 리턴m_no, m_name, m_id
+		vo.setM_pass(new Encryption("chlvlfgkschlvlfgks").aesEncode(vo.getM_pass()));
+		return dao.login(vo);// 리턴 m_no, m_name, m_id
 	}
 
 	@Override
 	public void register(MemberVO vo) throws Exception {
-		vo.setM_pass(new Encryption("chlvlfgkschlvlfgks").aesDecode(vo.getM_pass()));
+		Encryption enc = new Encryption("chlvlfgkschlvlfgks");
+		vo.setM_pass(enc.aesEncode(vo.getM_pass()));
 		dao.register(vo);
 	}
 
@@ -51,7 +52,7 @@ public class MemberServiceImpl implements MemberService {
 				int n = (int) (Math.random() * 10);
 				buffer.append(n);
 			}
-			vo.setM_pass(new Encryption("chlvlfgkschlvlfgks").aesDecode(buffer.toString()));
+			vo.setM_pass(new Encryption("chlvlfgkschlvlfgks").aesEncode(buffer.toString()));
 			dao.updatePass(vo);
 			String sender = "scv852456@gmail.com"; // 보내는 메일주소 구글로 입력
 			String receiver = vo.getM_id();
