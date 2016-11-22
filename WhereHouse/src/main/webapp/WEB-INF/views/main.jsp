@@ -387,7 +387,7 @@
         		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
 				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign in <i class="ion-android-arrow-forward"></i></button>
 				</form>
-        		<p class="text-center" style="margin-top: 3%;"><a data-toggle="modal" data-target="#RegisterModal" >Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
+        		<p class="text-center" style="margin-top: 3%;"><a data-toggle="modal" data-target="#RegisterModal" >Sign up</a> / <a data-toggle="modal" data-target="#FindModal">Find Account</a></p>
         		<br/>
         		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
         	</div>
@@ -403,13 +403,44 @@
         		    Welcome WhereHouse
         		</h5>
         		<form action="Register">
-        		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3%;"><br>
-        		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
-        		<input type="text" class="form-control" placeholder="name" name="name" style="margin-bottom: 3%;">
-        		<input type="text" class="form-control" placeholder="phone" name="phone" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="ID" name="id" id="registid" style="margin-top: 3%;"><br>
+        		<input type="password" class="form-control" placeholder="Password" name="pass" id="registpass" style="margin-bottom: 3%;">
+        		<input type="password" class="form-control" placeholder="PasswordCheck" name="passcheck" id="registpasscheck" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="name" name="name" id="registname" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="phone" name="phone" id="registphone" style="margin-bottom: 3%;">
 				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign up <i class="ion-android-arrow-forward"></i></button>
         		<br/>
         		</form>
+        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
+        	</div>
+        </div>
+        </div>
+    </div>
+    <div id="FindModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        	<div class="modal-body">
+        		<h2 class="text-center">Find Account</h2>
+        		<h5 class="text-center">
+        		    Find ID
+        		</h5>
+        		<form>
+        		<input type="text" class="form-control" placeholder="Name" name="name" style="margin-top: 3% ; margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="Phone" name="phone" style="margin-bottom: 3%;">
+        		<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Find ID <i class="ion-android-arrow-forward"></i></button>
+        		</form>
+        		<br><br>
+        		<h5 class="text-center">
+        		    Find Password
+        		</h5>
+        		<form>
+        		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3% ; margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="name" name="name" style="margin-bottom: 3%;">
+        		<input type="text" class="form-control" placeholder="phone" name="phone" style="margin-bottom: 3%;">
+				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Find Pass <i class="ion-android-arrow-forward"></i></button>
+        		<br/>
+        		</form>
+        		
         		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
         	</div>
         </div>

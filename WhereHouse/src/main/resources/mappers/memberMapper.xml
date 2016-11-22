@@ -10,4 +10,13 @@
 		values(#{m_id}, member_seq.nextval, #{m_name}, #{m_pass}, #{m_phone},
 		sysdate)
 	</insert>
+	<select id="findID" resultType="String">
+		select m_id from member where m_name = #{m_name} and m_phone = #{m_phone}
+	</select>
+	<select id="findPass" resultType="String">
+		select m_id from member where m_id = #{m_id}
+	</select>
+	<update id="updatePass">
+		update member set m_pass = #{m_pass} where id = #{m_id}
+	</update>
 </mapper>
