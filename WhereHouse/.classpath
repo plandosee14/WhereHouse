@@ -25,5 +25,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/admin/Desktop/KOSTA_project2/testMail/WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/admin/Desktop/KOSTA_project2/testMail/WebContent/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/admin/Desktop/KOSTA_project2/commons-codec-1.10/commons-codec-1.10.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
