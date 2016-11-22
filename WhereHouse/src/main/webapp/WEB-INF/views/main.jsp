@@ -26,6 +26,7 @@
     	         $.ajax({
     	            
     	            url:"/member/register",
+    	            type: "post",
     	            data:{
     	            	m_id : $('#registid').val(),
     	            	m_pass : $('#registpass').val(),
@@ -34,17 +35,21 @@
     	            },
     	            success:function(result){
     	               if(result=='success'){
-    	                  /* location.href='/phonefo/main' */
+    	            	  var congtitle = $('#registname').val()+'님 <br>가입을 환영합니다!'
+    	                  $('#alerttitle').html(congtitle);
+    	                  $('#alertcontent').html('이곳에서 서로의 집을 공유하고<br>그곳의 문화도 느껴보세요.');
     	                  $('#registid').val('');
     	               	  $('#registpass').val('');
     	               	  $('#registpasscheck').val('');
     	                  $('#registname').val('');
     	                  $('#registphone').val('');
-    	                  $('#registerAlertModal').modal("show");
+    	                  $('#alertModal').modal("show");
     	                  $('#RegisterModal').modal("hide");
     	               }
     	               else{
-    	                  alert('회원가입 실패');
+    	            	   $('#alerttitle').html('회원가입 실패');
+     	                   $('#alertcontent').html('회원가입에 실패하였습니다.<br>잠시후 다시 시도해주세요.');
+     	                   $('#alertModal').modal("show");
     	               }
     	               
     	            }
@@ -573,34 +578,15 @@
 		</div>
 	</div>
 	
-	<div id="registerAlertModal" class="modal fade" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-body">
-					<h2 class="text-center">Welcome</h2><br>
-					<p class="text-center">이곳에서 집을 공유하고, <br>그 곳의 문화를 느껴보세요!</p>
-					<br />
-					<button class="btn btn-primary btn-lg center-block"
-						data-dismiss="modal" aria-hidden="true">
-						OK <i class="ion-android-close"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<div id="alertModal" class="modal fade" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-body">
-					<h2 class="text-center">Nice Job!</h2>
-					<p class="text-center">You clicked the button, but it doesn't
-						actually go anywhere because this is only a demo.</p>
+					<h2 class="text-center" id="alerttitle"></h2>
+					<p class="text-center" id="alertcontent"></p>
 					<p class="text-center">
-						<a href="http://www.bootstrapzero.com">Learn more at
-							BootstrapZero</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"

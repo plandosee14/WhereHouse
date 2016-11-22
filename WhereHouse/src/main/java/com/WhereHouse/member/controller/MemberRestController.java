@@ -3,6 +3,7 @@ package com.WhereHouse.member.controller;
 import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WhereHouse.member.domain.MemberVO;
@@ -15,7 +16,7 @@ public class MemberRestController {
 	@Inject
 	private MemberService service;
 
-	@RequestMapping(value = "/register")
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(MemberVO vo) throws Exception {
 		System.out.println(vo.toString());
 		try {
