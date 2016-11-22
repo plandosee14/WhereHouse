@@ -383,7 +383,7 @@
         		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3%;"><br>
         		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
 				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign in <i class="ion-android-arrow-forward"></i></button>
-        		<p class="text-center" style="margin-top: 3%;"><a href="http://www.bootstrapzero.com">Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
+        		<p class="text-center" style="margin-top: 3%;"><a>Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
         		<br/>
         		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
         	</div>
