@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Landing Zero Free Bootstrap Theme with Video</title>
+    <title>WH</title>
     <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i> Landing Zero</a>
+                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i> WhereHouse</a>
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
@@ -46,7 +46,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal">About</a>
+                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#LoginModal">Login</a>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@
         <div class="header-content">
             <div class="inner">
                 <h1 class="cursive">WhereHouse</h1>
-                <h4>where is my house..?</h4>
+                <h4>We can share our homes and feel their culture.</h4>
                 <hr>
                 <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">Toggle Video</a> &nbsp; <a href="#one" class="btn btn-primary btn-xl page-scroll">Get Started</a>
             </div>
@@ -327,7 +327,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-6 col-sm-3 column">
-                    <h4>About</h4>
+                    <h4>111111111</h4>
                     <ul class="list-unstyled">
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">Delivery Information</a></li>
@@ -372,22 +372,20 @@
         </div>
         </div>
     </div>
-    <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="LoginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
         	<div class="modal-body">
-        		<h2 class="text-center">Landing Zero Theme</h2>
+        		<h2 class="text-center">Login</h2>
         		<h5 class="text-center">
-        		    A free, responsive landing page theme built by BootstrapZero.
+        		    Welcome WhereHouse
         		</h5>
-        		<p class="text-justify">
-        		    This is a single-page Bootstrap template with a sleek dark/grey color scheme, accent color and smooth scrolling.
-        		    There are vertical content sections with subtle animations that are activated when scrolled into view using the jQuery WOW plugin. There is also a gallery with modals
-        		    that work nicely to showcase your work portfolio. Other features include a contact form, email subscribe form, multi-column footer. Uses Questrial Google Font and Ionicons.
-        		</p>
-        		<p class="text-center"><a href="http://www.bootstrapzero.com">Download at BootstrapZero</a></p>
+        		<input type="text" class="form-control" placeholder="ID" name="id" style="margin-top: 3%;"><br>
+        		<input type="password" class="form-control" placeholder="Password" name="pass" style="margin-bottom: 3%;">
+				<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Sign in <i class="ion-android-arrow-forward"></i></button>
+        		<p class="text-center" style="margin-top: 3%;"><a href="http://www.bootstrapzero.com">Sign up</a> / <a>Find ID</a> / <a>Password</a></p>
         		<br/>
-        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> OK </button>
+        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> Close </button>
         	</div>
         </div>
         </div>
@@ -410,6 +408,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="resoures/js/scripts.js"></script>
+    <script src="resources/js/scripts.js"></script>
   </body>
 </html>
