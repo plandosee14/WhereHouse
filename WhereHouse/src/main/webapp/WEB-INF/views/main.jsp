@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="resources/css/styles.css" />
 <script type="text/javascript">
        $(document).ready(function(){
+    	   
+    	   
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
     	    		  $('#alerttitle').html('아이디');
@@ -171,7 +173,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="page-scroll" data-toggle="modal"
-					title="" href="#LoginModal">Login</a>
+					title="" href="#LoginModal" id="loginmodalbtn">Login</a>
 				</li>
 			</ul>
 		</div>
