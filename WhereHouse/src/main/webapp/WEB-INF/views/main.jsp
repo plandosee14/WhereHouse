@@ -23,8 +23,23 @@
 <script type="text/javascript">
        $(document).ready(function(){
     	      $("#registbtn").click(function(){
+    	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
+    	    		  $('#alerttitle').html('아이디');
+	                  $('#alertcontent').html('아이디를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+    	    	  }else if ($('#registpass').val()==null||$('#registpass').val()==""||$('#registpass').val().replace(" ", "").length != $('#registpass').val().length||$('#registpass').val().length<6 || $('#registpass').val().length>15) {
+    	    		  $('#alerttitle').html('비밀번호');
+	                  $('#alertcontent').html('비밀번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registname').val()==null||$('#registname').val()==""||$('#registname').val().replace(" ", "").length != $('#registname').val().length||$('#registname').val().length<1||$('#registname').val().length>15) {
+					  $('#alerttitle').html('이름');
+	                  $('#alertcontent').html('이름을 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<8||$('#registphone').val().length>20) {
+					
+				}
+    	      else{
     	         $.ajax({
-    	            
     	            url:"/member/register",
     	            type: "post",
     	            data:{
@@ -53,10 +68,10 @@
      	                   $('#alertcontent').html('회원가입에 실패하였습니다.<br>잠시후 다시 시도해주세요.');
      	                   $('#alertModal').modal("show");
     	               }//실패
-    	           
     	            }
     	         });
-    	      });//signup버튼
+    	      }});//signup버튼
+       		
     	      
     	      $('#loginmodalclose').click(function() {
     	    	  $('#loginid').val('');
@@ -73,10 +88,14 @@
     	      });//close시 회원가입창 초기화
     	      
     	      $('#registid').click(function() {
-    	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
-	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
     	      	$('#CheckIDModal').modal("show");
     	      });//이메일인증창 SHOW
+    	      
+    	      $('#registeraccountbtn').click(function() {
+      	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
+  	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
+  	            $('#certificationtext').val('');//인증번호 확인 버튼  숨기기
+      	      });
     	      
     	      $('#checkid').click(function() {
     	    	  $('#checkid').fadeOut('100');
@@ -152,7 +171,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="page-scroll" data-toggle="modal"
-					title="A free Bootstrap video landing theme" href="#LoginModal">Login</a>
+					title="" href="#LoginModal">Login</a>
 				</li>
 			</ul>
 		</div>
@@ -579,13 +598,13 @@
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 						id="registid" style=" margin-bottom: 3%;">
 						<p class="text-center" id="registidp"></p>
-					<input type="password" class="form-control" placeholder="Password"
+					<input type="password" class="form-control" placeholder="Password (6-15)"
 						name="pass" id="registpass" style="margin-bottom: 3%;"> <input
 						type="password" class="form-control" placeholder="PasswordCheck"
 						name="passcheck" id="registpasscheck" style="margin-bottom: 3%;">
 					<input type="text" class="form-control" placeholder="name"
 						name="name" id="registname" style="margin-bottom: 3%;"> <input
-						type="text" class="form-control" placeholder="phone" name="phone"
+						type="text" class="form-control" placeholder="phone exception(-)" name="phone"
 						id="registphone" style="margin-bottom: 3%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
@@ -605,7 +624,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<h2 class="text-center">Check ID</h2>
-					<h5 class="text-center" style="margin-bottom: 5%">Please enter your email in the id field</h5>
+					<h5 class="text-center" style="margin-bottom: 20%">Please enter your email in the id field</h5>
 					
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 						id="checkidtext" style=" margin-bottom: 3%;">
@@ -622,7 +641,7 @@
 					</button>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
-						data-dismiss="modal" aria-hidden="true" id="CheckIDModalbutton">Close</button>
+						data-dismiss="modal" aria-hidden="true" id="CheckIDModalbutton" style="margin-top: 20%">Close</button>
 						<input type="hidden" id="hiddencertification">
 				</div>
 			</div>
@@ -639,7 +658,7 @@
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
 							name="name" style="margin-top: 3%; margin-bottom: 3%;"> <input
-							type="text" class="form-control" placeholder="Phone" name="phone"
+							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
 							style="margin-bottom: 3%;">
 						<button type="button" data-toggle="modal"
 							data-target="#alertModal"
@@ -655,7 +674,7 @@
 							style="margin-top: 3%; margin-bottom: 3%;"> <input
 							type="text" class="form-control" placeholder="name" name="name"
 							style="margin-bottom: 3%;"> <input type="text"
-							class="form-control" placeholder="phone" name="phone"
+							class="form-control" placeholder="phone exception(-)" name="phone"
 							style="margin-bottom: 3%;">
 						<button type="button" data-toggle="modal"
 							data-target="#alertModal"
