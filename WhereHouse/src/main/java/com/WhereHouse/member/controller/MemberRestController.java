@@ -27,4 +27,11 @@ public class MemberRestController {
 			return "fail";
 		}
 	}
+
+	@RequestMapping(value = "/checkid", method = RequestMethod.POST)
+	public String checkID(String m_id) throws Exception {
+		System.out.println(m_id);
+		return service.checkID(m_id);
+	}
+
 }

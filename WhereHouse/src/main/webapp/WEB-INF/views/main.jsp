@@ -45,12 +45,12 @@
     	                  $('#registphone').val('');
     	                  $('#alertModal').modal("show");
     	                  $('#RegisterModal').modal("hide");
-    	               }
+    	               }//회원가입시 회원가입창 초기화
     	               else{
     	            	   $('#alerttitle').html('회원가입 실패');
      	                   $('#alertcontent').html('회원가입에 실패하였습니다.<br>잠시후 다시 시도해주세요.');
      	                   $('#alertModal').modal("show");
-    	               }
+    	               }//실패
     	               
     	            }
     	         });
@@ -63,7 +63,12 @@
                   $('#registname').val('');
                   $('#registphone').val('');
 
+    	      });//close시 회원가입창 초기화
+    	      
+    	      $('#registid').click(function() {
+    	      	$('#CheckIDModal').modal("show");
     	      });
+    	      
     	   });//ready
     	   
     </script>
@@ -507,6 +512,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div id="RegisterModal" class="modal fade" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="modal-dialog">
@@ -535,6 +541,34 @@
 			</div>
 		</div>
 	</div>
+	
+	<div id="CheckIDModal" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true" style="z-index: 1000000;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h2 class="text-center">Check ID</h2>
+					<h5 class="text-center">Please enter your email in the id field</h5>
+					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
+						id="checkidtext" style="margin-top: 3%; margin-bottom: 3%;">
+					<button type="button" id="checkid"
+						class="btn btn-primary btn-block btn-lg">
+						Send certification num <i class="ion-android-arrow-forward"></i>
+					</button>
+					<input type="text" class="form-control" placeholder="Certification number"
+						name="name" id="certificationtext" style="margin-bottom: 3%; margin-top: 3%;">
+					<button type="button" id="checkCertification"
+						class="btn btn-primary btn-block btn-lg">
+						Check certification num <i class="ion-android-arrow-forward"></i>
+					</button>
+					<br />
+					<button class="btn btn-primary btn-lg center-block"
+						data-dismiss="modal" aria-hidden="true" id="CheckIDModalbutton">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<div id="FindModal" class="modal fade" tabindex="-1" role="dialog"
 		aria-hidden="true">
 		<div class="modal-dialog">
@@ -557,7 +591,7 @@
 					<br>
 					<h5 class="text-center">Find Password</h5>
 					<form>
-						<input type="text" class="form-control" placeholder="ID" name="id"
+						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 							style="margin-top: 3%; margin-bottom: 3%;"> <input
 							type="text" class="form-control" placeholder="name" name="name"
 							style="margin-bottom: 3%;"> <input type="text"
