@@ -18,7 +18,7 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(MemberVO vo) throws Exception {
-		System.out.println(vo.toString());
+		System.out.println("restcontroller="+vo.toString());
 		try {
 			service.register(vo);
 			return "success";
@@ -30,7 +30,7 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/checkid", method = RequestMethod.POST)
 	public String checkID(String m_id) throws Exception {
-		System.out.println(m_id);
+		System.out.println("restcontroller="+m_id);
 		return service.checkID(m_id);
 	}
 

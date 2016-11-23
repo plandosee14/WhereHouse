@@ -46,6 +46,7 @@ public class MemberServiceImpl implements MemberService {
 	public String findPass(MemberVO vo) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 		if (dao.findPass(vo.getM_id()) == null || dao.findPass(vo.getM_id()).equals("")) {
+			System.out.println(dao.findPass(vo.getM_id()));
 			return "0";
 		} else {
 			for (int i = 0; i <= 6; i++) {
@@ -118,14 +119,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String checkID(String m_id) throws Exception {
 		StringBuffer buffer = new StringBuffer();
-		if (dao.findPass(m_id) == null || dao.findPass(m_id).equals("")) {
-			return "0";
-		} else {
+		System.out.println("serviceImpl/findpass="+m_id);
+		if (dao.findPass(m_id) == null || dao.findPass(m_id).equals("")) {//회원가입하지 않은 이메일
 			for (int i = 0; i <= 6; i++) {
 				int n = (int) (Math.random() * 10);
 				buffer.append(n);
 			}
-			
+
 			String sender = "scv852456@gmail.com"; // 보내는 메일주소 구글로 입력
 			String receiver = m_id;
 			String subject = "WhereHouse 인증 번호 입니다. \n 인증 번호를 입력해 주세요!";
@@ -184,6 +184,8 @@ public class MemberServiceImpl implements MemberService {
 				mex.printStackTrace();
 			}
 			return buffer.toString();
+		} else {//이미 가입된 이메일
+			return "0";
 		}
 	}
 

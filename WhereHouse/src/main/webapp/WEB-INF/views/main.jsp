@@ -28,7 +28,7 @@
     	            url:"/member/register",
     	            type: "post",
     	            data:{
-    	            	m_id : $('#registid').val(),
+    	            	m_id : $('#registidp').text(),
     	            	m_pass : $('#registpass').val(),
     	            	m_name : $('#registname').val(),
     	            	m_phone : $('#registphone').val()
@@ -45,16 +45,23 @@
     	                  $('#registphone').val('');
     	                  $('#alertModal').modal("show");
     	                  $('#RegisterModal').modal("hide");
+    	                  $('#registid').fadeIn('100');
+    	                  $('#registidp').fadeOut('100');
     	               }//회원가입시 회원가입창 초기화
     	               else{
     	            	   $('#alerttitle').html('회원가입 실패');
      	                   $('#alertcontent').html('회원가입에 실패하였습니다.<br>잠시후 다시 시도해주세요.');
      	                   $('#alertModal').modal("show");
     	               }//실패
-    	               
+    	           
     	            }
     	         });
     	      });//signup버튼
+    	      
+    	      $('#loginmodalclose').click(function() {
+    	    	  $('#loginid').val('');
+    	    	  $('#loginpass').val('');
+    	      });//로그인모달창 닫기 버튼
     	      
     	      $('#RegisterModalbutton').click(function() {
     	    	  $('#registid').val('');
@@ -65,9 +72,58 @@
 
     	      });//close시 회원가입창 초기화
     	      
-    	      $('#registid').click(function() {
+    	      $('#registeraccountbtn').click(function() {
+    	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
+	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
     	      	$('#CheckIDModal').modal("show");
-    	      });
+    	      });//이메일인증창 SHOW
+    	      
+    	      $('#checkid').click(function() {
+    	    	  $('#checkid').fadeOut('100');
+    	      	$.ajax({
+    	      		url:"/member/checkid",
+    	            type: "post",
+    	            data:{
+    	            	m_id : $('#checkidtext').val()
+    	            },
+    	            success:function(result){
+    	            	if (result == "0") {
+    	            		$('#checkid').fadeIn('100');
+    	            		$('#alerttitle').html('Email 발송 실패');
+      	                    $('#alertcontent').html('해당 아이디(E-mail)로 회원가입한<br>회원이 이미 존재합니다.');
+    	            		$('#alertModal').modal("show");
+    	            		$('#checkid').fadeIn('100');
+						}else {
+    	            		$('#hiddencertification').val(result);
+							$('#checkidtext').hide('100');
+							$('#successcheckid').html($('#checkidtext').val());
+							$('#certificationtext').fadeIn('100');//인증번호 입력텍스트 보이기
+		    	            $('#checkCertification').fadeIn('100');//인증번호 확인 버튼  보이기
+							$('#alerttitle').html('Email 발송 성공');
+      	                    $('#alertcontent').html('인증번호를 입력해주세요.');
+    	            		$('#alertModal').modal("show");
+						}
+    	            }
+    	      	})
+    	      });//이메일 인증 보내기
+    	      
+    	      $('#checkCertification').click(function() {
+    	    	  if ($('#certificationtext').val()==$('#hiddencertification').val()) {
+    	    		  $('#registid').fadeOut('100');
+    	    		  $('#registidp').text($('#successcheckid').text());
+    	    		  $('#CheckIDModal').modal("hide");
+    	    		  $('#checkidtext').val('');
+    	    		  $('#successcheckid').text('');
+    	    		  $('#checkidtext').fadeIn('100');
+    	    		  $('#checkid').fadeIn('100');
+    	    		  
+				}
+    	    	  else {
+    	    		  	$('#alerttitle').html('인증실패');
+	                    $('#alertcontent').html('인증번호를 확인해주세요.');
+	            		$('#alertModal').modal("show");
+				}
+      	      });//인증번호 확인 버튼 클릭시
     	      
     	   });//ready
     	   
@@ -492,9 +548,9 @@
 					<h5 class="text-center">Welcome WhereHouse</h5>
 					<form action="Login">
 						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
-							style="margin-top: 3%;"><br> <input type="password"
+							style="margin-top: 3%;" id="loginid"><br> <input type="password"
 							class="form-control" placeholder="Password" name="pass"
-							style="margin-bottom: 3%;">
+							style="margin-bottom: 3%;" id="loginpass">
 						<button type="button" data-toggle="modal"
 							data-target="#alertModal"
 							class="btn btn-primary btn-block btn-lg">
@@ -502,12 +558,12 @@
 						</button>
 					</form>
 					<p class="text-center" style="margin-top: 3%;">
-						<a data-toggle="modal" data-target="#RegisterModal" id="registerclosebtn">Sign up</a> /
+						<a data-toggle="modal" data-target="#RegisterModal" id="registeraccountbtn">Sign up</a> /
 						<a data-toggle="modal" data-target="#FindModal">Find Account</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
-						data-dismiss="modal" aria-hidden="true">Close</button>
+						data-dismiss="modal" aria-hidden="true" id="loginmodalclose">Close</button>
 				</div>
 			</div>
 		</div>
@@ -519,9 +575,10 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<h2 class="text-center">Register Account</h2>
-					<h5 class="text-center">Welcome WhereHouse</h5>
+					<h5 class="text-center" style="margin-bottom: 3%;">Welcome WhereHouse</h5>
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
-						id="registid" style="margin-top: 3%; margin-bottom: 3%;">
+						id="registid" style=" margin-bottom: 3%;">
+						<p class="text-center" id="registidp"></p>
 					<input type="password" class="form-control" placeholder="Password"
 						name="pass" id="registpass" style="margin-bottom: 3%;"> <input
 						type="password" class="form-control" placeholder="PasswordCheck"
@@ -543,14 +600,16 @@
 	</div>
 	
 	<div id="CheckIDModal" class="modal fade" tabindex="-1" role="dialog"
-		aria-hidden="true" style="z-index: 1000000;">
+		aria-hidden="true" style="z-index: 100000;">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
 					<h2 class="text-center">Check ID</h2>
-					<h5 class="text-center">Please enter your email in the id field</h5>
+					<h5 class="text-center" style="margin-bottom: 5%">Please enter your email in the id field</h5>
+					
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
-						id="checkidtext" style="margin-top: 3%; margin-bottom: 3%;">
+						id="checkidtext" style=" margin-bottom: 3%;">
+						<p class="text-center" id="successcheckid"></p>
 					<button type="button" id="checkid"
 						class="btn btn-primary btn-block btn-lg">
 						Send certification num <i class="ion-android-arrow-forward"></i>
@@ -564,6 +623,7 @@
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
 						data-dismiss="modal" aria-hidden="true" id="CheckIDModalbutton">Close</button>
+						<input type="hidden" id="hiddencertification">
 				</div>
 			</div>
 		</div>
@@ -614,7 +674,7 @@
 	
 	
 	<div id="alertModal" class="modal fade" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" style="z-index: 100000;">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-body">
