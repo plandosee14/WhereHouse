@@ -23,7 +23,6 @@
 <script type="text/javascript">
        $(document).ready(function(){
     	   
-    	   
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
     	    		  $('#alerttitle').html('아이디');
