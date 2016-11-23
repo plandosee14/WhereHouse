@@ -72,7 +72,7 @@
 
     	      });//close시 회원가입창 초기화
     	      
-    	      $('#registeraccountbtn').click(function() {
+    	      $('#registid').click(function() {
     	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
 	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
     	      	$('#CheckIDModal').modal("show");
