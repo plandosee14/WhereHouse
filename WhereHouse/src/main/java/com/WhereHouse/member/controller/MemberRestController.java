@@ -57,5 +57,11 @@ public class MemberRestController {
 		}
 		
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "success";
+	}
 
 }

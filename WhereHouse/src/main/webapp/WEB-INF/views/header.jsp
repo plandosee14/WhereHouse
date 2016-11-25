@@ -47,6 +47,18 @@
     		   $('#LoginModal').modal("show");
 			}
     	   });//로그인 모달창 띄우기
+    	   
+    	   $('#logout').click(function() {
+    		   $.ajax({
+   	            url:"/member/logout",
+   	            type: "post",
+   	            success:function(result){
+   	               if (result=="success") {
+	                  location.reload();
+				}
+   	            }
+   	         });
+    	   });//로그아웃 클릭시
  	      
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
@@ -279,13 +291,16 @@
 				<li><a class="page-scroll" href="#four">Features</a></li>
 				<li><a class="page-scroll" href="#last">Contact</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
-			if(m_name == null || m_name.equals("")){
-				m_name = "Login";
-			}%>
-				<font size="4"><li><div id="loginmodalbtn"><%=m_name %></div></li></font>
+			if(m_name == null || m_name.equals("")){%>
+			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
+				<font size="3"><li><div id="loginmodalbtn">Login</div></li></font>
 			</ul>
+			<% }else{%>
+				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;" >
+				<font size="3"><li><div id="userinfo"><%=m_name %>님</div><div id="logout">logout <i class="glyphicon glyphicon-log-out"></i></div></li></font>
+			</ul>
+			<% }%>
 		</div>
 	</div>
 	</nav>
