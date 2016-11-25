@@ -144,6 +144,36 @@
 				}
       	      });//인증번호 확인 버튼 클릭시
     	      
+      	      
+      	      $('#findidbtn').click(function() {
+      	    	$.ajax({
+    	      		url:"/member/findid",
+    	            type: "post",
+    	            data:{
+    	            	m_name : $('#findidnametext').val(),
+    	            	m_phone : $('#findidphonetext').val()
+    	            },
+    	            success:function(result){
+    	            	$('#findidnametext').val('');
+    	            	$('#findidphonetext').val('');
+    	            	if (result==null||result=="") {
+							$('#findidresult').text('입력하신 회원정보와 일치하는 ID가 존재하지 않습니다.');
+						}else {
+							$('#findidresult').html('ID = <font size = "5">'+ result+'</font> 입니다.');
+						}
+    	            }
+    	      	});
+      	      });//아이디찾기
+      	      
+      	      $('#findAccountbtn').click(function() {
+      	      	$('#findidnametext').val('');
+      	      	$('#findidphonetext').val('');
+      	      	$('#findidresult').html('');
+      	      	$('#findpassidtext').val('');
+      	      	$('#findpassnametext').val('');
+      	      	$('#findpassphonetext').val('');
+      	      });//findAccount클릭시 id란 초기화
+      	      
     	   });//ready
     	   
     </script>
@@ -216,7 +246,7 @@
 					</form>
 					<p class="text-center" style="margin-top: 3%;">
 						<a data-toggle="modal" data-target="#RegisterModal" id="registeraccountbtn">Sign up</a> /
-						<a data-toggle="modal" data-target="#FindModal">Find Account</a>
+						<a data-toggle="modal" data-target="#FindModal" id="findAccountbtn">Find Account</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -295,25 +325,26 @@
 					<h5 class="text-center">Find ID</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
-							name="name" style="margin-top: 3%; margin-bottom: 3%;"> <input
+							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
 							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
-							style="margin-bottom: 3%;">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
+							style="margin-bottom: 3%;" id="findidphonetext">
+						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
 							Find ID <i class="ion-android-arrow-forward"></i>
 						</button>
+						<h5 class="text-center" id="findidresult"> </h5>
 					</form>
 					<br>
 					<br>
 					<h5 class="text-center">Find Password</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
-							style="margin-top: 3%; margin-bottom: 3%;"> <input
+							style="margin-top: 3%; margin-bottom: 3%;" id="findpassidtext">
+							<input
 							type="text" class="form-control" placeholder="name" name="name"
-							style="margin-bottom: 3%;"> <input type="text"
+							style="margin-bottom: 3%;" id="findpassnametext">
+							<input type="text"
 							class="form-control" placeholder="phone exception(-)" name="phone"
-							style="margin-bottom: 3%;">
+							style="margin-bottom: 3%;" id="findpassphonetext">
 						<button type="button" data-toggle="modal"
 							data-target="#alertModal"
 							class="btn btn-primary btn-block btn-lg">

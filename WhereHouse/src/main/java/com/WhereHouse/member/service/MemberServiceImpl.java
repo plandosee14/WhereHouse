@@ -39,14 +39,18 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String findID(MemberVO vo) throws Exception {
-		return dao.findID(vo).substring(0, dao.findID(vo).length() - 3) + "***";
+		if (dao.findID(vo)==null||dao.findID(vo).equals("")) {
+			return "";
+		}else {
+			return dao.findID(vo).substring(0, dao.findID(vo).indexOf("@") - 3) + "***" + dao.findID(vo).substring(dao.findID(vo).indexOf("@"), dao.findID(vo).length());
+		}
 	}
 
 	@Override
 	public String findPass(MemberVO vo) throws Exception {
 		StringBuffer buffer = new StringBuffer();
-		if (dao.findPass(vo.getM_id()) == null || dao.findPass(vo.getM_id()).equals("")) {
-			System.out.println(dao.findPass(vo.getM_id()));
+		if (dao.passupdateselect(vo)==null || dao.passupdateselect(vo).equals("")) {
+			System.out.println(dao.passupdateselect(vo));
 			return "0";
 		} else {
 			for (int i = 0; i <= 6; i++) {
