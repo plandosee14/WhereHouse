@@ -27,7 +27,7 @@
     	    		  $('#alerttitle').html('아이디');
 	                  $('#alertcontent').html('아이디를 확인해주세요.');
 	                  $('#alertModal').modal("show");
-    	    	  }else if ($('#registpass').val()==null||$('#registpass').val()==""||$('#registpass').val().replace(" ", "").length != $('#registpass').val().length||$('#registpass').val().length<6 || $('#registpass').val().length>15) {
+    	    	  }else if ($('#registpass').val()==null||$('#registpass').val()==""||$('#registpass').val().replace(" ", "").length != $('#registpass').val().length||$('#registpass').val().length<6 || $('#registpass').val().length>15|| $('#registpass').val() != $('#registpasscheck').val()) {
     	    		  $('#alerttitle').html('비밀번호');
 	                  $('#alertcontent').html('비밀번호를 확인해주세요.');
 	                  $('#alertModal').modal("show");
@@ -36,7 +36,9 @@
 	                  $('#alertcontent').html('이름을 확인해주세요.');
 	                  $('#alertModal').modal("show");
 				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<8||$('#registphone').val().length>20) {
-					
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
 				}
     	      else{
     	         $.ajax({
@@ -89,12 +91,14 @@
     	      
     	      $('#registid').click(function() {
     	      	$('#CheckIDModal').modal("show");
+    	      	$('#checkidtext').val('');
     	      });//이메일인증창 SHOW
     	      
     	      $('#registeraccountbtn').click(function() {
       	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
   	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
   	            $('#certificationtext').val('');//인증번호 확인 버튼  숨기기
+  	            $('#passicon').attr("class","");
       	      });
     	      
     	      $('#checkid').click(function() {
@@ -204,6 +208,27 @@
       	        $('#findpassbtn').fadeIn('100');
       	      });//findAccount클릭시 id란 초기화
       	      
+      	      $('#registpass').keyup(function() {
+      	      	if ($('#registpass').val().length >= 6 && $('#registpass').val() == $('#registpasscheck').val()) {
+					$('#passicon').attr("class","glyphicon glyphicon-ok");
+				}else if ($('#registpass').val()==""||$('#registpasscheck').val()=="") {
+					$('#passicon').attr("class","");
+				}
+      	      	else {
+					$('#passicon').attr("class","glyphicon glyphicon-remove");
+				}
+      	      });
+      	    $('#registpasscheck').keyup(function() {
+      	      	if ($('#registpass').val().length >= 6 && $('#registpass').val() == $('#registpasscheck').val()) {
+					$('#passicon').attr("class","glyphicon glyphicon-ok");
+				}else if ($('#registpass').val()==""||$('#registpasscheck').val()=="") {
+					$('#passicon').attr("class","");
+				}
+      	      	else {
+					$('#passicon').attr("class","glyphicon glyphicon-remove");
+				}
+      	      });
+      	      
     	   });//ready
     	   
     </script>
@@ -218,7 +243,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand page-scroll" href="#first"><i
-				class="ion-ios-analytics-outline"></i> WhereHouse</a>
+				class="glyphicon glyphicon-home"></i> WhereHouse</a>
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
@@ -268,9 +293,8 @@
 							style="margin-top: 3%;" id="loginid"><br> <input type="password"
 							class="form-control" placeholder="Password" name="pass"
 							style="margin-bottom: 3%;" id="loginpass">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
+						<button type="button" 
+							class="btn btn-primary btn-block btn-lg" id="loginbtn">
 							Sign in <i class="ion-android-arrow-forward"></i>
 						</button>
 					</form>
@@ -297,16 +321,18 @@
 						id="registid" style=" margin-bottom: 3%;">
 						<p class="text-center" id="registidp"></p>
 					<input type="password" class="form-control" placeholder="Password (6-15)"
-						name="pass" id="registpass" style="margin-bottom: 3%;"> <input
-						type="password" class="form-control" placeholder="PasswordCheck"
-						name="passcheck" id="registpasscheck" style="margin-bottom: 3%;">
+						name="pass" id="registpass" style="margin-bottom: 3%;">
+						<div>
+						<input
+						type="password" class="form-control2" placeholder="PasswordCheck"
+						name="passcheck" id="registpasscheck" style="margin-bottom: 3%; width: 95%; margin-right: 2%"><i id="passicon"></i></div>
 					<input type="text" class="form-control" placeholder="name"
 						name="name" id="registname" style="margin-bottom: 3%;"> <input
 						type="text" class="form-control" placeholder="phone exception(-)" name="phone"
 						id="registphone" style="margin-bottom: 3%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
-						Sign up <i class="ion-android-arrow-forward"></i>
+						Sign up <i class="glyphicon glyphicon-upload"></i>
 					</button>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -359,7 +385,7 @@
 							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
 							style="margin-bottom: 3%;" id="findidphonetext">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
-							Find ID <i class="ion-android-arrow-forward"></i>
+							Find ID <i class="glyphicon glyphicon-search"></i>
 						</button>
 						<h5 class="text-center" id="findidresult"> </h5>
 					</form>
@@ -377,7 +403,7 @@
 							style="margin-bottom: 3%;" id="findpassphonetext">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
-							Find Pass <i class="ion-android-arrow-forward"></i>
+							Find Pass <i class="glyphicon glyphicon-search"></i>
 						</button>
 						<br />
 					</form>
