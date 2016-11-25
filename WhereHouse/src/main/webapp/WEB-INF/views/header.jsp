@@ -154,16 +154,45 @@
     	            	m_phone : $('#findidphonetext').val()
     	            },
     	            success:function(result){
-    	            	$('#findidnametext').val('');
-    	            	$('#findidphonetext').val('');
     	            	if (result==null||result=="") {
 							$('#findidresult').text('입력하신 회원정보와 일치하는 ID가 존재하지 않습니다.');
 						}else {
+							$('#findidnametext').val('');
+	    	            	$('#findidphonetext').val('');
 							$('#findidresult').html('ID = <font size = "5">'+ result+'</font> 입니다.');
 						}
     	            }
     	      	});
       	      });//아이디찾기
+      	      
+      	    $('#findpassbtn').click(function() {
+      	    	$('#findpassbtn').fadeOut('100');
+      	    	$.ajax({
+    	      		url:"/member/findpass",
+    	            type: "post",
+    	            data:{
+    	            	m_id : $('#findpassidtext').val(),
+    	            	m_name : $('#findpassnametext').val(),
+    	            	m_phone : $('#findpassphonetext').val()
+    	            },
+    	            success:function(result){
+    	            	if (result==null || result=="0") {
+    	            		$('#alerttitle').html('E-mail 발송 실패');
+      	                    $('#alertcontent').html('입력하신 정보와 일치하는 ID가 없습니다.');
+    	            		$('#alertModal').modal("show");
+    	            		$('#findpassbtn').fadeIn('100');
+						}else {
+							$('#alerttitle').html('E-mail이 발송성공');
+      	                    $('#alertcontent').html('E-mail로 발송된 비밀번호로 로그인하여주세요.');
+    	            		$('#alertModal').modal("show");
+    	            		$('#findpassidtext').val('');
+    	            		$('#findpassnametext').val('');
+    	            		$('#findpassphonetext').val('');
+    	            		$('#findpassbtn').fadeIn('100');
+						}
+    	            }
+    	      	});
+      	      });//비번찾기
       	      
       	      $('#findAccountbtn').click(function() {
       	      	$('#findidnametext').val('');
@@ -172,6 +201,7 @@
       	      	$('#findpassidtext').val('');
       	      	$('#findpassnametext').val('');
       	      	$('#findpassphonetext').val('');
+      	        $('#findpassbtn').fadeIn('100');
       	      });//findAccount클릭시 id란 초기화
       	      
     	   });//ready
@@ -345,9 +375,8 @@
 							<input type="text"
 							class="form-control" placeholder="phone exception(-)" name="phone"
 							style="margin-bottom: 3%;" id="findpassphonetext">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
+						<button type="button"
+							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
 							Find Pass <i class="ion-android-arrow-forward"></i>
 						</button>
 						<br />

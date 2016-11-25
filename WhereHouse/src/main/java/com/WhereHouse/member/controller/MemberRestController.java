@@ -39,5 +39,11 @@ public class MemberRestController {
 		System.out.println("restcontroller="+vo.toString());
 		return service.findID(vo);
 	}
+	
+	@RequestMapping(value = "/findpass", method = RequestMethod.POST)
+	public String findPass(MemberVO vo) throws Exception{
+		System.out.println("restcontroller="+vo.toString());
+		return service.findPass(vo);
+	}
 
 }
