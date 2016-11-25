@@ -34,6 +34,10 @@ nocache;
 
 select * from house;
 
+insert into house (h_no,) values();
+
+
+
 --Áý¿É¼Ç
 drop table hoption;
 create table hoption(
