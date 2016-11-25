@@ -19,7 +19,6 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(MemberVO vo) throws Exception {
-		System.out.println("restcontroller=" + vo.toString());
 		try {
 			service.register(vo);
 			return "success";
@@ -31,32 +30,32 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/checkid", method = RequestMethod.POST)
 	public String checkID(String m_id) throws Exception {
-		System.out.println("restcontroller=" + m_id);
 		return service.checkID(m_id);
 	}
 
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
 	public String findID(MemberVO vo) throws Exception {
-		System.out.println("restcontroller=" + vo.toString());
 		return service.findID(vo);
 	}
 
 	@RequestMapping(value = "/findpass", method = RequestMethod.POST)
 	public String findPass(MemberVO vo) throws Exception {
-		System.out.println("restcontroller=" + vo.toString());
 		return service.findPass(vo);
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public void login(MemberVO vo, HttpSession session) throws Exception {
-		System.out.println("restcontroller=" + vo.toString());
-		if (service.login(vo) == null || service.login(vo).getM_id().equals("")
-				|| service.login(vo).getM_name().equals("")) {
-			MemberVO m = service.login(vo);
+	public MemberVO login(MemberVO vo, HttpSession session) throws Exception {
+		MemberVO m = new MemberVO();
+		m = service.login(vo);
+		if (m==null) {
+			 return null;
+		}else {
 			session.setAttribute("m_id", m.getM_id());
-			session.setAttribute("m_id", m.getM_no());
-			session.setAttribute("m_id", m.getM_name());
+			session.setAttribute("m_no", m.getM_no());
+			session.setAttribute("m_name", m.getM_name());
+			 return m;
 		}
+		
 	}
 
 }

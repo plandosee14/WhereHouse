@@ -20,10 +20,34 @@
 	href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 <link rel="stylesheet" href="resources/css/styles.css" />
 <script type="text/javascript">
+
        $(document).ready(function(){
+    	   $('#loginbtn').click(function() {
+ 	      	$.ajax({
+ 	      		url:"/member/login",
+ 	            type: "post",
+ 	            data:{
+ 	            	m_id : $('#loginid').val(),
+ 	            	m_pass : $('#loginpass').val()
+ 	            },
+ 	            success:function(result){
+ 	            	if (result == null || result != "") {
+ 		                  location.reload();
+					}else {
+						  $('#alerttitle').html('로그인 실패');
+		                  $('#alertcontent').html('ID, Password를 확인해주세요.');
+		                  $('#alertModal').modal("show");
+					}
+ 	            }
+ 	      	})
+ 	      });//sign in버튼 클릭시
+    	   
     	   $('#loginmodalbtn').click(function() {
-    	   	$('#LoginModal').modal("show");
-    	   })
+    		   if ($('#loginmodalbtn').text() == "Login") {
+    		   $('#LoginModal').modal("show");
+			}
+    	   });//로그인 모달창 띄우기
+ 	      
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
     	    		  $('#alerttitle').html('아이디');
@@ -256,7 +280,11 @@
 				<li><a class="page-scroll" href="#last">Contact</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
-				<li><div id="loginmodalbtn"><font size="4">Login</font></div></li>
+			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
+			if(m_name == null || m_name.equals("")){
+				m_name = "Login";
+			}%>
+				<font size="4"><li><div id="loginmodalbtn"><%=m_name %></div></li></font>
 			</ul>
 		</div>
 	</div>
