@@ -3,11 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@include file="header.jsp"%>
+<header><%@include file="header.jsp"%></header>
 </head>
 <body>
 	
-	<header id="first">
+	<div class="first">
 	<div class="header-content">
 		<div class="inner">
 			<h1 class="cursive">WhereHouse</h1>
@@ -25,7 +25,7 @@
 		id="video-background"> <source
 		src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
 		type="video/mp4">Your browser does not support the video tag.
-	I suggest you upgrade your browser. </video> </header>
+	I suggest you upgrade your browser. </video> </div>
 	<section class="bg-primary" id="one">
 	<div class="container">
 		<div class="row">
