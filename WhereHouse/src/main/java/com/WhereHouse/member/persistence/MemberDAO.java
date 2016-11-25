@@ -8,4 +8,5 @@ public void register(MemberVO vo)throws Exception;//회원가입
 public String findID(MemberVO vo)throws Exception;//아이디찾기
 public String findPass(String m_id)throws Exception;//비번찾기
 public void updatePass(MemberVO vo)throws Exception;//비번 바꾸기
+public String passupdateselect(MemberVO vo)throws Exception;//비번 바꿀 아이디 찾기
 }

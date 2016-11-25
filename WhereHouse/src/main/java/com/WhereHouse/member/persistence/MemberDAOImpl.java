@@ -38,4 +38,9 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update("member.updatePass", vo);
 	}
 
+	@Override
+	public String passupdateselect(MemberVO vo) throws Exception {
+		return sqlSession.selectOne("member.passupdateselect", vo);
+	}
+
 }

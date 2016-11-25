@@ -20,14 +20,52 @@
 	href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 <link rel="stylesheet" href="resources/css/styles.css" />
 <script type="text/javascript">
+
        $(document).ready(function(){
+    	   $('#loginbtn').click(function() {
+ 	      	$.ajax({
+ 	      		url:"/member/login",
+ 	            type: "post",
+ 	            data:{
+ 	            	m_id : $('#loginid').val(),
+ 	            	m_pass : $('#loginpass').val()
+ 	            },
+ 	            success:function(result){
+ 	            	if (result == null || result != "") {
+ 		                  location.reload();
+					}else {
+						  $('#alerttitle').html('로그인 실패');
+		                  $('#alertcontent').html('ID, Password를 확인해주세요.');
+		                  $('#alertModal').modal("show");
+					}
+ 	            }
+ 	      	})
+ 	      });//sign in버튼 클릭시
     	   
+    	   $('#loginmodalbtn').click(function() {
+    		   if ($('#loginmodalbtn').text() == "Login") {
+    		   $('#LoginModal').modal("show");
+			}
+    	   });//로그인 모달창 띄우기
+    	   
+    	   $('#logout').click(function() {
+    		   $.ajax({
+   	            url:"/member/logout",
+   	            type: "post",
+   	            success:function(result){
+   	               if (result=="success") {
+	                  location.reload();
+				}
+   	            }
+   	         });
+    	   });//로그아웃 클릭시
+ 	      
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
     	    		  $('#alerttitle').html('아이디');
 	                  $('#alertcontent').html('아이디를 확인해주세요.');
 	                  $('#alertModal').modal("show");
-    	    	  }else if ($('#registpass').val()==null||$('#registpass').val()==""||$('#registpass').val().replace(" ", "").length != $('#registpass').val().length||$('#registpass').val().length<6 || $('#registpass').val().length>15) {
+    	    	  }else if ($('#registpass').val()==null||$('#registpass').val()==""||$('#registpass').val().replace(" ", "").length != $('#registpass').val().length||$('#registpass').val().length<6 || $('#registpass').val().length>15|| $('#registpass').val() != $('#registpasscheck').val()) {
     	    		  $('#alerttitle').html('비밀번호');
 	                  $('#alertcontent').html('비밀번호를 확인해주세요.');
 	                  $('#alertModal').modal("show");
@@ -36,7 +74,9 @@
 	                  $('#alertcontent').html('이름을 확인해주세요.');
 	                  $('#alertModal').modal("show");
 				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<8||$('#registphone').val().length>20) {
-					
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
 				}
     	      else{
     	         $.ajax({
@@ -89,12 +129,14 @@
     	      
     	      $('#registid').click(function() {
     	      	$('#CheckIDModal').modal("show");
+    	      	$('#checkidtext').val('');
     	      });//이메일인증창 SHOW
     	      
     	      $('#registeraccountbtn').click(function() {
       	    	$('#certificationtext').fadeOut('100');//인증번호 입력텍스트 숨기기
   	            $('#checkCertification').fadeOut('100');//인증번호 확인 버튼  숨기기
   	            $('#certificationtext').val('');//인증번호 확인 버튼  숨기기
+  	            $('#passicon').attr("class","");
       	      });
     	      
     	      $('#checkid').click(function() {
@@ -144,6 +186,87 @@
 				}
       	      });//인증번호 확인 버튼 클릭시
     	      
+      	      
+      	      $('#findidbtn').click(function() {
+      	    	$.ajax({
+    	      		url:"/member/findid",
+    	            type: "post",
+    	            data:{
+    	            	m_name : $('#findidnametext').val(),
+    	            	m_phone : $('#findidphonetext').val()
+    	            },
+    	            success:function(result){
+    	            	if (result==null||result=="") {
+							$('#findidresult').text('입력하신 회원정보와 일치하는 ID가 존재하지 않습니다.');
+						}else {
+							$('#findidnametext').val('');
+	    	            	$('#findidphonetext').val('');
+							$('#findidresult').html('ID = <font size = "5">'+ result+'</font> 입니다.');
+						}
+    	            }
+    	      	});
+      	      });//아이디찾기
+      	      
+      	    $('#findpassbtn').click(function() {
+      	    	$('#findpassbtn').fadeOut('100');
+      	    	$.ajax({
+    	      		url:"/member/findpass",
+    	            type: "post",
+    	            data:{
+    	            	m_id : $('#findpassidtext').val(),
+    	            	m_name : $('#findpassnametext').val(),
+    	            	m_phone : $('#findpassphonetext').val()
+    	            },
+    	            success:function(result){
+    	            	if (result==null || result=="0") {
+    	            		$('#alerttitle').html('E-mail 발송 실패');
+      	                    $('#alertcontent').html('입력하신 정보와 일치하는 ID가 없습니다.');
+    	            		$('#alertModal').modal("show");
+    	            		$('#findpassbtn').fadeIn('100');
+						}else {
+							$('#alerttitle').html('E-mail이 발송성공');
+      	                    $('#alertcontent').html('E-mail로 발송된 비밀번호로 로그인하여주세요.');
+    	            		$('#alertModal').modal("show");
+    	            		$('#findpassidtext').val('');
+    	            		$('#findpassnametext').val('');
+    	            		$('#findpassphonetext').val('');
+    	            		$('#findpassbtn').fadeIn('100');
+						}
+    	            }
+    	      	});
+      	      });//비번찾기
+      	      
+      	      $('#findAccountbtn').click(function() {
+      	      	$('#findidnametext').val('');
+      	      	$('#findidphonetext').val('');
+      	      	$('#findidresult').html('');
+      	      	$('#findpassidtext').val('');
+      	      	$('#findpassnametext').val('');
+      	      	$('#findpassphonetext').val('');
+      	        $('#findpassbtn').fadeIn('100');
+      	      });//findAccount클릭시 id란 초기화
+      	      
+      	      $('#registpass').keyup(function() {
+      	      	if ($('#registpass').val().length >= 6 && $('#registpass').val() == $('#registpasscheck').val()) {
+					$('#passicon').attr("class","glyphicon glyphicon-ok");
+				}else if ($('#registpass').val()==""||$('#registpasscheck').val()=="") {
+					$('#passicon').attr("class","");
+				}
+      	      	else {
+					$('#passicon').attr("class","glyphicon glyphicon-remove");
+				}
+      	      });
+      	    $('#registpasscheck').keyup(function() {
+      	      	if ($('#registpass').val().length >= 6 && $('#registpass').val() == $('#registpasscheck').val()) {
+					$('#passicon').attr("class","glyphicon glyphicon-ok");
+				}else if ($('#registpass').val()==""||$('#registpasscheck').val()=="") {
+					$('#passicon').attr("class","");
+				}
+      	      	else {
+					$('#passicon').attr("class","glyphicon glyphicon-remove");
+				}
+      	      });
+      	      
     	   });//ready
     	   
     </script>
@@ -158,7 +281,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand page-scroll" href="#first"><i
-				class="ion-ios-analytics-outline"></i> WhereHouse</a>
+				class="glyphicon glyphicon-home"></i> WhereHouse</a>
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
@@ -168,11 +291,16 @@
 				<li><a class="page-scroll" href="#four">Features</a></li>
 				<li><a class="page-scroll" href="#last">Contact</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a class="page-scroll" data-toggle="modal"
-					title="" href="#LoginModal" id="loginmodalbtn">Login</a>
-				</li>
+			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
+			if(m_name == null || m_name.equals("")){%>
+			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
+				<font size="3"><li><div id="loginmodalbtn">Login</div></li></font>
 			</ul>
+			<% }else{%>
+				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;" >
+				<font size="3"><li><div id="userinfo"><%=m_name %>님</div><div id="logout">logout <i class="glyphicon glyphicon-log-out"></i></div></li></font>
+			</ul>
+			<% }%>
 		</div>
 	</div>
 	</nav>
@@ -208,15 +336,14 @@
 							style="margin-top: 3%;" id="loginid"><br> <input type="password"
 							class="form-control" placeholder="Password" name="pass"
 							style="margin-bottom: 3%;" id="loginpass">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
+						<button type="button" 
+							class="btn btn-primary btn-block btn-lg" id="loginbtn">
 							Sign in <i class="ion-android-arrow-forward"></i>
 						</button>
 					</form>
 					<p class="text-center" style="margin-top: 3%;">
 						<a data-toggle="modal" data-target="#RegisterModal" id="registeraccountbtn">Sign up</a> /
-						<a data-toggle="modal" data-target="#FindModal">Find Account</a>
+						<a data-toggle="modal" data-target="#FindModal" id="findAccountbtn">Find Account</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -237,16 +364,18 @@
 						id="registid" style=" margin-bottom: 3%;">
 						<p class="text-center" id="registidp"></p>
 					<input type="password" class="form-control" placeholder="Password (6-15)"
-						name="pass" id="registpass" style="margin-bottom: 3%;"> <input
-						type="password" class="form-control" placeholder="PasswordCheck"
-						name="passcheck" id="registpasscheck" style="margin-bottom: 3%;">
+						name="pass" id="registpass" style="margin-bottom: 3%;">
+						<div>
+						<input
+						type="password" class="form-control2" placeholder="PasswordCheck"
+						name="passcheck" id="registpasscheck" style="margin-bottom: 3%; width: 95%; margin-right: 2%"><i id="passicon"></i></div>
 					<input type="text" class="form-control" placeholder="name"
 						name="name" id="registname" style="margin-bottom: 3%;"> <input
 						type="text" class="form-control" placeholder="phone exception(-)" name="phone"
 						id="registphone" style="margin-bottom: 3%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
-						Sign up <i class="ion-android-arrow-forward"></i>
+						Sign up <i class="glyphicon glyphicon-upload"></i>
 					</button>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -295,29 +424,29 @@
 					<h5 class="text-center">Find ID</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
-							name="name" style="margin-top: 3%; margin-bottom: 3%;"> <input
+							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
 							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
-							style="margin-bottom: 3%;">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
-							Find ID <i class="ion-android-arrow-forward"></i>
+							style="margin-bottom: 3%;" id="findidphonetext">
+						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
+							Find ID <i class="glyphicon glyphicon-search"></i>
 						</button>
+						<h5 class="text-center" id="findidresult"> </h5>
 					</form>
 					<br>
 					<br>
 					<h5 class="text-center">Find Password</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
-							style="margin-top: 3%; margin-bottom: 3%;"> <input
+							style="margin-top: 3%; margin-bottom: 3%;" id="findpassidtext">
+							<input
 							type="text" class="form-control" placeholder="name" name="name"
-							style="margin-bottom: 3%;"> <input type="text"
+							style="margin-bottom: 3%;" id="findpassnametext">
+							<input type="text"
 							class="form-control" placeholder="phone exception(-)" name="phone"
-							style="margin-bottom: 3%;">
-						<button type="button" data-toggle="modal"
-							data-target="#alertModal"
-							class="btn btn-primary btn-block btn-lg">
-							Find Pass <i class="ion-android-arrow-forward"></i>
+							style="margin-bottom: 3%;" id="findpassphonetext">
+						<button type="button"
+							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
+							Find Pass <i class="glyphicon glyphicon-search"></i>
 						</button>
 						<br />
 					</form>
