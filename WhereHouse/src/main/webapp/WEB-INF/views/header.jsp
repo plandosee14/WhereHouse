@@ -21,7 +21,9 @@
 <link rel="stylesheet" href="resources/css/styles.css" />
 <script type="text/javascript">
        $(document).ready(function(){
-    	   
+    	   $('#loginmodalbtn').click(function() {
+    	   	$('#LoginModal').modal("show");
+    	   })
     	      $("#registbtn").click(function(){
     	    	  if($('#registidp').text()==null||$('#registidp').text()==""){
     	    		  $('#alerttitle').html('아이디');
@@ -253,10 +255,8 @@
 				<li><a class="page-scroll" href="#four">Features</a></li>
 				<li><a class="page-scroll" href="#last">Contact</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a class="page-scroll" data-toggle="modal"
-					title="" href="#LoginModal" id="loginmodalbtn">Login</a>
-				</li>
+			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
+				<li><div id="loginmodalbtn"><font size="4">Login</font></div></li>
 			</ul>
 		</div>
 	</div>
