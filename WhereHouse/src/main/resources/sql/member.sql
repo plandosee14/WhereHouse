@@ -5,6 +5,7 @@ create table member(
 	m_no number not null,
 	m_name varchar2(50) not null,
 	m_pass varchar2(20) not null,
+	m_phone varchar2(20) not null,
 	m_score number default 0,
 	m_regdate date default sysdate,
 	m_dropdate date,
