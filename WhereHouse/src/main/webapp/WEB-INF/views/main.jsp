@@ -89,7 +89,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1430916273432-273c2db881a0%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3Df047e8284d2fdc1df0fd57a5d294614d">
 					<img
-					src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1430916273432-273c2db881a0%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3Df047e8284d2fdc1df0fd57a5d294614d"
+					src="/resources/screenshot/seoul.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 1">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -104,7 +104,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/getrefe/regular/tumblr_nqune4OGHl1slhhf0o1_1280.jpg">
 					<img
-					src="//splashbase.s3.amazonaws.com/getrefe/regular/tumblr_nqune4OGHl1slhhf0o1_1280.jpg"
+					src="/resources/screenshot/gyoungju.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 2">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -119,7 +119,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1433959352364-9314c5b6eb0b%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3D3b9bc6caa190332e91472b6828a120a4">
 					<img
-					src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1433959352364-9314c5b6eb0b%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3D3b9bc6caa190332e91472b6828a120a4"
+					src="/resources/screenshot/busan.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 3">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -134,7 +134,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg">
 					<img
-					src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg"
+					src="/resources/screenshot/incheon.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 4">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -149,7 +149,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-new-york-crosswalk-nabeel-1440x960.jpg">
 					<img
-					src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-new-york-crosswalk-nabeel-1440x960.jpg"
+					src="/resources/screenshot/jeju.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 5">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -164,7 +164,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-clothes-exotic-travel-nabeel-1440x960.jpg">
 					<img
-					src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-clothes-exotic-travel-nabeel-1440x960.jpg"
+					src="/resources/screenshot/yeosu.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 6">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
