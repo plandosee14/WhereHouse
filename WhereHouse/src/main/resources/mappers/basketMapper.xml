@@ -3,7 +3,18 @@
 <mapper namespace="basket">
 	<insert id="insertBasket">
 	    insert into basket (b_no, h_no, m_id)
-           values   (basket_seq.nextval, #{h_no}, #{m_id})
+        values   (basket_seq.nextval, #{h_no}, #{m_id})
 	</insert>
+	
+	<delete id="deleteBasket">
+		delete from basket
+		where b_no=#{b_no}
+	</delete>
+	
+	<select id="listBasket">
+		select b_no, h_no, m_id
+		from basket
+		where b_no=#{b_no}
+	</select>
 	
 </mapper>
