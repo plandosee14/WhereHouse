@@ -73,7 +73,15 @@
 					  $('#alerttitle').html('이름');
 	                  $('#alertcontent').html('이름을 확인해주세요.');
 	                  $('#alertModal').modal("show");
-				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<8||$('#registphone').val().length>20) {
+				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<2||$('#registphone').val().length>8) {
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registphone1').val()==null||$('#registphone1').val()==""||isNaN($('#registphone1').val())||$('#registphone1').val().replace(" ", "").length != $('#registphone1').val().length||$('#registphone1').val().length<2||$('#registphone1').val().length>8) {
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registphone2').val()==null||$('#registphone2').val()==""||isNaN($('#registphone2').val())||$('#registphone2').val().replace(" ", "").length != $('#registphone2').val().length||$('#registphone2').val().length<2||$('#registphone2').val().length>8) {
 					  $('#alerttitle').html('전화번호');
 	                  $('#alertcontent').html('전화번호를 확인해주세요.');
 	                  $('#alertModal').modal("show");
@@ -86,7 +94,7 @@
     	            	m_id : $('#registidp').text(),
     	            	m_pass : $('#registpass').val(),
     	            	m_name : $('#registname').val(),
-    	            	m_phone : $('#registphone').val()
+    	            	m_phone : $('#registphone').val()+"-"+$('#registphone1').val()+"-"+$('#registphone2').val()
     	            },
     	            success:function(result){
     	               if(result=='success'){
@@ -371,8 +379,16 @@
 						name="passcheck" id="registpasscheck" style="margin-bottom: 3%; width: 95%; margin-right: 2%"><i id="passicon"></i></div>
 					<input type="text" class="form-control" placeholder="name"
 						name="name" id="registname" style="margin-bottom: 3%;"> <input
-						type="text" class="form-control" placeholder="phone exception(-)" name="phone"
-						id="registphone" style="margin-bottom: 3%;">
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone" style="margin-bottom: 3%; width: 20%;">
+						-
+						<input
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone1" style="margin-bottom: 3%; width: 38%;">
+						-
+						<input
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone2" style="margin-bottom: 3%; width: 38%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
 						Sign up <i class="glyphicon glyphicon-upload"></i>
