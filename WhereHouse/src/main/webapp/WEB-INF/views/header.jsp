@@ -106,6 +106,8 @@
     	               	  $('#registpasscheck').val('');
     	                  $('#registname').val('');
     	                  $('#registphone').val('');
+    	                  $('#registphone1').val('');
+    	                  $('#registphone2').val('');
     	                  $('#alertModal').modal("show");
     	                  $('#RegisterModal').modal("hide");
     	                  $('#registid').fadeIn('100');
@@ -132,6 +134,8 @@
                	  $('#registpasscheck').val('');
                   $('#registname').val('');
                   $('#registphone').val('');
+                  $('#registphone1').val('');
+                  $('#registphone2').val('');
 
     	      });//close시 회원가입창 초기화
     	      
@@ -201,7 +205,7 @@
     	            type: "post",
     	            data:{
     	            	m_name : $('#findidnametext').val(),
-    	            	m_phone : $('#findidphonetext').val()
+    	            	m_phone : $('#findidphonetext').val()+"-"+$('#findidphonetext1').val()+"-"+$('#findidphonetext2').val()
     	            },
     	            success:function(result){
     	            	if (result==null||result=="") {
@@ -209,6 +213,8 @@
 						}else {
 							$('#findidnametext').val('');
 	    	            	$('#findidphonetext').val('');
+	    	            	$('#findidphonetext1').val('');
+	    	            	$('#findidphonetext2').val('');
 							$('#findidresult').html('ID = <font size = "5">'+ result+'</font> 입니다.');
 						}
     	            }
@@ -223,7 +229,7 @@
     	            data:{
     	            	m_id : $('#findpassidtext').val(),
     	            	m_name : $('#findpassnametext').val(),
-    	            	m_phone : $('#findpassphonetext').val()
+    	            	m_phone : $('#findpassphonetext').val()+"-"+$('#findpassphonetext1').val()+"-"+$('#findpassphonetext2').val()
     	            },
     	            success:function(result){
     	            	if (result==null || result=="0") {
@@ -238,6 +244,8 @@
     	            		$('#findpassidtext').val('');
     	            		$('#findpassnametext').val('');
     	            		$('#findpassphonetext').val('');
+    	            		$('#findpassphonetext1').val('')
+    	            		$('#findpassphonetext2').val('')
     	            		$('#findpassbtn').fadeIn('100');
 						}
     	            }
@@ -247,10 +255,14 @@
       	      $('#findAccountbtn').click(function() {
       	      	$('#findidnametext').val('');
       	      	$('#findidphonetext').val('');
+      	      	$('#findidphonetext1').val('');
+      	      	$('#findidphonetext2').val('');
       	      	$('#findidresult').html('');
       	      	$('#findpassidtext').val('');
       	      	$('#findpassnametext').val('');
       	      	$('#findpassphonetext').val('');
+      	      	$('#findpassphonetext1').val('');
+      	      	$('#findpassphonetext2').val('');
       	        $('#findpassbtn').fadeIn('100');
       	      });//findAccount클릭시 id란 초기화
       	      
@@ -441,8 +453,16 @@
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
 							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
-							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
-							style="margin-bottom: 3%;" id="findidphonetext">
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 20%;" id="findidphonetext">
+							-
+							<input
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findidphonetext1">
+							-
+							<input
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findidphonetext2">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
 							Find ID <i class="glyphicon glyphicon-search"></i>
 						</button>
@@ -458,8 +478,16 @@
 							type="text" class="form-control" placeholder="name" name="name"
 							style="margin-bottom: 3%;" id="findpassnametext">
 							<input type="text"
-							class="form-control" placeholder="phone exception(-)" name="phone"
-							style="margin-bottom: 3%;" id="findpassphonetext">
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 20%;" id="findpassphonetext">
+							-
+							<input type="text"
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext1">
+							-
+							<input type="text"
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext2">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
 							Find Pass <i class="glyphicon glyphicon-search"></i>
