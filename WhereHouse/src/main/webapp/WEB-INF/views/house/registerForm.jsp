@@ -7,14 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center>
 <h2>숙소등록</h2>
 
 <br>
 <br>
 호스트 등록
-<div>
-	
+<div>	
 
 </div>
+
+</center>
 </body>
 </html>
