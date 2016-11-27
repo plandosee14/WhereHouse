@@ -14,6 +14,14 @@
 <br>
 호스트 등록
 <div>	
+이름 : <input type="text" name="m_id"><br>
+연락처 : <input type="text" name="m_id"> - <input type="text" name="m_id"> - <input type="text" name="m_id"><br>
+우편번호 : <input type="text" name="zip" > <input type="button" value="주소찾기"><br> 
+ <input type="text" name="m_id"><br>
+이름 : <input type="text" name="m_id"><br>
+이름 : <input type="text" name="m_id"><br>
+
+
 
 </div>
 
