@@ -13,9 +13,12 @@
 		<property name="driverClassName">
 			<value>oracle.jdbc.driver.OracleDriver</value>
 		</property>
-		<property name="url" value="jdbc:oracle:thin:@183.109.53.23:1521:ORCL" />
+<!-- 		<property name="url" value="jdbc:oracle:thin:@183.109.53.23:1521:ORCL" />
 		<property name="username" value="WhereHouse" />
-		<property name="password" value="cph123" />
+		<property name="password" value="cph123" /> -->
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="tiger"/>	
 	</bean>
 
 	<!-- MyBatis를 DataSource에 연결(마이바티스 환경, sqlMapper등록) -->
