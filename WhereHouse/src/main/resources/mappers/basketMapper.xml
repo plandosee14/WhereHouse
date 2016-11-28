@@ -14,7 +14,7 @@
 	<select id="listBasket" resultType="com.WhereHouse.basket.domain.BasketVO">
 		select b_no, h_no, m_id
 		from basket
-		where b_no=#{b_no}
+		where m_id=#{m_id}
 	</select>
 	
 </mapper>

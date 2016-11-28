@@ -317,7 +317,7 @@
 			</ul>
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;" >
-				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><%=m_name%>님</div>
+				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><a href="/mypage"><%=m_name%>님</a></div>
 				<div id="logout" style="cursor: pointer; font-size: 10px; display: inline; "> logout <i class="glyphicon glyphicon-log-out"></i></div></li>
 			</ul>
 			<% }%>

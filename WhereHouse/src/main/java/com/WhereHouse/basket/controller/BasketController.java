@@ -1,14 +1,18 @@
 package com.WhereHouse.basket.controller;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.WhereHouse.basket.service.BasketService;
+
 @Controller
-@RequestMapping("/mypage")
 public class BasketController {
 	
-	@RequestMapping("/basket")
-    public String sayHello(){ 
-		return "/mypage/mypage";
-    }
+	@Inject
+	private BasketService service;
+	
+	
 }

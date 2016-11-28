@@ -14,3 +14,7 @@ nocycle
 nocache;
 
 select (b_no, h_no, m_id) from basket;
+
+
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 19, 'powerfeel123@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 20, 'ojh5797@naver.com');

@@ -68,19 +68,16 @@
 		<div class="tab-pane active" id="tab_1" style="background:#000000;background:rgba(0,0,0,0);">
 			
 			<!-------- tab1 자리 --------->
-	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
-	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
-	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
-	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
-	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
+	 
 <div style="background:#000000;background:rgba(0,0,0,0);">
+
 <ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
 <c:forEach items="${list}" var="v">
   <li style="background:#000000;background:rgba(0,0,0,0);">
-      <h4><a href="#a1">${v.subject }</a></h4>
+      <h4><a href="#a1">장바구니 목록</a></h4>
          <p>
-         <c:if test="${v.fileName!=null }">
-  		<img  src="./img/${v.fileName }"><br>
+         <c:if test="${v.b_no }">
+  		<img  src="./img/${v.m_id }"><br>
   		</c:if>
          <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
      </li>
