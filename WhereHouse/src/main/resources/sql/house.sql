@@ -1,5 +1,5 @@
 drop table house;
-create table house(
+create table house( 
 	h_no    number		         primary key,
 	m_id   varchar2(50)		    references   member(m_id),  --host주인
 	m_name varchar2(50)		  ,   							--주인장이름
