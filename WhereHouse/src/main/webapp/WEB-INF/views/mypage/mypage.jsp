@@ -3,7 +3,7 @@
     <header><%@include file="../header.jsp" %></header><br><br>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<<html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,15 +37,6 @@
   
  });
  
- function search(){
-	var keyword=$('input[name=keyword]').val();
-	if(keyword==''){
-		alert('검색할 단어를 입력해주세요.');
-		return false;
-	}
-	location.href="./faq_list.ok?keyword="+keyword;
- }
- 
  function previous(){
 	 location.href="./faq_list.ok?page=1";
  }
@@ -56,48 +47,32 @@
  </script>
 </head>
 
-
+<body>
 <!-- Custom Tabs -->
+
 <div class="nav-tabs-custom">
 
-<h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  MyPage</h1><hr>
-<div align="center">
-
-         <div class="box box-solid" style="width: 500px;">
-         
-            <div class="box-header with-border">
-              <h3 class="box-title">MyPage 검색<small></small></h3>
-            </div>
-            
-            <div class="box-body">
-              <!-- /btn-group -->
-              <div class="input-group" style="background-color: white">
-                <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">
-                
-                <div class="input-group-btn">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat" onclick="search()">찾기</button>
-                </div>
-                <!-- /btn-group -->
-              </div>
-              <!-- /input-group -->
-            </div>
-          </div>
-  </div>        
+<h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span><font color="black">MyPage</font></h1><hr>
+       
           
 	<ul class="nav nav-tabs" style="background-color: #F3CA5A">
-		<li class="active"><a href="#tab_1" data-toggle="tab">전체</a></li>
-		<li><a href="#tab_2" data-toggle="tab">장바구니</a></li>
-		<li><a href="#tab_3" data-toggle="tab">결제정보</a></li>
-		<li><a href="#tab_4" data-toggle="tab">등록정보</a></li>
-		<li><a href="#tab_5" data-toggle="tab">개인정보</a></li>
+		<li><a href="#tab_1" data-toggle="tab">장바구니</a></li>
+		<li><a href="#tab_2" data-toggle="tab">결제정보</a></li>
+		<li><a href="#tab_3" data-toggle="tab">등록정보</a></li>
+		<li><a href="#tab_4" data-toggle="tab">개인정보</a></li>
 
 		<li class="pull-right"><h4><font color="black">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
 	<br>
 	<div class="tab-content">
 		<div class="tab-pane active" id="tab_1" style="background:#000000;background:rgba(0,0,0,0);">
-			<!-------- tab1 자리 --------->
 			
+			<!-------- tab1 자리 --------->
+	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
+	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
+	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
+	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
+	<img  src="/resources/img/house/10549861_943527392333214_746965505_n.jpg"><br>	
 <div style="background:#000000;background:rgba(0,0,0,0);">
 <ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
 <c:forEach items="${list}" var="v">
@@ -113,28 +88,9 @@
  </ul>
  </div>
  <div align="center">
-<!--  <nav>
-  <ul class="pagination pagination-lg">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav> -->
+
 </div>
 			
-			<!-- /.container -->
 		</div>
 
 
@@ -198,33 +154,8 @@
    </c:forEach>
  </ul>
 
+</div>
 
-
-
-
-
-
-
-
-
-		</div>
-			<!-------- tab5 자리 --------->
-		<div class="tab-pane" id="tab_5">
-			<ul id="faq_list" >
-<c:forEach items="${list }" var="v">
-	<c:if test="${v.options=='server' }">
-  <li>
-      <h4><a href="#a1">${v.subject }</a></h4>
-         <p>
-         <c:if test="${v.fileName!=null }">
-  		<img  src="./img/${v.fileName }"><br>
-  		</c:if>
-         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
-     </li>
-     </c:if>
-   </c:forEach>
- </ul>
-		</div>
 	</div>
 </div>
 <div align="center">
@@ -262,4 +193,9 @@
 	</div>
 </form>
 
+
+
+</body>
+
+</html>
               
