@@ -37,6 +37,7 @@
 	<context:component-scan base-package="com.WhereHouse.member.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.basket.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.comment.persistence"></context:component-scan>
+	<context:component-scan base-package="com.WhereHouse.admin.persistence"></context:component-scan>
 	
 	
 	
@@ -47,5 +48,6 @@
 	<context:component-scan base-package="com.WhereHouse.reservation.service"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.comment.service"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.basket.service"></context:component-scan>
+	<context:component-scan base-package="com.WhereHouse.admin.service"></context:component-scan>
 
 </beans>

@@ -9,11 +9,11 @@
 <body>
 <table>
 <tr>
-  <td><a href="main"></a></td>
-  <td>ㅎㅎ</td>
-  <td>ㅎ</td>
-  <td>ㅎ</td>
-  <td>ㅎ</td>
+  <td><a href="main">회원관리</a></td>
+  <td>집관리</td>
+  <td>예약관리</td>
+  <td>평점관리</td>
+  <td>통계</td>
 </tr>
 </table>
 </body>
