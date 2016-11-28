@@ -17,8 +17,10 @@ public class MyPageController {
 	
 	@RequestMapping("")
     public String mypage(Model model, HttpSession session) throws Exception{
-		model.addAttribute("list", service.listAllById(session.getId()
-				));
+		
+		
+		
+		
 		return "/mypage/mypage";
     }
 	@RequestMapping("/basket")
