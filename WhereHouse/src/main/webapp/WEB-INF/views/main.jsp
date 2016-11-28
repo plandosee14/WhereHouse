@@ -39,28 +39,21 @@
 		type="video/mp4">Your browser does not support the video tag.
 	I suggest you upgrade your browser. </video> 
 	</div>
-	<div style="background: white;"> </div>
-	<section class="bg-primary" id="one">
+	<div style="background: black;"><br></div>
+	<div style="background: #dcdcf0;"><br></div>
+		
+	<section id="one" class="no-padding" style="background-color: #dcdcf0;">
+	<br>
 	<div class="container">
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary">Built On The Bootstrap
-					Grid</h2>
+				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">Recommended destinatios</h2>
 				<br>
-				<p class="text-faded">Bootstrap's responsive grid comes in 4
-					sizes or "breakpoints": tiny (xs), small(sm), medium(md) and
-					large(lg). These 4 grid sizes enable you create responsive layouts
-					that behave accordingly on different devices.</p>
-				<a href="#two" class="btn btn-default btn-xl page-scroll">Learn
-					More</a>
 			</div>
 		</div>
 	</div>
-	</section>
-	
-	<section id="two" class="no-padding">
-	<div class="container-fluid">
+	<div class="container-fluid" >
 		<div class="row no-gutter">
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
@@ -154,58 +147,27 @@
 			</div>
 		</div>
 	</div>
+	<br><br>
+	</section>
+	<div style="background: black;"><br></div>	
+	<section class="bg-primary" id="two">
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+				<h2 class="margin-top-0 text-primary" style="color: black;">Introduce WhereHouse</h2>
+				<br>
+				<p class="text-faded" style="color: #1d1d1d;">소개쓸곳</p>
+			</div>
+		</div>
+	</div>
 	</section>
 	
 	<footer id="footer">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-6 col-sm-3 column">
-				<h4>Information</h4>
-				<ul class="list-unstyled">
-					<li><a href="">Products</a></li>
-					<li><a href="">Services</a></li>
-					<li><a href="">Benefits</a></li>
-					<li><a href="">Developers</a></li>
-				</ul>
-			</div>
-			<div class="col-xs-6 col-sm-3 column">
-				<h4>111111111</h4>
-				<ul class="list-unstyled">
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Delivery Information</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms &amp; Conditions</a></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-3 column">
-				<h4>Stay Posted</h4>
-				<form>
-					<div class="form-group">
-						<input type="text" class="form-control"
-							title="No spam, we promise!" placeholder="Tell us your email">
-					</div>
-					<div class="form-group">
-						<button class="btn btn-primary" data-toggle="modal"
-							data-target="#alertModal" type="button">Subscribe for
-							updates</button>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-12 col-sm-3 text-right">
-				<h4>Follow</h4>
-				<ul class="list-inline">
-					<li><a rel="nofollow" href="" title="Twitter"><i
-							class="icon-lg ion-social-twitter-outline"></i></a>&nbsp;</li>
-					<li><a rel="nofollow" href="" title="Facebook"><i
-							class="icon-lg ion-social-facebook-outline"></i></a>&nbsp;</li>
-					<li><a rel="nofollow" href="" title="Dribble"><i
-							class="icon-lg ion-social-dribbble-outline"></i></a></li>
-				</ul>
-			</div>
-		</div>
-		<br /> <span class="pull-right text-muted small"><a
-			href="http://www.bootstrapzero.com">Landing Zero by BootstrapZero</a>
-			©2015 Company</span>
+	<br><br>
+		<br /> <span class="pull-right text-muted small"><a>WhereHouse</a>
+			©2016 Company</span>
 	</div>
 	</footer>
 	

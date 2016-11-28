@@ -306,8 +306,8 @@
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="#one">Intro</a></li>
-				<li><a class="page-scroll" href="#two">Gallery</a></li>
+				<li><a class="page-scroll" href="#one">Recommended destinatios</a></li>
+				<li><a class="page-scroll" href="#two">Itroduction</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
