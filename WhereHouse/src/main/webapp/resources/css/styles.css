@@ -16,7 +16,7 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #dcdcdc;
+    background-color: #dcdcf0;
     color: #ffffff;
     webkit-tap-highlight-color: #dcdcdc;
 }
@@ -108,7 +108,7 @@ footer {
 }
 
 .no-padding {
-    padding: 0;
+    padding: 30px;
 }
 
 .navbar-default {

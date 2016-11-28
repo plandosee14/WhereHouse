@@ -306,8 +306,8 @@
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="#one">Intro</a></li>
-				<li><a class="page-scroll" href="#two">Gallery</a></li>
+				<li><a class="page-scroll" href="#one">Recommended destinatios</a></li>
+				<li><a class="page-scroll" href="#two">About</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
@@ -318,7 +318,7 @@
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;" >
 				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><%=m_name%>님</div>
-				<div id="logout" style="cursor: pointer; font-size: 15px; display: inline; "> logout <i class="glyphicon glyphicon-log-out"></i></div></li>
+				<div id="logout" style="cursor: pointer; font-size: 10px; display: inline; "> logout <i class="glyphicon glyphicon-log-out"></i></div></li>
 			</ul>
 			<% }%>
 		</div>
