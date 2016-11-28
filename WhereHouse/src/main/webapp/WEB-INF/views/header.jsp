@@ -22,6 +22,7 @@
 <script type="text/javascript">
 
        $(document).ready(function(){
+    	   
     	   $('#loginbtn').click(function() {
  	      	$.ajax({
  	      		url:"/member/login",
@@ -44,7 +45,7 @@
     	   
     	   $('#loginmodalbtn').click(function() {
     		   if ($('#loginmodalbtn').text() == "Login") {
-    		   $('#LoginModal').modal("show");
+    		   $('#LoginModal').modal({backdrop: 'static'});
 			}
     	   });//로그인 모달창 띄우기
     	   
@@ -140,7 +141,7 @@
     	      });//close시 회원가입창 초기화
     	      
     	      $('#registid').click(function() {
-    	      	$('#CheckIDModal').modal("show");
+    	      	$('#CheckIDModal').modal({backdrop: 'static'});
     	      	$('#checkidtext').val('');
     	      });//이메일인증창 SHOW
     	      
@@ -314,11 +315,12 @@
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
 			if(m_name == null || m_name.equals("")){%>
 			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
-				<font size="3"><li><div id="loginmodalbtn">Login</div></li></font>
+				<li><div style="cursor: pointer; font-size: 20px;" id="loginmodalbtn">Login</div></li>
 			</ul>
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;" >
-				<font size="3"><li><div id="userinfo"><%=m_name %>님</div><div id="logout">logout <i class="glyphicon glyphicon-log-out"></i></div></li></font>
+				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><%=m_name%>님</div>
+				<div id="logout" style="cursor: pointer; font-size: 15px; display: inline; "> logout <i class="glyphicon glyphicon-log-out"></i></div></li>
 			</ul>
 			<% }%>
 		</div>
@@ -362,8 +364,8 @@
 						</button>
 					</form>
 					<p class="text-center" style="margin-top: 3%;">
-						<a data-toggle="modal" data-target="#RegisterModal" id="registeraccountbtn">Sign up</a> /
-						<a data-toggle="modal" data-target="#FindModal" id="findAccountbtn">Find Account</a>
+						<a data-toggle="modal" data-target="#RegisterModal" data-backdrop='static' id="registeraccountbtn" style="cursor: pointer;">Sign up</a> /
+						<a data-toggle="modal" data-target="#FindModal" data-backdrop='static' id="findAccountbtn" style="cursor: pointer;">Find Account</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -453,15 +455,15 @@
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
 							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
-							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							type="text" class="form-control2" placeholder="Phone" name="phone"
 							style="margin-bottom: 3%; width: 20%;" id="findidphonetext">
 							-
 							<input
-							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							type="text" class="form-control2" placeholder="Phone" name="phone"
 							style="margin-bottom: 3%; width: 38%;" id="findidphonetext1">
 							-
 							<input
-							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							type="text" class="form-control2" placeholder="Phone" name="phone"
 							style="margin-bottom: 3%; width: 38%;" id="findidphonetext2">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
 							Find ID <i class="glyphicon glyphicon-search"></i>
@@ -478,15 +480,15 @@
 							type="text" class="form-control" placeholder="name" name="name"
 							style="margin-bottom: 3%;" id="findpassnametext">
 							<input type="text"
-							class="form-control2" placeholder="phone exception(-)" name="phone"
+							class="form-control2" placeholder="phone" name="phone"
 							style="margin-bottom: 3%; width: 20%;" id="findpassphonetext">
 							-
 							<input type="text"
-							class="form-control2" placeholder="phone exception(-)" name="phone"
+							class="form-control2" placeholder="phone" name="phone"
 							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext1">
 							-
 							<input type="text"
-							class="form-control2" placeholder="phone exception(-)" name="phone"
+							class="form-control2" placeholder="phone" name="phone"
 							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext2">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
@@ -515,7 +517,7 @@
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
 						data-dismiss="modal" aria-hidden="true">
-						OK <i class="ion-android-close"></i>
+						OK
 					</button>
 				</div>
 			</div>
