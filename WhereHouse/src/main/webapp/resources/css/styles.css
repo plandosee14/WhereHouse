@@ -16,9 +16,9 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-    webkit-tap-highlight-color: #ffffff;
+    background-color: #dcdcdc;
+    color: #ffffff;
+    webkit-tap-highlight-color: #dcdcdc;
 }
 
 hr {
@@ -66,12 +66,12 @@ p {
 }
 
 .bg-primary {
-    background-color: #c0c0c0;
+    background-color: #dcdcdc;
 }
 
 .bg-dark {
     color: #eee;
-    background-color: #c0c0c0;
+    background-color: #1d1d1d;
 }
 
 .cursive {
@@ -114,7 +114,7 @@ footer {
 .navbar-default {
     border-color: rgba(35,35,35,.05);
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #222;
+    background-color: #dcdcdc;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s;
@@ -135,7 +135,7 @@ footer {
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    background-color: #181818;
+    background-color: #dcdcdc;
 }
 .navbar-default .navbar-toggle, .navbar-default .navbar-collapse {
     border-color: transparent;
@@ -170,7 +170,7 @@ footer {
 @media(min-width:768px) {
     .navbar-default {
         border-color: transparent;
-        background-color: transparent;
+        background-color: #222;/* 기본 헤더 색상 */
         min-height: 60px;
     }
 
@@ -277,7 +277,7 @@ footer {
 }
 
 footer {
-    background-color:#2d2d2d;
+    background-color:#dcdcdc;
 }
 
 @media(min-width:768px) {
