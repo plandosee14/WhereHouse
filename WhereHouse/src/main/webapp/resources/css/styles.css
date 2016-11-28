@@ -17,7 +17,7 @@ body {
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     background-color: #dcdcdc;
-    color: #000000;
+    color: #ffffff;
     webkit-tap-highlight-color: #dcdcdc;
 }
 
@@ -170,7 +170,7 @@ footer {
 @media(min-width:768px) {
     .navbar-default {
         border-color: transparent;
-        background-color: #222;
+        background-color: #222;/* 기본 헤더 색상 */
         min-height: 60px;
     }
 
