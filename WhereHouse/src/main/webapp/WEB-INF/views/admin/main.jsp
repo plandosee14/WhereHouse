@@ -100,11 +100,11 @@ body {background-repeat: no-repeat;
   </div>        
           
 	<ul class="nav nav-tabs" style="background-color: #F3CA5A">
-		<li class="active"><a href="#tab_1" data-toggle="tab">전체</a></li>
-		<li><a href="#tab_2" data-toggle="tab">장바구니</a></li>
-		<li><a href="#tab_3" data-toggle="tab">결제정보</a></li>
-		<li><a href="#tab_4" data-toggle="tab">등록정보</a></li>
-		<li><a href="#tab_5" data-toggle="tab">개인정보</a></li>
+		<li class="active"><a href="#tab_1" data-toggle="tab">회원관리</a></li>
+		<li><a href="#tab_2" data-toggle="tab">집관리</a></li>
+		<li><a href="#tab_3" data-toggle="tab">예약관리</a></li>
+		<li><a href="#tab_4" data-toggle="tab">평점관리</a></li>
+		<li><a href="#tab_5" data-toggle="tab">통계관리</a></li>
 
 		<li class="pull-right"><h4><font color="black">${page}페이지/${pageCount}페이지</font></h4></li>
 	</ul>
@@ -114,6 +114,10 @@ body {background-repeat: no-repeat;
 			<!-------- tab1 자리 --------->
 			
 <div style="background:#000000;background:rgba(0,0,0,0);">
+
+데이터 들어갈까ㅓ에욤 
+
+
 <ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
 <c:forEach items="${list}" var="v">
   <li style="background:#000000;background:rgba(0,0,0,0);">
