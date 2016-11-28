@@ -39,7 +39,7 @@
 		type="video/mp4">Your browser does not support the video tag.
 	I suggest you upgrade your browser. </video> 
 	</div>
-	<div style="background: black;"><br></div>
+	<div style="background: #dcdcf0;"><br></div>
 	<div style="background: #dcdcf0;"><br></div>
 		
 	<section id="one" class="no-padding" style="background-color: #dcdcf0;">
@@ -149,13 +149,13 @@
 	</div>
 	<br><br>
 	</section>
-	<div style="background: black;"><br></div>	
+	
 	<section class="bg-primary" id="two">
 	<div class="container">
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: black;">Introduce WhereHouse</h2>
+				<h2 class="margin-top-0 text-primary" style="color: black;">About Us</h2>
 				<br>
 				<p class="text-faded" style="color: #1d1d1d;">소개쓸곳</p>
 			</div>
