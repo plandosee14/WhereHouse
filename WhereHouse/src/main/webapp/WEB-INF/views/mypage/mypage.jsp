@@ -1,25 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../header.jsp"></jsp:include><br><br>
+    <header><%@include file="../header.jsp" %></header><br><br>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<style type="text/css">
-body {background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: right bottom;
-      background-color: white;
-}
-</style>
-ff
 
 
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-
-
- 
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 <style type="text/css">
  #faq_list {border-bottom:1px solid #ccc}
  #faq_list li {border-top:1px solid #ccc; padding:0 5px}
@@ -66,26 +54,22 @@ ff
  
  
  </script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 
+
 <!-- Custom Tabs -->
-<div class="nav-tabs-custom" style="background-color: white">
+<div class="nav-tabs-custom">
 
 <h1><span class="glyphicon glyphicon-question-sign" style="color: blue"></span>  MyPage</h1><hr>
-<div align="center" style="background-color: white">
+<div align="center">
 
          <div class="box box-solid" style="width: 500px;">
          
-            <div class="box-header with-border" style="background-color: white">
+            <div class="box-header with-border">
               <h3 class="box-title">MyPage 검색<small></small></h3>
             </div>
             
-            <div class="box-body" style="background-color: white">
+            <div class="box-body">
               <!-- /btn-group -->
               <div class="input-group" style="background-color: white">
                 <input id="new-event" name="keyword" type="text" class="form-control" placeholder="검색하세요">

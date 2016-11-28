@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/mypage")
 public class BasketController {
 	
 	@RequestMapping("/basket")
     public String sayHello(){ 
-		return "mypage/mypage";
+		return "/mypage/mypage";
     }
 }
