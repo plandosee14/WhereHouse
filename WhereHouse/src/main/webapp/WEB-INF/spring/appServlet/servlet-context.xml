@@ -42,6 +42,6 @@
 	<context:component-scan base-package="com.WhereHouse.house.controller" />
 	<context:component-scan base-package="com.WhereHouse.basket.controller" />
 	<context:component-scan base-package="com.WhereHouse.mypage.controller" />
-
+	<context:component-scan base-package="com.WhereHouse.comment.controller" />
 
 </beans:beans>
