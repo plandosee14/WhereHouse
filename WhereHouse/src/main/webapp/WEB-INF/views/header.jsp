@@ -307,10 +307,8 @@
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
 				<li><a class="page-scroll" href="#one">Intro</a></li>
-				<li><a class="page-scroll" href="#two">Highlights</a></li>
-				<li><a class="page-scroll" href="#three">Gallery</a></li>
-				<li><a class="page-scroll" href="#four">Features</a></li>
-				<li><a class="page-scroll" href="#last">Contact</a></li>
+				<li><a class="page-scroll" href="#two">Gallery</a></li>
+
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
 			if(m_name == null || m_name.equals("")){%>
