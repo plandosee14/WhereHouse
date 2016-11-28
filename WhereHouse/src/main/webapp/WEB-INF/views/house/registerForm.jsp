@@ -13,17 +13,30 @@
 <br>
 <br>
 호스트 등록
-<div>	
+<div style="border: 1">	
 이름 : <input type="text" name="m_id"><br>
 연락처 : <input type="text" name="m_id"> - <input type="text" name="m_id"> - <input type="text" name="m_id"><br>
 우편번호 : <input type="text" name="zip" > <input type="button" value="주소찾기"><br> 
  <input type="text" name="m_id"><br>
 이름 : <input type="text" name="m_id"><br>
 이름 : <input type="text" name="m_id"><br>
-
-
+</div>
+<br>
+기본정보
+<div style="border: 1">	
+제목 : <input type="text" name="title"><br>
+가격 : <input type="text" name="title"><br>
+기간 : <input type="text" name="title"><br>
+최대인원 : <input type="text" name="title"><br>
+숙소유형 : <input type="text" name="title"><br>
+집유형 : <input type="text" name="title"><br>
+침대  <input type="text" name="title"> 개 욕실 <input type="text" name="title"><br>
+방갯수 <input type="text" name=""> 개
+</div>
+<div>
 
 </div>
+
 
 </center>
 </body>
