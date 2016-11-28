@@ -73,7 +73,15 @@
 					  $('#alerttitle').html('이름');
 	                  $('#alertcontent').html('이름을 확인해주세요.');
 	                  $('#alertModal').modal("show");
-				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<8||$('#registphone').val().length>20) {
+				}else if ($('#registphone').val()==null||$('#registphone').val()==""||isNaN($('#registphone').val())||$('#registphone').val().replace(" ", "").length != $('#registphone').val().length||$('#registphone').val().length<2||$('#registphone').val().length>8) {
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registphone1').val()==null||$('#registphone1').val()==""||isNaN($('#registphone1').val())||$('#registphone1').val().replace(" ", "").length != $('#registphone1').val().length||$('#registphone1').val().length<2||$('#registphone1').val().length>8) {
+					  $('#alerttitle').html('전화번호');
+	                  $('#alertcontent').html('전화번호를 확인해주세요.');
+	                  $('#alertModal').modal("show");
+				}else if ($('#registphone2').val()==null||$('#registphone2').val()==""||isNaN($('#registphone2').val())||$('#registphone2').val().replace(" ", "").length != $('#registphone2').val().length||$('#registphone2').val().length<2||$('#registphone2').val().length>8) {
 					  $('#alerttitle').html('전화번호');
 	                  $('#alertcontent').html('전화번호를 확인해주세요.');
 	                  $('#alertModal').modal("show");
@@ -86,7 +94,7 @@
     	            	m_id : $('#registidp').text(),
     	            	m_pass : $('#registpass').val(),
     	            	m_name : $('#registname').val(),
-    	            	m_phone : $('#registphone').val()
+    	            	m_phone : $('#registphone').val()+"-"+$('#registphone1').val()+"-"+$('#registphone2').val()
     	            },
     	            success:function(result){
     	               if(result=='success'){
@@ -98,6 +106,8 @@
     	               	  $('#registpasscheck').val('');
     	                  $('#registname').val('');
     	                  $('#registphone').val('');
+    	                  $('#registphone1').val('');
+    	                  $('#registphone2').val('');
     	                  $('#alertModal').modal("show");
     	                  $('#RegisterModal').modal("hide");
     	                  $('#registid').fadeIn('100');
@@ -124,6 +134,8 @@
                	  $('#registpasscheck').val('');
                   $('#registname').val('');
                   $('#registphone').val('');
+                  $('#registphone1').val('');
+                  $('#registphone2').val('');
 
     	      });//close시 회원가입창 초기화
     	      
@@ -193,7 +205,7 @@
     	            type: "post",
     	            data:{
     	            	m_name : $('#findidnametext').val(),
-    	            	m_phone : $('#findidphonetext').val()
+    	            	m_phone : $('#findidphonetext').val()+"-"+$('#findidphonetext1').val()+"-"+$('#findidphonetext2').val()
     	            },
     	            success:function(result){
     	            	if (result==null||result=="") {
@@ -201,6 +213,8 @@
 						}else {
 							$('#findidnametext').val('');
 	    	            	$('#findidphonetext').val('');
+	    	            	$('#findidphonetext1').val('');
+	    	            	$('#findidphonetext2').val('');
 							$('#findidresult').html('ID = <font size = "5">'+ result+'</font> 입니다.');
 						}
     	            }
@@ -215,7 +229,7 @@
     	            data:{
     	            	m_id : $('#findpassidtext').val(),
     	            	m_name : $('#findpassnametext').val(),
-    	            	m_phone : $('#findpassphonetext').val()
+    	            	m_phone : $('#findpassphonetext').val()+"-"+$('#findpassphonetext1').val()+"-"+$('#findpassphonetext2').val()
     	            },
     	            success:function(result){
     	            	if (result==null || result=="0") {
@@ -230,6 +244,8 @@
     	            		$('#findpassidtext').val('');
     	            		$('#findpassnametext').val('');
     	            		$('#findpassphonetext').val('');
+    	            		$('#findpassphonetext1').val('')
+    	            		$('#findpassphonetext2').val('')
     	            		$('#findpassbtn').fadeIn('100');
 						}
     	            }
@@ -239,10 +255,14 @@
       	      $('#findAccountbtn').click(function() {
       	      	$('#findidnametext').val('');
       	      	$('#findidphonetext').val('');
+      	      	$('#findidphonetext1').val('');
+      	      	$('#findidphonetext2').val('');
       	      	$('#findidresult').html('');
       	      	$('#findpassidtext').val('');
       	      	$('#findpassnametext').val('');
       	      	$('#findpassphonetext').val('');
+      	      	$('#findpassphonetext1').val('');
+      	      	$('#findpassphonetext2').val('');
       	        $('#findpassbtn').fadeIn('100');
       	      });//findAccount클릭시 id란 초기화
       	      
@@ -371,8 +391,16 @@
 						name="passcheck" id="registpasscheck" style="margin-bottom: 3%; width: 95%; margin-right: 2%"><i id="passicon"></i></div>
 					<input type="text" class="form-control" placeholder="name"
 						name="name" id="registname" style="margin-bottom: 3%;"> <input
-						type="text" class="form-control" placeholder="phone exception(-)" name="phone"
-						id="registphone" style="margin-bottom: 3%;">
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone" style="margin-bottom: 3%; width: 20%;">
+						-
+						<input
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone1" style="margin-bottom: 3%; width: 38%;">
+						-
+						<input
+						type="text" class="form-control2" placeholder="phone" name="phone"
+						id="registphone2" style="margin-bottom: 3%; width: 38%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
 						Sign up <i class="glyphicon glyphicon-upload"></i>
@@ -425,8 +453,16 @@
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
 							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
-							type="text" class="form-control" placeholder="Phone exception(-)" name="phone"
-							style="margin-bottom: 3%;" id="findidphonetext">
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 20%;" id="findidphonetext">
+							-
+							<input
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findidphonetext1">
+							-
+							<input
+							type="text" class="form-control2" placeholder="Phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findidphonetext2">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
 							Find ID <i class="glyphicon glyphicon-search"></i>
 						</button>
@@ -442,8 +478,16 @@
 							type="text" class="form-control" placeholder="name" name="name"
 							style="margin-bottom: 3%;" id="findpassnametext">
 							<input type="text"
-							class="form-control" placeholder="phone exception(-)" name="phone"
-							style="margin-bottom: 3%;" id="findpassphonetext">
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 20%;" id="findpassphonetext">
+							-
+							<input type="text"
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext1">
+							-
+							<input type="text"
+							class="form-control2" placeholder="phone exception(-)" name="phone"
+							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext2">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
 							Find Pass <i class="glyphicon glyphicon-search"></i>
