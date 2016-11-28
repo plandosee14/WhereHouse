@@ -7,25 +7,39 @@
 </head>
 <body>
 	
-	<div class="first">
+	<div class="first" id="first">
 	<div class="header-content">
 		<div class="inner">
-			<h1 class="cursive">WhereHouse</h1>
+			<h1 class="cursive"><i class="glyphicon glyphicon-home"></i> WhereHouse</h1>
 			<h4>We can share our homes and feel their culture.</h4>
 			<hr>
-			<a href="#video-background" id="toggleVideo" data-toggle="collapse"
-				class="btn btn-primary btn-xl">Toggle Video</a> &nbsp; <a
-				href="#one" class="btn btn-primary btn-xl page-scroll">Get
-				Started</a>
+			<!-- <a href="#video-background" id="toggleVideo" data-toggle="collapse"
+				class="btn btn-primary btn-xl">Toggle Video</a> -->
+				<div class="form-group">
+				<input type="text" class="form-control3"
+							placeholder="Search here..." id="searchtext" style="margin-left: 6%;">
+				 &nbsp; <a
+				 class="btn btn-primary btn-xl page-scroll" id="searchbtn"><i class="glyphicon glyphicon-search"></i></a></div>
+				
 		</div>
 	</div>
 	<video autoplay="" loop="" class="fillWidth fadeIn wow collapse in"
 		data-wow-delay="0.5s"
-		poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
-		id="video-background"> <source
-		src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
+		poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Home.jpg"
+		id="video-background">
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Home.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/In-The-Clouds.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Man-and-Sea.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Beach-Camera.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Beach-please.mp4" -->
+		<!-- src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Window-Snow.mp4" -->
+		<source
+		src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Home.mp4"
 		type="video/mp4">Your browser does not support the video tag.
-	I suggest you upgrade your browser. </video> </div>
+	I suggest you upgrade your browser. </video> 
+	</div>
+	<div style="background: white;"> </div>
 	<section class="bg-primary" id="one">
 	<div class="container">
 		<div class="row">
