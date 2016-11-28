@@ -16,9 +16,9 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #c0c0c0;
-    color: #c0c0c0;
-    webkit-tap-highlight-color: #c0c0c0;
+    background-color: #ffffff;
+    color: #000000;
+    webkit-tap-highlight-color: #ffffff;
 }
 
 hr {
