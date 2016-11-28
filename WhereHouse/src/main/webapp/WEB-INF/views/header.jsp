@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<script type="text/javascript" src="resources/js/jquery-1.8.3.min.js"
+<script type="text/javascript" src="/resources/js/jquery-1.8.3.min.js"
 	charset="UTF-8"></script>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +18,7 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-<link rel="stylesheet" href="resources/css/styles.css" />
+<link rel="stylesheet" href="/resources/css/styles.css" />
 <script type="text/javascript">
 
        $(document).ready(function(){
@@ -531,5 +531,5 @@
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 	
