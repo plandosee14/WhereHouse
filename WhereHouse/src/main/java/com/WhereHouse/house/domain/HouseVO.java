@@ -6,7 +6,7 @@ public class HouseVO {
 	private int h_no;  	      
 	private String m_id; 
 	private String m_name; 							
-	private String h_addres;	        
+	private String h_address;	        
 	private int h_fare;
 	private Date h_startdate;
 	private Date h_enddate;	
@@ -43,11 +43,11 @@ public class HouseVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	public String getH_addres() {
-		return h_addres;
+	public String getH_address() {
+		return h_address;
 	}
-	public void setH_addres(String h_addres) {
-		this.h_addres = h_addres;
+	public void setH_address(String h_address) {
+		this.h_address = h_address;
 	}
 	public int getH_fare() {
 		return h_fare;
@@ -159,7 +159,7 @@ public class HouseVO {
 	}
 	@Override
 	public String toString() {
-		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", h_addres=" + h_addres
+		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", h_address=" + h_address
 				+ ", h_fare=" + h_fare + ", h_startdate=" + h_startdate + ", h_enddate=" + h_enddate + ", h_info="
 				+ h_info + ", h_peoplecnt=" + h_peoplecnt + ", h_type=" + h_type + ", h_checktime=" + h_checktime
 				+ ", h_sale=" + h_sale + ", h_salefare=" + h_salefare + ", h_rule=" + h_rule + ", h_thumnail="

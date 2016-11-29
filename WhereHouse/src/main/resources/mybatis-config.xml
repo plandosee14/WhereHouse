@@ -4,4 +4,5 @@
 	<typeAliases>
 		<typeAlias type="com.WhereHouse.member.domain.MemberVO" alias="member"/>
 	</typeAliases>
+	
 </configuration>
