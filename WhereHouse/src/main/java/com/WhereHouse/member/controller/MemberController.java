@@ -10,4 +10,9 @@ public class MemberController {
 	public String main() {
 		return "main";
 	}
+	
+	@RequestMapping("/google")
+	public String google(){
+		return "googleMap";
+	}
 }
