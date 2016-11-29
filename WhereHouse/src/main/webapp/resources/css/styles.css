@@ -15,8 +15,8 @@ body {
 }
 
 body {
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #dcdcf0;
+    font-family: 'Comic Sans MS';
+    background-color: #f7f7f7;
     color: #ffffff;
     webkit-tap-highlight-color: #dcdcdc;
 }
@@ -47,10 +47,11 @@ a:focus {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Comic Sans MS';
 }
 
 p {
+	font-family: 'Comic Sans MS';
     font-size: 17px;
     line-height: 1.7;
     margin-bottom: 20px;
@@ -66,7 +67,7 @@ p {
 }
 
 .bg-primary {
-    background-color: #dcdcdc;
+    background-color: #f7f7f7;
 }
 
 .bg-dark {
@@ -113,7 +114,7 @@ footer {
 
 .navbar-default {
     border-color: rgba(35,35,35,.05);
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Comic Sans MS';
     background-color: #dcdcdc;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
@@ -121,7 +122,7 @@ footer {
 }
 
 .navbar-header > .navbar-brand {
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Comic Sans MS';/*'Questrial','Helvetica Neue',Arial,sans-serif*/
     color: #9c27b0;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
@@ -172,6 +173,7 @@ footer {
         border-color: transparent;
         background-color: #222;/* 기본 헤더 색상 */
         min-height: 60px;
+        opacity: 0.7;
     }
 
     .navbar-header > .navbar-brand {
@@ -537,7 +539,7 @@ fieldset[disabled] .btn-default.active {
 .btn {
     border: 0;
     border-radius: 290px;
-    font-family: 'Helvetica Neue',Arial,sans-serif;
+    font-family: 'Comic Sans MS';
 }
 
 .btn-xl {

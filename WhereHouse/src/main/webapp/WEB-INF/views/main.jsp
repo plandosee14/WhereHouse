@@ -39,10 +39,10 @@
 		type="video/mp4">Your browser does not support the video tag.
 	I suggest you upgrade your browser. </video> 
 	</div>
-	<div style="background: #dcdcf0;"><br></div>
-	<div style="background: #dcdcf0;"><br></div>
-		
-	<section id="one" class="no-padding" style="background-color: #dcdcf0;">
+	<div><br></div>
+	<div><br></div>
+		<div><br></div>
+	<section id="one" class="no-padding" style="background-color: #f7f7f7;">
 	<br>
 	<div class="container">
 		<div class="row">
@@ -149,19 +149,20 @@
 	</div>
 	<br><br>
 	</section>
-	
+	<div><br></div>
 	<section class="bg-primary" id="two">
+	<div><br></div>
 	<div class="container">
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
 				<h2 class="margin-top-0 text-primary" style="color: black;">About Us</h2>
 				<br>
-				<p class="text-faded" style="color: #1d1d1d;">
-				WhereHouse는 2016년 12월에 창립되어 서울시 금천구 가산동에
-				본사를 두고 있습니다. 온라인을 통해 서로의 독특한 숙소들을 올리고, 발견하고, 예약할수 있는 커뮤니티 플랫폼 입니다.
+				<p class="text-faded" style="color: #1d1d1d; text-align: left;">
+				 WhereHouse는 2016년 12월에 창립되어 서울시 금천구 가산동에
+				본사를 두고 있습니다. 온라인을 통해 서로의 독특한 숙소들을 올리고, 발견하고, 예약할수 있는 커뮤니티 플랫폼 입니다.<br>
 				 WhereHouse는 특별한 여행 경험을 가능하게 합니다. 하룻밤 지낼 아파트, 일주일 동안 지낼 수 있는 성,
-				 한달 동안 지낼 수 있는 빌라 등 다양한 가격대의 숙소가 세계 191개국 34000개 도시에서 여러분을 기다리고 있습니다.
+				한달 동안 지낼 수 있는 빌라 등 다양한 가격대의 숙소가 여러분을 기다리고 있습니다.<br>
 				 WhereHouse는 고객님이 만족할수 있도록 서비스를 제공하며, 사용자 커뮤니티가 지속적으로 성장할 수 있도록 노력하겠습니다.</p>
 			</div>
 		</div>
