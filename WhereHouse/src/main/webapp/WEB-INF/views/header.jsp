@@ -301,13 +301,13 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand page-scroll" href="#first"><i
+			<a class="navbar-brand page-scroll" href="/#first"><i
 				class="glyphicon glyphicon-home"></i> WhereHouse</a>
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="#one">Recommended destinatios</a></li>
-				<li><a class="page-scroll" href="#two">About</a></li>
+				<li><a class="page-scroll" href="/#one">Recommended destinatios</a></li>
+				<li><a class="page-scroll" href="/#two">About</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
@@ -317,8 +317,19 @@
 			</ul>
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%; " >
-				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><a href="/mypage"><%=m_name%>님</a></div>
-				<div id="logout" style="cursor: pointer; font-size: 10px; display: inline; "> logout <i class="glyphicon glyphicon-log-out"></i></div></li>
+				<li><div id="userinfo" style="font-size: 20px; display: inline; font: 900;"><div class="dropdown">
+  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+   			 <i class="glyphicon glyphicon-user"></i> <%=m_name%>
+   			 <span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">MyPage</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" style="cursor: pointer;">추가예정</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" style="cursor: pointer;">추가예정</a></li>
+    			<li role="presentation" class="divider"></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">log out <i class="glyphicon glyphicon-log-out"></i></a></li>
+  			</ul>
+			</li>
 			</ul>
 			<% }%>
 		</div>

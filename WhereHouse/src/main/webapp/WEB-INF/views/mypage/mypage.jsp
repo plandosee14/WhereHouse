@@ -38,7 +38,7 @@
  });
  
  function previous(){
-	 location.href="./faq_list.ok?page=1";
+	 location.href="/";
  }
  
  
@@ -61,7 +61,7 @@
 		<li><a href="#tab_3" data-toggle="tab">등록정보</a></li>
 		<li><a href="#tab_4" data-toggle="tab">개인정보</a></li>
 
-		<li class="pull-right"><h4><font color="black">${page}페이지/${pageCount}페이지</font></h4></li>
+		
 	</ul>
 	<br>
 	<div class="tab-content">
@@ -70,16 +70,14 @@
 			<!-------- tab1 자리 --------->
 	 
 <div style="background:#000000;background:rgba(0,0,0,0);">
-
+<h2><font color="black">찜목록</font></h2>
 <ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
-<c:forEach items="${list}" var="v">
+<c:forEach items="${list}" var="basketVO">
   <li style="background:#000000;background:rgba(0,0,0,0);">
       <h4><a href="#a1">장바구니 목록</a></h4>
-         <p>
-         <c:if test="${v.b_no }">
-  		<img  src="./img/${v.m_id }"><br>
-  		</c:if>
-         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
+         
+  
+         
      </li>
    </c:forEach>
  </ul>
@@ -94,102 +92,60 @@
 			<!-------- tab2 자리 --------->
 		<div class="tab-pane" id="tab_2">
 
-<ul id="faq_list" >
-<c:forEach items="${list }" var="v">
-	<c:if test="${v.options=='game' }">
-  <li>
-      <h4><a href="#a1">${v.subject }</a></h4>
-         <p>
-         <c:if test="${v.fileName!=null }">
-  		<img  src="./img/${v.fileName }"><br>
-  		</c:if>
-         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
-     </li>
-     </c:if>
-   </c:forEach>
- </ul>
+	<table class="table table-bordered">
+	<tr>
+		<th>예약한 사람</th>
+		<th>전화번호</th>
+		<th>예약한 날짜</th>
+	</tr>
+
+
+<c:forEach items="${list}" var="basketVO">
+
+	<tr>
+		<td>${basketVO.b_no}</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+</c:forEach>
+
+</table>
 		</div>
 
 			<!-------- tab3 자리 --------->
 		<div class="tab-pane" id="tab_3">
 	
-	<ul id="faq_list" >
-<c:forEach items="${list }" var="v">
-	<c:if test="${v.options=='excute' }">
-  <li>
-      <h4><a href="#a1">${v.subject }</a></h4>
-         <p>
-         <c:if test="${v.fileName!=null }">
-  		<img  src="./img/${v.fileName }"><br>
-  		</c:if>
-         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
-     </li>
-     </c:if>
- </c:forEach>
- </ul>
-	
-	
-	
-	
+	<table class="table table-bordered">
+	<tr>
+		<th>예약한 사람</th>
+		<th>전화번호</th>
+		<th>예약한 날짜</th>
+	</tr>
+
+
+<c:forEach items="${list}" var="basketVO">
+
+	<tr>
+		<td>${basketVO.b_no}</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+</c:forEach>
+
+</table>
 		</div>
 
 			<!-------- tab4 자리 --------->
 		<div class="tab-pane" id="tab_4">
 
-<ul id="faq_list" >
-<c:forEach items="${list }" var="v">
-	<c:if test="${v.options=='graphic' }">
-  <li>
-      <h4><a href="#a1">${v.subject }</a></h4>
-         <p>
-         <c:if test="${v.fileName!=null }">
-  		<img  src="./img/${v.fileName }"><br>
-  		</c:if>
-         <textarea disabled="disabled" style="border:0;background-color:transparent">${v.contents }</textarea></p>
-     </li>
-     </c:if>
-   </c:forEach>
- </ul>
+
 
 </div>
 
 	</div>
 </div>
-<div align="center">
-<nav>
-  <ul class="pagination pagination-lg">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-	
-    <li>
-    	<c:forEach  begin="1"  end="${pageCount }" var="i">
-    	<a href="faq_list.ok?page=${i}">${i }</a>
-    	</c:forEach>
-    </li>
-    
-
-    
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-</div>
-<form action="./faq_create.ok"  >
-	<div align="right">
-	<input class="btn btn-info" type="button" value="처음으로" onclick="previous()">
-	<c:if test="${currentNickName=='관리자'}">
-	<input class="btn btn-warning" type="submit" value="글등록">
-	</c:if>
-	</div>
-</form>
-
 
 
 </body>

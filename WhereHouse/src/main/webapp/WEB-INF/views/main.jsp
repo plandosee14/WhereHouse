@@ -41,6 +41,7 @@
 	</div>
 	<div><br></div>
 	<div><br></div>
+	<div><br></div>
 		<div><br></div>
 	<section id="one" class="no-padding" style="background-color: #f7f7f7;">
 	<br>
@@ -151,7 +152,6 @@
 	</section>
 	<div><br></div>
 	<section class="bg-primary" id="two">
-	<div><br></div>
 	<div class="container">
 		<div class="row">
 			<div
@@ -161,7 +161,7 @@
 				<p class="text-faded" style="color: #1d1d1d; text-align: left;">
 				 WhereHouse는 2016년 12월에 창립되어 서울시 금천구 가산동에
 				본사를 두고 있습니다. 온라인을 통해 서로의 독특한 숙소들을 올리고, 발견하고, 예약할수 있는 커뮤니티 플랫폼 입니다.<br>
-				 WhereHouse는 특별한 여행 경험을 가능하게 합니다. 하룻밤 지낼 아파트, 일주일 동안 지낼 수 있는 성,
+				 WhereHouse는 특별한 여행 경험을 가능하게 합니다. 하룻밤 지낼 아파트, 일주일 동안 지낼 수 있는 주택,
 				한달 동안 지낼 수 있는 빌라 등 다양한 가격대의 숙소가 여러분을 기다리고 있습니다.<br>
 				 WhereHouse는 고객님이 만족할수 있도록 서비스를 제공하며, 사용자 커뮤니티가 지속적으로 성장할 수 있도록 노력하겠습니다.</p>
 			</div>
@@ -170,11 +170,7 @@
 	</section>
 	
 	<footer id="footer">
-	<div class="container-fluid">
-	<br><br>
-		<br /> <span class="pull-right text-muted medium"><a>WhereHouse</a>
-			©2016 Company</span>
-	</div>
+	<%@include file="footer.jsp"%>
 	</footer>
 	
 </body>
