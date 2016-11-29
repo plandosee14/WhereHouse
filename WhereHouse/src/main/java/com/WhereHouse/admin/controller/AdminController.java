@@ -53,7 +53,7 @@ public class AdminController {
 		model.addAttribute("houselist",service.selectHouse());
 		return "admin/house_admin";
 	}
-	
+
 	 
 
 }
