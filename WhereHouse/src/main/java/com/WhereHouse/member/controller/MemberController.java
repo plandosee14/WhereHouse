@@ -15,4 +15,9 @@ public class MemberController {
 	public String google(){
 		return "googleMap";
 	}
+	
+	@RequestMapping("/google2")
+	public String google2(){
+		return "googleMap2";
+	}
 }
