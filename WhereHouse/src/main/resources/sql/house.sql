@@ -3,6 +3,7 @@ create table house(
 	h_no    number		         primary key,
 	m_id   varchar2(50)		    references   member(m_id),  --host주인
 	m_name varchar2(50)		  ,   							--주인장이름
+	m_phone varchar2(20)        not null,  --주인장 폰번호
 	h_zip varchar2(20)	      	not null,           --주인장 우편번호
 	h_address varchar2(1000)	      	not null,           --주인장 주소
 	h_fare	              number     	  	not null,		--1박당 요금
@@ -65,19 +66,20 @@ create table house_option(
  alter table house add(h_zip varchar2(20) not null);
  alter table house add(h_livetype  varchar2(1000)  not null);
  alter table house add(h_salefare  varchar2(1000)  not null);
+ alter table house add(m_phone varchar2(20)   not null);
   alter table house modify(h_salefare number not null);
   
   
  insert into tbl_user (id, upw, uname) values ('soonsir','1234','순실');
 
  insert into house 
-(h_no,m_id,m_name,
+(h_no,m_id,m_name,m_phone,
  h_zip,h_address, h_fare,
 h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
- values (house_seq.nextval,'powerfeel123@naver.com','최필한',
+ values (house_seq.nextval,'powerfeel123@naver.com','최필한','010-3333-4444',
 '12345','서울시 양천구 목5동',50000,
 '2016-11-30','2017-12-30','정훈이네 집으로 찾아오세요',
 5,'아파트','방하나',
@@ -85,13 +87,13 @@ h_checktime, h_sale,h_salefare,
 '담배피지마세요','test_thumnail1.jpg');
 
  insert into house 
-(h_no,m_id,m_name,
+(h_no,m_id,m_name,m_phone,
  h_zip,h_address, h_fare,
 h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈',
+ values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3333-4444',
 '12345','서울시 양천구 목5동',50000,
 '2016-11-30','2017-12-30','하은이네 집으로 찾아오세요',
 5,'아파트','방하나',
@@ -99,13 +101,13 @@ h_checktime, h_sale,h_salefare,
 '담배피지마세요','test_thumnail1.jpg');
 
  insert into house 
-(h_no,m_id,m_name,
+(h_no,m_id,m_name,m_phone,
  h_zip,h_address, h_fare,
 h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈',
+ values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3333-4444',
 '12345','서울시 양천구 목5동',50000,
 '2016-11-30','2017-12-30','정훈이네 집으로  또 찾아오세요',
 5,'아파트','방하나',
@@ -117,5 +119,5 @@ from house h , basket b
 where h.h_no = b.h_no
       and b.m_id = 'ojh5797@naver.com';
 
-
+delete from house;
       

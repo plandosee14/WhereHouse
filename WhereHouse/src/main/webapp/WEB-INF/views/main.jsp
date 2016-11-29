@@ -49,7 +49,7 @@
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">Recommended destinatios</h2>
+				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">Recommended destinations</h2>
 				<br>
 			</div>
 		</div>

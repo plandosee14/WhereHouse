@@ -10,7 +10,7 @@
 <center>
 <h2>숙소등록</h2>
 </center>
-
+<form action="">
 <br>
 <br>
 호스트 등록
@@ -64,13 +64,13 @@
 <section id="wrapper">
 
 <article>
-  <p id="status">File API & FileReader API not supported</p>
-  <p><input type=file></p>
+  <p id="status">썸네일 사진</p>
+  <p><input type=file id="thumnail"></p>
   <div id="holder"></div>
 </article>
 <script>
-$(function(){
-var upload = document.getElementsByTagName('input')[0],
+
+var upload = document.getElementById('thumnail'),
     holder = document.getElementById('holder'),
     state = document.getElementById('status');
 
@@ -100,15 +100,18 @@ upload.onchange = function (e) {
 
   return false;
 };
-});
+
 </script>
 
 </section>
 
 <br>
+소개<br>
+<textarea rows="20" cols="50" name="info"></textarea>
+<input type="submit">
 
 </div>
-
+</form>
 
 </body>
 </html>

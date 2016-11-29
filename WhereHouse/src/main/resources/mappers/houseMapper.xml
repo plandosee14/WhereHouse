@@ -7,4 +7,7 @@
 		from house
 		where h_no=#{h_no}
 	</select>
+	<insert id="insertHouse">
+	    insert 
+	</insert>
 </mapper>
