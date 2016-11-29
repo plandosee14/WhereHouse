@@ -301,13 +301,13 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand page-scroll" href="#first"><i
+			<a class="navbar-brand page-scroll" href="/#first"><i
 				class="glyphicon glyphicon-home"></i> WhereHouse</a>
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="#one">Recommended destinatios</a></li>
-				<li><a class="page-scroll" href="#two">About</a></li>
+				<li><a class="page-scroll" href="/#one">Recommended destinatios</a></li>
+				<li><a class="page-scroll" href="/#two">About</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
