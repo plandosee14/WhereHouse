@@ -12,6 +12,6 @@
 	E-mail : Where_House@kosta.com
 	<a>
 	<br>
-	<br>
+	<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 	<i class="glyphicon glyphicon-home"></i> WhereHouse</a> ©2016 Company</span>
 </div>

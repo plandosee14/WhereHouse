@@ -312,8 +312,8 @@
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
 			if(m_name == null || m_name.equals("")){%>
-			<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%;">
-				<li><div style="cursor: pointer; font-size: 20px;" id="loginmodalbtn">Login</div></li>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a style="cursor: pointer;" id="loginmodalbtn">Login</a></li>
 			</ul>
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%; " >
@@ -322,12 +322,12 @@
    			 <i class="glyphicon glyphicon-user"></i> <%=m_name%>
    			 <span class="caret"></span>
   			</button>
-  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+  			<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">MyPage</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" style="cursor: pointer;">추가예정</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" style="cursor: pointer;">추가예정</a></li>
     			<li role="presentation" class="divider"></li>
-    			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">log out <i class="glyphicon glyphicon-log-out"></i></a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">logout <i class="glyphicon glyphicon-log-out"></i></a></li>
   			</ul>
 			</li>
 			</ul>
@@ -407,11 +407,11 @@
 						-
 						<input
 						type="text" class="form-control2" placeholder="phone" name="phone"
-						id="registphone1" style="margin-bottom: 3%; width: 38%;">
+						id="registphone1" style="margin-bottom: 3%; width: 37.5%;">
 						-
 						<input
 						type="text" class="form-control2" placeholder="phone" name="phone"
-						id="registphone2" style="margin-bottom: 3%; width: 38%;">
+						id="registphone2" style="margin-bottom: 3%; width: 37.5%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
 						Sign up <i class="glyphicon glyphicon-upload"></i>
@@ -469,11 +469,11 @@
 							-
 							<input
 							type="text" class="form-control2" placeholder="Phone" name="phone"
-							style="margin-bottom: 3%; width: 38%;" id="findidphonetext1">
+							style="margin-bottom: 3%; width: 37.5%;" id="findidphonetext1">
 							-
 							<input
 							type="text" class="form-control2" placeholder="Phone" name="phone"
-							style="margin-bottom: 3%; width: 38%;" id="findidphonetext2">
+							style="margin-bottom: 3%; width: 37.5%;" id="findidphonetext2">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
 							Find ID <i class="glyphicon glyphicon-search"></i>
 						</button>
@@ -494,11 +494,11 @@
 							-
 							<input type="text"
 							class="form-control2" placeholder="phone" name="phone"
-							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext1">
+							style="margin-bottom: 3%; width: 37.5%;" id="findpassphonetext1">
 							-
 							<input type="text"
 							class="form-control2" placeholder="phone" name="phone"
-							style="margin-bottom: 3%; width: 38%;" id="findpassphonetext2">
+							style="margin-bottom: 3%; width: 37.5%;" id="findpassphonetext2">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
 							Find Pass <i class="glyphicon glyphicon-search"></i>
