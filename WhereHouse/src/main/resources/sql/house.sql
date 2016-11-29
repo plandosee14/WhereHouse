@@ -97,3 +97,25 @@ h_checktime, h_sale,h_salefare,
 5,'아파트','방하나',
 '3시~11시', 10,45000,
 '담배피지마세요','test_thumnail1.jpg');
+
+ insert into house 
+(h_no,m_id,m_name,
+ h_zip,h_address, h_fare,
+h_startdate,h_enddate, h_info,
+ h_peoplecnt, h_type,h_livetype,
+h_checktime, h_sale,h_salefare,
+ h_rule,h_thumnail)
+ values (house_seq.nextval,'ojh5797@naver.com','오정훈',
+'12345','서울시 양천구 목5동',50000,
+'2016-11-30','2017-12-30','정훈이네 집으로  또 찾아오세요',
+5,'아파트','방하나',
+'3시~11시', 10,45000,
+'담배피지마세요','test_thumnail1.jpg');
+
+select h.h_no, h.h_fare, h.h_type, h.h_livetype, h.h_thumnail ,b.b_no
+from house h , basket b
+where h.h_no = b.h_no
+      and b.m_id = 'ojh5797@naver.com';
+
+
+      

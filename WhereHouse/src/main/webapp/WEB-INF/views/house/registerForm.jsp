@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,6 +9,7 @@
 <body>
 <center>
 <h2>숙소등록</h2>
+</center>
 
 <br>
 <br>
@@ -31,13 +32,83 @@
 숙소유형 : <input type="text" name="title"><br>
 집유형 : <input type="text" name="title"><br>
 침대  <input type="text" name="title"> 개 욕실 <input type="text" name="title"><br>
-방갯수 <input type="text" name=""> 개
+방갯수 <input type="text" name=""> 개 <br>
 </div>
+
+편의시설
 <div>
+편의시설 <br>
+ <input type="checkbox" name="" value="1">1<br>
+ <input type="checkbox" name="c1" value="2">2<br>
+ <input type="checkbox" name="c1" value="3">3<br>
+ <input type="checkbox" name="c1" value="4">4<br>
+ <input type="checkbox" name="c1" value="5">5<br>
+ <br><br>
+ 안전시설 <br>
+  <input type="checkbox" name="" value="1">1<br>
+ <input type="checkbox" name="c1" value="2">2<br>
+ <input type="checkbox" name="c1" value="3">3<br>
+ <input type="checkbox" name="c1" value="4">4<br>
+ <input type="checkbox" name="c1" value="5">5<br>
+  <br><br>
+  사용공간<br>
+  <input type="checkbox" name="" value="1">1<br>
+ <input type="checkbox" name="c1" value="2">2<br>
+ <input type="checkbox" name="c1" value="3">3<br>
+ <input type="checkbox" name="c1" value="4">4<br>
+ <input type="checkbox" name="c1" value="5">5<br>
+  <br><br>
+</div>
+소개
+<div>
+<section id="wrapper">
+
+<article>
+  <p id="status">File API & FileReader API not supported</p>
+  <p><input type=file></p>
+  <div id="holder"></div>
+</article>
+<script>
+$(function(){
+var upload = document.getElementsByTagName('input')[0],
+    holder = document.getElementById('holder'),
+    state = document.getElementById('status');
+
+if (typeof window.FileReader === 'undefined') {
+  state.className = 'fail';
+} else {
+  state.className = 'success';
+  state.innerHTML = 'File API & FileReader available';
+}
+ 
+upload.onchange = function (e) {
+  e.preventDefault();
+
+  var file = upload.files[0],
+      reader = new FileReader();
+  reader.onload = function (event) {
+    var img = new Image();
+    img.src = event.target.result;
+    // note: no onload required since we've got the dataurl...I think! :)
+    if (img.width > 200) { // holder width
+      img.width = 200;
+    }
+    holder.innerHTML = '';
+    holder.appendChild(img);
+  };
+  reader.readAsDataURL(file);
+
+  return false;
+};
+});
+</script>
+
+</section>
+
+<br>
 
 </div>
 
 
-</center>
 </body>
 </html>
