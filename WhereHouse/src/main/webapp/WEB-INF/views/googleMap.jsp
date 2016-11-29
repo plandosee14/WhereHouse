@@ -4,6 +4,7 @@
 <html>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <head>
+<header><%@include file="header.jsp"%></header>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
     function initialize() {
@@ -49,7 +50,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div title="도서관 위치입니다." id="map-canvas" style="width: 100%; height: 340px;"></div>
+<br><br><br>
+<div title="도서관 위치입니다." id="map-canvas" style="width: 50%; height: 340px;"></div>
 
 </body>
 </html>
