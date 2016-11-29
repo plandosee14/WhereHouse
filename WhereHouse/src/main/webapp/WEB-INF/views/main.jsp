@@ -172,7 +172,7 @@
 	<footer id="footer">
 	<div class="container-fluid">
 	<br><br>
-		<br /> <span class="pull-right text-muted small"><a>WhereHouse</a>
+		<br /> <span class="pull-right text-muted medium"><a>WhereHouse</a>
 			©2016 Company</span>
 	</div>
 	</footer>
