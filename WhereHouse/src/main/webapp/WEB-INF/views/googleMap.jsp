@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&sensor=true"></script>
 <head>
 <header><%@include file="header.jsp"%></header>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
