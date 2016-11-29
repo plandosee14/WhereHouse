@@ -170,11 +170,7 @@
 	</section>
 	
 	<footer id="footer">
-	<div class="container-fluid">
-	<br><br>
-		<br /> <span class="pull-right text-muted medium"><a><i class="glyphicon glyphicon-home"></i> WhereHouse</a>
-			©2016 Company</span>
-	</div>
+	<%@include file="footer.jsp"%>
 	</footer>
 	
 </body>
