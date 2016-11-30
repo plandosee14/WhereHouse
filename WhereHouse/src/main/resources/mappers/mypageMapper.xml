@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mypage">
+	<select id="selectMyBasket" resultType="com.WhereHouse.mypage.domain.MyBasketVO">
+		select h.h_no, h.h_fare, h.h_type, h.h_livetype, h.h_thumnail ,b.b_no
+		from house h , basket b
+		where h.h_no = b.h_no
+      		and b.m_id = #{m_id}
+	</select>
+</mapper>

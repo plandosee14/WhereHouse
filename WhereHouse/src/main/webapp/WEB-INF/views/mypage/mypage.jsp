@@ -70,17 +70,22 @@
 			<!-------- tab1 자리 --------->
 	 
 <div style="background:#000000;background:rgba(0,0,0,0);">
-<h2><font color="black">찜목록</font></h2>
-<ul id="faq_list" style="background:#000000;background:rgba(0,0,0,0);">
-<c:forEach items="${list}" var="basketVO">
-  <li style="background:#000000;background:rgba(0,0,0,0);">
-      <h4><a href="#a1">장바구니 목록</a></h4>
-         
+<h2><font color="black">찜목록</font></h2><br><br>
+
+
+<c:forEach items="${mList}" var="myBasketVO">
+      <img src="../resources/img/house/${myBasketVO.h_thumnail}" width="250"><br><br>
+   <div style="size: 15">
+      장바구니번호 : ${myBasketVO.b_no }<br>
+      집번호 : ${myBasketVO.h_no }<br>    
+      집종류 : ${myBasketVO.h_type }<br>
+      집유형 : ${myBasketVO.h_livetype }<br>
+   </div><br>     
+
   
-         
-     </li>
-   </c:forEach>
- </ul>
+   
+</c:forEach>
+ 
  </div>
  <div align="center">
 
@@ -93,19 +98,24 @@
 		<div class="tab-pane" id="tab_2">
 
 	<table class="table table-bordered">
-	<tr>
-		<th>예약한 사람</th>
-		<th>전화번호</th>
+	<tr style="color: black">
+		<th>집 사진</th>
+		<th>예약한 집번호</th>
+		<th>지불한 금액</th>
 		<th>예약한 날짜</th>
+		<th>집 전화번호</th>
 	</tr>
 
 
 <c:forEach items="${list}" var="basketVO">
 
-	<tr>
+	<tr style="color: black">
 		<td>${basketVO.b_no}</td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
+
 	</tr>
 
 </c:forEach>
@@ -117,7 +127,7 @@
 		<div class="tab-pane" id="tab_3">
 	
 	<table class="table table-bordered">
-	<tr>
+	<tr style="color: black">
 		<th>예약한 사람</th>
 		<th>전화번호</th>
 		<th>예약한 날짜</th>
@@ -126,7 +136,7 @@
 
 <c:forEach items="${list}" var="basketVO">
 
-	<tr>
+	<tr style="color: black">
 		<td>${basketVO.b_no}</td>
 		<td></td>
 		<td></td>

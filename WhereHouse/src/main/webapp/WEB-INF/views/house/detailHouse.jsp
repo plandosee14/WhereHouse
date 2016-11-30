@@ -85,15 +85,6 @@ textarea{
   		<span class="input">
   			<c:forEach var="i" begin="1" end="10" step="1">
     		<input type="radio" name="star-input" id="p${i}" value="${i}"><label for="p${i}"><c:out value="${0.5*i}"/></label>
-    	<!-- 	<input type="radio" name="star-input" id="p2" value="2"><label for="p2">1</label>
-    		<input type="radio" name="star-input" id="p3" value="3"><label for="p3">1.5</label>
-   		 	<input type="radio" name="star-input" id="p4" value="4"><label for="p4">2</label>
-    		<input type="radio" name="star-input" id="p5" value="5"><label for="p5">2.5</label>
-    		<input type="radio" name="star-input" id="p6" value="6"><label for="p6">3</label>
-    		<input type="radio" name="star-input" id="p7" value="7"><label for="p7">3.5</label>
-    		<input type="radio" name="star-input" id="p8" value="8"><label for="p8">4</label>
-    		<input type="radio" name="star-input" id="p9" value="9"><label for="p9">4.5</label>
-    		<input type="radio" name="star-input" id="p10" value="10"><label for="p10">5</label> -->
     		</c:forEach>
   		</span>
   		<output for="star-input"><b>0</b>점</output>
@@ -102,10 +93,10 @@ textarea{
 	<span class="star-input2">
   		<span class="input">
   			<c:forEach var="i" begin="1" end="10" step="1">
-    		<input type="radio" name="star-input" id="p${i}" value="${i}"><label for="p${i}"><c:out value="${0.5*i}"/></label>
+    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
     		</c:forEach>
   		</span>
-  		<output for="star-input"><b>0</b>점</output>
+  		<output for="star-input2"><b>0</b>점</output>
 	</span>
 	<script src="/resources/js/star.js"></script>
 	</body>
