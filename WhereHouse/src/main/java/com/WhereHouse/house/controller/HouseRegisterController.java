@@ -8,11 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HouseRegisterController {
 
 	@RequestMapping("registerForm")
-	public void Register(){
+	public void RegisterForm(){
 		
 	}
 	@RequestMapping("test")
 	public void test(){
+		
+	}
+	
+	@RequestMapping("register")
+	public void Register(){
+		
 		
 	}
 }

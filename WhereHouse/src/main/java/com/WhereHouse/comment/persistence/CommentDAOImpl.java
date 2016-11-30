@@ -28,24 +28,24 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	@Override
-	public void deleteComment(int cno) throws Exception {
-		sqlSession.delete("comment.delete", cno);
+	public void deleteComment(int c_no) throws Exception {
+		sqlSession.delete("comment.delete", c_no);
 	}
 
 	@Override
-	public List<CommentVO> listComment(int hno) throws Exception {
-		return sqlSession.selectList("comment.list", hno);
+	public List<CommentVO> listComment(int h_no) throws Exception {
+		return sqlSession.selectList("comment.list", h_no);
 	}
 
 	@Override
-	public List<CommentVO> listCommentPage(int hno, Criteria cri) throws Exception {
+	public List<CommentVO> listCommentPage(int h_no, Criteria cri) throws Exception {
 		RowBounds bound = new RowBounds(cri.getPageStart(), cri.getPerPageNum());
-		return sqlSession.selectList("comment.list", hno, bound);
+		return sqlSession.selectList("comment.list", h_no, bound);
 	}
 
 	@Override
-	public int countComment(int hno) throws Exception {
-		return sqlSession.selectOne("comment.count", hno);
+	public int countComment(int h_no) throws Exception {
+		return sqlSession.selectOne("comment.count", h_no);
 	}
 
 }
