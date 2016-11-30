@@ -326,6 +326,7 @@
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">MyPage</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google" style="cursor: pointer;">최필한Google</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google2" style="cursor: pointer;">최상균Google</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google3" style="cursor: pointer;">최필한Google3</a></li>
     			<li role="presentation" class="divider"></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">logout <i class="glyphicon glyphicon-log-out"></i></a></li>
   			</ul>

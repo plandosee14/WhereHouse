@@ -22,6 +22,7 @@
 
 	<script>
 	var idx = 0;
+	var marker;
 		function initMap() {
 			$('#address').val('');
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -40,7 +41,22 @@
 	                  $('#alertcontent').html('검색어는 두글자 이상만 가능합니다.');
 	                  $('#alertModal').modal("show");
 				}else {
-				geocodeAddress(geocoder, map);
+					if (marker != null) {
+						for (var i = 0; i < marker.length; i++) {
+						    marker[i].setMap(null);
+						  }
+						marker = [];
+						map = new google.maps.Map(document.getElementById('map'), {
+							zoom : 11,
+							mapTypeId : google.maps.MapTypeId.ROADMAP,
+							center : {
+								lat : 37.5400615,
+								lng : 126.73338309999997
+							}
+						});
+					}
+						geocodeAddress(geocoder, map);
+					
 				}
 			});
 			
@@ -48,7 +64,6 @@
 
 		function geocodeAddress(geocoder, resultsMap) {
 			var address = $('#address').val();
-			var marker;
 			
 			$.ajax({
  	      		url:"/member/searchHouse",
@@ -83,12 +98,15 @@
 						function(results, status) {
 							if (status === google.maps.GeocoderStatus.OK) {
 								resultsMap.setCenter(results[0].geometry.location);
+								var image = '/resources/img/house/homeicon.png';
 								marker = new google.maps.Marker({
 									map : resultsMap,
 									position : results[0].geometry.location,
-									title : result[idx].m_name
+									title : result[idx].h_no.toString(),
+									animation: google.maps.Animation.DROP,
+									icon: image
 								});
-							alert("두번째"+idx);
+								
 								/* alert(marker.position); */
 								if (++idx < len) {
 									pilhan(len, result, geocoder, resultsMap);	
@@ -101,6 +119,7 @@
 							}
 						});
 		}
+		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
