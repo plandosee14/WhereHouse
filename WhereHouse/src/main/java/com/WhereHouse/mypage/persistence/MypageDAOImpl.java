@@ -3,6 +3,7 @@ package com.WhereHouse.mypage.persistence;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -23,14 +24,14 @@ public class MypageDAOImpl implements MypageDAO{
 	}
 
 	@Override
-	public MemberVO read(int m_no) throws Exception {
-		return sqlSession.selectOne("mypage.selectMember", m_no);
+	public MemberVO read(String m_id) throws Exception {
+		return sqlSession.selectOne("mypage.selectMember", m_id);
 	}
 	
 	@Override
-	public void delete(int m_no) throws Exception {
+	public void delete(String m_id) throws Exception {
 		
-		sqlSession.delete("mypage.deleteMember", m_no);
+		sqlSession.delete("mypage.deleteMember", m_id);
 	}
 	@Override
 	public void update(MemberVO member) throws Exception {

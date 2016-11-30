@@ -26,96 +26,51 @@ public class MyPageController {
 
 	
 	@RequestMapping("")
-    public String mypage(Model model, HttpServletRequest request, int m_no, RedirectAttributes attr) throws Exception{
+    public String mypage(Model model, HttpServletRequest request, RedirectAttributes attr) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		System.out.println("Session 체크 : "+m_id);
 		model.addAttribute("bList", bService.listAllById(m_id));
 		model.addAttribute("mList", mService.listAllById(m_id));
-		System.out.println(m_id);
-		System.out.println(m_id);
-		
-		//회원정보 보기 요청
-		//model.addAttribute(mService.read(m_no));
-		//수정 요청
-		//MemberVO member = mService.read(m_no);
-		//model.addAttribute("member",member);
-		//DB수정 요청
-		//mService.modify(member);
-		//attr.addFlashAttribute("msg","SUCCESS");
-		//삭제 요청
-    	//mService.remove(m_no);
-    	//attr.addFlashAttribute("msg","SUCCESS");
+
 
 		return "/mypage/mypage";
     }
 	
-	@RequestMapping("read")
-    public String mypageRead(Model model, HttpServletRequest request, RedirectAttributes attr) throws Exception{
+	@RequestMapping("/read")
+    public String mypageRead(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		System.out.println("Session 체크 : "+m_id);
-		System.out.println(m_id);
-		System.out.println(m_id);
-		
+		MemberVO member = mService.read(m_id);
 		//회원정보 보기 요청
-		//model.addAttribute(mService.read(m_no));
-		//수정 요청
-		/*MemberVO member = mService.read(m_no);
+		model.addAttribute(mService.read(m_id));
 		model.addAttribute("member",member);
-		//DB수정 요청
-		mService.modify(member);
-		attr.addFlashAttribute("msg","SUCCESS");
-		//삭제 요청
-    	mService.remove(m_no);
-    	attr.addFlashAttribute("msg","SUCCESS");
-*/
-		return "/mypage/mypage";
+
+		return "/mypage/mypage4";
     }
 	
 	
-	@RequestMapping("delete")
-    public String mypageDelete(Model model, HttpServletRequest request, int m_no, RedirectAttributes attr) throws Exception{
+	@RequestMapping("/delete")
+    public String mypageDelete(Model model, HttpServletRequest request, int m_no, RedirectAttributes attr ,HttpSession session) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
-		System.out.println("Session 체크 : "+m_id);
-		model.addAttribute("bList", bService.listAllById(m_id));
-		model.addAttribute("mList", mService.listAllById(m_id));
 		System.out.println(m_id);
-		System.out.println(m_id);
-		
-		//회원정보 보기 요청
-		model.addAttribute(mService.read(m_no));
-		//수정 요청
-		MemberVO member = mService.read(m_no);
-		model.addAttribute("member",member);
-		//DB수정 요청
-		mService.modify(member);
-		attr.addFlashAttribute("msg","SUCCESS");
+
 		//삭제 요청
-    	mService.remove(m_no);
+    	mService.remove(m_id);
     	attr.addFlashAttribute("msg","SUCCESS");
 
 		return "/mypage/mypage";
     }
 	
-	@RequestMapping("update")
-    public String mypageUpdate(Model model, HttpServletRequest request, int m_no, RedirectAttributes attr) throws Exception{
+	@RequestMapping("/update")
+    public String mypageUpdate(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
-		System.out.println("Session 체크 : "+m_id);
-		model.addAttribute("bList", bService.listAllById(m_id));
-		model.addAttribute("mList", mService.listAllById(m_id));
-		System.out.println(m_id);
-		System.out.println(m_id);
-		
-		//회원정보 보기 요청
-		model.addAttribute(mService.read(m_no));
+
 		//수정 요청
-		MemberVO member = mService.read(m_no);
+		MemberVO member = mService.read(m_id);
 		model.addAttribute("member",member);
 		//DB수정 요청
 		mService.modify(member);
 		attr.addFlashAttribute("msg","SUCCESS");
-		//삭제 요청
-    	mService.remove(m_no);
-    	attr.addFlashAttribute("msg","SUCCESS");
 
 		return "/mypage/mypage";
     }

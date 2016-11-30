@@ -11,16 +11,17 @@
 	<select id="selectMember" resultType="member">
 		select m_id, m_no, m_name, m_phone 
 		from  member 
+		where m_id = #{m_id}
 	</select>
 	
 	<update id="modifyMember">
 	    update member set m_id=#{m_id} , m_no=#{m_no},
                            m_name=#{m_name}, m_phone=#{m_phone}
-        where m_no=#{m_no}
+        where m_id=#{m_id}
 	</update>
 	
 	<delete id="deleteMember">
       delete from member
-      where m_no=#{m_no}		
+      where m_id=#{m_id}		
 	</delete>
 </mapper>

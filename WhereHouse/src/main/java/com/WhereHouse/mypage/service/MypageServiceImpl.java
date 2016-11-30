@@ -3,6 +3,7 @@ package com.WhereHouse.mypage.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,8 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public MemberVO read(int m_no) throws Exception {
-		return dao.read(m_no);
+	public MemberVO read(String m_id) throws Exception {
+		return dao.read(m_id);
 	}
 	
 	@Override
@@ -33,8 +34,8 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public void remove(int m_no) throws Exception {
-		dao.delete(m_no);
+	public void remove(String m_id) throws Exception {
+		dao.delete(m_id);
 	}
 
 

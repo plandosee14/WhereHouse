@@ -118,6 +118,7 @@
 
 					<!-------- tab1 자리 --------->
 
+
 				</div>
 
 
@@ -130,19 +131,35 @@
 				<!-------- tab3 자리 --------->
 				<div class="tab-pane" id="tab_3">
 
+					<table class="table table-bordered">
+						<tr style="color: black">
+							<th>예약한 사람</th>
+							<th>전화번호</th>
+							<th>예약한 날짜</th>
+						</tr>
+
+
+						<c:forEach items="${list}" var="basketVO">
+
+							<tr style="color: black">
+								<td>${basketVO.b_no}</td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</c:forEach>
+
+					</table>
 				</div>
 
 				<!-------- tab4 자리 --------->
 				<div class="tab-pane" id="tab_4">
-				
-				</div>
 
-	
-					</div>
-					
+				</div>	
 			</div>
 		</div>
 
+	</div>
 </body>
 
 </html>
