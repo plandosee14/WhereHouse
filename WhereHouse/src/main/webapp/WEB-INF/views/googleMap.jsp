@@ -62,6 +62,7 @@
 		                  $('#alertModal').modal("show");
  	            		}else {
  	            			for (var i = 0; i < result.length; i++) {
+ 	    	           									alert("첫번째"+i);
  	    	           			geocoder
  	    	           					.geocode(
  	    	           							{
@@ -74,6 +75,7 @@
  	    	           										map : resultsMap,
  	    	           										position : results[0].geometry.location,
  	    	           									});
+ 	    	           								alert("두번째"+i);
  	    	           									/* alert(marker.position); */
  	    	           								} else {
  	    	           									alert('Geocode was not successful for the following reason: '
