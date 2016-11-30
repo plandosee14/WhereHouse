@@ -60,7 +60,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1430916273432-273c2db881a0%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3Df047e8284d2fdc1df0fd57a5d294614d">
 					<img
-					src="/resources/screenshot/seoul.jpg" width="500" height="450"
+					src="/resources/screenshot/seoul1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 1">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -90,7 +90,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1433959352364-9314c5b6eb0b%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3D3b9bc6caa190332e91472b6828a120a4">
 					<img
-					src="/resources/screenshot/busan.jpg" width="500" height="450"
+					src="/resources/screenshot/busan1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 3">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -105,7 +105,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg">
 					<img
-					src="/resources/screenshot/incheon.jpg" width="500" height="450"
+					src="/resources/screenshot/jeju1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 4">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -120,7 +120,7 @@
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
 					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-new-york-crosswalk-nabeel-1440x960.jpg">
 					<img
-					src="/resources/screenshot/jeju.jpg" width="500" height="450"
+					src="/resources/screenshot/andong.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 5">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
