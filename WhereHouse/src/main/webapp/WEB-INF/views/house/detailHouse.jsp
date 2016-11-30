@@ -68,6 +68,82 @@ textarea{
 		}
 	}
 </script>
+<script>
+Handlebars.registerHelper("prettifyDate", function(timeValue) {
+	var dateObj = new Date(timeValue);
+	var year = dateObj.getFullYear();
+	var month = dateObj.getMonth() + 1;
+	var date = dateObj.getDate();
+	return year + "/" + month + "/" + date;
+});
+
+var printData = function(commentArr, target, templateObject) {
+
+	var template = Handlebars.compile(templateObject.html());
+
+	var html = template(replyArr);
+	$(".commentLi").remove();
+	target.after(html);
+
+}
+
+var h_no = ${HouseVO.h_no};
+
+var commentPage = 1;
+
+function getPage(pageInfo) {
+
+	$.getJSON(pageInfo, function(data) {
+		printData(data.list, $("#commentDiv"), $('#template'));
+		printPaging(data.pageMaker, $(".pagination"));
+
+		$("#modifyModal").modal('hide');
+
+	});
+}
+
+var printPaging = function(pageMaker, target) {
+
+	var str = "";
+
+	if (pageMaker.prev) {
+		str += "<li><a href='" + (pageMaker.startPage - 1)
+				+ "'> << </a></li>";
+	}
+
+	for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+		var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+		str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+	}
+
+	if (pageMaker.next) {
+		str += "<li><a href='" + (pageMaker.endPage + 1)
+				+ "'> >> </a></li>";
+	}
+
+	target.html(str);
+};
+
+$("#commentDiv").on("click", function() {
+
+	if ($(".timeline li").size() > 1) {
+		return;
+	}
+	getPage("/comment/" + h_no + "/1");
+
+});
+
+$(".pagination").on("click", "li a", function(event){
+	
+	event.preventDefault();
+	
+	commentPage = $(this).attr("href");
+	
+	getPage("/comment/"+h_no+"/"+commentPage);
+	
+});
+</script>
+
 </head>
 <body>
 	<br><br><br>
@@ -98,6 +174,33 @@ textarea{
   		</span>
   		<output for="star-input2"><b>0</b>점</output>
 	</span>
+	<ul class="timeline">
+				<li class="time-label" id="commentDiv"><span class="bg-green">
+						comment List </span></li>
+			</ul>
+			<div class='text-center'>
+				<ul id="pagination" class="pagination pagination-sm no-margin ">
+
+				</ul>
+			</div>
 	<script src="/resources/js/star.js"></script>
+	<script id="template" type="text/x-handlebars-template">
+	{{#each .}}
+	<li class="commentLi" data-c_no={{c_no}}>
+	<i class="fa fa-comments bg-blue"></i>
+	 <div class="timeline-item" >
+	  <span class="time">
+	    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
+	  </span>
+	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{commenter}}</h3>
+	  <div class="timeline-body">{{commenttext}} </div>
+  	  <div class="timeline-footer">
+  	   <a class="btn btn-primary btn-xs" 
+		    data-toggle="modal" data-target="#modifyModal">Modify</a>
+    	</div>
+	  </div>			
+	</li>
+	{{/each}}
+	</script>
 	</body>
 </html>

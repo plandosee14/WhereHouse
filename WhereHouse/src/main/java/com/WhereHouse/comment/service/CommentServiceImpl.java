@@ -17,8 +17,8 @@ public class CommentServiceImpl implements CommentService {
 	private CommentDAO dao;
 	
 	@Override
-	public List<CommentVO> listComment(int hno) throws Exception {
-		return dao.listComment(hno);
+	public List<CommentVO> listComment(int h_no) throws Exception {
+		return dao.listComment(h_no);
 	}
 
 	@Override
@@ -32,18 +32,18 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void removeComment(int cno) throws Exception {
-		dao.deleteComment(cno);
+	public void removeComment(int c_no) throws Exception {
+		dao.deleteComment(c_no);
 	}
 
 	@Override
-	public List<CommentVO> listCommentPage(int hno, Criteria cri) throws Exception {
-		return dao.listCommentPage(hno, cri);
+	public List<CommentVO> listCommentPage(int h_no, Criteria cri) throws Exception {
+		return dao.listCommentPage(h_no, cri);
 	}
 
 	@Override
-	public int count(int hno) throws Exception {
-		return dao.countComment(hno);
+	public int count(int h_no) throws Exception {
+		return dao.countComment(h_no);
 	}
 
 }
