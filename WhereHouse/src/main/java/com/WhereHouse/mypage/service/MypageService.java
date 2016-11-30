@@ -6,5 +6,5 @@ import com.WhereHouse.mypage.domain.MyBasketVO;
 
 public interface MypageService {
    public List<MyBasketVO> listAllById(String m_id)throws Exception;
-   
+    
 }
