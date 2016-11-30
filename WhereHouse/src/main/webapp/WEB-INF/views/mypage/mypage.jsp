@@ -124,9 +124,11 @@
 
 						<c:forEach items="${mList}" var="myBasketVO">
 							<div class="basketList">
-								<center><img src="../resources/img/house/${myBasketVO.h_thumnail}"
-									width="95%"></center>
-								<div class="basketText" >
+								<center>
+									<img src="../resources/img/house/${myBasketVO.h_thumnail}"
+										width="95%">
+								</center>
+								<div class="basketText">
 									장바구니번호 : ${myBasketVO.b_no }<br> 집번호 : ${myBasketVO.h_no }<br>
 									집종류 : ${myBasketVO.h_type }<br> 집유형 :
 									${myBasketVO.h_livetype }<br>
