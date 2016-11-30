@@ -21,6 +21,7 @@
 			style="width: 40%; height: 92.5%; position: fixed; left: 60%;"></div>
 
 	<script>
+	var idx = 0;
 		function initMap() {
 			$('#address').val('');
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -61,33 +62,44 @@
 		                  $('#alertcontent').html('검색결과가 없습니다.');
 		                  $('#alertModal').modal("show");
  	            		}else {
- 	            			for (var i = 0; i < result.length; i++) {
- 	    	           									alert("첫번째"+i);
- 	    	           			geocoder
- 	    	           					.geocode(
- 	    	           							{
- 	    	           								'address' : result[i].h_address
- 	    	           							},
- 	    	           							function(results, status) {
- 	    	           								if (status === google.maps.GeocoderStatus.OK) {
- 	    	           									resultsMap.setCenter(results[0].geometry.location);
- 	    	           									marker = new google.maps.Marker({
- 	    	           										map : resultsMap,
- 	    	           										position : results[0].geometry.location
- 	    	           									});
- 	    	           								alert("두번째"+i);
- 	    	           									/* alert(marker.position); */
- 	    	           								} else {
- 	    	           									alert('Geocode was not successful for the following reason: '
- 	    	           											+ status);
- 	    	           								}
- 	    	           							});
- 	    	           				}
+ 	            			idx=0;
+ 	            			pilhan(result.length, result, geocoder, resultsMap);
+ 	            			
+ 	            			
 					}
  	            }
  	      	});
 			
 			
+		}
+		
+		function pilhan(len, result, geocoder, resultsMap) {
+			
+			geocoder
+				.geocode(
+						{
+							'address' : result[idx].h_address
+						},
+						function(results, status) {
+							if (status === google.maps.GeocoderStatus.OK) {
+								resultsMap.setCenter(results[0].geometry.location);
+								marker = new google.maps.Marker({
+									map : resultsMap,
+									position : results[0].geometry.location,
+									title : result[idx].m_name
+								});
+							alert("두번째"+idx);
+								/* alert(marker.position); */
+								if (++idx < len) {
+									pilhan(len, result, geocoder, resultsMap);	
+								}else {
+									return;
+								}
+							} else {
+								alert('Geocode was not successful for the following reason: '
+										+ status);
+							}
+						});
 		}
 	</script>
 	<script type="text/javascript"
