@@ -129,7 +129,7 @@ $("#commentDiv").on("click", function() {
 	if ($(".timeline li").size() > 1) {
 		return;
 	}
-	getPage("/comment/" + h_no + "/1");
+	getPage("/comments/" + h_no + "/1");
 
 });
 
@@ -139,7 +139,7 @@ $(".pagination").on("click", "li a", function(event){
 	
 	commentPage = $(this).attr("href");
 	
-	getPage("/comment/"+h_no+"/"+commentPage);
+	getPage("/comments/"+h_no+"/"+commentPage);
 	
 });
 </script>
