@@ -13,33 +13,42 @@
 	<br>
 	<br>
 
-		<div style="width: 50%; position: absolute;">
-			<input id="address" type="textbox" value=""> <input
-				id="serachhouse" type="button" value="search">
+		<div style="width: 60%; position: absolute; left: 17%;"><br>
+			<input id="address" type="textbox" value="" class="form-control2" style="width: 30%" placeholder="Search here...">
+			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
 		</div>
 		<div id="map"
-			style="width: 50%; height: 100%; position: fixed; left: 50%;"></div>
+			style="width: 40%; height: 92.5%; position: fixed; left: 60%;"></div>
 
 	<script>
 		function initMap() {
+			$('#address').val('');
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom : 12,
+				zoom : 11,
 				mapTypeId : google.maps.MapTypeId.ROADMAP,
 				center : {
-					lat : 37.5640,
-					lng : 126.9751
+					lat : 37.5400615,
+					lng : 126.73338309999997
 				}
 			});//div map의 속성? 나타내나?
 			var geocoder = new google.maps.Geocoder();
 			
 			$('#serachhouse').click(function() {
+				if ($('#address').val()==null || $('#address').val().length < 2 || $('#address').val().replace(" ", "").length != $('#address').val().length) {
+					  $('#alerttitle').html('검색어');
+	                  $('#alertcontent').html('검색어는 두글자 이상만 가능합니다.');
+	                  $('#alertModal').modal("show");
+				}else {
 				geocodeAddress(geocoder, map);
+				}
 			});
 			
 		}
 
 		function geocodeAddress(geocoder, resultsMap) {
 			var address = $('#address').val();
+			var marker;
+			
 			$.ajax({
  	      		url:"/member/searchHouse",
  	            type: "post",
@@ -47,30 +56,32 @@
  	            	h_address : address
  	            },
  	            success:function(result){
- 	            	if (result != null) {
- 	            		for (var i = 0; i < result.length; i++) {
- 	           			geocoder
- 	           					.geocode(
- 	           							{
- 	           								'address' : result[i].h_address
- 	           							},
- 	           							function(results, status) {
- 	           								if (status === google.maps.GeocoderStatus.OK) {
- 	           									resultsMap.setCenter(results[0].geometry.location);
- 	           									var marker = new google.maps.Marker({
- 	           										map : resultsMap,
- 	           										position : results[0].geometry.location
- 	           									});
- 	           								} else {
- 	           									alert('Geocode was not successful for the following reason: '
- 	           											+ status);
- 	           								}
- 	           							});
- 	           			}
-					}else {
-						  $('#alerttitle').html('오류류류류');
-		                  $('#alertcontent').html('집없어');
+ 	            	if (result == null||result == "") {
+ 	            		$('#alerttitle').html('검색결과');
+		                  $('#alertcontent').html('검색결과가 없습니다.');
 		                  $('#alertModal').modal("show");
+ 	            		}else {
+ 	            			for (var i = 0; i < result.length; i++) {
+ 	    	           			geocoder
+ 	    	           					.geocode(
+ 	    	           							{
+ 	    	           								'address' : result[i].h_address
+ 	    	           							},
+ 	    	           							function(results, status) {
+ 	    	           								if (status === google.maps.GeocoderStatus.OK) {
+ 	    	           									resultsMap.setCenter(results[0].geometry.location);
+ 	    	           									marker = new google.maps.Marker({
+ 	    	           										map : resultsMap,
+ 	    	           										position : results[0].geometry.location
+ 	    	           									});
+ 	    	           									/* alert(marker.position); */
+ 	    	           									alert(i);
+ 	    	           								} else {
+ 	    	           									alert('Geocode was not successful for the following reason: '
+ 	    	           											+ status);
+ 	    	           								}
+ 	    	           							});
+ 	    	           				}
 					}
  	            }
  	      	});
