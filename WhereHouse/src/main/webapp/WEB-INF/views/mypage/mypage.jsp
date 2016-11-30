@@ -48,6 +48,7 @@
 </head>
 
 <body>
+<div class="container">
 <!-- Custom Tabs -->
 
 <div class="nav-tabs-custom">
@@ -157,7 +158,7 @@
 	</div>
 </div>
 
-
+</div>
 </body>
 
 </html>
