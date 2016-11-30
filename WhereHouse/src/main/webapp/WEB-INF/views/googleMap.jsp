@@ -72,10 +72,9 @@
  	    	           									resultsMap.setCenter(results[0].geometry.location);
  	    	           									marker = new google.maps.Marker({
  	    	           										map : resultsMap,
- 	    	           										position : results[0].geometry.location
+ 	    	           										position : results[0].geometry.location,
  	    	           									});
  	    	           									/* alert(marker.position); */
- 	    	           									alert(i);
  	    	           								} else {
  	    	           									alert('Geocode was not successful for the following reason: '
  	    	           											+ status);
