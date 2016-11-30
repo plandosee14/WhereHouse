@@ -10,6 +10,8 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 #faq_list {
@@ -125,13 +127,15 @@
 						<c:forEach items="${mList}" var="myBasketVO">
 							<div class="basketList">
 								<center>
-									<img src="../resources/img/house/${myBasketVO.h_thumnail}"
+									<img  src="../resources/img/house/${myBasketVO.h_thumnail}"
 										width="95%">
 								</center>
 								<div class="basketText">
-									장바구니번호 : ${myBasketVO.b_no }<br> 집번호 : ${myBasketVO.h_no }<br>
-									집종류 : ${myBasketVO.h_type }<br> 집유형 :
-									${myBasketVO.h_livetype }<br>
+									장바구니번호 : ${myBasketVO.b_no }<br> 
+									집번호 : ${myBasketVO.h_no }<br>
+									집종류 : ${myBasketVO.h_type }<br> 
+									집유형 : ${myBasketVO.h_livetype }<br>
+									 <button type="button" class="btn btn-danger" onclick="">X</button>
 								</div>
 							</div>
 						</c:forEach>
@@ -154,11 +158,11 @@
 						</tr>
 
 
-						<c:forEach items="${list}" var="basketVO">
+						<c:forEach items="${mList}" var="basketVO">
 
 							<tr style="color: black">
-								<td>${basketVO.b_no}</td>
 								<td></td>
+								<td>${basketVO.h_no}</td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -196,7 +200,7 @@
 
 				<!-------- tab4 자리 --------->
 				<div class="tab-pane" id="tab_4"></div>
-
+					${member.m_no}
 			</div>
 		</div>
 

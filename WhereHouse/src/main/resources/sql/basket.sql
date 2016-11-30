@@ -19,6 +19,10 @@ select (b_no, h_no, m_id) from basket;
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 23, 'powerfeel123@naver.com');
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 22, 'ojh5797@naver.com');
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 24, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 25, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 26, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 27, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 28, 'ojh5797@naver.com');
 
 delete from basket;
 		select b_no, h_no, m_id

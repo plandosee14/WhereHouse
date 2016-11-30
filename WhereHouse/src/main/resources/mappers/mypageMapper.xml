@@ -7,4 +7,20 @@
 		where h.h_no = b.h_no
       		and b.m_id = #{m_id}
 	</select>
+
+	<select id="selectMember" resultType="member">
+		select m_id, m_no, m_name, m_phone 
+		from  member 
+	</select>
+	
+	<update id="modifyMember">
+	    update member set m_id=#{m_id} , m_no=#{m_no},
+                           m_name=#{m_name}, m_phone=#{m_phone}
+        where m_no=#{m_no}
+	</update>
+	
+	<delete id="deleteMember">
+      delete from member
+      where m_no=#{m_no}		
+	</delete>
 </mapper>
