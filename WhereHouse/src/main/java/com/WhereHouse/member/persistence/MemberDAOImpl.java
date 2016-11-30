@@ -1,10 +1,13 @@
 package com.WhereHouse.member.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.member.domain.MemberVO;
 
 @Repository
@@ -41,6 +44,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public String passupdateselect(MemberVO vo) throws Exception {
 		return sqlSession.selectOne("member.passupdateselect", vo);
+	}
+
+	@Override
+	public List<HouseVO> searchHouse(HouseVO vo) throws Exception {
+		return sqlSession.selectList("member.selectHouse", vo);
 	}
 
 }

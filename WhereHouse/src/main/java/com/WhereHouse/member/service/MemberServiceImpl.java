@@ -1,5 +1,6 @@
 package com.WhereHouse.member.service;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.stereotype.Service;
 
+import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.member.domain.Encryption;
 import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.member.domain.SMTPAuthenticator;
@@ -135,6 +137,11 @@ public class MemberServiceImpl implements MemberService {
 		} else {//이미 가입된 이메일
 			return "0";
 		}
+	}
+
+	@Override
+	public List<HouseVO> searchHouse(HouseVO vo) throws Exception {
+		return dao.searchHouse(vo);
 	}
 
 }
