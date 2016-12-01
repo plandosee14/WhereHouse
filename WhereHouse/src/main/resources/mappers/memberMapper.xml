@@ -35,6 +35,6 @@
 		from member
 	</select>
 	<select id="selectHouse" resultType="com.WhereHouse.house.domain.HouseVO">
-		select * from house where h_address like '%'||#{h_address}||'%' and h_state = 0
+		select * from house where h_address like '%'||#{h_address}||'%' and h_state = 0 order by h_no desc
 	</select>
 </mapper>

@@ -13,18 +13,13 @@
 	<br>
 	<br>
 
-		<div style="width: 60%; position: absolute; left: 17%;"><br>
-			<input id="address" type="textbox" value="" class="form-control2" style="width: 30%" placeholder="Search here...">
-			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
-		</div>
-		<div id="map"
-			style="width: 40%; height: 92.5%; position: fixed; left: 60%;"></div>
+
 
 	<script>
 	var idx = 0;
-	var marker;
+	var marker =[];
+	var address;
 		function initMap() {
-			$('#address').val('');
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom : 11,
 				mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -56,14 +51,13 @@
 						});
 					}
 						geocodeAddress(geocoder, map);
-					
 				}
 			});
 			
 		}
 
 		function geocodeAddress(geocoder, resultsMap) {
-			var address = $('#address').val();
+			address = $('#address').val();
 			
 			$.ajax({
  	      		url:"/member/searchHouse",
@@ -79,17 +73,13 @@
  	            		}else {
  	            			idx=0;
  	            			pilhan(result.length, result, geocoder, resultsMap);
- 	            			
- 	            			
+ 	            			setlocation(geocoder, resultsMap);
 					}
  	            }
  	      	});
-			
-			
 		}
 		
 		function pilhan(len, result, geocoder, resultsMap) {
-			
 			geocoder
 				.geocode(
 						{
@@ -98,7 +88,15 @@
 						function(results, status) {
 							if (status === google.maps.GeocoderStatus.OK) {
 								resultsMap.setCenter(results[0].geometry.location);
-								var image = '/resources/img/house/homeicon.png';
+								var image;
+								if (result[idx].h_type=="빌라") {
+									image = '/resources/img/house/billa.png';
+								}
+								else if (result[idx].h_type=="주택") {
+									image = '/resources/img/house/jutaek.png';
+								}else {
+									image = '/resources/img/house/apart.png';
+								}
 								marker = new google.maps.Marker({
 									map : resultsMap,
 									position : results[0].geometry.location,
@@ -106,7 +104,8 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								
+								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_fare.toString()});
+								 google.maps.event.addListener(marker, "click", function() {infowindow.open(map,marker);});
 								/* alert(marker.position); */
 								if (++idx < len) {
 									pilhan(len, result, geocoder, resultsMap);	
@@ -120,10 +119,32 @@
 						});
 		}
 		
+		function setlocation(geocoder, resultsMap) {
+			geocoder
+			.geocode(
+					{
+						'address' : address
+					},
+					function(results, status) {
+						if (status === google.maps.GeocoderStatus.OK) {
+							resultsMap.setCenter(results[0].geometry.location);
+						} 
+					});
+		}
+		
+		
+		
+		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
 		async defer></script>
 
+<div style="width: 60%; position: absolute; left: 17%;"><br>
+			<input id="address" type="textbox" value="" class="form-control2" style="width: 30%" placeholder="Search here...">
+			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
+		</div>
+		<div id="map"
+			style="width: 40%; height: 92.5%; position: fixed; left: 60%;"></div>
 </body>
 </html>
