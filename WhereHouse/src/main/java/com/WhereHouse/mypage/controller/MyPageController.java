@@ -28,13 +28,29 @@ public class MyPageController {
 	@RequestMapping("")
     public String mypage(Model model, HttpServletRequest request, RedirectAttributes attr) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
-		System.out.println("Session üũ : "+m_id);
+		//System.out.println("Session üũ : "+m_id);
 		model.addAttribute("bList", bService.listAllById(m_id));
 		model.addAttribute("mList", mService.listAllById(m_id));
 
 
 		return "/mypage/mypage";
     }
+	
+	@RequestMapping("/payinfo")
+	public String payInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
+		String m_id = (String) request.getSession().getAttribute("m_id");
+		model.addAttribute("bList", bService.listAllById(m_id));
+		model.addAttribute("mList", mService.listAllById(m_id));
+		return "/mypage/mypage2";
+	}
+	
+	@RequestMapping("reginfo")
+	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
+		String m_id = (String) request.getSession().getAttribute("m_id");
+		model.addAttribute("bList", bService.listAllById(m_id));
+		model.addAttribute("mList", mService.listAllById(m_id));
+		return "/mypage/mypage3";
+	}
 	
 	@RequestMapping("/read")
     public String mypageRead(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session) throws Exception{
