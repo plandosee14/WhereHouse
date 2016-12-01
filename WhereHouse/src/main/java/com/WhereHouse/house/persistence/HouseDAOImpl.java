@@ -14,14 +14,15 @@ public class HouseDAOImpl implements HouseDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public void selectHouseByHno(int h_no) throws Exception {
-		sqlSession.selectOne("house.selectHouseByHno", h_no);
-	}
-
-	@Override
 	public void insertHouse(HouseVO vo) throws Exception {
 		sqlSession.insert("house.insert", vo);
 		
 	}
+	@Override
+	public void selectHouseByHno(int h_no) throws Exception {
+		sqlSession.selectOne("house.selectHouseByHno", h_no);
+	}
+
+
 
 }
