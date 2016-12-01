@@ -43,14 +43,6 @@ public class MyPageController {
     	return "redirect:/mypage";
     }
 	
-	@RequestMapping("/payinfo")
-	public String payInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
-		String m_id = (String) request.getSession().getAttribute("m_id");
-		model.addAttribute("bList", bService.listAllById(m_id));
-		model.addAttribute("mList", mService.listAllById(m_id));
-		return "/mypage/mypage2";
-	}
-	
 	@RequestMapping("reginfo")
 	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");

@@ -23,3 +23,14 @@ select * from reservation;
 
 insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
 values (reservation_seq.nextval, 27,'powerfeel123@naver.com','2016-12-01','2016-12-03',600000,1);
+
+insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
+values (reservation_seq.nextval, 22,'ojh5797@naver.com','2016-12-01','2016-12-03',600000,1);
+
+select * from house;
+
+
+select r.r_no, h.h_no, r.r_startdate, r.r_enddate, r.r_fare, r.r_peoplecnt, h.h_thumnail, h.m_phone
+		from house h, reservation r
+		where h.h_no = r.h_no
+      		and r.m_id = 'ojh5797@naver.com';

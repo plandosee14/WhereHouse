@@ -71,23 +71,26 @@ nav ul li:first-child {
 			<table class="table table-bordered">
 				<tr style="color: black">
 					<th>집 사진</th>
+					<th>예약 번호</th>
 					<th>예약한 집번호</th>
-					<th>지불한 금액</th>
 					<th>예약한 날짜</th>
-					<th>집 전화번호</th>
+					<th>가격</th>
+					<th>인원수</th>
+					<th>예약 전화번호</th>
 				</tr>
 
 
-				<c:forEach items="${mList}" var="basketVO">
+				<c:forEach items="${rList}" var="reservationVO">
 
 					<tr style="color: black">
-						<td><img src="../resources/img/house/${basketVO.h_thumnail}"
+						<td><img src="../resources/img/house/${reservationVO.h_thumnail}"
 							width="70"></td>
-						<td>${basketVO.h_no}</td>
-						<td></td>
-						<td></td>
-						<td></td>
-
+						<td>${reservationVO.r_no}</td>
+						<td>${reservationVO.h_no}</td>
+						<td>${reservationVO.r_startdate}~${reservationVO.r_enddate}</td>
+						<td>${reservationVO.r_fare}</td>
+						<td>${reservationVO.r_peoplecnt}</td>
+						<td>${reservationVO.m_phone}</td>
 					</tr>
 
 				</c:forEach>

@@ -30,4 +30,11 @@
       delete from member
       where m_id=#{m_id}		
 	</delete>
+	
+	<select id="selectReservationById" resultType="com.WhereHouse.mypage.domain.MyReservationVO">
+		select r.r_no, h.h_no, r.r_startdate, r.r_enddate, r.r_fare, r.r_peoplecnt, h.h_thumnail, h.m_phone
+		from house h, reservation r
+		where h.h_no = r.h_no
+      		and r.m_id = #{m_id}
+	</select>
 </mapper>
