@@ -91,6 +91,30 @@ nav ul li:first-child {
 }
 </style>
 
+<script>
+$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+
+	$(".btn-danger").on("click", function(){
+		formObj.attr("action", "/mypage/removebasket");
+		formObj.submit();
+	});
+
+	$('#mypageLink').click(function() {
+		location.reload();
+	});
+	
+});//ready
+	var result = '${msg}';
+
+	if (result == 'SUCCESS') {
+		alert("처리가 완료되었습니다.");
+	}
+	
+	
+</script>
+
 </head>
 
 <body>
@@ -101,8 +125,8 @@ nav ul li:first-child {
 		<div class="nav-tabs-custom">
 
 			<h1>
-				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span><font
-					color="black">MyPage</font>
+				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
+				<font color="black"><div id="mypageLink" style="cursor: pointer;">MyPage</div></font>
 			</h1>
 			<hr>
 			<nav>
@@ -123,11 +147,14 @@ nav ul li:first-child {
 						<img src="../resources/img/house/${myBasketVO.h_thumnail}"
 							width="95%">
 					</center>
+				<form role="form" method="post">
 					<div class="basketText">
+						<input type='hidden' name='b_no' value="${myBasketVO.b_no}">
 						장바구니번호 : ${myBasketVO.b_no }<br> 집번호 : ${myBasketVO.h_no }<br>
 						집종류 : ${myBasketVO.h_type }<br> 집유형 : ${myBasketVO.h_livetype }<br>
-						<button type="button" class="btn btn-danger" onclick="">X</button>
+						<button type="submit" class="btn btn-danger">REMOVE</button>
 					</div>
+				</form>
 				</div>
 			</c:forEach>
 		</div>

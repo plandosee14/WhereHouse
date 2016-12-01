@@ -13,4 +13,5 @@ public interface MypageDAO {
 	public MemberVO read(String m_id)throws Exception;
 	public void update(MemberVO member)throws Exception;
 	public void delete(String m_id)throws Exception;
+	public void deleteBasket(int b_no)throws Exception;
 }

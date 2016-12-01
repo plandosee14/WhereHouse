@@ -36,6 +36,13 @@ public class MyPageController {
 		return "/mypage/mypage";
     }
 	
+    @RequestMapping("/removebasket")
+    public String removeBasket(int b_no, RedirectAttributes attr)throws Exception{
+    	mService.removeBasket(b_no);
+    	attr.addFlashAttribute("msg","SUCCESS");
+    	return "redirect:/mypage";
+    }
+	
 	@RequestMapping("/payinfo")
 	public String payInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");

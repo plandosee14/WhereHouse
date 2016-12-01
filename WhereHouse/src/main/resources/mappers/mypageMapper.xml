@@ -7,6 +7,12 @@
 		where h.h_no = b.h_no
       		and b.m_id = #{m_id}
 	</select>
+	
+	<delete id="deleteMyBasket">
+		delete from basket
+		where b_no = #{b_no}
+	
+	</delete>
 
 	<select id="selectMember" resultType="member">
 		select m_id, m_no, m_name, m_phone 

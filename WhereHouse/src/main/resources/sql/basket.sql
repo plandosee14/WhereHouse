@@ -13,7 +13,7 @@ increment by 1
 nocycle
 nocache;
 
-select (b_no, h_no, m_id) from basket;
+select * from basket;
 
 
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 23, 'powerfeel123@naver.com');
