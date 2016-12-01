@@ -39,7 +39,7 @@
 	<context:component-scan base-package="com.WhereHouse.basket.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.comment.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.admin.persistence"></context:component-scan>
-	<context:component-scan base-package="com.WhereHouse.house.persistence"></context:component-scan>
+	<context:component-scan base-package="com.WhereHouse.reservation.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.mypage.persistence"></context:component-scan>
 	
 	

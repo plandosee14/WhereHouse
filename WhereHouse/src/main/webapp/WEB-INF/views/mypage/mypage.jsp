@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #faq_list {
-	border-bottom: 1px solid #ccc
+	border-bottom: 1px solid #ccc 
 }
 
 #faq_list li {
