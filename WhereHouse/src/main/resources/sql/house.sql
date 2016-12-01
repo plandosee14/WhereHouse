@@ -161,5 +161,5 @@ from house h , basket b
 where h.h_no = b.h_no
       and b.m_id = 'ojh5797@naver.com';
 
-delete from house;
+delete from house ;
       
