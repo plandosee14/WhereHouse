@@ -80,7 +80,7 @@ h_startdate,h_enddate, h_info,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
  values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3952-5797',
-'12345','서울시 양천구 성북구',200000,
+'12345','서울시 양천구',200000,
 '2016-11-30','2017-12-30','정훈이네 집으로 찾아오세요',
 5,'아파트','방하나',
 '3시~11시', 10,45000,

@@ -87,7 +87,7 @@
 						},
 						function(results, status) {
 							if (status === google.maps.GeocoderStatus.OK) {
-								resultsMap.setCenter(results[0].geometry.location);
+								/* resultsMap.setCenter(results[0].geometry.location); */
 								var image;
 								if (result[idx].h_type=="빌라") {
 									image = '/resources/img/house/billa.png';
@@ -100,12 +100,14 @@
 								marker = new google.maps.Marker({
 									map : resultsMap,
 									position : results[0].geometry.location,
-									title : result[idx].h_no.toString(),
+									title : result[idx].h_no.toString()+"번 House",
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_fare.toString()});
-								 google.maps.event.addListener(marker, "click", function() {infowindow.open(map,marker);});
+								 var infowindow = new google.maps.InfoWindow({ content: "<a href='/'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 google.maps.event.addListener(marker, "click", function() {
+									 infowindow.open(map,this);
+									 });
 								/* alert(marker.position); */
 								if (++idx < len) {
 									pilhan(len, result, geocoder, resultsMap);	
@@ -131,7 +133,6 @@
 						} 
 					});
 		}
-		
 		
 		
 		
