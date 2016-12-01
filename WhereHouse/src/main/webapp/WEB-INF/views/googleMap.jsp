@@ -138,11 +138,13 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
 		async defer></script>
 
-<div style="width: 60%; position: absolute; left: 17%;"><br>
-			<input id="address" type="textbox" value="" class="form-control2" style="width: 30%" placeholder="Search here...">
-			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
-		</div>
-		<div id="map"
-			style="width: 40%; height: 92.5%; position: fixed; left: 60%;"></div>
+			<div style="width: 30%; position: absolute; left: 17%;"><br>
+			<input id="address" type="textbox" value="" class="form-control2" style="width: 80%;" placeholder="Search here...">
+			<button id="serachhouse" class="form-control2" style="width: 15%;"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
+			
+			<div id="map"
+			style="width: 40%; height: 92.5%; position: fixed; left: 60%;">
+			</div>
 </body>
 </html>
