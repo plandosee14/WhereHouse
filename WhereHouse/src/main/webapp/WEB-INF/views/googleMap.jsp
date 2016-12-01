@@ -104,7 +104,7 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: "<a href='/"+result[idx].h_no+"'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 var infowindow = new google.maps.InfoWindow({ content: "<a href='/detail?h_no="+result[idx].h_no+"'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
 								 google.maps.event.addListener(marker, "click", function() {
 									 infowindow.open(map,this);
 									 });
@@ -133,9 +133,6 @@
 						} 
 					});
 		}
-		
-		
-		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
