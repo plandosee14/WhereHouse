@@ -17,7 +17,8 @@
 
 	<script>
 	var idx;
-	var marker;
+	var marker = new Array();
+	var infowindow = new Array();
 	var address;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -100,21 +101,23 @@
 								}else {
 									image = '/resources/img/house/apart.png';
 								}
-								marker = new google.maps.Marker({
+								marker[idx] = new google.maps.Marker({
 									map : resultsMap,
 									position : results[0].geometry.location,
 									title : result[idx].h_no.toString()+"번 House",
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
-								 google.maps.event.addListener(marker, "click", function() {
+									 alert(idx);
+								 infowindow[idx] = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 google.maps.event.addListener(marker[idx], "click", function() {
 									 infowindow.open(map,this);
 								 });
-								 google.maps.event.addListener(marker, "mouseover", function() {
+								 google.maps.event.addListener(marker[idx], "mouseover", function() {
 									 this.setAnimation(google.maps.Animation.BOUNCE);
+									 //$('#list'+result[idx].h_no)
 								 });
-								 google.maps.event.addListener(marker, "mouseout", function() {
+								 google.maps.event.addListener(marker[idx], "mouseout", function() {
 									 this.setAnimation(null);
 								 });
 								 $('#searchlist').append("<div style='margin: 1%;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'></a><div style='display:inline-block; margin-left : 1%;'><br><br><br> 집 번호: "+result[idx].h_no.toString()+"<br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"<br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed black; height:8px'></div></div>");

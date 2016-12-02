@@ -3,7 +3,7 @@ input[type="checkbox"]#menu_state {
   display: none;
 }
 input[type="checkbox"]:checked ~ aside {
-  width: 250px;
+  width: 180px;
 }
 input[type="checkbox"]:checked ~ aside label[for="menu_state"] i::before {
   content: "\f053";
@@ -27,7 +27,7 @@ aside {
   top: 0;
   left: 0;
   bottom: 0;
-  background: #383e49;
+  background: #626262;
   color: #9aa3a8;
   width: 50px;
   font-family: 'Montserrat', sans-serif;
