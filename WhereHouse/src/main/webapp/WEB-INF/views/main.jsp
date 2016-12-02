@@ -58,7 +58,7 @@
 		<div class="row no-gutter">
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1430916273432-273c2db881a0%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3Df047e8284d2fdc1df0fd57a5d294614d">
+					data-src="http://cfile29.uf.tistory.com/image/163226395022EA1329757B">
 					<img
 					src="/resources/screenshot/seoul1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 1">
@@ -73,7 +73,7 @@
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/getrefe/regular/tumblr_nqune4OGHl1slhhf0o1_1280.jpg">
+					data-src="http://cfile211.uf.daum.net/image/2237DA4A534FD7200C0A09">
 					<img
 					src="/resources/screenshot/gyoungju.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 2">
@@ -88,7 +88,7 @@
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/unsplash/regular/photo-1433959352364-9314c5b6eb0b%3Fq%3D75%26fm%3Djpg%26w%3D1080%26fit%3Dmax%26s%3D3b9bc6caa190332e91472b6828a120a4">
+					data-src="http://chulsa.kr/files/attach/images/66/906/313/005/IMG_9479-1.jpg">
 					<img
 					src="/resources/screenshot/busan1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 3">
@@ -103,9 +103,9 @@
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-moto-drawing-illusion-nabeel-1440x960.jpg">
+					data-src="http://chulsa.kr/files/attach/images/66/057/353/DSC_0082_10.jpg">
 					<img
-					src="/resources/screenshot/jeju1.jpg" width="500" height="450"
+					src="/resources/screenshot/jeju2.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 4">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -118,9 +118,9 @@
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-new-york-crosswalk-nabeel-1440x960.jpg">
+					data-src="http://cfile235.uf.daum.net/image/200ACA1A4B47F4632D7B79">
 					<img
-					src="/resources/screenshot/andong.jpg" width="500" height="450"
+					src="/resources/screenshot/andong1.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 5">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -133,7 +133,7 @@
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="//splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-clothes-exotic-travel-nabeel-1440x960.jpg">
+					data-src="http://cfile7.uf.tistory.com/image/15249F3B4F6AB7A81B5EAE">
 					<img
 					src="/resources/screenshot/yeosu.jpg" width="500" height="450"
 					class="img-responsive" alt="Image 6">
