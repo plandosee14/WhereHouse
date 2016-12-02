@@ -10,7 +10,12 @@
 <head>
 <link rel="stylesheet" href="/resources/css/mypageMenu.css"/>
 <title>Insert title here</title>
-
+<style type="text/css">
+#mainDiv {
+	width:85%;
+	float:right;
+}
+</style>
 
 <script>
 $(document).ready(function(){
@@ -34,7 +39,7 @@ $(document).ready(function(){
 
 <body>
 
-	<div class="container">
+	<div class="container" id="mainDiv">
 		<!-- Custom Tabs -->
 
 		<div class="nav-tabs-custom">

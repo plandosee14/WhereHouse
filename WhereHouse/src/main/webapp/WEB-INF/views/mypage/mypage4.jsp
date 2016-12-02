@@ -9,6 +9,13 @@
 
 <link rel="stylesheet" href="/resources/css/mypageMenu.css"/>
 
+<style type="text/css">
+#mainDiv {
+	width:85%;
+	float:right;
+}
+</style>
+
 <script>
 $(document).ready(function(){
 	
@@ -30,7 +37,7 @@ $(document).ready(function(){
 </head>
 
 <body>
-
+<br><br><br>
 <input type="checkbox" id="menu_state" checked>
 <aside>
 	<label for="menu_state"><i class="fa"></i></label>
