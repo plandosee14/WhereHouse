@@ -8,31 +8,30 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="/resources/css/mypageMenu.css"/>
+<link rel="stylesheet" href="/resources/css/mypageMenu.css" />
 <title>Insert title here</title>
 <style type="text/css">
 #mainDiv {
-	width:85%;
-	float:right;
+	width: 85%;
+	float: right;
 }
 </style>
 
 <script>
-$(document).ready(function(){
-	
-	var formObj = $("form[role='form']");
+	$(document).ready(function() {
 
-	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/mypage/removebasket");
-		formObj.submit();
-	});
+		var formObj = $("form[role='form']");
 
-	$('#mypageLink').click(function() {
-		location.reload();
+		$(".btn-danger").on("click", function() {
+			formObj.attr("action", "/mypage/removebasket");
+			formObj.submit();
+		});
+
+		$('#mypageLink').click(function() {
+			location.reload();
+		});
+
 	});
-	
-});
-	
 </script>
 
 </head>
@@ -44,49 +43,32 @@ $(document).ready(function(){
 
 		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
-			<h1>
-				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-				<font color="black">MyPage</font>
-			</h1>
+				<h1>
+					<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
+					<font color="black">MyPage</font>
+				</h1>
 			</div>
 			<hr>
-<input type="checkbox" id="menu_state" checked>
-<aside>
-	<label for="menu_state"><i class="fa"></i></label>
-	<ul>
-		<li>
-			<a href="/mypage">
-				<i class="fa fa-inbox"></i>
-				<span>장바구니</span>
-			</a>
-		</li>
-		<li class="active">
-			<a href="/mypage/payinfo">
-				<i class="fa fa-heart"></i>
-				<span>결제정보</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/reginfo">
-				<i class="fa fa-paper-plane"></i>
-				<span>등록정보</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-pencil"></i>
-				<span>회원정보 수정</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-trash"></i>
-				<span>회원탈퇴</span>
-			</a>
-		</li>
-	</ul>
-</aside>
-		
+			<input type="checkbox" id="menu_state" checked>
+			<aside> <label for="menu_state"><i class="fa"></i></label>
+			<ul>
+				<li data-content="3" class="active unread"><a href="/mypage">
+						<i class="fa fa-cart-plus"></i> <span>장바구니</span>
+				</a></li>
+				<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
+						<span>결제정보</span>
+				</a></li>
+				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
+						<span>등록정보</span>
+				</a></li>
+				<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
+							수정</span>
+				</a></li>
+				<li><a href="/mypage/read"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				</li>
+			</ul>
+			</aside>
+
 			<br>
 			<h3>결제정보</h3>
 			<br>
@@ -106,7 +88,8 @@ $(document).ready(function(){
 				<c:forEach items="${rList}" var="reservationVO">
 
 					<tr style="color: black">
-						<td><img src="../resources/img/house/${reservationVO.h_thumnail}"
+						<td><img
+							src="../resources/img/house/${reservationVO.h_thumnail}"
 							width="70"></td>
 						<td>${reservationVO.r_no}</td>
 						<td>${reservationVO.h_no}</td>
@@ -119,7 +102,7 @@ $(document).ready(function(){
 				</c:forEach>
 
 			</table>
-			
+
 		</div>
 	</div>
 

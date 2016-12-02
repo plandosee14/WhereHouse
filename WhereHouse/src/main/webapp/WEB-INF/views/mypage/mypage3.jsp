@@ -8,13 +8,13 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="/resources/css/mypageMenu.css"/>
+<link rel="stylesheet" href="/resources/css/mypageMenu.css" />
 <title>Insert title here</title>
 
 <style type="text/css">
 #mainDiv {
-	width:85%;
-	float:right;
+	width: 85%;
+	float: right;
 }
 </style>
 </head>
@@ -26,47 +26,30 @@
 
 		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
-			<h1>
-				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-				<font color="black">MyPage</font>
-			</h1>
+				<h1>
+					<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
+					<font color="black">MyPage</font>
+				</h1>
 			</div>
-<input type="checkbox" id="menu_state" checked>
-<aside>
-	<label for="menu_state"><i class="fa"></i></label>
-	<ul>
-		<li>
-			<a href="/mypage">
-				<i class="fa fa-inbox"></i>
-				<span>장바구니</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/payinfo" class="active read">
-				<i class="fa fa-heart"></i>
-				<span>결제정보</span>
-			</a>
-		</li>
-		<li class="active">
-			<a href="/mypage/reginfo">
-				<i class="fa fa-paper-plane"></i>
-				<span>등록정보</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-pencil"></i>
-				<span>회원정보 수정</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-trash"></i>
-				<span>회원탈퇴</span>
-			</a>
-		</li>
-	</ul>
-</aside>
+			<input type="checkbox" id="menu_state" checked>
+			<aside> <label for="menu_state"><i class="fa"></i></label>
+			<ul>
+				<li data-content="3" class="active unread"><a href="/mypage">
+						<i class="fa fa-cart-plus"></i> <span>장바구니</span>
+				</a></li>
+				<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
+						<span>결제정보</span>
+				</a></li>
+				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
+						<span>등록정보</span>
+				</a></li>
+				<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
+							수정</span>
+				</a></li>
+				<li><a href="/mypage/read"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				</li>
+			</ul>
+			</aside>
 
 			<br>
 			<h3>등록정보</h3>

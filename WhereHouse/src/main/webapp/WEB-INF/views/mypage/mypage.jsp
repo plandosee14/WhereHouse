@@ -79,16 +79,16 @@
 			<ul>
 				<li data-content="3" class="active unread">
 					<a href="/mypage">
-					<i class="fa fa-inbox"></i>
+					<i class="fa fa-cart-plus"></i>
 					<span>장바구니</span></a>
 				</li>
 				<li>
-					<a href="/mypage/payinfo"> <i class="fa fa-heart"></i>
+					<a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
 						<span>결제정보</span>
 					</a>
 				</li>
 				<li>
-					<a href="/mypage/reginfo"> <i class="fa fa-paper-plane"></i>
+					<a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
 						<span>등록정보</span>
 				</a></li>
 				<li>
