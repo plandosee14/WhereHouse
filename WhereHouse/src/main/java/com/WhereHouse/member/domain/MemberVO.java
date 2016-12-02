@@ -1,6 +1,6 @@
 package com.WhereHouse.member.domain;
 
-import java.util.Date;
+import java.util.Date;  
  
 public class MemberVO {
 	private String m_id;
@@ -87,7 +87,7 @@ public class MemberVO {
 		return "MemberVO [m_id=" + m_id + ", m_no=" + m_no + ", m_name=" + m_name + ", m_pass=" + m_pass + ", m_phone="
 				+ m_phone + ", m_score=" + m_score + ", m_regdate=" + m_regdate + ", m_dropdate=" + m_dropdate
 				+ ", m_scorecnt=" + m_scorecnt + "]";
-	}
+	} 
 
 	 
 }
