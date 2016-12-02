@@ -17,7 +17,7 @@
 
 	<script>
 	var idx = 0;
-	var marker =[];
+	var marker = [];
 	var address;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -36,6 +36,7 @@
 	                  $('#alertcontent').html('검색어는 두글자 이상만 가능합니다.');
 	                  $('#alertModal').modal("show");
 				}else {
+					$('#searchlist').html('');
 					if (marker != null) {
 						for (var i = 0; i < marker.length; i++) {
 						    marker[i].setMap(null);
@@ -104,13 +105,26 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: "<a href='/detail?h_no="+result[idx].h_no+"'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no+"'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
 								 google.maps.event.addListener(marker, "click", function() {
 									 infowindow.open(map,this);
-									 });
+									 
+								 });
+								 google.maps.event.addListener(marker, "mouseover", function() {
+									 this.setAnimation(google.maps.Animation.BOUNCE);
+								 });
+								 google.maps.event.addListener(marker, "mouseout", function() {
+									 this.setAnimation(null);
+								 });
+								 /* google.maps.event.addListener(marker, "mouseout", function() {
+									 infowindow.close(map,this);
+									 this.setAnimation(null);
+								 }); */
+								 
 								/* alert(marker.position); */
+								$('#searchlist').append("<a href='/detail?h_no="+result[idx].h_no+"'><div id=list"+idx+" class= 'list'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'>"+result[idx].h_address+"</div><a>");
 								if (++idx < len) {
-									pilhan(len, result, geocoder, resultsMap);	
+									pilhan(len, result, geocoder, resultsMap);
 								}else {
 									return;
 								}
@@ -133,18 +147,21 @@
 						} 
 					});
 		}
+		
+		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
 		async defer></script>
 
-			<div style="width: 30%; position: absolute; left: 17%;"><br>
+			<div style="width: 50%; position: absolute; margin-left: 1%"><br>
 			<input id="address" type="textbox" value="" class="form-control2" style="width: 80%;" placeholder="Search here...">
 			<button id="serachhouse" class="form-control2" style="width: 15%;"><i class="glyphicon glyphicon-search"></i></button>
+			<div id="searchlist">
 			</div>
-			
+			</div>
 			<div id="map"
-			style="width: 40%; height: 92.5%; position: fixed; left: 60%;">
+			style="width: 50%; height: 92.5%; position: fixed; left: 50%;">
 			</div>
 </body>
 </html>
