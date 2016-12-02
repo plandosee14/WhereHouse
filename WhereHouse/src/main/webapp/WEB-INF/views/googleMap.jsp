@@ -63,6 +63,7 @@
 			$.ajax({
  	      		url:"/member/searchHouse",
  	            type: "post",
+ 	            async: "true",
  	            data:{
  	            	h_address : address
  	            },
@@ -89,7 +90,6 @@
 						function(results, status) {
 							if (status === google.maps.GeocoderStatus.OK) {
 								/* resultsMap.setCenter(results[0].geometry.location); */
-								
 								
 								var image;
 								if (result[idx].h_type=="빌라") {
@@ -149,6 +149,8 @@
 						} 
 					});
 		}
+		
+		
 		
 		
 	</script>
