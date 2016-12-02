@@ -120,11 +120,9 @@ textarea{
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
-					<button type="button" class="btn btn-primary" id="commentAddBtn">ADD COMMENT</button>
+					<button type="button" class="bt btn-primary" id="commentAddBtn">ADD COMMENT</button>
 				</div>
 			</div>
-
-
 			<!-- The time line -->
 			<ul class="timeline">
 				<!-- timeline time label -->
@@ -137,8 +135,36 @@ textarea{
 
 				</ul>
 			</div>
+			<div>
+				<ul id="morepage">
+				
+				</ul>
+			</div>
 			</div>
 		</div>
+		
+          
+<!-- Modal -->
+<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" data-rno>
+        <p><input type="text" id="commenttext" class="form-control"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" id="commentModBtn">Modify</button>
+        <button type="button" class="btn btn-danger" id="commentDelBtn">DELETE</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+	
 	<script src="/resources/js/star.js"></script>
 	<script id="template" type="text/x-handlebars-template">
 	{{#each .}}
@@ -150,7 +176,7 @@ textarea{
 	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{m_name}}</h3>
 	  <div class="timeline-body">{{c_content}} </div>
   	  <div class="timeline-footer">
-  	   <a class="btn btn-primary btn-xs" 
+  	   <a class="bt btn-primary btn-xs" 
 		    data-toggle="modal" data-target="#modifyModal">Modify</a>
     	</div>
 	  </div>			
@@ -184,10 +210,19 @@ function getPage(pageInfo) {
 	$.getJSON(pageInfo, function(data) {
 		printData(data.list, $("#commentDiv"), $('#template'));
 		printPaging(data.pageMaker, $(".pagination"));
-
+		//printPaging2(data.pageMaker, $(".morepage"));
+/* 
 		$("#modifyModal").modal('hide');
-
+ */
 	});
+}
+
+var printPaging2 = function(pageMaker, target) {
+	var str="";
+	for(var i = pageMaker.cri.perPageNum, len=pageMaker.totalCount; i<len; i=i+3) {
+		str = "<li><a href='"+i+"'>"+더보기+"</a></li>";
+	}
+	target.html(str);
 }
 
 var printPaging = function(pageMaker, target) {
@@ -198,7 +233,6 @@ var printPaging = function(pageMaker, target) {
 		str += "<li><a href='" + (pageMaker.startPage - 1)
 				+ "'> << </a></li>";
 	}
-
 	for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
 		var strClass = pageMaker.cri.page == i ? 'class=active' : '';
 		str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
@@ -213,14 +247,14 @@ var printPaging = function(pageMaker, target) {
 };
 
 getPage("/comments/" + h_no+"/1");
-$("#commentDiv").on("click", function() {
+ $("#commentDiv").on("click", function() {
 	if ($(".timeline li").size() > 1) {
 		return;
 	}
 	getPage("/comments/" + h_no+"/1");
 
 });
-
+ 
 
 $(".pagination").on("click", "li a", function(event){
 	
@@ -233,6 +267,89 @@ $(".pagination").on("click", "li a", function(event){
 });
 
 
+	$("#commentAddBtn").on("click",function(){
+		 
+		 var commenterObj = $("#newCommentWriter");
+		 var commenttextObj = $("#newCommentText");
+		 var commenter = commenterObj.val();
+		 var commenttext = commenttextObj.val();
+		
+		  
+		  $.ajax({
+				type:'post',
+				url:'/comments/',
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "POST" },
+				dataType:'text',
+				data: JSON.stringify({h_no:h_no, m_name:commenter, c_content:commenttext}),
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'SUCCESS'){
+						alert("등록 되었습니다.");
+						commentPage = 1;
+						getPage("/comments/"+h_no+"/"+commentPage );
+						commenterObj.val("");
+						commenttextObj.val("");
+					}
+			}});
+	});
+
+
+	$(".timeline").on("click", ".commentLi", function(event){
+		
+		var comment = $(this);
+		
+		$("#commenttext").val(comment.find('.timeline-body').text());
+		$(".modal-title").html(comment.attr("data-c_no"));
+		
+	});
+	
+	
+
+	$("#commentModBtn").on("click",function(){
+		  
+		  var c_no = $(".modal-title").html();
+		  var commenttext = $("#commenttext").val();
+		  
+		  $.ajax({
+				type:'put',
+				url:'/comments/'+c_no,
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "PUT" },
+				data:JSON.stringify({c_content:commenttext}), 
+				dataType:'text', 
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'SUCCESS'){
+						alert("수정 되었습니다.");
+						getPage("/comments/"+h_no+"/"+commentPage );
+					}
+			}});
+	});
+
+	$("#commentDelBtn").on("click",function(){
+		  
+		  var c_no = $(".modal-title").html();
+		  var commenttext = $("#commenttext").val();
+		  
+		  $.ajax({
+				type:'delete',
+				url:'/comments/'+c_no,
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "DELETE" },
+				dataType:'text', 
+				success:function(result){
+					console.log("result: " + result);
+					if(result == 'SUCCESS'){
+						alert("삭제 되었습니다.");
+						getPage("/comments/"+h_no+"/"+commentPage );
+					}
+			}});
+	});
+	
 </script>
 	</body>
 </html>

@@ -15,7 +15,7 @@
 	</delete>
 	<select id="count" resultType="int">
 		select count(*) from comments
-		where c_no=#{c_no}
+		where h_no=#{h_no}
 	</select>
 	<select id="list" resultType="com.WhereHouse.comment.domain.CommentVO">
 		select c_no, m_no, m_name, h_no, c_content, c_regdate, c_modifydate

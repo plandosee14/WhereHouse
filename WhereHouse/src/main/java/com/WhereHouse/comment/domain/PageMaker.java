@@ -23,11 +23,11 @@ public class PageMaker {
 	   //Math.round(doublc a)   : 반올림    1.1 ---> 1     1.5 ---> 2
 	  endPage =   (int)( Math.ceil((cri.getPage()/(double)displayPageNum)) 
 			        * displayPageNum);
+	  
 	  startPage = (endPage - displayPageNum) +1;
 	  
 	  int tempEndPage= (int)(Math.ceil(totalCount/(double)cri.getPerPageNum()));
       //tempEndPage : 전체 총 페이지수
-	  
 	  if(endPage > tempEndPage){
     	  endPage = tempEndPage;
       }

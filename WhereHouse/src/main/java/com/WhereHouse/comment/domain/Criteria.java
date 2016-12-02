@@ -6,7 +6,7 @@ public class Criteria {
    
    public Criteria() {
 	   page=1;
-	   perPageNum=5;
+	   perPageNum=3;
    }//»ı¼ºÀÚ
 
 	public int getPage() {
