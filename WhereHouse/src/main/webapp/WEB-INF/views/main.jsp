@@ -65,7 +65,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">서울</font>
 							</div>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">경주</font>
 							</div>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">부산</font>
 							</div>
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">제주</font>
 							</div>
 						</div>
 					</div>
@@ -125,7 +125,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">안동</font>
 							</div>
 						</div>
 					</div>
@@ -140,7 +140,7 @@
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<i class="icon-lg ion-ios-search"></i>
+								<font size="15">여수</font>
 							</div>
 						</div>
 					</div>

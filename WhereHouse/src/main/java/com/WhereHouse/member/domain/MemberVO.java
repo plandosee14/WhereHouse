@@ -1,7 +1,7 @@
 package com.WhereHouse.member.domain;
 
 import java.util.Date;
-
+ 
 public class MemberVO {
 	private String m_id;
 	private int m_no;

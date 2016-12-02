@@ -137,13 +137,7 @@ $(document).ready(function(){
 		location.reload();
 	});
 	
-});//ready
-	var result = '${msg}';
-
-	if (result == 'SUCCESS') {
-		alert("처리가 완료되었습니다.");
-	}
-	
+});
 	
 </script>
 

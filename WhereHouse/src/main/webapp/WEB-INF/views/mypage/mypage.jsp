@@ -172,9 +172,8 @@ $(document).ready(function(){
 			</ul>
 			</nav>
 		</div>
-
 			<br>
-			<h3>찜목록</h3>
+			<br>
 			<br>
 			<c:forEach items="${mList}" var="myBasketVO">
 				<div class="basketList">

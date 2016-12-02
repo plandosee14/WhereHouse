@@ -123,6 +123,24 @@ nav ul li:first-child {
 }
 </style>
 
+<script>
+$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+
+	$(".btn-danger").on("click", function(){
+		formObj.attr("action", "/mypage/removebasket");
+		formObj.submit();
+	});
+
+	$('#mypageLink').click(function() {
+		location.reload();
+	});
+	
+});
+	
+</script>
+
 </head>
 
 <body>
@@ -131,11 +149,12 @@ nav ul li:first-child {
 		<!-- Custom Tabs -->
 
 		<div class="nav-tabs-custom">
-
+			<div id="mypageLink" style="cursor: pointer;">
 			<h1>
-				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span><font
-					color="black">MyPage</font>
+				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
+				<font color="black">MyPage</font>
 			</h1>
+			</div>
 			<hr>
 		<div id="nav_menu">
 			<nav>
