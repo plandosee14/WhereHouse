@@ -113,7 +113,8 @@
 								 });
 								 google.maps.event.addListener(marker[idx], "mouseover", function() {
 									 this.setAnimation(google.maps.Animation.BOUNCE);
-									 //$('#list'+result[idx].h_no)
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','orange');
+									
 								 });
 								 google.maps.event.addListener(marker[idx], "mouseout", function() {
 									 this.setAnimation(null);
