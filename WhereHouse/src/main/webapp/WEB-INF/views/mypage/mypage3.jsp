@@ -14,6 +14,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+#faq_list {
+	border-bottom: 1px solid #ccc 
+}
+
+#faq_list li {
+	border-top: 1px solid #ccc;
+	padding: 0 5px
+}
+
+#faq_list li h4 a {
+	display: block;
+	padding: 8px
+}
+
+#faq_list li p {
+	border-top: 1px dotted #eaeaea;
+	padding: 8px;
+	line-height: 18px
+}
+
+#faq_list li.unfold h4 a {
+	font-weight: bold
+}
+
+#faq_list li.fold p {
+	display: none
+}
+
+* {
+	padding: 0;
+	margin: 0 auto;
+}
+
+#wrap {
+	width: 1024px;
+}
+
+.basketList {
+	width: 33%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.basketText {
+	size: 12;
+	margin: 10;
+}
+</style>
+
+<style type="text/css">
 /* 기본 설정*/
 a {
 	text-decoration: none;
@@ -39,6 +89,38 @@ nav ul li {
 nav ul li:first-child {
 	border-left: none;
 }
+
+#nav_menu ul {
+ list-style-type:none;
+ background-color:#000000;
+ padding:1px 5px 5px 1px;
+ float:left;
+}
+ 
+#nav_menu ul li {
+ display:inline;
+ border-left: 1px solid #c0c0c0;
+ padding: 0px 10px 0px 10px;
+ margin: 5px 0px 5px 0px;
+ color:#ffffff;
+ font-size:9pt;
+}
+ 
+#nav_menu ul li:first-child {
+ border-left: none;
+}
+ 
+/* 특별하게 정해지지 않은 링크 속성에 모두 적용할 스타일 : 흰글씨 / 밑줄없앰 */
+#nav_menu a {
+ text-decoration:none;
+ color:#ffffff
+}
+ 
+/* 링크에 마우스 롤오버시 적용되는 스타일 : 하단에 노란 밑줄이(border-bottom) 생김 */
+#nav_menu a:hover {
+ color:#D4F4FA;
+ border-bottom:3px solid yellow;
+}
 </style>
 
 </head>
@@ -55,6 +137,7 @@ nav ul li:first-child {
 					color="black">MyPage</font>
 			</h1>
 			<hr>
+		<div id="nav_menu">
 			<nav>
 			<ul>
 				<li><a href="/mypage">장바구니</a></li>
@@ -63,6 +146,7 @@ nav ul li:first-child {
 				<li><a href="/mypage/read">개인정보</a></li>
 			</ul>
 			</nav>
+		</div>
 
 			<br>
 			<h3>등록정보</h3>

@@ -89,6 +89,38 @@ nav ul li {
 nav ul li:first-child {
 	border-left: none;
 }
+
+#nav_menu ul {
+ list-style-type:none;
+ background-color:#000000;
+ padding:1px 5px 5px 1px;
+ float:left;
+}
+ 
+#nav_menu ul li {
+ display:inline;
+ border-left: 1px solid #c0c0c0;
+ padding: 0px 10px 0px 10px;
+ margin: 5px 0px 5px 0px;
+ color:#ffffff;
+ font-size:9pt;
+}
+ 
+#nav_menu ul li:first-child {
+ border-left: none;
+}
+ 
+/* 특별하게 정해지지 않은 링크 속성에 모두 적용할 스타일 : 흰글씨 / 밑줄없앰 */
+#nav_menu a {
+ text-decoration:none;
+ color:#ffffff
+}
+ 
+/* 링크에 마우스 롤오버시 적용되는 스타일 : 하단에 노란 밑줄이(border-bottom) 생김 */
+#nav_menu a:hover {
+ color:#D4F4FA;
+ border-bottom:3px solid yellow;
+}
 </style>
 
 <script>
@@ -123,12 +155,14 @@ $(document).ready(function(){
 		<!-- Custom Tabs -->
 
 		<div class="nav-tabs-custom">
-
+			<div id="mypageLink" style="cursor: pointer;">
 			<h1>
 				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-				<font color="black"><div id="mypageLink" style="cursor: pointer;">MyPage</div></font>
+				<font color="black">MyPage</font>
 			</h1>
+			</div>
 			<hr>
+		<div id="nav_menu">
 			<nav>
 			<ul>
 				<li><a href="/mypage">장바구니</a></li>
@@ -137,6 +171,7 @@ $(document).ready(function(){
 				<li><a href="/mypage/read">개인정보</a></li>
 			</ul>
 			</nav>
+		</div>
 
 			<br>
 			<h3>찜목록</h3>

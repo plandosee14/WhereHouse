@@ -89,5 +89,5 @@ public class MemberVO {
 				+ ", m_scorecnt=" + m_scorecnt + "]";
 	}
 
-	
+	 
 }
