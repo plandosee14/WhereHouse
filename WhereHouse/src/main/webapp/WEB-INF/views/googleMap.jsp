@@ -16,9 +16,13 @@
 
 
 	<script>
+	
+
+	
 	var idx;
 	var marker = new Array();
 	var address;
+	var infowindow;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom : 11,
@@ -42,6 +46,7 @@
 						    marker[i].setMap(null);
 						  }
 						marker = [];
+						infowindow = [];
 						map = new google.maps.Map(document.getElementById('map'), {
 							zoom : 11,
 							mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -107,14 +112,14 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
 								 google.maps.event.addListener(marker[idx], "click", function() {
 									 infowindow.open(map,this);
 								 });
 								 google.maps.event.addListener(marker[idx], "mouseover", function() {
 									 this.setAnimation(google.maps.Animation.BOUNCE);
 									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','#efefef');
-									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','0.5');
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','0.8');
 									 $('#list'+this.title.substring(0, this.title.charAt('번'))).attr('tabindex', -1);
 									 $('#list'+this.title.substring(0, this.title.charAt('번'))).focus();									
 								 });
@@ -122,8 +127,9 @@
 									 this.setAnimation(null);
 									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','#f7f7f7');
 									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).focusout();
 								 });
-								 $('#searchlist').append("<div style='margin: 1%;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'></a><div style='display:inline-block; margin-left : 1%;'> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"<br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed black; height:4px;'></div></div>");
+								 $('#searchlist').append("<div style='border-radius: 10px;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px; border-radius: 10px;'></a><div style='display:inline-block; margin-left : 1%;'> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"<br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
 								 /* google.maps.event.addListener(marker, "mouseout", function() {
 									 infowindow.close(map,this);
 									 this.setAnimation(null);
@@ -164,15 +170,17 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
 		async defer></script>
 
-			<div style="width: 49%; position: absolute; margin-left: 1%; "><br>
-			<input id="address" type="textbox" value="" class="form-control2" style="width: 80%;" placeholder="Search here...">
-			<button id="serachhouse" class="form-control2" style="width: 15%;"><i class="glyphicon glyphicon-search"></i></button>
+			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;"><br>
+			<div style="margin-left: 20%">
+			<input id="address" type="textbox" value="" class="form-control2" style="width: 60%;" placeholder="Search here...">
+			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
 			<br>
-			<div id="searchlist" style="overflow:auto; overflow-x:hidden; height: 670px;">
+			<div id="searchlist" style="overflow:auto; overflow-x:hidden; height: 96%; margin: 1%;">
 			</div>
 			</div>
 			<div id="map"
-			style="width: 50%; height: 92.5%; position: fixed; left: 50%;">
+			style="width: 50%; height: 80%; position: fixed; left: 50%;">
 			</div>
 </body>
 </html>
