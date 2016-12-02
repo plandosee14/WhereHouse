@@ -2,47 +2,15 @@
 	pageEncoding="UTF-8"%>
 <header><%@include file="../header.jsp"%></header>
 <header><%@include file="../mypageHeader.jsp"%></header>
-<br>
-<br>
-<br>
-<br>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/myPage.css" type="text/css" />
 <html>
 
 <head>
-<link rel="stylesheet" href="/resources/css/mypageMenu.css"/>
+<link rel="stylesheet" href="/resources/css/mypageMenu.css" />
 <title>Insert title here</title>
 <style type="text/css">
-#faq_list {
-	border-bottom: 1px solid #ccc 
-}
-
-#faq_list li {
-	border-top: 1px solid #ccc;
-	padding: 0 5px
-}
-
-#faq_list li h4 a {
-	display: block;
-	padding: 8px
-}
-
-#faq_list li p {
-	border-top: 1px dotted #eaeaea;
-	padding: 8px;
-	line-height: 18px
-}
-
-#faq_list li.unfold h4 a {
-	font-weight: bold
-}
-
-#faq_list li.fold p {
-	display: none
-}
-
 * {
 	padding: 0;
 	margin: 0 auto;
@@ -62,100 +30,92 @@
 	size: 12;
 	margin: 10;
 }
+
+#mainDiv {
+	float: right;
+}
 </style>
 
 
 <script>
-$(document).ready(function(){
-	
-	var formObj = $("form[role='form']");
+	$(document).ready(function() {
 
-	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/mypage/removebasket");
-		formObj.submit();
-	});
+		var formObj = $("form[role='form']");
 
-	$('#mypageLink').click(function() {
-		location.reload();
-	});
-	
-});//ready
+		$(".btn-danger").on("click", function() {
+			formObj.attr("action", "/mypage/removebasket");
+			formObj.submit();
+		});
+
+		$('#mypageLink').click(function() {
+			location.reload();
+		});
+
+	});//ready
 	var result = '${msg}';
 
 	if (result == 'SUCCESS') {
 		alert("처리가 완료되었습니다.");
 	}
-	
-	
 </script>
 
 </head>
 
 <body>
-
-	<div class="container">
+<br><br><br>
+	<div class="container" id="mainDiv">
 		<!-- Custom Tabs -->
 
 		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
-			<h1>
-				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-				<font color="black">MyPage</font>
-			</h1>
+				<h1>
+					<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
+					<font color="black">MyPage</font>
+				</h1>
 			</div>
-<input type="checkbox" id="menu_state" checked>
-<aside>
-	<label for="menu_state"><i class="fa"></i></label>
-	<ul>
-		<li data-content="3" class="active unread">
-			<a href="/mypage">
-				<i class="fa fa-inbox"></i>
-				<span>장바구니</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/payinfo">
-				<i class="fa fa-heart"></i>
-				<span>결제정보</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/reginfo">
-				<i class="fa fa-paper-plane"></i>
-				<span>등록정보</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-pencil"></i>
-				<span>회원정보 수정</span>
-			</a>
-		</li>
-		<li>
-			<a href="/mypage/read">
-				<i class="fa fa-trash"></i>
-				<span>회원탈퇴</span>
-			</a>
-		</li>
-	</ul>
-</aside>
-			<br>
-			<br>
-			<br>
+			<input type="checkbox" id="menu_state" checked>
+			<aside> <!-- <label for="menu_state"><i class="fa"></i></label> -->
+			<ul>
+				<li data-content="3" class="active unread">
+					<a href="/mypage">
+					<i class="fa fa-inbox"></i>
+					<span>장바구니</span></a>
+				</li>
+				<li>
+					<a href="/mypage/payinfo"> <i class="fa fa-heart"></i>
+						<span>결제정보</span>
+					</a>
+				</li>
+				<li>
+					<a href="/mypage/reginfo"> <i class="fa fa-paper-plane"></i>
+						<span>등록정보</span>
+				</a></li>
+				<li>
+					<a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
+							수정</span>
+				</a></li>
+				<li>
+					<a href="/mypage/read"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				</li>
+			</ul>
+			</aside>
+			<br> <br> <br>
 			<c:forEach items="${mList}" var="myBasketVO">
 				<div class="basketList">
 					<center>
 						<img src="../resources/img/house/${myBasketVO.h_thumnail}"
 							width="95%">
 					</center>
-				<form role="form" method="post">
-					<div class="basketText">
-						<input type='hidden' name='b_no' value="${myBasketVO.b_no}">
-						장바구니번호 : ${myBasketVO.b_no }<br> 집번호 : ${myBasketVO.h_no }<br>
-						집종류 : ${myBasketVO.h_type }<br> 집유형 : ${myBasketVO.h_livetype }<br>
-						<button type="submit" class="btn btn-danger">REMOVE</button>
-					</div>
-				</form>
+					<form role="form" method="post">
+						<div class="basketText">
+							<input type='hidden' name='b_no' value="${myBasketVO.b_no}">
+							장바구니번호 : ${myBasketVO.b_no }<br> 
+							집번호 : ${myBasketVO.h_no }<br>
+							집종류 : ${myBasketVO.h_type }<br> 
+							집유형 : ${myBasketVO.h_livetype }<br>
+							<button type="submit" class="btn btn-danger">REMOVE</button>
+						</div>
+					</form>
 				</div>
 			</c:forEach>
 		</div>
