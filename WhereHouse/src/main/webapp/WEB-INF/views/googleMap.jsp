@@ -113,13 +113,17 @@
 								 });
 								 google.maps.event.addListener(marker[idx], "mouseover", function() {
 									 this.setAnimation(google.maps.Animation.BOUNCE);
-									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','orange');
-									
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','#efefef');
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','0.5');
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).attr('tabindex', -1);
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).focus();									
 								 });
 								 google.maps.event.addListener(marker[idx], "mouseout", function() {
 									 this.setAnimation(null);
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','#f7f7f7');
+									 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
 								 });
-								 $('#searchlist').append("<div style='margin: 1%;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'></a><div style='display:inline-block; margin-left : 1%;'><br><br><br> 집 번호: "+result[idx].h_no.toString()+"<br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"<br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed black; height:8px'></div></div>");
+								 $('#searchlist').append("<div style='margin: 1%;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'></a><div style='display:inline-block; margin-left : 1%;'> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"<br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed black; height:4px;'></div></div>");
 								 /* google.maps.event.addListener(marker, "mouseout", function() {
 									 infowindow.close(map,this);
 									 this.setAnimation(null);
