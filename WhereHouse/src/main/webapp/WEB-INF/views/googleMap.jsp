@@ -18,7 +18,6 @@
 	<script>
 	var idx;
 	var marker = new Array();
-	var infowindow = new Array();
 	var address;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -108,8 +107,7 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-									 alert(idx);
-								 infowindow[idx] = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
 								 google.maps.event.addListener(marker[idx], "click", function() {
 									 infowindow.open(map,this);
 								 });
