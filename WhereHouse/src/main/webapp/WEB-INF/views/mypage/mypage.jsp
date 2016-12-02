@@ -32,7 +32,8 @@
 }
 
 #mainDiv {
-	float: right;
+	width:85%;
+	float:right;
 }
 </style>
 
