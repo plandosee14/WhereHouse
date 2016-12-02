@@ -73,7 +73,7 @@ public class MyPageController {
     	mService.remove(m_id);
     	attr.addFlashAttribute("msg","SUCCESS");
 
-		return "/mypage/mypage";
+		return "/mypage/mypage5";
     }
 	
 	@RequestMapping("/update")

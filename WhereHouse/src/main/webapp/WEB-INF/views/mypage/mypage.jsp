@@ -51,6 +51,10 @@
 		$('#mypageLink').click(function() {
 			location.reload();
 		});
+		
+		$('#mypageLink2').click(function() {
+			location.reload();
+		});
 
 	});//ready
 	var result = '${msg}';
@@ -70,14 +74,21 @@
 		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
 				<h1>
-					<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-					<font color="black">MyPage</font>
+					<i class="fa fa-cart-plus"></i>
+					<font color="black">장바구니</font>
 				</h1>
 			</div>
 			<input type="checkbox" id="menu_state" checked>
 			<aside> <!-- <label for="menu_state"><i class="fa"></i></label> -->
 			<ul>
-				<li data-content="3" class="active unread">
+		  <div id="mypageLink2" style="cursor: pointer;">
+				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
+				  
+				 <span style="font-family: ; font-weight: bold;">MyPage</span>
+				</ul>
+			  </div>
+				<br>
+				<li data-content="3" class="active">
 					<a href="/mypage">
 					<i class="fa fa-cart-plus"></i>
 					<span>장바구니</span></a>
@@ -96,7 +107,7 @@
 							수정</span>
 				</a></li>
 				<li>
-					<a href="/mypage/read"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+					<a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 				</li>
 			</ul>
 			</aside>

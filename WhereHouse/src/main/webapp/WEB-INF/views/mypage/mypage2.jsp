@@ -30,6 +30,10 @@
 		$('#mypageLink').click(function() {
 			location.reload();
 		});
+		
+		$('#mypageLink2').click(function() {
+			location.reload();
+		});
 
 	});
 </script>
@@ -37,25 +41,32 @@
 </head>
 
 <body>
-
+	<br><br><br>
 	<div class="container" id="mainDiv">
 		<!-- Custom Tabs -->
 
 		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
 				<h1>
-					<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-					<font color="black">MyPage</font>
+					<i class="fa fa-credit-card"></i>
+					<font color="black">결제정보</font>
 				</h1>
 			</div>
 			<hr>
 			<input type="checkbox" id="menu_state" checked>
-			<aside> <label for="menu_state"><i class="fa"></i></label>
+			<aside>
 			<ul>
-				<li data-content="3" class="active unread"><a href="/mypage">
+			  <div id="mypageLink2" style="cursor: pointer;">
+				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
+				  
+				 <span style="font-family: ; font-weight: bold;">MyPage</span>
+				</ul>
+			  </div>
+				<br>
+				<li><a href="/mypage">
 						<i class="fa fa-cart-plus"></i> <span>장바구니</span>
 				</a></li>
-				<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
+				<li class="active read"><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
 						<span>결제정보</span>
 				</a></li>
 				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
@@ -64,13 +75,11 @@
 				<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
 							수정</span>
 				</a></li>
-				<li><a href="/mypage/read"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				<li><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 				</li>
 			</ul>
 			</aside>
 
-			<br>
-			<h3>결제정보</h3>
 			<br>
 
 			<table class="table table-bordered">
