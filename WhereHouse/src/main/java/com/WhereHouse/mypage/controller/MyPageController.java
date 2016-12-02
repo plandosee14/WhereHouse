@@ -65,13 +65,14 @@ public class MyPageController {
 	
 	
 	@RequestMapping("/delete")
-    public String mypageDelete(Model model, HttpServletRequest request, int m_no, RedirectAttributes attr ,HttpSession session) throws Exception{
+    public String mypageDelete(Model model, HttpServletRequest request, RedirectAttributes attr ,HttpSession session) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		System.out.println(m_id);
-
+		MemberVO member = mService.read(m_id);
+		model.addAttribute("member",member);
 		//삭제 요청
-    	mService.remove(m_id);
-    	attr.addFlashAttribute("msg","SUCCESS");
+/*    	mService.remove(m_id);
+    	attr.addFlashAttribute("msg","SUCCESS");*/
 
 		return "/mypage/mypage5";
     }
@@ -87,7 +88,7 @@ public class MyPageController {
 		mService.modify(member);
 		attr.addFlashAttribute("msg","SUCCESS");
 
-		return "/mypage/mypage";
+		return "/mypage/mypage4";
     }
     
     

@@ -42,6 +42,7 @@
 					<i class="fa fa-pencil"></i> 
 					<font color="black">회원정보 수정</font>
 				</h1>
+				<div style="border-bottom: 2px solid black"></div>
 			</div>
 			<hr>
 	<input type="checkbox" id="menu_state" checked>

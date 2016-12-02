@@ -39,8 +39,8 @@
 	  <div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
 				<h1>
-					<i class="fa fa-pencil"></i> 
-					<font color="black">회원정보 수정</font>
+					<i class="fa fa-trash"></i> 
+					<font color="black">회원 탈퇴</font>
 				</h1>
 			</div>
 			<hr>
@@ -63,10 +63,10 @@
 		<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
 				<span>등록정보</span>
 		</a></li>
-		<li class="active read"><a href="/mypage/read"> <i class="fa fa-pencil"></i> 
+		<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> 
 		<span>회원정보 수정</span>
 		</a></li>
-		<li><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+		<li class="active read"><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 		</li>
 	</ul>
 	</aside>

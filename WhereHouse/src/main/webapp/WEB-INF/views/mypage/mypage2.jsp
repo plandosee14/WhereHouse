@@ -51,6 +51,7 @@
 					<i class="fa fa-credit-card"></i>
 					<font color="black">결제정보</font>
 				</h1>
+				<div style="border-bottom: 2px solid black"></div>
 			</div>
 			<hr>
 			<input type="checkbox" id="menu_state" checked>

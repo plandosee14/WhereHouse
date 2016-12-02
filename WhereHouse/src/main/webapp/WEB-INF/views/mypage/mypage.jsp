@@ -77,6 +77,7 @@
 					<i class="fa fa-cart-plus"></i>
 					<font color="black">장바구니</font>
 				</h1>
+				<div style="border-bottom: 2px solid black"></div>
 			</div>
 			<input type="checkbox" id="menu_state" checked>
 			<aside> <!-- <label for="menu_state"><i class="fa"></i></label> -->
