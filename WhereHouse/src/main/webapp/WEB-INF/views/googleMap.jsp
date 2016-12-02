@@ -16,8 +16,8 @@
 
 
 	<script>
-	var idx = 0;
-	var marker = [];
+	var idx;
+	var marker;
 	var address;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -105,7 +105,7 @@
 									animation: google.maps.Animation.DROP,
 									icon: image
 								});
-								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no+"'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+								 var infowindow = new google.maps.InfoWindow({ content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
 								 google.maps.event.addListener(marker, "click", function() {
 									 infowindow.open(map,this);
 									 
@@ -122,7 +122,7 @@
 								 }); */
 								 
 								/* alert(marker.position); */
-								$('#searchlist').append("<a href='/detail?h_no="+result[idx].h_no+"'><div id=list"+idx+" class= 'list'><img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'>"+result[idx].h_address+"</div><a>");
+								$('#searchlist').append("<div style='margin: 1%;' id=list"+idx+" class= 'list'><a href='/detail?h_no="+result[idx].h_no+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px;'></a><div style='display:inline-block; margin-left : 1%;'>"+result[idx].h_info+"<br>주소: "+result[idx].h_address+"</div><div style='border-bottom: 1px dashed black; height:8px'></div></div>");
 								if (++idx < len) {
 									pilhan(len, result, geocoder, resultsMap);
 								}else {
@@ -147,6 +147,7 @@
 						} 
 					});
 		}
+	
 		
 		
 	</script>
@@ -154,10 +155,11 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
 		async defer></script>
 
-			<div style="width: 50%; position: absolute; margin-left: 1%"><br>
+			<div style="width: 49%; position: absolute; margin-left: 1%; "><br>
 			<input id="address" type="textbox" value="" class="form-control2" style="width: 80%;" placeholder="Search here...">
 			<button id="serachhouse" class="form-control2" style="width: 15%;"><i class="glyphicon glyphicon-search"></i></button>
-			<div id="searchlist">
+			<br>
+			<div id="searchlist" style="overflow:auto; overflow-x:hidden; height: 670px;">
 			</div>
 			</div>
 			<div id="map"
