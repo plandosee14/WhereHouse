@@ -252,7 +252,7 @@ $(document).ready(function(){
 		</li>
 	</ul>
 </aside>
-
+		
 			<br>
 			<h3>결제정보</h3>
 			<br>
@@ -285,6 +285,7 @@ $(document).ready(function(){
 				</c:forEach>
 
 			</table>
+			
 		</div>
 	</div>
 

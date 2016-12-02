@@ -6,7 +6,7 @@ public class MemberVO {
 	private String m_id;
 	private int m_no;
 	private String m_name;
-	private String m_pass;
+	private String m_pass; 
 	private String m_phone;
 	private int m_score;
 	private Date m_regdate;
