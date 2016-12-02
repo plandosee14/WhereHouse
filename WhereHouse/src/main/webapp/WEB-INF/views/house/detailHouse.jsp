@@ -5,6 +5,7 @@
 <html lang="ko">
 <head>
 <%@include file="../header.jsp" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style type="text/css">
 html, body {
  margin-left: 40px;
@@ -68,7 +69,96 @@ textarea{
 		}
 	}
 </script>
-<script>
+
+
+</head>
+<body>
+	<br><br><br>
+	<div id="album">
+		<img id="back" src="/resources/screenshot/seoul.jpg" width="94%">
+	</div>
+	<div id="reserve">
+		<img class="floating" src="/resources/screenshot/busan.jpg">
+	</div>
+	<div id="textb">
+		<textarea rows="100px" cols="110px">dlfklsjdkafpoasdjkoasd</textarea>
+	</div>
+	<font color="black" size="5">청결도</font>
+	<span class="star-input">
+  		<span class="input">
+  			<c:forEach var="i" begin="1" end="10" step="1">
+    		<input type="radio" name="star-input" id="p${i}" value="${i}"><label for="p${i}"><c:out value="${0.5*i}"/></label>
+    		</c:forEach>
+  		</span>
+  		<output for="star-input"><b>0</b>점</output>
+	</span>
+	<font color="black" size="5">커뮤니케이션</font>
+	<span class="star-input2">
+  		<span class="input">
+  			<c:forEach var="i" begin="1" end="10" step="1">
+    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
+    		</c:forEach>
+  		</span>
+  		<output for="star-input2"><b>0</b>점</output>
+	</span>
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="box box-success">
+				<div class="box-header">
+					<h3 class="box-title">후기</h3>
+				</div>
+			<%-- <c:if test="${not empty login }"> 
+			     로그인한 사용자만 댓글 등록 가능
+			--%>
+				<div class="box-body">
+					<label for="exampleInputEmail1">Writer</label><br>
+					<input class="form-controll" type="text" placeholder="USER ID" id="newCommentWriter" size="90%"><br> 
+					<label for="exampleInputEmail1">Comment Text</label> <br>
+					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="90%">
+
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">
+					<button type="button" class="btn btn-primary" id="commentAddBtn">ADD COMMENT</button>
+				</div>
+			</div>
+
+
+			<!-- The time line -->
+			<ul class="timeline">
+				<!-- timeline time label -->
+				<li class="time-label" id="commentDiv">
+				<span>comment List</span></li>
+			</ul>
+
+			<div class='text-center'>
+				<ul id="pagination" class="pagination pagination-sm no-margin ">
+
+				</ul>
+			</div>
+			</div>
+		</div>
+	<script src="/resources/js/star.js"></script>
+	<script id="template" type="text/x-handlebars-template">
+	{{#each .}}
+	<li class="commentLi" data-c_no={{c_no}}>
+	 <div class="timeline-item" >
+	  <span class="time">
+		{{prettifyDate c_regdate}}
+	  </span>
+	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{m_name}}</h3>
+	  <div class="timeline-body">{{c_content}} </div>
+  	  <div class="timeline-footer">
+  	   <a class="btn btn-primary btn-xs" 
+		    data-toggle="modal" data-target="#modifyModal">Modify</a>
+    	</div>
+	  </div>			
+	</li>
+	{{/each}}
+	</script>
+	<script>
+
 Handlebars.registerHelper("prettifyDate", function(timeValue) {
 	var dateObj = new Date(timeValue);
 	var year = dateObj.getFullYear();
@@ -81,14 +171,12 @@ var printData = function(commentArr, target, templateObject) {
 
 	var template = Handlebars.compile(templateObject.html());
 
-	var html = template(replyArr);
+	var html = template(commentArr);
 	$(".commentLi").remove();
 	target.after(html);
 
 }
-
-var h_no = ${HouseVO.h_no};
-
+var h_no = ${houseVO.h_no};
 var commentPage = 1;
 
 function getPage(pageInfo) {
@@ -124,14 +212,15 @@ var printPaging = function(pageMaker, target) {
 	target.html(str);
 };
 
+getPage("/comments/" + h_no+"/1");
 $("#commentDiv").on("click", function() {
-
 	if ($(".timeline li").size() > 1) {
 		return;
 	}
-	getPage("/comments/" + h_no + "/1");
+	getPage("/comments/" + h_no+"/1");
 
 });
+
 
 $(".pagination").on("click", "li a", function(event){
 	
@@ -142,65 +231,8 @@ $(".pagination").on("click", "li a", function(event){
 	getPage("/comments/"+h_no+"/"+commentPage);
 	
 });
+
+
 </script>
-
-</head>
-<body>
-	<br><br><br>
-	<div id="album">
-		<img id="back" src="/resources/screenshot/seoul.jpg" width="94%">
-	</div>
-	<div id="reserve">
-		<img class="floating" src="/resources/screenshot/busan.jpg">
-	</div>
-	<div id="textb">
-		<textarea rows="100px" cols="110px">dlfklsjdkafpoasdjkoasd</textarea>
-	</div>
-	<font color="black" size="5">청결도</font>
-	<span class="star-input">
-  		<span class="input">
-  			<c:forEach var="i" begin="1" end="10" step="1">
-    		<input type="radio" name="star-input" id="p${i}" value="${i}"><label for="p${i}"><c:out value="${0.5*i}"/></label>
-    		</c:forEach>
-  		</span>
-  		<output for="star-input"><b>0</b>점</output>
-	</span>
-	<font color="black" size="5">커뮤니케이션</font>
-	<span class="star-input2">
-  		<span class="input">
-  			<c:forEach var="i" begin="1" end="10" step="1">
-    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
-    		</c:forEach>
-  		</span>
-  		<output for="star-input2"><b>0</b>점</output>
-	</span>
-	<ul class="timeline">
-				<li class="time-label" id="commentDiv"><span class="bg-green">
-						comment List </span></li>
-			</ul>
-			<div class='text-center'>
-				<ul id="pagination" class="pagination pagination-sm no-margin ">
-
-				</ul>
-			</div>
-	<script src="/resources/js/star.js"></script>
-	<script id="template" type="text/x-handlebars-template">
-	{{#each .}}
-	<li class="commentLi" data-c_no={{c_no}}>
-	<i class="fa fa-comments bg-blue"></i>
-	 <div class="timeline-item" >
-	  <span class="time">
-	    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
-	  </span>
-	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{commenter}}</h3>
-	  <div class="timeline-body">{{commenttext}} </div>
-  	  <div class="timeline-footer">
-  	   <a class="btn btn-primary btn-xs" 
-		    data-toggle="modal" data-target="#modifyModal">Modify</a>
-    	</div>
-	  </div>			
-	</li>
-	{{/each}}
-	</script>
 	</body>
 </html>
