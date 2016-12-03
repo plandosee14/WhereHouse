@@ -16,15 +16,7 @@
 
 
 	<script>
-	$(document).ready(function () {
-	$('#address').attr('tabindex', -1).focus();
-		$('#address').keydown(function(event) {
-			if (event.which === 13) {
-				$('#serachhouse').click();
-			}
-		})
-	});
-
+	
 	
 	var idx;
 	var marker = new Array();
@@ -45,9 +37,9 @@
 				if (navigator.geolocation)
 			    {
 			    navigator.geolocation.getCurrentPosition(function (position) {
+			    	
 			    $('#searchlist').html('');
-			    marker = [];
-				infowindow = [];
+			    var markergps;
 				map = new google.maps.Map(document.getElementById('map'), {
 					zoom : 16,
 					mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -56,12 +48,22 @@
 						lng : position.coords.longitude
 					}
 				});
-					
-				
+				    markergps = new google.maps.Marker({
+					map : map,
+					position : {
+						lat : position.coords.latitude,
+						lng : position.coords.longitude
+					},
+					title :"현재위치",
+					animation: google.maps.Animation.DROP,
+				});
+				    
 				});
 			    }
 			  else{
-				  alert('GPS정보를 확인할 수 없습니다.');
+				  $('#alerttitle').html('GPS오류');
+                  $('#alertcontent').html('GPS정보를 불러오는데 실패하였습니다.');
+                  $('#alertModal').modal("show");
 			  	  }
 			});
 			
@@ -226,13 +228,20 @@
 					}
 				}
 			}
-		};
+		}
 		
-		
+		$(document).ready(function () {
+			$('#address').attr('tabindex', -1).focus();
+				$('#address').keydown(function(event) {
+					if (event.which === 13) {
+						$('#serachhouse').click();
+					}
+				})
+			});
 		
 	</script>
 	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
 		async defer></script>
 
 			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;"><br>

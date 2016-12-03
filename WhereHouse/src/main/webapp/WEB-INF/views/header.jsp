@@ -22,7 +22,6 @@
 <script type="text/javascript">
 
        $(document).ready(function(){
-    	   
     	   $('#loginbtn').click(function() {
  	      	$.ajax({
  	      		url:"/member/login",
@@ -288,6 +287,9 @@
 				}
       	      });
       	      
+      	    $('#mainsearchbtn').click(function() {
+      	    	location.replace("/google");
+      	    });
       	    
       	    
     	   });//ready
@@ -535,6 +537,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<input type="hidden" id="hiddensearch">
+	
 	<!--scripts loaded here from cdn for performance -->
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
