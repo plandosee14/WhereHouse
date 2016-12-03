@@ -10,29 +10,39 @@
 <center>
 <h2>숙소등록</h2>
 </center>
-<form action="">
+<form action="register">
 <br>
 <br>
 호스트 등록
 <div style="border: 1">	
 이름 : <input type="text" name="m_id"><br>
 연락처 : <input type="text" name="m_id"> - <input type="text" name="m_id"> - <input type="text" name="m_id"><br>
-우편번호 : <input type="text" name="zip" > <input type="button" value="주소찾기"><br> 
- <input type="text" name="m_id"><br>
-이름 : <input type="text" name="m_id"><br>
-이름 : <input type="text" name="m_id"><br>
+우편번호 : <input type="text" name="h_zip" > <input type="button" value="주소찾기"><br> 
+ <input type="text" name="h_address"><br>
 </div>
 <br>
-기본정보
+필수정보
 <div style="border: 1">	
 제목 : <input type="text" name="title"><br>
-가격 : <input type="text" name="title"><br>
-기간 : <input type="text" name="title"><br>
-최대인원 : <input type="text" name="title"><br>
-숙소유형 : <input type="text" name="title"><br>
-집유형 : <input type="text" name="title"><br>
+가격 : <input type="text" name="h_fare"><br>
+할인률 : <input type="text" name="h_fare"><br>
+기간 : <input type="date" name="h_startdate" size=10 > ~ <input type="date" name="h_enddate" size=10 ><br>
+최대인원 : <input type="text" name="h_peoplecnt"><br>
+집유형 : <select name="h_type">
+			<option>주택</option>
+			<option>빌라</option>
+			<option>아파트</option>
+       </select><br>
+숙소유형 : <select name="h_livetype">
+			<option>집전체</option>
+			<option>개인실</option>
+			<option>다인실</option>
+       </select><br>
 침대  <input type="text" name="title"> 개 욕실 <input type="text" name="title"><br>
 방갯수 <input type="text" name=""> 개 <br>
+
+체크인아웃 <input type="text" name="h_checktime"> 개 <br>
+규칙 <input type="text" name="h_rule"> 개 <br>
 </div>
 
 편의시설

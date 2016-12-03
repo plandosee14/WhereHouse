@@ -67,6 +67,7 @@ create table house_option(
  alter table house add(h_livetype  varchar2(1000)  not null);
  alter table house add(h_salefare  varchar2(1000)  not null);
  alter table house add(m_phone varchar2(20)   not null);
+ alter table house add(h_title varchar2(100)   not null);
   alter table house modify(h_salefare number not null);
   
   
