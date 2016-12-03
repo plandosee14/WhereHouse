@@ -80,9 +80,9 @@ h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3952-5797',
-'12345','서울시 양천구',200000,
-'2016-11-30','2017-12-30','정훈이네 집으로 찾아오세요',
+ values (house_seq.nextval,'powerfeel123@naver.com','이종환','010-7735-4621',
+'12345','인천시 계양구 작전고등학교',10000,
+'2016-11-30','2017-12-30','이준네 집으로 찾아오세요',
 5,'아파트','방하나',
 '3시~11시', 10,45000,
 '담배피지마세요','test_thumnail1.jpg');
