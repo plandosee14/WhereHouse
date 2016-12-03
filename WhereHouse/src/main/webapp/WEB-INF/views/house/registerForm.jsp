@@ -16,7 +16,7 @@
 호스트 등록
 <div style="border: 1">	
 이름 : <input type="text" name="m_id"><br>
-연락처 : <input type="text" name="m_id"> - <input type="text" name="m_id"> - <input type="text" name="m_id"><br>
+연락처 : <input type="text" name="phone1"> - <input type="text" name="phone2"> - <input type="text" name="phone3"><br>
 우편번호 : <input type="text" name="h_zip" > <input type="button" value="주소찾기"><br> 
  <input type="text" name="h_address"><br>
 </div>
@@ -75,7 +75,7 @@
 
 <article>
   <p id="status">썸네일 사진</p>
-  <p><input type=file id="thumnail"></p>
+  <p><input type=file id="h_thumnail"></p>
   <div id="holder"></div>
 </article>
 <script>
