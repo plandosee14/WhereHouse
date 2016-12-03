@@ -5,6 +5,9 @@ create table house(
 	m_name varchar2(50)		  ,   							--주인장이름
 	m_phone varchar2(20)        not null,  --주인장 폰번호
 	h_zip varchar2(20)	      	not null,           --주인장 우편번호
+	h_title varchar2(50)        not null,   --집 제목
+	h_pi_x    number             not null, --위도
+	h_pi_y    number             not null, --경도	
 	h_address varchar2(1000)	      	not null,           --주인장 주소
 	h_fare	              number     	  	not null,		--1박당 요금
 	h_startdate 	      date		    	not null,		--
@@ -69,93 +72,30 @@ create table house_option(
  alter table house add(m_phone varchar2(20)   not null);
  alter table house add(h_title varchar2(100)   not null);
   alter table house modify(h_salefare number not null);
+
   
+  alter table house add(h_title number not null);  
+  alter table house add(h_pi_x number not null);
+  alter table house add(h_pi_y number not null);
   
  insert into tbl_user (id, upw, uname) values ('soonsir','1234','순실');
 
  insert into house 
-(h_no,m_id,m_name,m_phone,
+(h_no,m_id,m_name,m_phone,m_title,
  h_zip,h_address, h_fare,
 h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail)
- values (house_seq.nextval,'powerfeel123@naver.com','이종환','010-7735-4621',
-'12345','인천시 계양구 작전고등학교',10000,
-'2016-11-30','2017-12-30','이준네 집으로 찾아오세요',
+ values (house_seq.nextval,'powerfeel123@naver.com','최필한','010-7735-4621','필한이네집',
+'12345','인천시 계양구 태산아파트',10000,
+'2016-11-30','2017-12-30','필하니네 집으로 찾아오세요',
 5,'아파트','방하나',
 '3시~11시', 10,45000,
 '담배피지마세요','test_thumnail1.jpg');
 
- insert into house 
-(h_no,m_id,m_name,m_phone,
- h_zip,h_address, h_fare,
-h_startdate,h_enddate, h_info,
- h_peoplecnt, h_type,h_livetype,
-h_checktime, h_sale,h_salefare,
- h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3333-4444',
-'12345','서울시 노원구 중계중학교',50000,
-'2016-11-30','2017-12-30','하은이네 집으로 찾아오세요',
-5,'아파트','방하나',
-'3시~11시', 10,45000,
-'담배피지마세요','test_thumnail1.jpg');
 
- insert into house 
-(h_no,m_id,m_name,m_phone,
- h_zip,h_address, h_fare,
-h_startdate,h_enddate, h_info,
- h_peoplecnt, h_type,h_livetype,
-h_checktime, h_sale,h_salefare,
- h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3333-4444',
-'12345','서울시 양천구 목5동',50000,
-'2016-11-30','2017-12-30','정훈이네 집으로  또 찾아오세요',
-5,'아파트','방하나',
-'3시~11시', 10,45000,
-'담배피지마세요','test_thumnail1.jpg');
 
- insert into house 
-(h_no,m_id,m_name,m_phone,
- h_zip,h_address, h_fare,
-h_startdate,h_enddate, h_info,
- h_peoplecnt, h_type,h_livetype,
-h_checktime, h_sale,h_salefare,
- h_rule,h_thumnail)
- values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3333-4444',
-'12345','서울시 양천구 목5동',50000,
-'2016-11-30','2017-12-30','정훈이네 집으로  또 찾아오세요',
-5,'아파트','방하나',
-'3시~11시', 10,45000,
-'담배피지마세요','test_thumnail1.jpg');
-
- insert into house 
-(h_no,m_id,m_name,m_phone,
- h_zip,h_address, h_fare,
-h_startdate,h_enddate, h_info,
- h_peoplecnt, h_type,h_livetype,
-h_checktime, h_sale,h_salefare,
- h_rule,h_thumnail)
- values (house_seq.nextval,'daunee94@naver.com','정다운','010-3333-4444',
-'12345','수원시 권선구 권선동',70000,
-'2016-11-30','2017-12-30','다운이네 집으로  또 찾아오세요',
-5,'아파트','방하나',
-'3시~11시', 10,63000,
-'담배피지마세요','test_thumnail1.jpg');
-
- insert into house 
-(h_no,m_id,m_name,m_phone,
- h_zip,h_address, h_fare,
-h_startdate,h_enddate, h_info,
- h_peoplecnt, h_type,h_livetype,
-h_checktime, h_sale,h_salefare,
- h_rule,h_thumnail)
- values (house_seq.nextval,'dmddo888@gmail.com','김혜정','010-3333-4444',
-'12345','수원시 권선구 권선동',70000,
-'2016-11-30','2017-12-30','혜정이네 집으로  또 찾아오세요',
-5,'아파트','방하나',
-'3시~11시', 10,63000,
-'담배피지마세요','test_thumnail1.jpg');
 
 select h.h_no, h.h_fare, h.h_type, h.h_livetype, h.h_thumnail ,b.b_no
 from house h , basket b

@@ -5,14 +5,17 @@ import java.util.Date;
 public class HouseVO {
 	private int h_no;  	      
 	private String m_id; 
-	private String m_name; 							
-	private String h_address;	        
-	private int h_fare;
-	private Date h_startdate;
+	private String m_name; 	
+	private String h_zip;
+	private String h_address;
+	private String h_title;
+	private Integer h_fare;
+	private String h_startdate;
 	private Date h_enddate;	
 	private String h_info;		
 	private int h_peoplecnt;
 	private String h_type;
+	private String h_livetype;
 	private String h_checktime;
 	private int h_sale;
 	private int h_salefare;
@@ -43,22 +46,34 @@ public class HouseVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
+	public String getH_zip() {
+		return h_zip;
+	}
+	public void setH_zip(String h_zip) {
+		this.h_zip = h_zip;
+	}
 	public String getH_address() {
 		return h_address;
 	}
 	public void setH_address(String h_address) {
 		this.h_address = h_address;
 	}
-	public int getH_fare() {
+	public String getH_title() {
+		return h_title;
+	}
+	public void setH_title(String h_title) {
+		this.h_title = h_title;
+	}
+	public Integer getH_fare() {
 		return h_fare;
 	}
-	public void setH_fare(int h_fare) {
+	public void setH_fare(Integer h_fare) {
 		this.h_fare = h_fare;
 	}
-	public Date getH_startdate() {
+	public String getH_startdate() {
 		return h_startdate;
 	}
-	public void setH_startdate(Date h_startdate) {
+	public void setH_startdate(String h_startdate) {
 		this.h_startdate = h_startdate;
 	}
 	public Date getH_enddate() {
@@ -84,6 +99,12 @@ public class HouseVO {
 	}
 	public void setH_type(String h_type) {
 		this.h_type = h_type;
+	}
+	public String getH_livetype() {
+		return h_livetype;
+	}
+	public void setH_livetype(String h_livetype) {
+		this.h_livetype = h_livetype;
 	}
 	public String getH_checktime() {
 		return h_checktime;
@@ -157,16 +178,20 @@ public class HouseVO {
 	public void setH_commuscore(int h_commuscore) {
 		this.h_commuscore = h_commuscore;
 	}
+	
 	@Override
 	public String toString() {
-		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", h_address=" + h_address
-				+ ", h_fare=" + h_fare + ", h_startdate=" + h_startdate + ", h_enddate=" + h_enddate + ", h_info="
-				+ h_info + ", h_peoplecnt=" + h_peoplecnt + ", h_type=" + h_type + ", h_checktime=" + h_checktime
-				+ ", h_sale=" + h_sale + ", h_salefare=" + h_salefare + ", h_rule=" + h_rule + ", h_thumnail="
-				+ h_thumnail + ", h_state=" + h_state + ", h_scorecnt=" + h_scorecnt + ", h_avgscore=" + h_avgscore
-				+ ", h_rightscore=" + h_rightscore + ", h_cleanscore=" + h_cleanscore + ", h_checkscore=" + h_checkscore
-				+ ", h_commuscore=" + h_commuscore + "]";
+		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", h_zip=" + h_zip + ", h_address="
+				+ h_address + ", h_title=" + h_title + ", h_fare=" + h_fare + ", h_startdate=" + h_startdate
+				+ ", h_enddate=" + h_enddate + ", h_info=" + h_info + ", h_peoplecnt=" + h_peoplecnt + ", h_type="
+				+ h_type + ", h_livetype=" + h_livetype + ", h_checktime=" + h_checktime + ", h_sale=" + h_sale
+				+ ", h_salefare=" + h_salefare + ", h_rule=" + h_rule + ", h_thumnail=" + h_thumnail + ", h_state="
+				+ h_state + ", h_scorecnt=" + h_scorecnt + ", h_avgscore=" + h_avgscore + ", h_rightscore="
+				+ h_rightscore + ", h_cleanscore=" + h_cleanscore + ", h_checkscore=" + h_checkscore + ", h_commuscore="
+				+ h_commuscore + "]";
 	}
+	
+	
 	
 	
 

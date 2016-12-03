@@ -10,10 +10,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @RequestMapping("/house")
 @Controller
@@ -32,12 +35,16 @@ public class HouseRegisterController {
 	}
 	
 	@RequestMapping("/register")
-	public void Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
+	public @ResponseBody void Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
 		System.out.println("등록폼 데이터: "+house);
+		System.out.println("등록폼 파일: "+file);
 		
-		String saveName = file.getOriginalFilename();
+		String saveOriginalName = file.getOriginalFilename();
+		String saveName = file.getName();
 		
-		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/upload"); 
+		System.out.println("오리지널네임: "+saveOriginalName);
+		System.out.println("넌 무슨 네임이니?: "+saveName);
+		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/img/house"); 
 		
 	    File target = new File(uploadpath, saveName);
         try {
@@ -53,6 +60,28 @@ public class HouseRegisterController {
 			e.printStackTrace();
 		}
 	
+	}
+	@RequestMapping("/register2")
+	public @ResponseBody void Register2(HttpServletRequest request, HttpSession session, HouseVO house){
+		System.out.println(house.toString());
+		int maxSize=15*1024*1024; //크기
+		String saveDirectory = request.getSession().getServletContext().getRealPath("/resources/img/house");
+		try {
+			//디렉토리설정
+			MultipartRequest mr =  new MultipartRequest(request,saveDirectory,maxSize,"UTF-8",
+							new DefaultFileRenamePolicy());
+			//사진저장
+			
+			String filename = mr.getFilesystemName("file");
+			//사진이름 얻어오기
+			
+			System.out.println("파일이름: "+filename);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
 	}
 		
 	

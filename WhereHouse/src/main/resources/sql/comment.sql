@@ -22,5 +22,7 @@ increment by 1
 nocycle
 nocache;
 
+delete from comments;
+
 
 
