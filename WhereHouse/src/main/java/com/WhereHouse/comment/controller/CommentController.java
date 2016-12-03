@@ -83,13 +83,41 @@ public class CommentController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/{h_no}/{page}", method=RequestMethod.GET)
+	/*@RequestMapping(value="/{h_no}/{page}", method=RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("h_no") int h_no, @PathVariable("page") int page) {
 		ResponseEntity<Map<String,Object>> entity = null;
 		
 		Criteria cri = new Criteria();//기본페이지 1페이지, 기본행의 개수: 10개
 		
 		cri.setPage(page);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		   
+		Map<String,Object> map = new HashMap<>();
+		
+		try {
+			List<CommentVO> list = service.listCommentPage(h_no, cri);
+			map.put("list", list);
+			
+			int commentCount = service.count(h_no);
+			pageMaker.setTotalCount(commentCount);
+			map.put("pageMaker", pageMaker);
+			entity = new ResponseEntity<>(map, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}*/
+	@RequestMapping(value="/{h_no}/{perPageNum}", method=RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("h_no") int h_no, @PathVariable("perPageNum") int perPageNum) {
+		ResponseEntity<Map<String,Object>> entity = null;
+		
+		Criteria cri = new Criteria();//기본페이지 1페이지, 기본행의 개수: 10개
+		
+		cri.setPerPageNum(perPageNum);
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);

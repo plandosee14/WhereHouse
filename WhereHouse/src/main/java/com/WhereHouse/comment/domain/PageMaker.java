@@ -21,7 +21,7 @@ public class PageMaker {
    public void calcData(){
 	   //Math.ceil(double a)  : 무조건 올림  1.1 --> 2   1.9 ---> 2
 	   //Math.round(doublc a)   : 반올림    1.1 ---> 1     1.5 ---> 2
-	  endPage =   (int)( Math.ceil((cri.getPage()/(double)displayPageNum)) 
+	  endPage = (int)( Math.ceil((cri.getPage()/(double)displayPageNum)) 
 			        * displayPageNum);
 	  
 	  startPage = (endPage - displayPageNum) +1;

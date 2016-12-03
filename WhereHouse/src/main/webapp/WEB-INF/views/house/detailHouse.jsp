@@ -30,6 +30,7 @@ html, body {
 	width:30px;
 	right:33%;
 	padding-top:60px;
+	z-index: 1000000;
 }
 
 #textb{
@@ -38,6 +39,10 @@ html, body {
 
 textarea{
 	color:black;
+}
+
+.text-cente{
+	margin: 0 0 0 5%;
 }
 
 </style>
@@ -108,9 +113,8 @@ textarea{
 				<div class="box-header">
 					<h3 class="box-title">후기</h3>
 				</div>
-			<%-- <c:if test="${not empty login }"> 
-			     로그인한 사용자만 댓글 등록 가능
-			--%>
+			<c:if test="${login != null}"> 
+			     
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
 					<input class="form-controll" type="text" placeholder="USER ID" id="newCommentWriter" size="90%"><br> 
@@ -122,22 +126,17 @@ textarea{
 				<div class="box-footer">
 					<button type="button" class="bt btn-primary" id="commentAddBtn">ADD COMMENT</button>
 				</div>
+			</c:if>
 			</div>
 			<!-- The time line -->
 			<ul class="timeline">
 				<!-- timeline time label -->
-				<li class="time-label" id="commentDiv">
-				<span>comment List</span></li>
+				<li class="time-label" id="commentDiv"></li>
 			</ul>
 
-			<div class='text-center'>
+			<div class='text-cente'>
 				<ul id="pagination" class="pagination pagination-sm no-margin ">
 
-				</ul>
-			</div>
-			<div>
-				<ul id="morepage">
-				
 				</ul>
 			</div>
 			</div>
@@ -184,87 +183,84 @@ textarea{
 	{{/each}}
 	</script>
 	<script>
-
-Handlebars.registerHelper("prettifyDate", function(timeValue) {
-	var dateObj = new Date(timeValue);
-	var year = dateObj.getFullYear();
-	var month = dateObj.getMonth() + 1;
-	var date = dateObj.getDate();
-	return year + "/" + month + "/" + date;
-});
-
-var printData = function(commentArr, target, templateObject) {
-
-	var template = Handlebars.compile(templateObject.html());
-
-	var html = template(commentArr);
-	$(".commentLi").remove();
-	target.after(html);
-
-}
-var h_no = ${houseVO.h_no};
-var commentPage = 1;
-
-function getPage(pageInfo) {
-
-	$.getJSON(pageInfo, function(data) {
-		printData(data.list, $("#commentDiv"), $('#template'));
-		printPaging(data.pageMaker, $(".pagination"));
-		//printPaging2(data.pageMaker, $(".morepage"));
-/* 
-		$("#modifyModal").modal('hide');
- */
+	
+	Handlebars.registerHelper("prettifyDate", function(timeValue) {
+		var dateObj = new Date(timeValue);
+		var year = dateObj.getFullYear();
+		var month = dateObj.getMonth() + 1;
+		var date = dateObj.getDate();
+		return year + "/" + month + "/" + date;
 	});
-}
-
-var printPaging2 = function(pageMaker, target) {
-	var str="";
-	for(var i = pageMaker.cri.perPageNum, len=pageMaker.totalCount; i<len; i=i+3) {
-		str = "<li><a href='"+i+"'>"+더보기+"</a></li>";
-	}
-	target.html(str);
-}
-
-var printPaging = function(pageMaker, target) {
-
-	var str = "";
-
-	if (pageMaker.prev) {
-		str += "<li><a href='" + (pageMaker.startPage - 1)
-				+ "'> << </a></li>";
-	}
-	for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
-		var strClass = pageMaker.cri.page == i ? 'class=active' : '';
-		str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
-	}
-
-	if (pageMaker.next) {
-		str += "<li><a href='" + (pageMaker.endPage + 1)
-				+ "'> >> </a></li>";
-	}
-
-	target.html(str);
-};
-
-getPage("/comments/" + h_no+"/1");
- $("#commentDiv").on("click", function() {
-	if ($(".timeline li").size() > 1) {
-		return;
-	}
-	getPage("/comments/" + h_no+"/1");
-
-});
- 
-
-$(".pagination").on("click", "li a", function(event){
 	
-	event.preventDefault();
+	var printData = function(commentArr, target, templateObject) {
 	
-	commentPage = $(this).attr("href");
+		var template = Handlebars.compile(templateObject.html());
 	
-	getPage("/comments/"+h_no+"/"+commentPage);
+		var html = template(commentArr);
+		$(".commentLi").remove();
+		target.html(html);
 	
-});
+	}
+	var h_no = ${houseVO.h_no};
+	var commentPage = 3;
+	
+	function getPage(pageInfo) {
+		$.getJSON(pageInfo, function(data) {
+			printData(data.list, $("#commentDiv"), $('#template'));
+			printPaging2(data.pageMaker, $(".pagination"));
+	 
+			$("#modifyModal").modal('hide');
+	 
+		});
+	}
+	
+	var printPaging2 = function(pageMaker, target) {
+		var str="";
+		var more=pageMaker.cri.perPageNum;
+		str += "<li><a href='"+(more+3)+"'>"+'더보기'+"</a></li>  <li><a href='"+3+"'>"+ '원상태로'+"</a></li>";
+		target.html(str);
+	}
+	
+	var printPaging = function(pageMaker, target) {
+	
+		var str = "";
+	
+		if (pageMaker.prev) {
+			str += "<li><a href='" + (pageMaker.startPage - 1)
+					+ "'> << </a></li>";
+		}
+		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+		}
+	
+		if (pageMaker.next) {
+			str += "<li><a href='" + (pageMaker.endPage + 1)
+					+ "'> >> </a></li>";
+		}
+	
+		target.html(str);
+	};
+	
+	getPage("/comments/" + h_no+"/3");
+	/*  $("#commentDiv").on("click", function() {
+		if ($(".timeline li").size() > 1) {
+			return;
+		}
+		getPage("/comments/" + h_no+"/1");
+	
+	});
+	  */
+	
+	$(".pagination").on("click", "li a", function(event){
+		
+		event.preventDefault();
+		
+		commentPage = $(this).attr("href");
+		
+		getPage("/comments/"+h_no+"/"+commentPage);
+		
+	});
 
 
 	$("#commentAddBtn").on("click",function(){
@@ -348,8 +344,8 @@ $(".pagination").on("click", "li a", function(event){
 						getPage("/comments/"+h_no+"/"+commentPage );
 					}
 			}});
-	});
-	
-</script>
+		});
+		
+	</script>
 	</body>
 </html>
