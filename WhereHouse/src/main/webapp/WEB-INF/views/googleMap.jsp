@@ -16,7 +16,14 @@
 
 
 	<script>
-	
+	$(document).ready(function () {
+	$('#address').attr('tabindex', -1).focus();
+		$('#address').keydown(function(event) {
+			if (event.which === 13) {
+				$('#serachhouse').click();
+			}
+		})
+	});
 
 	
 	var idx;
@@ -34,7 +41,31 @@
 			});//div map의 속성? 나타내나?
 			var geocoder = new google.maps.Geocoder();
 			
-			$('#serachhouse').click(function() {
+			$('#selflocation').click(function() {
+				if (navigator.geolocation)
+			    {
+			    navigator.geolocation.getCurrentPosition(function (position) {
+			    $('#searchlist').html('');
+			    marker = [];
+				infowindow = [];
+				map = new google.maps.Map(document.getElementById('map'), {
+					zoom : 16,
+					mapTypeId : google.maps.MapTypeId.ROADMAP,
+					center : {
+						lat : position.coords.latitude,
+						lng : position.coords.longitude
+					}
+				});
+					
+				
+				});
+			    }
+			  else{
+				  alert('GPS정보를 확인할 수 없습니다.');
+			  	  }
+			});
+			
+			$('#serachhouse').click(function search() {
 				if ($('#address').val()==null || $('#address').val().length < 2 || $('#address').val().replace(" ", "").length != $('#address').val().length) {
 					  $('#alerttitle').html('검색어');
 	                  $('#alertcontent').html('검색어는 두글자 이상만 가능합니다.');
@@ -197,6 +228,8 @@
 			}
 		};
 		
+		
+		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7x-HKwY406_yjbfUjdESOr6EU18801g&signed_in=true&callback=initMap"
@@ -204,6 +237,7 @@
 
 			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;"><br>
 			<div style="margin-left: 20%">
+			<button id="selflocation" class="form-control2" style="width: 7%;"><i class="glyphicon glyphicon-screenshot"></i></button> 
 			<input id="address" type="textbox" value="" class="form-control2" style="width: 60%;" placeholder="Search here...">
 			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
