@@ -12,6 +12,11 @@ create table reservation(
 );
 
 
+
+where mid = #{mid}
+     and h_no =#{h_no}
+     and r_state == 1
+     
 drop sequence reservation_seq;
 create sequence reservation_seq
 start with 1
