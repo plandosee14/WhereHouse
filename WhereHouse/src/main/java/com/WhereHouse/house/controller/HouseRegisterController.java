@@ -2,6 +2,7 @@ package com.WhereHouse.house.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -39,19 +40,24 @@ public class HouseRegisterController {
 		System.out.println("등록폼 데이터: "+house);
 		System.out.println("등록폼 파일: "+file);
 		
-		String saveOriginalName = file.getOriginalFilename();
-		String saveName = file.getName();
+		UUID uid = UUID.randomUUID();
 		
-		System.out.println("오리지널네임: "+saveOriginalName);
+		String saveName = uid.toString()+"_"+file.getOriginalFilename();
+		
+		
+		
 		System.out.println("넌 무슨 네임이니?: "+saveName);
 		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/img/house"); 
 		
 	    File target = new File(uploadpath, saveName);
         try {
 			FileCopyUtils.copy(file.getBytes(), target);
+			
+			
+			
 			house.setH_thumnail(saveName);
 			System.out.println(house.toString());
-			//hservice.insertHouse(house);
+			hservice.insertHouse(house);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
