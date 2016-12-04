@@ -4,11 +4,11 @@ create table house(
 	m_id   varchar2(50)		    references   member(m_id),  --host주인
 	m_name varchar2(50)		  ,   							--주인장이름
 	m_phone varchar2(20)        not null,  --주인장 폰번호
-	h_zip varchar2(20)	      	not null,           --주인장 우편번호
 	h_title varchar2(50)        not null,   --집 제목
+	h_zip varchar2(20)	      	not null,           --주인장 우편번호
+	h_address varchar2(1000)	      	not null,           --주인장 주소
 	h_pi_x    number             , --위도
 	h_pi_y    number             , --경도	
-	h_address varchar2(1000)	      	not null,           --주인장 주소
 	h_fare	              number     	  	not null,		--1박당 요금
 	h_startdate 	      date		    	not null,		--
 	h_enddate   	      date		    	not null,

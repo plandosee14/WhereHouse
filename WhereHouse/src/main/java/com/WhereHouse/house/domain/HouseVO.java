@@ -6,19 +6,22 @@ public class HouseVO {
 	private int h_no;  	      
 	private String m_id; 
 	private String m_name; 	
+	private String m_phone; 	
+	private String h_title;
 	private String h_zip;
 	private String h_address;
-	private String h_title;
+	private String h_pi_x;
+	private String h_pi_y;	
 	private Integer h_fare;
-	private String h_startdate;
+	private Date h_startdate;
 	private Date h_enddate;	
 	private String h_info;		
-	private int h_peoplecnt;
+	private Integer h_peoplecnt;
 	private String h_type;
 	private String h_livetype;
 	private String h_checktime;
-	private int h_sale;
-	private int h_salefare;
+	private Integer h_sale;
+	private Integer h_salefare;
 	private String h_rule;
 	private String h_thumnail;
 	private int h_state;
@@ -46,6 +49,18 @@ public class HouseVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
+	public String getM_phone() {
+		return m_phone;
+	}
+	public void setM_phone(String m_phone) {
+		this.m_phone = m_phone;
+	}
+	public String getH_title() {
+		return h_title;
+	}
+	public void setH_title(String h_title) {
+		this.h_title = h_title;
+	}
 	public String getH_zip() {
 		return h_zip;
 	}
@@ -58,11 +73,17 @@ public class HouseVO {
 	public void setH_address(String h_address) {
 		this.h_address = h_address;
 	}
-	public String getH_title() {
-		return h_title;
+	public String getH_pi_x() {
+		return h_pi_x;
 	}
-	public void setH_title(String h_title) {
-		this.h_title = h_title;
+	public void setH_pi_x(String h_pi_x) {
+		this.h_pi_x = h_pi_x;
+	}
+	public String getH_pi_y() {
+		return h_pi_y;
+	}
+	public void setH_pi_y(String h_pi_y) {
+		this.h_pi_y = h_pi_y;
 	}
 	public Integer getH_fare() {
 		return h_fare;
@@ -70,10 +91,10 @@ public class HouseVO {
 	public void setH_fare(Integer h_fare) {
 		this.h_fare = h_fare;
 	}
-	public String getH_startdate() {
+	public Date getH_startdate() {
 		return h_startdate;
 	}
-	public void setH_startdate(String h_startdate) {
+	public void setH_startdate(Date h_startdate) {
 		this.h_startdate = h_startdate;
 	}
 	public Date getH_enddate() {
@@ -88,10 +109,10 @@ public class HouseVO {
 	public void setH_info(String h_info) {
 		this.h_info = h_info;
 	}
-	public int getH_peoplecnt() {
+	public Integer getH_peoplecnt() {
 		return h_peoplecnt;
 	}
-	public void setH_peoplecnt(int h_peoplecnt) {
+	public void setH_peoplecnt(Integer h_peoplecnt) {
 		this.h_peoplecnt = h_peoplecnt;
 	}
 	public String getH_type() {
@@ -112,16 +133,16 @@ public class HouseVO {
 	public void setH_checktime(String h_checktime) {
 		this.h_checktime = h_checktime;
 	}
-	public int getH_sale() {
+	public Integer getH_sale() {
 		return h_sale;
 	}
-	public void setH_sale(int h_sale) {
+	public void setH_sale(Integer h_sale) {
 		this.h_sale = h_sale;
 	}
-	public int getH_salefare() {
+	public Integer getH_salefare() {
 		return h_salefare;
 	}
-	public void setH_salefare(int h_salefare) {
+	public void setH_salefare(Integer h_salefare) {
 		this.h_salefare = h_salefare;
 	}
 	public String getH_rule() {
@@ -178,20 +199,19 @@ public class HouseVO {
 	public void setH_commuscore(int h_commuscore) {
 		this.h_commuscore = h_commuscore;
 	}
-	
 	@Override
 	public String toString() {
-		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", h_zip=" + h_zip + ", h_address="
-				+ h_address + ", h_title=" + h_title + ", h_fare=" + h_fare + ", h_startdate=" + h_startdate
-				+ ", h_enddate=" + h_enddate + ", h_info=" + h_info + ", h_peoplecnt=" + h_peoplecnt + ", h_type="
-				+ h_type + ", h_livetype=" + h_livetype + ", h_checktime=" + h_checktime + ", h_sale=" + h_sale
-				+ ", h_salefare=" + h_salefare + ", h_rule=" + h_rule + ", h_thumnail=" + h_thumnail + ", h_state="
-				+ h_state + ", h_scorecnt=" + h_scorecnt + ", h_avgscore=" + h_avgscore + ", h_rightscore="
-				+ h_rightscore + ", h_cleanscore=" + h_cleanscore + ", h_checkscore=" + h_checkscore + ", h_commuscore="
-				+ h_commuscore + "]";
+		return "HouseVO [h_no=" + h_no + ", m_id=" + m_id + ", m_name=" + m_name + ", m_phone=" + m_phone + ", h_title="
+				+ h_title + ", h_zip=" + h_zip + ", h_address=" + h_address + ", h_pi_x=" + h_pi_x + ", h_pi_y="
+				+ h_pi_y + ", h_fare=" + h_fare + ", h_startdate=" + h_startdate + ", h_enddate=" + h_enddate
+				+ ", h_info=" + h_info + ", h_peoplecnt=" + h_peoplecnt + ", h_type=" + h_type + ", h_livetype="
+				+ h_livetype + ", h_checktime=" + h_checktime + ", h_sale=" + h_sale + ", h_salefare=" + h_salefare
+				+ ", h_rule=" + h_rule + ", h_thumnail=" + h_thumnail + ", h_state=" + h_state + ", h_scorecnt="
+				+ h_scorecnt + ", h_avgscore=" + h_avgscore + ", h_rightscore=" + h_rightscore + ", h_cleanscore="
+				+ h_cleanscore + ", h_checkscore=" + h_checkscore + ", h_commuscore=" + h_commuscore + "]";
 	}
 	
-	
+
 	
 	
 
