@@ -17,7 +17,7 @@ public class MyReservationServiceImpl implements MyReservationService{
 	
 	@Override
 	public List<MyReservationVO> listAllById(String m_id) throws Exception {
-		System.out.println("서비스 m_id="+m_id);
+		//System.out.println("서비스 m_id="+m_id);
 		return dao.selectMyReservation(m_id);
 	}
 

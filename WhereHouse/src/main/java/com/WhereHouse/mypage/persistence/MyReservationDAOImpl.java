@@ -17,7 +17,7 @@ public class MyReservationDAOImpl implements MyReservaionDAO{
 	
 	@Override
 	public List<MyReservationVO> selectMyReservation(String m_id) throws Exception {
-		System.out.println("다오 m_id="+m_id);
+		//System.out.println("다오 m_id="+m_id);
 		return sqlSession.selectList("mypage.selectReservationById",m_id);
 	}
 

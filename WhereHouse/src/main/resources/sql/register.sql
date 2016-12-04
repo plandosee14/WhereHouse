@@ -41,3 +41,9 @@ select r.r_no, h.h_no, r.r_startdate, r.r_enddate, r.r_fare, r.r_peoplecnt, h.h_
 		from house h, reservation r
 		where h.h_no = r.h_no
       		and r.m_id = 'ojh5797@naver.com';
+      		
+		select h.h_thumnail, r.m_id, m.m_name, m.m_phone, r.r_startdate, r.r_enddate, r.r_peoplecnt
+		from house h, reservation r, member m
+		where h.h_no = r.h_no
+			and h.m_id = 'ojh5797@naver.com'
+			and r.m_id = m.m_id;

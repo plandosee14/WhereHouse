@@ -43,14 +43,6 @@ public class MyPageController {
     	return "redirect:/mypage";
     }
 	
-	@RequestMapping("reginfo")
-	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
-		String m_id = (String) request.getSession().getAttribute("m_id");
-		model.addAttribute("bList", bService.listAllById(m_id));
-		model.addAttribute("mList", mService.listAllById(m_id));
-		return "/mypage/mypage3";
-	}
-	
 	@RequestMapping("/read")
     public String mypageRead(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");

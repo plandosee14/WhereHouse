@@ -37,4 +37,12 @@
 		where h.h_no = r.h_no
       		and r.m_id = #{m_id}
 	</select>
+	
+	<select id="selectRegisterById" resultType="com.WhereHouse.mypage.domain.MyRegisterVO">
+		select h.h_thumnail, r.m_id, m.m_name, m.m_phone, r.r_startdate, r.r_enddate, r.r_peoplecnt
+		from house h, reservation r, member m
+		where h.h_no = r.h_no
+			and h.m_id = #{m_id}
+			and r.m_id = m.m_id
+	</select>
 </mapper>

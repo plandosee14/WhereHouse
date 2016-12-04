@@ -110,7 +110,10 @@ h_checktime, h_sale,h_salefare,
 '2016-11-30','2017-12-30','성주니네 집으로 찾아오세요',
 5,'아파트','방하나',
 '3시~11시', 10,45000,
-'담배피지마세요','test_thumnail.jpg','39.0392193','125.76252410000006');
+'담배피지마세요','test_thumnail1.jpg','39.0392193','125.76252410000006');
+
+alter house h_thumnail
+delete from house where m_name='권성준';
 
 
 select h.h_no, h.h_fare, h.h_type, h.h_livetype, h.h_thumnail ,b.b_no

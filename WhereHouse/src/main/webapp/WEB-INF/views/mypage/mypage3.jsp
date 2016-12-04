@@ -4,6 +4,7 @@
 <header><%@include file="../mypageHeader.jsp"%></header>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link rel="stylesheet" href="/myPage.css" type="text/css" />
 <html>
 
@@ -78,18 +79,25 @@
 
 			<table class="table table-bordered">
 				<tr style="color: black">
-					<th>예약한 사람</th>
+					<th>집 사진</th>
+					<th>예약한 ID(이름)</th>
 					<th>전화번호</th>
 					<th>예약한 날짜</th>
+					<th>인원</th>
 				</tr>
 
 
-				<c:forEach items="${mList}" var="basketVO">
+				<c:forEach items="${regList}" var="registerVO">
 
 					<tr style="color: black">
-						<td>${member.m_name}</td>
-						<td></td>
-						<td></td>
+						<td><img
+							src="../resources/img/house/${registerVO.h_thumnail}"
+							width="70"></td>
+						<td>${registerVO.m_id}(${registerVO.m_name})</td>
+						<td>${registerVO.m_phone}</td>
+						<td>${registerVO.r_startdate}~${registerVO.r_enddate}</td>
+						<td>${registerVO.r_peoplecnt}</td>
+
 					</tr>
 
 				</c:forEach>
