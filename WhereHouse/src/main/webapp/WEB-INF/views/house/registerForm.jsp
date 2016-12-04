@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
+
+
 </head>
 <body>
 <center>
@@ -19,7 +23,9 @@
 이름 : <input type="text" name="m_name"><br>
 연락처 : <input type="text" name="phone1"> - <input type="text" name="phone2"> - <input type="text" name="phone3"><br>
 우편번호 : <input type="text" name="h_zip" > <input type="button" value="주소찾기"><br> 
- <input type="text" name="h_address"><br>
+ <input type="text" name="h_address" id="h_address"><br>
+ <input type="hidden" name="h_pi_x" value="">
+ <input type="hidden" name="h_pi_y" value="">
 </div>
 <br>
 필수정보
@@ -125,6 +131,24 @@ upload.onchange = function (e) {
 
 </div>
 </form>
+<script>
+
+var geocoder = new google.maps.Geocoder();
+geocoder
+      .geocode(
+            {
+               'address' : h_address.val()//지오코더한테 보내줄값이야 주소들어가는 textbox? 에 id값 주고 넣어써줘
+            },
+            function(results, status) {
+               if (status === google.maps.GeocoderStatus.OK) {
+                  results[0].geometry.location//이게 나온 위도경도야 이거 스플릿(,)해서 위도컬럼에, 경도 컬럼에 넣으면 될거같음
+                  alert( results[0].geometry.location.lat());
+                  alert(results[0].geometry.location.lng());
+               } else {
+                    alert('주소를 변환하는 과정중 오류가 발생');
+               }
+            });
+</script>
 
 </body>
 </html>
