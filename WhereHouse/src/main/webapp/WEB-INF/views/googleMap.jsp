@@ -46,7 +46,7 @@
 			    nearinfowindow=[];
 			    
 				map = new google.maps.Map(document.getElementById('map'), {
-					zoom : 13,
+					zoom : 14,
 					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					center : {
 						lat : position.coords.latitude,

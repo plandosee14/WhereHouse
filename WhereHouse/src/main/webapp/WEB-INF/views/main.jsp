@@ -16,8 +16,6 @@
 			<!-- <a href="#video-background" id="toggleVideo" data-toggle="collapse"
 				class="btn btn-primary btn-xl">Toggle Video</a> -->
 				<div class="form-group">
-				<input type="text" class="form-control3"
-							placeholder="Search here..." id="mainaddress" style="margin-left: 6%;">
 				 &nbsp; <a
 				 class="btn btn-primary btn-xl page-scroll" id="mainsearchbtn"><i class="glyphicon glyphicon-search"></i></a></div>
 				
