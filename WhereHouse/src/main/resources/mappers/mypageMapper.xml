@@ -6,6 +6,7 @@
 		from house h , basket b
 		where h.h_no = b.h_no
       		and b.m_id = #{m_id}
+      		order by b.b_no asc
 	</select>
 	
 	<delete id="deleteMyBasket">

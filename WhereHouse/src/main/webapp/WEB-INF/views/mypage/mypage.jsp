@@ -116,8 +116,10 @@
 			<c:forEach items="${mList}" var="myBasketVO">
 				<div class="basketList">
 					<center>
+						<div style="width:100% ; height:300px; overflow: hidden;">
 						<img src="../resources/img/house/${myBasketVO.h_thumnail}"
-							width="95%">
+							width="95%" height="300px">
+						</div>
 					</center>
 					<form role="form" method="post">
 						<div class="basketText">

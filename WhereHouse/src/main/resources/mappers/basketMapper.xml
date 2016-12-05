@@ -11,10 +11,11 @@
 		where b_no=#{b_no}
 	</delete>
 	
-	<select id="listBasketById" resultType="com.WhereHouse.basket.domain.BasketVO">
+	<select id="listBasketById" resultType="com.WhereHouse.mypage.domain.MyBasketVO">
 		select b_no, h_no, m_id
 		from basket
 		where m_id=#{m_id}
+		order by b_no asc
 	</select>
 	
 	<select id="listAllBasket" resultType="com.WhereHouse.basket.domain.BasketVO">
