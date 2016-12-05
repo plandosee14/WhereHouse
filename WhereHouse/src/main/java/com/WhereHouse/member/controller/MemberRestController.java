@@ -76,7 +76,6 @@ public class MemberRestController {
 	
 	@RequestMapping(value = "/searchnearHouse", method = RequestMethod.POST)
 	public List<HousedistanceVO> searchnearHouse(locationVO vo) throws Exception {
-		System.out.println(vo);
 		return service.searchnearHouse(vo);
 	}
 

@@ -21,6 +21,8 @@
 	var idx;
 	var marker = new Array();
 	var infowindow = new Array();
+	var nearmarker = new Array();
+	var nearinfowindow = new Array();
 	var address;
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -40,14 +42,18 @@
 			    	
 			    $('#searchlist').html('');
 			    var markergps;
+			    nearmarker=[];
+			    nearinfowindow=[];
+			    
 				map = new google.maps.Map(document.getElementById('map'), {
-					zoom : 16,
+					zoom : 13,
 					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					center : {
 						lat : position.coords.latitude,
 						lng : position.coords.longitude
 					}
 				});
+				var mylocationimage = '/resources/img/house/mylocation.png';
 				    markergps = new google.maps.Marker({
 					map : map,
 					position : {
@@ -55,8 +61,25 @@
 						lng : position.coords.longitude
 					},
 					title :"현재위치",
+					icon : mylocationimage,
 					animation: google.maps.Animation.DROP,
 				});
+				    
+				    circle = new google.maps.Circle({
+				    	map: map,
+				    	strokeColor: "#222",
+				        strokeOpacity: 0.5,
+				        strokeWeight: 1,
+				        fillColor: "#222",
+				        fillOpacity: 0.15,
+				        map: map,
+				        center: {
+				        	lat : position.coords.latitude,
+							lng : position.coords.longitude
+				        },
+				        radius: 3000
+
+				    });
 				    
 				    $.ajax({
 		 	      		url:"/member/searchnearHouse",
@@ -72,7 +95,64 @@
 				                  $('#alertcontent').html('3KM내에 등록된 집이 없습니다.');
 				                  $('#alertModal').modal("show");
 		 	            		}else {
-		 	            			alert(resultnear);
+		 	            			for (var i = 0; i < resultnear.length; i++) {
+		 	            				var position = resultnear[i].h_pi_x+", "+resultnear[i].h_pi_y;
+		 	            					var nearimage;
+											if (resultnear[i].h_type=="빌라") {
+												nearimage = '/resources/img/house/billa.png';
+											}
+											else if (resultnear[i].h_type=="주택") {
+												nearimage = '/resources/img/house/jutaek.png';
+											}else {
+												nearimage = '/resources/img/house/apart.png';
+											}
+											
+		 	            				nearmarker[i] = new google.maps.Marker({
+		 	            					map : map,
+											position : {
+												lat : parseFloat(resultnear[i].h_pi_x),
+												lng : parseFloat(resultnear[i].h_pi_y)
+											},
+											title : resultnear[i].h_no+"번 House",
+											icon : nearimage,
+											animation: google.maps.Animation.DROP
+										});
+		 	            				
+		 	            				nearinfowindow[i] = new google.maps.InfoWindow({ title : resultnear[i].h_no.toString() , content: "거리 : "+resultnear[i].distance+"m<br>"+resultnear[i].h_title+"<br><a href='/detail?h_no="+resultnear[i].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"+"<br><br>가격: "+resultnear[i].h_fare.toString()+"원<br> 주소: "+resultnear[i].h_address+"<br>투숙 가능 인원: "+resultnear[i].h_peoplecnt+"<br> 소개: "+resultnear[i].h_info});
+										 google.maps.event.addListener(nearmarker[i], "click", function() {
+											 var title = this.title;
+											 var no = title.substring(0, title.indexOf('번'));
+												 for (var j = 0; j < nearinfowindow.length; j++) {
+											 		if (nearinfowindow[j]!=null && no == nearinfowindow[j].title) {
+													 nearinfowindow[j].open(map,this);
+													}
+											 		else if(nearinfowindow[j]!=null){
+											 			nearinfowindow[j].close();
+													}
+												}
+										 });
+										 google.maps.event.addListener(nearmarker[i], "mouseover", function() {
+											 this.setAnimation(google.maps.Animation.BOUNCE);
+											 var title = this.title;
+											 var no = title.substring(0, title.indexOf('번'));
+											 /* alert('title='+ title +", charAt()="+ title.indexOf('번')+ ", no="+no );  */
+											/*  var listno = $('#list'+no);	 */																	
+											 $('#list'+no).css({'background-color':'#efefef' ,'opacity':'0.8'})
+											              .attr('tabindex', -1).focus();		
+										 });
+										 google.maps.event.addListener(nearmarker[i], "mouseout", function() {
+											 this.setAnimation(null);
+											 var title = this.title;
+											 var no = title.substring(0, title.indexOf('번'));
+											 $('#list'+no).css({'background-color':'#f7f7f7' ,'opacity':'1'}).focusout();
+											 /* $('#list'+this.title.substring(0, this.title.charAt('번'))).css('background-color','#f7f7f7');
+											 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
+											 $('#list'+this.title.substring(0, this.title.charAt('번'))).focusout(); */
+										 });
+										 $('#searchlist').append("<div onmouseover='nearroll("+resultnear[i].h_no+")' onmouseout='nearrollout("+resultnear[i].h_no+")' style='border-radius: 10px;' id=list"+resultnear[i].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+resultnear[i].h_no.toString()+"'> <img src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 300px; height: 250px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'> <br><br> 거리: "+resultnear[i].distance+"m<br>집 번호: "+resultnear[i].h_no.toString()+"번 <br> 주소: "+resultnear[i].h_address+"<br> 가격: "+resultnear[i].h_fare+"원 <br> 투숙가능인원: "+resultnear[i].h_peoplecnt.toString()+"<br> 집형태: "+resultnear[i].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
+										 
+										 
+									}
 							}
 		 	            }
 		 	      	});
@@ -166,7 +246,7 @@
 										animation: google.maps.Animation.DROP,
 										icon: image
 									});
-									 infowindow[idx] = new google.maps.InfoWindow({ title : result[idx].h_no.toString() , content: result[idx].h_info+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt});
+									 infowindow[idx] = new google.maps.InfoWindow({ title : result[idx].h_no.toString() , content: result[idx].h_title+"<br><a href='/detail?h_no="+result[idx].h_no.toString()+"'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"+"<br><br>가격: "+result[idx].h_fare.toString()+"원<br> 주소: "+result[idx].h_address+"<br>투숙 가능 인원: "+result[idx].h_peoplecnt+"<br> 소개: "+result[idx].h_info});
 									 google.maps.event.addListener(marker[idx], "click", function() {
 										 var title = this.title;
 										 var no = title.substring(0, title.indexOf('번'));
@@ -197,7 +277,7 @@
 										 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
 										 $('#list'+this.title.substring(0, this.title.charAt('번'))).focusout(); */
 									 });
-									 $('#searchlist').append("<div onmouseover='roll("+result[idx].h_no+")' onmouseout='rollout("+result[idx].h_no+")' style='border-radius: 10px;' id=list"+result[idx].h_no+" class= 'list'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 200px; border-radius: 10px;'></a><div style='display:inline-block; margin-left : 1%;'> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"원 <br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
+									 $('#searchlist').append("<div onmouseover='roll("+result[idx].h_no+")' onmouseout='rollout("+result[idx].h_no+")' style='border-radius: 10px;' id=list"+result[idx].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 250px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'><br> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"원 <br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
 									 /* google.maps.event.addListener(marker, "mouseout", function() {
 										 infowindow.close(map,this);
 										 this.setAnimation(null);
@@ -255,6 +335,27 @@
 				}
 			}
 		}
+		
+		var nearroll = function (no) {
+			for (var i = 0; i < nearmarker.length; i++) {
+				if (nearmarker[i]!=null && nearmarker[i].title.substring(0, nearmarker[i].title.indexOf('번'))==no) {
+					if (nearmarker[i].getAnimation() == null) {
+					 nearmarker[i].setAnimation(google.maps.Animation.BOUNCE);
+					}
+				}
+			}
+		};
+		
+		var nearrollout = function (no) {
+			for (var i = 0; i < nearmarker.length; i++) {
+				if (nearmarker[i]!=null && nearmarker[i].title.substring(0, nearmarker[i].title.indexOf('번'))==no) {
+					if (nearmarker[i].getAnimation() != null) {
+						nearmarker[i].setAnimation(null);
+					}
+				}
+			}
+		}
+		
 		
 		$(document).ready(function () {
 			$('#address').attr('tabindex', -1).focus();

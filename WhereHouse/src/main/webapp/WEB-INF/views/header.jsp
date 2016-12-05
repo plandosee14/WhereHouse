@@ -288,8 +288,8 @@
       	      });
       	      
       	    $('#mainsearchbtn').click(function() {
-      	    	location.replace("/google");
-      	    });
+      	    	location.replace("/google?searchword="+$('#mainaddress').val());
+      	    });//검색
       	    
       	    
     	   });//ready

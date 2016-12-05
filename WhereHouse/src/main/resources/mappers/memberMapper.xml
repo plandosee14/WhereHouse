@@ -4,7 +4,7 @@
 	<select id="login" resultType="com.WhereHouse.member.domain.MemberVO">
 		select m_no, m_name, m_id from
 		member where m_id = #{m_id} and m_pass =
-		#{m_pass}
+		#{m_pass} and m_dropdate is null
 	</select>
 	<insert id="registerAccount">
 		insert into member (m_id, m_no, m_name, m_pass,
@@ -38,10 +38,13 @@
 		select * from house where h_address like '%'||#{h_address}||'%' and h_state = 0 order by h_no desc
 	</select>
 	<select id="selectnearHouse" resultType="com.WhereHouse.house.domain.HousedistanceVO">
-		select h_no, m_id, m_name, m_phone, h_address, h_fare, h_info, h_type, h_livetype, h_title, h_pi_x, h_pi_y
-     	, SQRT( POWER(( #{lat} - h_pi_x) * 110979.309, 2)
+		select h_no, m_id, m_name, m_phone, h_zip, h_address, h_fare, h_startdate, h_enddate,
+		 h_info, h_peoplecnt, h_type, h_livetype, h_checktime, h_sale, h_salefare, h_rule,
+		  h_thumnail, h_state, h_scorecnt, h_avgscore, h_rightscore, h_cleanscore, h_checkscore,
+		   h_commuscore, h_title, h_pi_x, h_pi_y
+     	, ROUND(SQRT( POWER(( #{lat} - h_pi_x) * 110979.309, 2)
            + POWER((#{lng} - h_pi_y) *  88907.949, 2)
-           ) distance
+           ),0) distance
   		from house
         , (select  #{lat} v_x
              ,     #{lng} v_y
@@ -52,9 +55,10 @@
         )
         where SQRT( POWER((v_x - h_pi_x) * r_x, 2)
            + POWER((v_y - h_pi_y) * r_y, 2)
-           ) <![CDATA["<"]]>= v_distance
+           ) &lt;= v_distance
         and h_pi_x BETWEEN v_x - v_distance / r_x and v_x + v_distance / r_x
         and h_pi_y BETWEEN v_y - v_distance / r_y and v_y + v_distance / r_y
+        and h_state = 0
         order by distance
 	</select>
 </mapper>
