@@ -17,11 +17,11 @@ html, body {
 	top:0px;
 	left:0px;
 	height:450px;
-	
 }
 #album #back{
 	top: 0px;
 	left: 0px;
+	width:90%;
 	max-height: 450px;
 }
 #reserve {
@@ -30,7 +30,11 @@ html, body {
 	width:30px;
 	right:33%;
 	padding-top:60px;
-	z-index: 1000000;
+	z-index: 10;
+}
+
+#reserve>#reserveform>#reservediv {
+	width:1350%;
 }
 
 #textb{
@@ -80,32 +84,58 @@ textarea{
 <body>
 	<br><br><br>
 	<div id="album">
-		<img id="back" src="/resources/screenshot/seoul.jpg" width="94%">
+		<img id="back" src="/resources/screenshot/seoul.jpg">
 	</div>
 	<div id="reserve">
-		<img class="floating" src="/resources/screenshot/busan.jpg">
+		<form id="reserveform">
+			<div id="reservediv" style="border:1px solid red;height:600px">
+				<input type="hidden" value="${m_id}" name="m_id">
+				<input type="hidden" value="${h_no}" name="h_no">
+				<button type="button" id="reservation" class="reservation">예약하기</button>
+			</div>
+		</form>
 	</div>
 	<div id="textb">
 		<textarea rows="100px" cols="110px">dlfklsjdkafpoasdjkoasd</textarea>
 	</div>
-	<font color="black" size="5">청결도</font>
-	<span class="star-input">
-  		<span class="input">
-  			<c:forEach var="i" begin="1" end="10" step="1">
-    		<input type="radio" name="star-input" id="p${i}" value="${i}"><label for="p${i}"><c:out value="${0.5*i}"/></label>
-    		</c:forEach>
-  		</span>
-  		<output for="star-input"><b>0</b>점</output>
-	</span>
-	<font color="black" size="5">커뮤니케이션</font>
-	<span class="star-input2">
-  		<span class="input">
-  			<c:forEach var="i" begin="1" end="10" step="1">
-    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
-    		</c:forEach>
-  		</span>
-  		<output for="star-input2"><b>0</b>점</output>
-	</span>
+	<c:if test="${checkGrade == 'true'}" >
+		<font color="black" size="5">정확성</font>
+		<span class="star-input">
+	  		<span class="input">
+	  			<c:forEach var="j" begin="1" end="10" step="1">
+	    			<input type="radio" name="star-input" id="p${j}" value="${j}"><label for="p${j}"><c:out value="${0.5*j}"/></label>
+	    		</c:forEach>
+	  		</span>
+	  		<output for="star-input"><b>0</b>점</output>
+		</span><br>
+		<font color="black" size="5">청결도</font>
+		<span class="star-input2">
+	  		<span class="input">
+	  			<c:forEach var="i" begin="1" end="10" step="1">
+	    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
+	    		</c:forEach>
+	  		</span>
+	  		<output for="star-input2"><b>0</b>점</output>
+		</span><br>
+		<font color="black" size="5">체크인</font>
+		<span class="star-input3">
+	  		<span class="input">
+	  			<c:forEach var="i" begin="1" end="10" step="1">
+	    			<input type="radio" name="star-input3" id="r${i}" value="${i}"><label for="r${i}"><c:out value="${0.5*i}"/></label>
+	    		</c:forEach>
+	  		</span>
+	  		<output for="star-input3"><b>0</b>점</output>
+		</span><br>
+		<font color="black" size="5">커뮤니케이션</font>
+		<span class="star-input4">
+	  		<span class="input">
+	  			<c:forEach var="i" begin="1" end="10" step="1">
+	    			<input type="radio" name="star-input4" id="c${i}" value="${i}"><label for="c${i}"><c:out value="${0.5*i}"/></label>
+	    		</c:forEach>
+	  		</span>
+	  		<output for="star-input4"><b>0</b>점</output>
+		</span>
+	</c:if>
 	<div class="row">
 		<div class="col-md-12">
 
@@ -113,8 +143,8 @@ textarea{
 				<div class="box-header">
 					<h3 class="box-title">후기</h3>
 				</div>
-			<c:if test="${login != null}"> 
 			     
+			<c:if test="${m_id != null}"> 
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
 					<input class="form-controll" type="text" placeholder="USER ID" id="newCommentWriter" size="90%"><br> 
@@ -126,8 +156,8 @@ textarea{
 				<div class="box-footer">
 					<button type="button" class="bt btn-primary" id="commentAddBtn">ADD COMMENT</button>
 				</div>
-			</c:if>
 			</div>
+			</c:if>
 			<!-- The time line -->
 			<ul class="timeline">
 				<!-- timeline time label -->

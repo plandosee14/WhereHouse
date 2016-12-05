@@ -23,6 +23,4 @@ public class HouseDAOImpl implements HouseDAO{
 		sqlSession.selectOne("house.selectHouseByHno", h_no);
 	}
 
-
-
 }

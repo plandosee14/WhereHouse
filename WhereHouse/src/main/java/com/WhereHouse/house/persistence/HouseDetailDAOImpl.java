@@ -1,5 +1,8 @@
 package com.WhereHouse.house.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,5 +20,21 @@ public class HouseDetailDAOImpl implements HouseDetailDAO {
 	public HouseVO read(int h_no) throws Exception {
 		return sqlSession.selectOne("house.selectHouseByHno", h_no);
 	}
+	@Override
+	public boolean selectHouseReservation(String m_id, int h_no) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("m_id", m_id);
+		map.put("h_no", h_no);
+		int cnt = sqlSession.selectOne("house.selectHouseReservation", map);
+		System.out.println(cnt);
+		if(cnt==0){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+
+
 
 }
