@@ -3,7 +3,7 @@ package com.WhereHouse.reservation.domain;
 import java.util.Date;
 
 public class ReservationVO {
-	
+
 	private int r_no;  	      
 	private int h_no;  	      
 	private String m_id;
