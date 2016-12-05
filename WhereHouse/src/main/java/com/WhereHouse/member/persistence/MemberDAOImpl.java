@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.WhereHouse.house.domain.HouseVO;
+import com.WhereHouse.house.domain.HousedistanceVO;
+import com.WhereHouse.house.domain.locationVO;
 import com.WhereHouse.member.domain.MemberVO;
 
 @Repository
@@ -50,5 +52,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<HouseVO> searchHouse(HouseVO vo) throws Exception {
 		return sqlSession.selectList("member.selectHouse", vo);
 	}
+
+	@Override
+	public List<HousedistanceVO> searchnearHouse(locationVO vo) throws Exception {
+		return sqlSession.selectList("member.selectnearHouse", vo);
+	}
+
+
+	
 
 }

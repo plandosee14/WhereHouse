@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WhereHouse.house.domain.HouseVO;
+import com.WhereHouse.house.domain.HousedistanceVO;
+import com.WhereHouse.house.domain.locationVO;
 import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.member.service.MemberService;
 
@@ -70,6 +72,11 @@ public class MemberRestController {
 	@RequestMapping(value = "/searchHouse", method = RequestMethod.POST)
 	public List<HouseVO> searchHouse(HouseVO vo) throws Exception {
 		return service.searchHouse(vo);
+	}
+	
+	@RequestMapping(value = "/searchnearHouse", method = RequestMethod.POST)
+	public List<HousedistanceVO> searchnearHouse(locationVO vo) throws Exception {
+		return service.searchnearHouse(vo);
 	}
 
 }

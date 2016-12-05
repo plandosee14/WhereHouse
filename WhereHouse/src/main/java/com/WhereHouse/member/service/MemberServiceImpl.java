@@ -15,6 +15,8 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.stereotype.Service;
 
 import com.WhereHouse.house.domain.HouseVO;
+import com.WhereHouse.house.domain.HousedistanceVO;
+import com.WhereHouse.house.domain.locationVO;
 import com.WhereHouse.member.domain.Encryption;
 import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.member.domain.SMTPAuthenticator;
@@ -142,6 +144,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<HouseVO> searchHouse(HouseVO vo) throws Exception {
 		return dao.searchHouse(vo);
+	}
+
+	@Override
+	public List<HousedistanceVO> searchnearHouse(locationVO vo) throws Exception {
+		return dao.searchnearHouse(vo);
 	}
 
 }

@@ -48,6 +48,7 @@
 						lng : position.coords.longitude
 					}
 				});
+				alert(position.coords.latitude+","+position.coords.longitude);
 				    markergps = new google.maps.Marker({
 					map : map,
 					position : {
@@ -138,6 +139,7 @@
 								}else {
 									image = '/resources/img/house/apart.png';
 								}
+								var pi_x = results[0].geometry.location.lat();
 								marker[idx] = new google.maps.Marker({
 									map : resultsMap,
 									position : results[0].geometry.location,
