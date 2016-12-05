@@ -1,27 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="../header.jsp"></jsp:include><br>
+<header><%@include file="../header.jsp"%></header>
 <br>
+<br>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<style type="text/css">
-body {
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: right bottom;
-	background-color: white;
-}
-</style>
+<
+<html>
 
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-
-
-
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 <style type="text/css">
 #faq_list {
 	border-bottom: 1px solid #ccc
@@ -75,297 +65,127 @@ body {
 
 	});
 
-	function search() {
-		var keyword = $('input[name=keyword]').val();
-		if (keyword == '') {
-			alert('검색할 단어를 입력해주세요.');
-			return false;
-		}
-		location.href = "./faq_list.ok?keyword=" + keyword;
-	}
-
 	function previous() {
-		location.href = "./faq_list.ok?page=1";
+		location.href = "/";
 	}
 </script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 
-<!-- Custom Tabs -->
-<div class="nav-tabs-custom" style="background-color: white">
+<body>
+	<div class="container">
+		<!-- Custom Tabs -->
 
-	<h1>
-		<span class="glyphicon glyphicon-question-sign" style="color: blue"></span>
-		AdminPage
-	</h1>
-	<hr>
-	<div align="center" style="background-color: white">
+		<div class="nav-tabs-custom">
 
-		<div class="box box-solid" style="width: 500px;">
+			<h1>
+				<span class="glyphicon glyphicon-question-sign" style="color: blue"></span><font
+					color="black">AdminPage</font>
+			</h1>
+			<hr>
+ 
 
-			<div class="box-header with-border" style="background-color: white">
-				<h3 class="box-title">
-					AdminPage 검색<small></small>
-				</h3>
-			</div>
+			<ul class="nav nav-tabs" style="background-color: #F3CA5A">
+				<li><a href="#tab_1" data-toggle="tab">회원관리</a></li>
+				<li><a href="#tab_2" data-toggle="tab">집관리</a></li>
+				<li><a href="#tab_3" data-toggle="tab">예약관리</a></li>
+				<li><a href="#tab_4" data-toggle="tab">평점관리</a></li>
+				<li><a href="#tab_4" data-toggle="tab">통계관리</a></li>
 
-			<div class="box-body" style="background-color: white">
-				<!-- /btn-group -->
-				<div class="input-group" style="background-color: white">
-					<input id="new-event" name="keyword" type="text"
-						class="form-control" placeholder="검색하세요">
 
-					<div class="input-group-btn">
-						<button id="add-new-event" type="button"
-							class="btn btn-primary btn-flat" onclick="search()">찾기</button>
-					</div>
-					<!-- /btn-group -->
-				</div>
-				<!-- /input-group -->
-			</div>
-		</div>
-	</div>
-
-	<ul class="nav nav-tabs" style="background-color: #F3CA5A">
-		<li class="active"><a href="#tab_1" data-toggle="tab">회원관리</a></li>
-		<li><a href="#tab_2" data-toggle="tab">집관리</a></li>
-		<li><a href="#tab_3" data-toggle="tab">예약관리</a></li>
-		<li><a href="#tab_4" data-toggle="tab">평점관리</a></li>
-		<li><a href="#tab_5" data-toggle="tab">통계관리</a></li>
-
-		<li class="pull-right"><h4>
-				<font color="black">${page}페이지/${pageCount}페이지</font>
-			</h4></li>
-	</ul>
-	<br>
-	<div class="tab-content">
-		<div class="tab-pane active" id="tab_1"
-			style="background: #000000; background: rgba(0, 0, 0, 0);">
-			<!-------- tab1 자리 --------->
-
-			<div style="background: #000000; background: rgba(0, 0, 0, 0);">
-				<table class="table">
-					<tr>
-						<th><font color="black">번호</font></th>
-						<th><font color="black">아이디</font></th>
-						<th><font color="black">이름</font></th>
-						<th><font color="black">폰번호</font></th>
-						<th><font color="black">가입일</font></th>
-					</tr>
-					<c:forEach items="${list}" var="memberVO">
-						<tr>
-							<td><font color="black">${memberVO.m_no}</font></td>
-							<td><a href='/admin?m_no=${memberVO.m_no}'>${memberVO.m_id}</a></td>
-							<td><font color="black">${memberVO.m_name}</font></td>
-							<td><font color="black">${memberVO.m_phone}</font></td>
-							<td><font color="black"><fmt:formatDate
-										pattern="yyyy-MM-dd HH:mm" value="${memberVO.m_regdate}" /></font></td>
-						</tr>
-					</c:forEach>
-				</table>
-
-				<ul id="faq_list"
+			</ul>
+			<br>
+			<div class="tab-content">
+				<div class="tab-pane active" id="tab_1"
 					style="background: #000000; background: rgba(0, 0, 0, 0);">
-					<c:forEach items="${list}" var="v">
-						<li style="background: #000000; background: rgba(0, 0, 0, 0);">
-							<h4>
-								<a href="#a1"></a>
-							</h4>
-							<p>
-								<c:if test="">
-									<img src="./img/">
-									<br>
-								</c:if>
-								<textarea disabled="disabled"
-									style="border: 0; background-color: transparent"></textarea>
-							</p>
-						</li>
-					</c:forEach>
-				</ul>
+
+					<!-------- tab1 자리 --------->
+
+					<div style="background: #000000; background: rgba(0, 0, 0, 0);">
+
+
+						<table class="table">
+							<tr>
+								
+								<th><font color="black">번호</font></th>
+								<th><font color="black">아이디</font></th>
+								<th><font color="black">이름</font></th>
+								<th><font color="black">폰번호</font></th>
+								<th><font color="black">가입일</font></th>
+							</tr>
+							<c:forEach items="${list}" var="memberVO">
+								<tr>
+									
+									<td><font color="black">${memberVO.m_no}</font></td>
+									<td><a href='/admin?m_no=${memberVO.m_no}'>${memberVO.m_id}</a></td>
+									<td><font color="black">${memberVO.m_name}</font></td>
+									<td><font color="black">${memberVO.m_phone}</font></td>
+									<td><font color="black"><fmt:formatDate
+												pattern="yyyy-MM-dd HH:mm" value="${memberVO.m_regdate}" /></font></td>
+								</tr>
+							</c:forEach>
+						</table>
+
+					</div>
+					<div align="center"></div>
+
+				</div>
+
+
+				<!-------- tab2 자리 --------->
+				<div class="tab-pane" id="tab_2">
+
+					<table class="table2">
+						<tr>
+							<th><font color="black">번호</font></th>
+							<th><font color="black">아이디</font></th>
+							<th><font color="black">주소</font></th>
+							<th><font color="black">요금</font></th>
+							<th><font color="black">예약일</font></th>
+						</tr>
+						<c:forEach items="${houselist}" var="houseVO">
+							<tr>
+								<td><font color="black">${houseVO.h_no}</font></td>
+								<td>${houseVO.m_id}</td>
+								<td><font color="black">${houseVO.h_address}</font></td>
+								<td><font color="black">${houseVO.h_fare}</font></td>
+								<td><font color="black"><fmt:formatDate
+											pattern="yyyy-MM-dd HH:mm" value="${houseVO.h_startdate}" /></font></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+
+				<!-------- tab3 자리 --------->
+				<div class="tab-pane" id="tab_3">
+
+					<table class="table table-bordered">
+						<tr style="color: black">
+							<th>예약한 사람</th>
+							<th>전화번호</th>
+							<th>예약한 날짜</th>
+						</tr>
+
+
+						<c:forEach items="${list}" var="basketVO">
+
+							<tr style="color: black">
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</c:forEach>
+
+					</table>
+				</div>
+
+				<!-------- tab4 자리 --------->
+				<div class="tab-pane" id="tab_4"></div>
+
 			</div>
-			<div align="center">
-				<!--  <nav>
-  <ul class="pagination pagination-lg">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav> -->
-			</div>
-
-			<!-- /.container -->
 		</div>
 
-
-		<!-------- tab2 자리 --------->
-		<div class="tab-pane" id="tab_2">
-			<table class="table2">
-				<tr>
-					<th><font color="black">번호</font></th>
-					<th><font color="black">아이디</font></th>
-					<th><font color="black">이름</font></th>
-					<th><font color="black">주소</font></th>
-					<th><font color="black">요금</font></th>
-				</tr>
-				<c:forEach items="${list}" var="memberVO">
-					<tr>
-						<td><font color="black">${memberVO.m_no}</font></td>
-						<td><a href='/admin?m_no=${memberVO.m_no}'>${memberVO.m_id}</a></td>
-						<td><font color="black">${memberVO.m_name}</font></td>
-						<td><font color="black">${memberVO.m_phone}</font></td>
-						<td><font color="black"><fmt:formatDate
-									pattern="yyyy-MM-dd HH:mm" value="${memberVO.m_regdate}" /></font></td>
-					</tr>
-				</c:forEach>
-			</table>
-			<ul id="faq_list">
-				<c:forEach items="${list }" var="v">
-					<c:if test="">
-						<li>
-							<h4>
-								<a href="#a1"></a>
-							</h4>
-							<p>
-								<c:if test="">
-									<img src="./img/">
-									<br>
-								</c:if>
-								<textarea disabled="disabled"
-									style="border: 0; background-color: transparent"></textarea>
-							</p>
-						</li>
-					</c:if>
-				</c:forEach>
-			</ul>
-		</div>
-
-		<!-------- tab3 자리 --------->
-		<div class="tab-pane" id="tab_3">
-
-			<ul id="faq_list">
-				<c:forEach items="${list }" var="v">
-					<c:if test="">
-						<li>
-							<h4>
-								<a href="#a1"></a>
-							</h4>
-							<p>
-								<c:if test="">
-									<img src="./img/">
-									<br>
-								</c:if>
-								<textarea disabled="disabled"
-									style="border: 0; background-color: transparent"></textarea>
-							</p>
-						</li>
-					</c:if>
-				</c:forEach>
-			</ul>
-
-
-
-
-		</div>
-
-		<!-------- tab4 자리 --------->
-		<div class="tab-pane" id="tab_4">
-
-			<ul id="faq_list">
-				<c:forEach items="${list }" var="v">
-					<c:if test="">
-						<li>
-							<h4>
-								<a href="#a1"></a>
-							</h4>
-							<p>
-								<c:if test="">
-									<img src="./img/">
-									<br>
-								</c:if>
-								<textarea disabled="disabled"
-									style="border: 0; background-color: transparent"></textarea>
-							</p>
-						</li>
-					</c:if>
-				</c:forEach>
-			</ul>
-
-
-
-
-
-
-
-
-
-
-		</div>
-		<!-------- tab5 자리 --------->
-		<div class="tab-pane" id="tab_5">
-			<ul id="faq_list">
-				<c:forEach items="${list }" var="v">
-					<c:if test="">
-						<li>
-							<h4>
-								<a href="#a1"></a>
-							</h4>
-							<p>
-								<c:if test="">
-									<img src="./img/">
-									<br>
-								</c:if>
-								<textarea disabled="disabled"
-									style="border: 0; background-color: transparent"></textarea>
-							</p>
-						</li>
-					</c:if>
-				</c:forEach>
-			</ul>
-		</div>
 	</div>
-</div>
-<div align="center">
-	<nav>
-	<ul class="pagination pagination-lg">
-		<li><a href="#" aria-label="Previous"> <span
-				aria-hidden="true">&laquo;</span>
-		</a></li>
+</body>
 
-		<li><c:forEach begin="1" end="" var="i">
-				<a href="faq_list.ok?page=${i}">${i }</a>
-			</c:forEach></li>
-
-
-
-		<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-		</a></li>
-	</ul>
-	</nav>
-
-</div>
-<form action="./faq_create.ok">
-	<div align="right">
-		<input class="btn btn-info" type="button" value="처음으로"
-			onclick="previous()">
-		<c:if test="${currentNickName=='관리자'}">
-			<input class="btn btn-warning" type="submit" value="글등록">
-		</c:if>
-	</div>
-</form>
-
+</html>
