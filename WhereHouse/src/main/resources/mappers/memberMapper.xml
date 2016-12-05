@@ -43,7 +43,7 @@
            + POWER((#{lng} - h_pi_y) *  88907.949, 2)
            ) distance
   		from house
-        , (select     #{lat} v_x
+        , (select  #{lat} v_x
              ,     #{lng} v_y
              ,  110979.309     r_x
              ,  88907.949     r_y
