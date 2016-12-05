@@ -73,10 +73,10 @@
 				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
 						<span>등록정보</span>
 				</a></li>
-				<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
+				<li><a href="/mypage/checkForm"> <i class="fa fa-pencil"></i> <span>회원정보
 							수정</span>
 				</a></li>
-				<li><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				<li><a href="/mypage/checkDelForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 				</li>
 			</ul>
 			</aside>

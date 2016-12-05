@@ -112,6 +112,20 @@ h_checktime, h_sale,h_salefare,
 '3시~11시', 10,30000,
 '담배피지마세요','junghoon.jpg','39.0392193','125.76252410000006');
 
+ insert into house 
+(h_no,m_id,m_name,m_phone,h_title,
+ h_zip,h_address, h_fare,
+h_startdate,h_enddate, h_info,
+ h_peoplecnt, h_type,h_livetype,
+h_checktime, h_sale,h_salefare,
+ h_rule,h_thumnail,h_pi_x, h_pi_y )
+ values (house_seq.nextval,'gkdmstkfkd93@naver.com','이하은','010-1234-1234','하은이네집',
+'12345','수원시 권선구 세류동 1140',10000,
+'2016-11-30','2017-12-30','하으니네 집으로 찾아오세요',
+5,'주택','방하나',
+'3시~11시', 10,60000,
+'담배피지마세요','haeun.jpg','39.0392193','125.76252410000006');
+
 alter house h_thumnail
 delete from house where m_name='권성준';
 
@@ -121,5 +135,5 @@ from house h , basket b
 where h.h_no = b.h_no
       and b.m_id = 'ojh5797@naver.com';
 
-delete from house ;
+delete from house;
       

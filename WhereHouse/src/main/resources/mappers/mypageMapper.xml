@@ -27,10 +27,17 @@
         where m_id=#{m_id}
 	</update>
 	
+	
 	<delete id="deleteMember">
-      delete from member
-      where m_id=#{m_id}		
+        delete from member
+        where m_id=#{m_id}		
 	</delete>
+	
+	<select id="selectHouseById">
+	  select h_no, h_thumnail, h_title
+	  from house
+	  where m_id = #{m_id}
+	</select>
 	
 	<select id="selectReservationById" resultType="com.WhereHouse.mypage.domain.MyReservationVO">
 		select r.r_no, h.h_no, r.r_startdate, r.r_enddate, r.r_fare, r.r_peoplecnt, h.h_thumnail, h.m_phone
@@ -45,5 +52,11 @@
 		where h.h_no = r.h_no
 			and h.m_id = #{m_id}
 			and r.m_id = m.m_id
+	</select>
+	<select id="selectPassword" resultType="com.WhereHouse.member.domain.MemberVO">
+	select m_id
+	from member
+	where m_id = #{m_id}
+		and m_pass = #{m_pass}
 	</select>
 </mapper>

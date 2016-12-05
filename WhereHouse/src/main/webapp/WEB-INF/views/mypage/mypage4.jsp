@@ -102,7 +102,7 @@ th {
 				<li class="active read"><a href="/mypage/read"> <i
 						class="fa fa-pencil"></i> <span>회원정보 수정</span>
 				</a></li>
-				<li><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				<li><a href="/mypage/checkDelForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 				</li>
 			</ul>
 			</aside>
@@ -117,6 +117,11 @@ th {
 							<tr id="tableInput">
 								<th><label for="m_id">아이디<span class="required"></span></label></th>
 								<td><input id="m_id" name="m_id" type="text" value="${member.m_id }" readonly="readonly" /></td>
+							</tr>
+							</tr>
+							<tr id="tableInput">
+								<th><label for="m_phone">비밀번호<span class="required"></span></label></th>
+								<td><input id="m_pass" name="m_pass" type="text" value= ""  maxlength="20" /></td>
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_no">회원번호<span class="required"></span></label></th>

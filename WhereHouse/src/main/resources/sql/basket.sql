@@ -35,3 +35,7 @@ delete from basket;
 		from basket
 		where m_id='ojh5797@naver.com'
 		order by b_no asc
+		
+select m_pass
+	from member
+	where m_id='ojh5797@naver.com';
