@@ -1,5 +1,7 @@
 package com.WhereHouse.mypage.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.WhereHouse.basket.domain.BasketVO;
 import com.WhereHouse.basket.service.BasketService;
 import com.WhereHouse.member.domain.MemberVO;
+import com.WhereHouse.mypage.domain.MyBasketVO;
 import com.WhereHouse.mypage.service.MypageService;
 
 @Controller
@@ -27,9 +30,15 @@ public class MyPageController {
 	
 	@RequestMapping("")
     public String mypage(Model model, HttpServletRequest request, RedirectAttributes attr) throws Exception{
+		
 		String m_id = (String) request.getSession().getAttribute("m_id");
+	
+		List<MyBasketVO> list = mService.listAllById(m_id);
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getB_no());
+		}
 		//System.out.println("Session üũ : "+m_id);
-		model.addAttribute("bList", bService.listAllById(m_id));
+		/*model.addAttribute("bList", bService.listAllById(m_id));*/
 		model.addAttribute("mList", mService.listAllById(m_id));
 
 

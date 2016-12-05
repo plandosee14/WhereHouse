@@ -36,10 +36,9 @@ insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peo
 values (reservation_seq.nextval, 9,'ojh5797@naver.com','2016-12-06','2016-12-07',45000,1);
 
 insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
-values (reservation_seq.nextval, 9,'ojh5797@naver.com','2016-12-07','2016-12-08',45000,1);
+values (reservation_seq.nextval, 10,'ojh5797@naver.com','2016-12-08','2016-12-09',40000,1);
 
-insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
-values (reservation_seq.nextval, 1,'sj54770@naver.com','2016-12-01','2016-12-03',600000,1);
+
 
 delete reservation
 
