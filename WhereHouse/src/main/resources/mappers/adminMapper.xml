@@ -14,7 +14,7 @@
 		order by h_no desc
 	</select>
 	
-	<select id="selectReservation" resultType="com.WhereHouse.house.domain.ReservationVO">
+	<select id="selectReservation" resultType="com.WhereHouse.reservation.domain.ReservationVO">
 		select *
 		from register
 		order by r_no desc
