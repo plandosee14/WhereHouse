@@ -127,12 +127,12 @@ upload.onchange = function (e) {
 <br>
 소개<br>
 <textarea rows="20" cols="50" name="info"></textarea>
-<input type="submit">
+<input type="submit" id="submit">
 
 </div>
 </form>
 <script>
-
+$("#submit").click(function(){
 var geocoder = new google.maps.Geocoder();
 geocoder
       .geocode(
@@ -148,6 +148,9 @@ geocoder
                     alert('주소를 변환하는 과정중 오류가 발생');
                }
             });
+            
+            submit;
+});
 </script>
 
 </body>
