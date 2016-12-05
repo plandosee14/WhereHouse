@@ -57,6 +57,7 @@
 					title :"현재위치",
 					animation: google.maps.Animation.DROP,
 				});
+				    
 				    $.ajax({
 		 	      		url:"/member/searchnearHouse",
 		 	            type: "post",
@@ -67,14 +68,15 @@
 		 	            },
 		 	            success:function(resultnear){
 		 	            	if (resultnear == null||resultnear == "") {
-		 	            		$('#alerttitle').html('검색결과');
-				                  $('#alertcontent').html('검색결과가 없습니다.');
+		 	            		  $('#alerttitle').html('검색결과');
+				                  $('#alertcontent').html('3KM내에 등록된 집이 없습니다.');
 				                  $('#alertModal').modal("show");
 		 	            		}else {
 		 	            			alert(resultnear);
 							}
 		 	            }
 		 	      	});
+				    
 				});
 			    }
 			  else{
@@ -169,7 +171,7 @@
 										 var title = this.title;
 										 var no = title.substring(0, title.indexOf('번'));
 											 for (var i = 0; i < infowindow.length; i++) {
-										 		if (infowindow[i]!=null&&no == infowindow[i].title) {
+										 		if (infowindow[i]!=null && no == infowindow[i].title) {
 												 infowindow[i].open(map,this);
 												}
 										 		else if(infowindow[i]!=null){
