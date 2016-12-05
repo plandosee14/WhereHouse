@@ -42,6 +42,7 @@
 					<i class="fa fa-trash"></i> 
 					<font color="black">회원 탈퇴</font>
 				</h1>
+				<div style="border-bottom: 2px solid black"></div>
 			</div>
 			<hr>
 	<input type="checkbox" id="menu_state" checked>
@@ -63,10 +64,10 @@
 		<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
 				<span>등록정보</span>
 		</a></li>
-		<li><a href="/mypage/read"> <i class="fa fa-pencil"></i> 
+		<li><a href="/mypage/checkForm"> <i class="fa fa-pencil"></i> 
 		<span>회원정보 수정</span>
 		</a></li>
-		<li class="active read"><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+		<li class="active read"><a href="/mypage/check4"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 		</li>
 	</ul>
 	</aside>
@@ -75,48 +76,12 @@
 
 		<div id="contact-form" class="contatct-form">
 			<div class="loader"></div>
-			<form name="update" method="post">
-
-				<div class="row" style="text-align: left;">
-
-					<label for="m_id">아이디<span class="required"></span></label> <input
-						id="m_id" name="m_id" type="text" value="${member.m_id }"
-						readonly="readonly" />
-
-				</div>
-				<div class="row" style="text-align: left">
-
-					<label for="m_no">회원번호<span class="required"></span></label> <input
-						id="m_no" name="m_no" type="text" value="${member.m_no }"
-						readonly="readonly" />
-
-				</div>
-				<div class="row" style="text-align: left">
-
-					<label for="m_name">이름<span class="required"></span></label> <input
-						id="m_name" name="m_name" type="text" value="${member.m_name }"
-						readonly="readonly" />
-
-				</div>
-
-				<div class="row" style="text-align: left">
-					<label for="m_phone">휴대폰<span class="required"></span></label> <input
-						id="m_phone" name="m_phone" type="text" value="${member.m_phone }"
-						maxlength="20" />
-
-				</div>
-
-
-
-				<div class="row">
-					<input type="submit" name="submit" class="btn btn-danger btn-sm"
-						value="수정하기" /> <input type="button" name="reset"
-						class="btn btn-danger btn-sm" id="pageback" value="취소" />
-				</div>
-
-			</form>
-		</div>
-
+			정말 탈퇴하시겠습니까? <br>
+		</div><br><br>
+		<form method="post" action="delete">
+			<input type="submit" name="submit" class="btn btn-danger btn-sm" value="탈퇴하기" /> 
+			<input type="button" name="reset" class="btn btn-danger btn-sm" id="pageback" value="취소"/>
+		</form>	
 	</div>
    </div>
   </div>

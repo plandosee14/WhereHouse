@@ -24,11 +24,14 @@ public class AdminController {
 	public String admin(Model model)throws Exception{
 	
 		List<MemberVO> list = service.selectAllMember();
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
-		}
+		List<HouseVO> houselist = service.selectHouse(); 
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i).toString());
+//		}
 		model.addAttribute("list",service.selectAllMember());
-		//System.out.println(service.selectAllMember());
+		model.addAttribute("houselist",service.selectHouse());
+		model.addAttribute("reservationlist",service.selectReservation());
+
 		return "admin/main";
 	}
 	

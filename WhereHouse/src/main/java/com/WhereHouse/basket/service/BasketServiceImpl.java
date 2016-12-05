@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.WhereHouse.basket.domain.BasketVO;
 import com.WhereHouse.basket.persistence.BasketDAO;
+import com.WhereHouse.mypage.domain.MyBasketVO;
 
 @Service
 public class BasketServiceImpl implements BasketService{
@@ -28,7 +29,11 @@ public class BasketServiceImpl implements BasketService{
 	}
 
 	@Override
-	public List<BasketVO> listAllById(String m_id) throws Exception {
+	public List<MyBasketVO> listAllById(String m_id) throws Exception {
+		for(int i=0; i<dao.listBasketById(m_id).size();i++){
+			
+			System.out.println("service ¸®½ºÆ®" + dao.listBasketById(m_id).get(i));
+		}
 		return dao.listBasketById(m_id);
 	}
 

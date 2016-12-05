@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.member.domain.MemberVO;
+import com.WhereHouse.reservation.domain.ReservationVO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO{
@@ -24,6 +25,11 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public List<HouseVO> selectHouse() throws Exception {
 		return sqlSession.selectList("admin.selectHouse");
+	}
+
+	@Override
+	public List<ReservationVO> selectReservation() throws Exception {
+		return sqlSession.selectList("admin.selectReservation");
 	}
 
 }

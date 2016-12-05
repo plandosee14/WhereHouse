@@ -289,7 +289,7 @@
       	      
       	    $('#mainsearchbtn').click(function() {
       	    	location.replace("/google");
-      	    });
+      	    });//검색창으로 넘기기
       	    
       	    
     	   });//ready
@@ -328,7 +328,6 @@
   			</button>
   			<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">MyPage</a></li>
-    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google" style="cursor: pointer;">최필한Google</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google2" style="cursor: pointer;">최상균Google</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google3" style="cursor: pointer;">최필한Google3</a></li>
     			<li role="presentation" class="divider"></li>

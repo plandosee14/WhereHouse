@@ -14,6 +14,39 @@
 	width: 85%;
 	float: right;
 }
+
+table {
+	border-collapse: collapse;
+	width: 40%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+	border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th {
+	width: 25%;
+	background-color: gray;
+	color: white;
+}
+
+#tableBtn {
+	text-align: center;
+}
+
+#tableInput input {
+	width: 100%;
+}
+
+#tableInput2 input {
+	width: 30%;
+}
 </style>
 
 <script>
@@ -34,93 +67,87 @@
 </head>
 
 <body>
-	<br><br><br>
-	<div class="container" id="mainDiv">	
-	  <div class="nav-tabs-custom">
+	<br>
+	<br>
+	<br>
+	<div class="container" id="mainDiv">
+		<div class="nav-tabs-custom">
 			<div id="mypageLink" style="cursor: pointer;">
 				<h1>
-					<i class="fa fa-pencil"></i> 
-					<font color="black">회원정보 수정</font>
+					<i class="fa fa-pencil"></i> <font color="black">회원정보 수정</font>
 				</h1>
 				<div style="border-bottom: 2px solid black"></div>
 			</div>
 			<hr>
-	<input type="checkbox" id="menu_state" checked>
-	<aside>
-	<ul>
-			  <div id="mypageLink2" style="cursor: pointer;">
-				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
-				  
-				 <span style="font-family: ; font-weight: bold;">MyPage</span>
-				</ul>
-			  </div>
-				<br>	  
-		<li data-content="3"><a href="/mypage">
-				<i class="fa fa-cart-plus"></i> <span>장바구니</span>
-		</a></li>
-		<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
-				<span>결제정보</span>
-		</a></li>
-		<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
-				<span>등록정보</span>
-		</a></li>
-		<li class="active read"><a href="/mypage/read"> <i class="fa fa-pencil"></i> 
-		<span>회원정보 수정</span>
-		</a></li>
-		<li><a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
-		</li>
-	</ul>
-	</aside>
-	<div align="left">
-		<br>
+			<input type="checkbox" id="menu_state" checked>
+			<aside>
+			<ul>
+				<div id="mypageLink2" style="cursor: pointer;">
+					<ul style="font-size: 30; color: #3A3A3A">
+						&nbsp;
 
-		<div id="contact-form" class="contatct-form">
-			<div class="loader"></div>
-			<form name="update" method="post">
-
-				<div class="row" style="text-align: left;">
-
-					<label for="m_id">아이디<span class="required"></span></label> <input
-						id="m_id" name="m_id" type="text" value="${member.m_id }"
-						readonly="readonly" />
-
+						<span style="font-family:; font-weight: bold;">MyPage</span>
+					</ul>
 				</div>
-				<div class="row" style="text-align: left">
+				<br>
+				<li data-content="3"><a href="/mypage"> <i
+						class="fa fa-cart-plus"></i> <span>장바구니</span>
+				</a></li>
+				<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
+						<span>결제정보</span>
+				</a></li>
+				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
+						<span>등록정보</span>
+				</a></li>
+				<li class="active read"><a href="/mypage/read"> <i
+						class="fa fa-pencil"></i> <span>회원정보 수정</span>
+				</a></li>
+				<li><a href="/mypage/checkDelForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+				</li>
+			</ul>
+			</aside>
+			<div align="left">
+				<br>
 
-					<label for="m_no">회원번호<span class="required"></span></label> <input
-						id="m_no" name="m_no" type="text" value="${member.m_no }"
-						readonly="readonly" />
+				<div id="contact-form" class="contatct-form">
+					<div class="loader"></div>
+					<form name="update" method="post">
 
-				</div>
-				<div class="row" style="text-align: left">
-
-					<label for="m_name">이름<span class="required"></span></label> <input
-						id="m_name" name="m_name" type="text" value="${member.m_name }"
-						readonly="readonly" />
-
-				</div>
-
-				<div class="row" style="text-align: left">
-					<label for="m_phone">휴대폰<span class="required"></span></label> <input
-						id="m_phone" name="m_phone" type="text" value="${member.m_phone }"
-						maxlength="20" />
-
-				</div>
-
-
-
-				<div class="row">
-					<input type="submit" name="submit" class="btn btn-danger btn-sm"
-						value="수정하기" /> <input type="button" name="reset"
-						class="btn btn-danger btn-sm" id="pageback" value="취소" />
+						<table>
+							<tr id="tableInput">
+								<th><label for="m_id">아이디<span class="required"></span></label></th>
+								<td><input id="m_id" name="m_id" type="text" value="${member.m_id }" readonly="readonly" /></td>
+							</tr>
+							</tr>
+							<tr id="tableInput">
+								<th><label for="m_phone">비밀번호<span class="required"></span></label></th>
+								<td><input id="m_pass" name="m_pass" type="text" value= ""  maxlength="20" /></td>
+							</tr>
+							<tr id="tableInput">
+								<th><label for="m_no">회원번호<span class="required"></span></label></th>
+								<td><input id="m_no" name="m_no" type="text" value="${member.m_no }" readonly="readonly" /></td>
+							</tr>
+							<tr id="tableInput">
+								<th><label for="m_name">이름<span class="required"></span></label></th>
+								<td><input id="m_name" name="m_name" type="text" value="${member.m_name }" readonly="readonly" /></td>
+							</tr>
+							<tr id="tableInput">
+								<th><label for="m_phone">휴대폰<span class="required"></span></label></th>
+								<td><input id="m_phone" name="m_phone" type="text" value="${member.m_phone }" maxlength="20" /></td>
+							</tr>
+							<tr id="tableInput2">
+								<td id="tableBtn" colspan="2">
+									<input type="submit" name="submit" class="btn btn-danger btn-sm" value="수정하기" /> 
+									<input type="button" name="reset" class="btn btn-danger btn-sm" id="pageback" value="취소"/>
+								</td>
+							</tr>
+						</table>
+					</form>
 				</div>
 
-			</form>
+			</div>
 		</div>
-
 	</div>
-   </div>
-  </div>
 </body>
 
 </html>

@@ -33,6 +33,8 @@ public class HousedistanceVO {
 	private int h_commuscore;
 	private String distance;
 	
+	public HousedistanceVO() {
+	}
 	public HousedistanceVO(int h_no, String m_id, String m_name, String m_phone, String h_title, String h_zip,
 			String h_address, String h_pi_x, String h_pi_y, Integer h_fare, Date h_startdate, Date h_enddate,
 			String h_info, Integer h_peoplecnt, String h_type, String h_livetype, String h_checktime, Integer h_sale,

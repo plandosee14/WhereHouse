@@ -104,11 +104,11 @@
 						<span>등록정보</span>
 				</a></li>
 				<li>
-					<a href="/mypage/read"> <i class="fa fa-pencil"></i> <span>회원정보
+					<a href="/mypage/checkForm"> <i class="fa fa-pencil"></i> <span>회원정보
 							수정</span>
 				</a></li>
 				<li>
-					<a href="/mypage/delete"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+					<a href="/mypage/checkDelForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 				</li>
 			</ul>
 			</aside>
@@ -116,8 +116,10 @@
 			<c:forEach items="${mList}" var="myBasketVO">
 				<div class="basketList">
 					<center>
+						<div style="width:100% ; height:300px; overflow: hidden;">
 						<img src="../resources/img/house/${myBasketVO.h_thumnail}"
-							width="95%">
+							width="95%" height="300px">
+						</div>
 					</center>
 					<form role="form" method="post">
 						<div class="basketText">

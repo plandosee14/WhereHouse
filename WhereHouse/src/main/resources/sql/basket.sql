@@ -16,16 +16,10 @@ nocache;
 select * from basket;
 
 
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 1, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 3, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 1, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 2, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 1, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 2, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 1, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 2, 'ojh5797@naver.com');
-insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 1, 'sj54770@naver.com');
-
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 9, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 10, 'ojh5797@naver.com');
+insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 11, 'ojh5797@naver.com');
+	
 
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 23, 'powerfeel123@naver.com');
 insert into basket(b_no, h_no, m_id) values(basket_seq.nextval, 26, 'ojh5797@naver.com');
@@ -36,3 +30,12 @@ delete from basket;
 		select b_no, h_no, m_id
 		from basket
 		where m_id='ojh5797@naver.com'
+		
+		select b_no, h_no, m_id
+		from basket
+		where m_id='ojh5797@naver.com'
+		order by b_no asc
+		
+select m_pass
+	from member
+	where m_id='ojh5797@naver.com';
