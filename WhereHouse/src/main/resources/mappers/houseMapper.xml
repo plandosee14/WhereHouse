@@ -23,4 +23,4 @@
 		update house_grade set g_rightscore = g_rightscore+#{g_rightscore}, g_cleanscore = g_cleanscore+#{g_cleanscore}, g_checkscore = g_checkscore+#{g_checkscore}, g_commuscore = g_commuscore+#{g_commuscore}
 		where h_no=#{h_no} and r_no=#{r_no}
 	</update>
-</mapper>
+</mapper> 
