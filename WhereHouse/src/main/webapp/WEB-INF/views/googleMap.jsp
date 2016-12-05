@@ -58,7 +58,26 @@
 					title :"현재위치",
 					animation: google.maps.Animation.DROP,
 				});
-				    
+				    $.ajax({
+		 	      		url:"/member/searchnearHouse",
+		 	            type: "post",
+		 	            async: "true",
+		 	            data:{
+		 	            	lat : position.coords.latitude,
+		 	            	lng : position.coords.longitude
+		 	            },
+		 	            success:function(result){
+		 	            	if (result == null||result == "") {
+		 	            		  $('#alerttitle').html('검색결과');
+				                  $('#alertcontent').html('주변 3km이내 등록된 집이 없습니다.');
+				                  $('#alertModal').modal("show");
+		 	            		}else {
+		 	            			for (var i = 0; i < result.length; i++) {
+										alert(result[i].h_no);
+									}
+							}
+		 	            }
+		 	      	});
 				});
 			    }
 			  else{
