@@ -14,7 +14,7 @@
 <center>
 <h2>숙소등록</h2>
 </center>
-<form action="register2" method="post" enctype="multipart/form-data">
+<form action="register" method="post" enctype="multipart/form-data">
 <br>
 <br>
  호스트 등록
@@ -23,8 +23,8 @@
 이름 : <input type="text" name="m_name"><br>
 연락처 : <input type="text" name="phone1"> - <input type="text" name="phone2"> - <input type="text" name="phone3"><br>
 우편번호 : <input type="text" name="h_zip" id="h_zip"> <input type="button" value="주소찾기" id="findAd" onclick="openDaumPostcode()"><br> 
-<input type="text" name="addr2" id="addr2"><br>
- <input type="text" name="h_address" id="h_address"><br>
+ <input type="text" name="h_address" id="h_address" width="100"><br>
+<input type="text" name="addr2" id="addr2" width="100"><br>
  <input type="hidden" name="h_pi_x" value="">
  <input type="hidden" name="h_pi_y" value="">
 </div>
@@ -145,7 +145,8 @@ function openDaumPostcode() {
 }
 </script>
 <script>
-$("#submit").click(function(){
+
+
 var geocoder = new google.maps.Geocoder();
 geocoder
       .geocode(
@@ -163,7 +164,7 @@ geocoder
             });
             
             submit;
-});
+
 </script>
 
 </body>
