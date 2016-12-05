@@ -91,11 +91,11 @@ h_startdate,h_enddate, h_info,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail,h_pi_x, h_pi_y )
  values (house_seq.nextval,'ojh5797@naver.com','오정훈','010-3952-5797','정훈이네집',
-'12345','인천시 계양구 태산아파트',10000,
+'12345','서울시 양천구 한신아파트',10000,
 '2016-11-30','2017-12-30','정후니네 집으로 찾아오세요',
 5,'아파트','방하나',
-'3시~11시', 10,45000,
-'담배피지마세요','junghoon.jpg','39.0392193','125.76252410000006');
+'3시~11시', 10,60000,
+'담배피지마세요','pil.jpg','39.0392193','125.76252410000006');
 
 
  insert into house 
@@ -105,12 +105,12 @@ h_startdate,h_enddate, h_info,
  h_peoplecnt, h_type,h_livetype,
 h_checktime, h_sale,h_salefare,
  h_rule,h_thumnail,h_pi_x, h_pi_y )
- values (house_seq.nextval,'sj54770@naver.com','권성준','010-9040-4886','정훈이네집',
+ values (house_seq.nextval,'sj54770@naver.com','권성준','010-9040-4886','성주니네집',
 '12345','경기도 화성시 병점동 남수원 두산아파트',10000,
 '2016-11-30','2017-12-30','성주니네 집으로 찾아오세요',
 5,'아파트','방하나',
-'3시~11시', 10,45000,
-'담배피지마세요','test_thumnail1.jpg','39.0392193','125.76252410000006');
+'3시~11시', 10,30000,
+'담배피지마세요','junghoon.jpg','39.0392193','125.76252410000006');
 
 alter house h_thumnail
 delete from house where m_name='권성준';
