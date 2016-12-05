@@ -39,22 +39,22 @@
 	</select>
 	<select id="selectnearHouse" resultType="com.WhereHouse.house.domain.HousedistanceVO">
 		select *
-     , SQRT( POWER(( #{lat} - pi_x) * 110979.309, 2)
-           + POWER((#{lng} - pi_y) *  88907.949, 2)
+     , SQRT( POWER(( #{lat} - h_pi_x) * 110979.309, 2)
+           + POWER((#{lng} - h_pi_y) *  88907.949, 2)
            ) distance
   from house
      , (select     #{lat} v_x
-             ,    #{lng} v_y
-             , 110979.309     r_x
+             ,     #{lng} v_y
+             ,  110979.309     r_x
              ,  88907.949     r_y
-             ,    3000.000     v_distance
+             ,  3000.000     v_distance
           from dual
         )
- where SQRT( POWER((v_x - pi_x) * r_x, 2)
-           + POWER((v_y - pi_y) * r_y, 2)
+ where SQRT( POWER((v_x - h_pi_x) * r_x, 2)
+           + POWER((v_y - h_pi_y) * r_y, 2)
            ) <![CDATA["<"]]>= v_distance
-   and pi_x BETWEEN v_x - v_distance / r_x and v_x + v_distance / r_x
-   and pi_y BETWEEN v_y - v_distance / r_y and v_y + v_distance / r_y
+   and h_pi_x BETWEEN v_x - v_distance / r_x and v_x + v_distance / r_x
+   and h_pi_y BETWEEN v_y - v_distance / r_y and v_y + v_distance / r_y
  order by distance
 	</select>
 </mapper>
