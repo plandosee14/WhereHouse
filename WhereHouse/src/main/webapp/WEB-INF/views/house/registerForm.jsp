@@ -22,7 +22,8 @@
 <input type="hidden" name="m_id" value="${m_id}">
 이름 : <input type="text" name="m_name"><br>
 연락처 : <input type="text" name="phone1"> - <input type="text" name="phone2"> - <input type="text" name="phone3"><br>
-우편번호 : <input type="text" name="h_zip" > <input type="button" value="주소찾기"><br> 
+우편번호 : <input type="text" name="h_zip" id="h_zip"> <input type="button" value="주소찾기" id="findAd" onclick="openDaumPostcode()"><br> 
+<input type="text" name="addr2" id="addr2"><br>
  <input type="text" name="h_address" id="h_address"><br>
  <input type="hidden" name="h_pi_x" value="">
  <input type="hidden" name="h_pi_y" value="">
@@ -131,6 +132,18 @@ upload.onchange = function (e) {
 
 </div>
 </form>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+function openDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+        	document.getElementById("h_zip").value = data.postcode1 +"-"+ data.postcode2;
+            document.getElementById("h_address").value = data.address;
+            document.getElementById("addr2").focus();
+        }
+    }).open();
+}
+</script>
 <script>
 $("#submit").click(function(){
 var geocoder = new google.maps.Geocoder();
