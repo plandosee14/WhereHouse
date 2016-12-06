@@ -367,11 +367,14 @@
 				})
 			});
 		
+		
+		
+		
 	</script>
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
 		async defer></script>
-			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;"><br>
+			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;">
 			<div style="margin-left: 20%">
 			<button id="selflocation" class="form-control2" style="width: 7%;"><i class="glyphicon glyphicon-screenshot"></i></button> 
 			<input id="address" type="textbox" value="" class="form-control2" style="width: 60%;" placeholder="Search here...">
