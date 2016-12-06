@@ -15,7 +15,8 @@ public class GradeServiceImpl implements GradeService {
 	
 	@Override
 	public void updateGrade(GradeVO vo) throws Exception {
-		dao.updateScore(vo);
+		dao.updateScorehouse(vo);
+		dao.createScorehouse(vo);
 	}
 
 }
