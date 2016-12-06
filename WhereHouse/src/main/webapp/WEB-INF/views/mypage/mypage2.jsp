@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="/myPage.css" type="text/css" />
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 
 <head>
@@ -103,7 +104,9 @@
 							width="70"></td>
 						<td>${reservationVO.r_no}</td>
 						<td>${reservationVO.h_no}</td>
-						<td>${reservationVO.r_startdate}~${reservationVO.r_enddate}</td>
+						<td>
+						<fmt:formatDate value="${reservationVO.r_startdate}" pattern="yyyy-MM-dd "/>~
+						<fmt:formatDate value="${reservationVO.r_enddate}" pattern="yyyy-MM-dd "/></td>
 						<td>${reservationVO.r_fare}</td>
 						<td>${reservationVO.r_peoplecnt}</td>
 						<td>${reservationVO.m_phone}</td>

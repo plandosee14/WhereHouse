@@ -95,18 +95,18 @@ public class MyPageController {
     	String m_id = (String) request.getSession().getAttribute("m_id");
     	System.out.println("check2 "+m_pass);
     	Encryption enc = new Encryption("chlvlfgkschlvlfgks");
-    	System.out.println("1 ");
+    	//System.out.println("1 ");
     	MemberVO vo = new MemberVO();	
-    	System.out.println("2 ");
+    	//System.out.println("2 ");
     	vo.setM_id(m_id);
-    	System.out.println("3 ");
+    	//System.out.println("3 ");
     	vo.setM_pass(enc.aesEncode(m_pass));
     	if (pService.selectPassword(vo) == null || pService.selectPassword(vo).equals("")) {
-    		System.out.println("1 들어옴 ");
+    		//System.out.println("1 들어옴 ");
     		return "/mypage/mypagepwd2";
 		}
     	else {
-    		System.out.println("2 들어옴 ");
+    		//System.out.println("2 들어옴 ");
     		MemberVO member = mService.read(m_id);
     		model.addAttribute(mService.read(m_id));
     		model.addAttribute("member",member);
@@ -123,6 +123,7 @@ public class MyPageController {
 		//회원정보 보기 요청
 		model.addAttribute(mService.read(m_id));
 		model.addAttribute("member",member);
+		attr.addFlashAttribute("msg","SUCCESS");
 
 		return "/mypage/mypage4";
     }
@@ -130,13 +131,6 @@ public class MyPageController {
 	
 	@RequestMapping("/deleteForm")
     public String mypageDelete(){
-
-		//System.out.println(m_id);
-	
-		//session.invalidate();
-		//삭제 요청
-/*    	mService.remove(m_id);
-    	attr.addFlashAttribute("msg","SUCCESS");*/
 
 		return "/mypage/mypage5";
     }
@@ -153,20 +147,22 @@ public class MyPageController {
 		return "redirect:/";
 	}
 	
-	
+	@RequestMapping("/updateForm")
+	public String mypageUpdate(){
+		return "/mypage/mypage4";
+	}
 	
 	@RequestMapping("/update")
-    public String mypageUpdate(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session) throws Exception{
+    public String mypageUpdate(MemberVO member, Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session,String m_pass) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
-
-		//수정 요청
-		MemberVO member = mService.read(m_id);
-		model.addAttribute("member",member);
-		//DB수정 요청
+		Encryption enc = new Encryption("chlvlfgkschlvlfgks");
+		member.setM_pass(enc.aesEncode(m_pass));
+		System.out.println("컨트롤러 비밀버노: "+member.getM_pass());
 		mService.modify(member);
-		attr.addFlashAttribute("msg","SUCCESS");
 
-		return "/mypage/mypage4";
+		model.addAttribute("member", mService.read(m_id));
+		attr.addFlashAttribute("msg","SUCCESS");
+		return "redirect:/mypage/read";
     }
     
     
@@ -174,7 +170,7 @@ public class MyPageController {
 	@RequestMapping("/basket")
     public String listBasket(Model model, HttpServletRequest request) throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
-		System.out.println("Session 체크 : "+m_id);
+		//System.out.println("Session 체크 : "+m_id);
 		model.addAttribute("bList", bService.listAllById(m_id));
 		model.addAttribute("mList", mService.listAllById(m_id));
 		return "/mypage/mypage";
