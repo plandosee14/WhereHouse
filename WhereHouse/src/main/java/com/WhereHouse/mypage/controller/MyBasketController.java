@@ -24,6 +24,6 @@ public class MyBasketController {
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		List<MyBasketVO> list = bService.listAllById(m_id);
 		model.addAttribute("bList", bService.listAllById(m_id));
-		return "/mypage/mypageBsket";
+		return "/mypage/mypageBasket";
 	}
 }
