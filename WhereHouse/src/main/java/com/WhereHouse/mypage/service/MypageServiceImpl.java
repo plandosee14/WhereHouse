@@ -18,11 +18,6 @@ public class MypageServiceImpl implements MypageService{
 	private MypageDAO dao;
 
 	@Override
-	public List<MyBasketVO> listAllById(String m_id) throws Exception {
-		return dao.selectMyBasket(m_id);
-	}
-
-	@Override
 	public MemberVO read(String m_id) throws Exception {
 		return dao.read(m_id);
 	}

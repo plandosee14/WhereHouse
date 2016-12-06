@@ -21,6 +21,6 @@ public class MyRegisterController {
 	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		model.addAttribute("regList", regService.listAllById(m_id));
-		return "/mypage/mypage3";
+		return "/mypage/mypageReginfo";
 	}
 }

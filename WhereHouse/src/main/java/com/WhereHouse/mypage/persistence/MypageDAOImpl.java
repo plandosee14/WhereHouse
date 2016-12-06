@@ -16,12 +16,7 @@ public class MypageDAOImpl implements MypageDAO{
 
 	@Inject
 	private SqlSession sqlSession;
-	
-	@Override
-	public List<MyBasketVO> selectMyBasket(String m_id) throws Exception {
-		
-		return sqlSession.selectList("mypage.selectMyBasket", m_id);
-	}
+
 
 	@Override
 	public MemberVO read(String m_id) throws Exception {

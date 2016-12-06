@@ -27,30 +27,10 @@ import com.WhereHouse.mypage.service.MypageService;
 public class MyPageController {
 	
 	@Inject
-	private BasketService bService;
-	
-	@Inject
 	private MypageService mService;
 	
 	@Inject
 	private MyPassService pService;
-	
-	@RequestMapping("")
-    public String mypage(Model model, HttpServletRequest request, RedirectAttributes attr) throws Exception{
-		
-		String m_id = (String) request.getSession().getAttribute("m_id");
-	
-		List<MyBasketVO> list = mService.listAllById(m_id);
-/*		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).getB_no());
-		}*/
-		//System.out.println("Session üũ : "+m_id);
-		/*model.addAttribute("bList", bService.listAllById(m_id));*/
-		model.addAttribute("mList", mService.listAllById(m_id));
-
-
-		return "/mypage/mypage";
-    }
 	
     @RequestMapping("/removebasket")
     public String removeBasket(int b_no, RedirectAttributes attr)throws Exception{
@@ -125,14 +105,14 @@ public class MyPageController {
 		model.addAttribute("member",member);
 		attr.addFlashAttribute("msg","SUCCESS");
 
-		return "/mypage/mypage4";
+		return "/mypage/mypageModify";
     }
 	
 	
 	@RequestMapping("/deleteForm")
     public String mypageDelete(){
 
-		return "/mypage/mypage5";
+		return "/mypage/mypageDelete";
     }
 	
 	@RequestMapping("/delete")
@@ -149,7 +129,7 @@ public class MyPageController {
 	
 	@RequestMapping("/updateForm")
 	public String mypageUpdate(){
-		return "/mypage/mypage4";
+		return "/mypage/mypageModify";
 	}
 	
 	@RequestMapping("/update")
@@ -165,15 +145,6 @@ public class MyPageController {
 		return "redirect:/mypage/read";
     }
     
-    
-	
-	@RequestMapping("/basket")
-    public String listBasket(Model model, HttpServletRequest request) throws Exception{
-		String m_id = (String) request.getSession().getAttribute("m_id");
-		//System.out.println("Session üũ : "+m_id);
-		model.addAttribute("bList", bService.listAllById(m_id));
-		model.addAttribute("mList", mService.listAllById(m_id));
-		return "/mypage/mypage";
-    }
+
 
 }
