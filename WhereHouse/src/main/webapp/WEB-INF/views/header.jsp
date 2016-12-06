@@ -386,6 +386,7 @@
 				</div>
 			</div>
 		</div>
+		</canvas>
 	</div>
 	
 	<div id="RegisterModal" class="modal fade" tabindex="-1" role="dialog"

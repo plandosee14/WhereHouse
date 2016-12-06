@@ -46,7 +46,7 @@
 			    nearinfowindow=[];
 			    
 				map = new google.maps.Map(document.getElementById('map'), {
-					zoom : 14,
+					zoom : 13,
 					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					center : {
 						lat : position.coords.latitude,
@@ -56,6 +56,7 @@
 				var mylocationimage = '/resources/img/house/mylocation.png';
 				    markergps = new google.maps.Marker({
 					map : map,
+					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					position : {
 						lat : position.coords.latitude,
 						lng : position.coords.longitude
@@ -370,7 +371,6 @@
 	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
 		async defer></script>
-
 			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;"><br>
 			<div style="margin-left: 20%">
 			<button id="selflocation" class="form-control2" style="width: 7%;"><i class="glyphicon glyphicon-screenshot"></i></button> 
