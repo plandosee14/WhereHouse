@@ -60,8 +60,16 @@ th {
 		$('#mypageLink2').click(function() {
 			location.reload();
 		});
+		
+		var result = '${msg}';
+
+		if (result == 'SUCCESS') {
+			alert("수정이 완료되었습니다.");
+		}
 
 	});//ready
+	
+
 </script>
 
 </head>
@@ -111,12 +119,12 @@ th {
 
 				<div id="contact-form" class="contatct-form">
 					<div class="loader"></div>
-					<form name="update" method="post">
+					<form name="update" action="update" method="post">
 
 						<table>
 							<tr id="tableInput">
 								<th><label for="m_id">아이디<span class="required"></span></label></th>
-								<td><input id="m_id" name="m_id" type="text" value="${member.m_id }" readonly="readonly" /></td>
+								<td><input id="m_id" name="m_id" type="text" value="${member.m_id }" readonly="readonly" style="background-color: #e2e2e2;"/></td>
 							</tr>
 							</tr>
 							<tr id="tableInput">
@@ -124,17 +132,22 @@ th {
 								<td><input id="m_pass" name="m_pass" type="text" value= ""  maxlength="20" /></td>
 							</tr>
 							<tr id="tableInput">
+								<th><label for="m_phone">비밀번호확인<span class="required"></span></label></th>
+								<td><input id="m_pass" name="m_pass2" type="text" value= ""  maxlength="20" /></td>
+							</tr>
+							<tr id="tableInput">
 								<th><label for="m_no">회원번호<span class="required"></span></label></th>
-								<td><input id="m_no" name="m_no" type="text" value="${member.m_no }" readonly="readonly" /></td>
+								<td><input id="m_no" name="m_no" type="text" value="${member.m_no }" readonly="readonly" style="background-color: #e2e2e2;"/></td>
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_name">이름<span class="required"></span></label></th>
-								<td><input id="m_name" name="m_name" type="text" value="${member.m_name }" readonly="readonly" /></td>
+								<td><input id="m_name" name="m_name" type="text" value="${member.m_name }" readonly="readonly" style="background-color: #e2e2e2;"/></td>
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_phone">휴대폰<span class="required"></span></label></th>
 								<td><input id="m_phone" name="m_phone" type="text" value="${member.m_phone }" maxlength="20" /></td>
 							</tr>
+					
 							<tr id="tableInput2">
 								<td id="tableBtn" colspan="2">
 									<input type="submit" name="submit" class="btn btn-danger btn-sm" value="수정하기" /> 

@@ -95,7 +95,9 @@
 							width="70"></td>
 						<td>${registerVO.m_id}(${registerVO.m_name})</td>
 						<td>${registerVO.m_phone}</td>
-						<td>${registerVO.r_startdate}~${registerVO.r_enddate}</td>
+						<td>
+						<fmt:formatDate value="${registerVO.r_startdate}" pattern="yyyy-MM-dd "/>~
+						<fmt:formatDate value="${registerVO.r_enddate}" pattern="yyyy-MM-dd "/></td>
 						<td>${registerVO.r_peoplecnt}</td>
 
 					</tr>

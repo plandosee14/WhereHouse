@@ -1,6 +1,6 @@
 package com.WhereHouse.mypage.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class MyReservationVO {
 	private int r_no;
