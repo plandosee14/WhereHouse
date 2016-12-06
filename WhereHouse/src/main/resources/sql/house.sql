@@ -22,7 +22,7 @@ create table house(
 	h_rule     varchar2(3000)	 	not null, --규칙
 	h_thumnail varchar2(3000)		not null,
 	h_state        number		              default 0,
-	h_scorecnt      number		         	default 0,
+	h_scorecnt      number		         	default 0, --평점 준 인원 수
 	h_avgscore      number(1,2) 			default 0,
 	h_rightscore      number		      	default 0,
 	h_cleanscore      number		     	default 0,
