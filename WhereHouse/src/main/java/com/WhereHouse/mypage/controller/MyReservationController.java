@@ -23,6 +23,6 @@ public class MyReservationController {
 	public String payInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		model.addAttribute("rList", rService.listAllById(m_id));
-		return "/mypage/mypage2";
+		return "/mypage/mypagePayinfo";
 	}
 }

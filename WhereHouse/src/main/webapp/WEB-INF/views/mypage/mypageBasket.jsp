@@ -113,7 +113,7 @@
 			</ul>
 			</aside>
 			<br> <br> <br>
-			<c:forEach items="${mList}" var="myBasketVO">
+			<c:forEach items="${bList}" var="myBasketVO">
 				<div class="basketList">
 					<center>
 						<div style="width:100% ; height:300px; overflow: hidden;">
