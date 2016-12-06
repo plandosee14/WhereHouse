@@ -98,44 +98,7 @@ textarea{
 	<div id="textb">
 		<textarea rows="100px" cols="110px">dlfklsjdkafpoasdjkoasd</textarea>
 	</div>
-	<c:if test="${checkGrade == 'true'}" >
-		<font color="black" size="5">정확성</font>
-		<span class="star-input">
-	  		<span class="input">
-	  			<c:forEach var="j" begin="1" end="10" step="1">
-	    			<input type="radio" name="star-input" id="p${j}" value="${j}"><label for="p${j}"><c:out value="${0.5*j}"/></label>
-	    		</c:forEach>
-	  		</span>
-	  		<output for="star-input"><b>0</b>점</output>
-		</span><br>
-		<font color="black" size="5">청결도</font>
-		<span class="star-input2">
-	  		<span class="input">
-	  			<c:forEach var="i" begin="1" end="10" step="1">
-	    			<input type="radio" name="star-input2" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
-	    		</c:forEach>
-	  		</span>
-	  		<output for="star-input2"><b>0</b>점</output>
-		</span><br>
-		<font color="black" size="5">체크인</font>
-		<span class="star-input3">
-	  		<span class="input">
-	  			<c:forEach var="i" begin="1" end="10" step="1">
-	    			<input type="radio" name="star-input3" id="r${i}" value="${i}"><label for="r${i}"><c:out value="${0.5*i}"/></label>
-	    		</c:forEach>
-	  		</span>
-	  		<output for="star-input3"><b>0</b>점</output>
-		</span><br>
-		<font color="black" size="5">커뮤니케이션</font>
-		<span class="star-input4">
-	  		<span class="input">
-	  			<c:forEach var="i" begin="1" end="10" step="1">
-	    			<input type="radio" name="star-input4" id="c${i}" value="${i}"><label for="c${i}"><c:out value="${0.5*i}"/></label>
-	    		</c:forEach>
-	  		</span>
-	  		<output for="star-input4"><b>0</b>점</output>
-		</span>
-	</c:if>
+	
 	<div class="row">
 		<div class="col-md-12">
 
@@ -143,11 +106,48 @@ textarea{
 				<div class="box-header">
 					<h3 class="box-title">후기</h3>
 				</div>
-			     
+				<c:if test="${checkGrade == 'true'}" >
+				<font color="black" size="5">정확성</font>
+				<span class="star-input">
+			  		<span class="input">
+			  			<c:forEach var="j" begin="1" end="10" step="1">
+			    			<input type="radio" name="rightscore" id="p${j}" value="${j}"><label for="p${j}"><c:out value="${0.5*j}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-input"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">청결도</font>
+				<span class="star-input2">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="cleanscore" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-input2"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">체크인</font>
+				<span class="star-input3">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="checkscore" id="r${i}" value="${i}"><label for="r${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-input3"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">커뮤니케이션</font>
+				<span class="star-input4">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="commuscore" id="c${i}" value="${i}"><label for="c${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-input4"><b>0</b>점</output>
+				</span>
+			</c:if>     
 			<c:if test="${m_id != null}"> 
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
-					<input class="form-controll" type="text" placeholder="USER ID" id="newCommentWriter" size="90%"><br> 
+					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="90%" readonly="readonly"><br> 
 					<label for="exampleInputEmail1">Comment Text</label> <br>
 					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="90%">
 
