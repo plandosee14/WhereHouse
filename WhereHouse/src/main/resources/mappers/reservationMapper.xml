@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="reservation">
 	<insert id="insertReservation">
-	
+		insert into reservation(r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
+		values (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
 	</insert>
 
 </mapper>
