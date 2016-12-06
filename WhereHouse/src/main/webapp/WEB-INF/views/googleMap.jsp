@@ -46,7 +46,7 @@
 			    nearinfowindow=[];
 			    
 				map = new google.maps.Map(document.getElementById('map'), {
-					zoom : 14,
+					zoom : 13,
 					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					center : {
 						lat : position.coords.latitude,
@@ -56,6 +56,7 @@
 				var mylocationimage = '/resources/img/house/mylocation.png';
 				    markergps = new google.maps.Marker({
 					map : map,
+					mapTypeId : google.maps.MapTypeId.ROADMAP,
 					position : {
 						lat : position.coords.latitude,
 						lng : position.coords.longitude
