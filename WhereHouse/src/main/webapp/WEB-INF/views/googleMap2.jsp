@@ -571,7 +571,7 @@
 																		.toString()
 																+ "<br> 집형태: "
 																+ result[idx].h_type
-																+ "<br><br>TEST<br></div></div>");
+																+ "<br><br>TEST!<br></div></div>");
 										/* google.maps.event.addListener(marker, "mouseout", function() {
 										 infowindow.close(map,this);
 										 this.setAnimation(null);
