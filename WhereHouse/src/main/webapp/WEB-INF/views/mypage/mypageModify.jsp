@@ -47,11 +47,18 @@ th {
 #tableInput2 input {
 	width: 30%;
 }
+
+#checkPwd{
+  color : red;
+  font-size: 12px;
+}
+
+
 </style>
 
 <script>
-	$(document).ready(function() {
 
+	$(document).ready(function() {
 		var formObj = $("form[role='form']");
 
 		$('#mypageLink').click(function() {
@@ -67,8 +74,56 @@ th {
 	if (result == 'SUCCESS') {
 		alert("수정이 완료되었습니다.");
 	}
-	});//ready
+	
+	$('#modibtn').click(function() {
+		var pw1 = $('#password').val();
+		var pw2 = $('#passwordCheck').val();
 		
+		var phone1 = $('#m_phone1').val();
+		var phone2 = $('#m_phone2').val();
+		var phone3 = $('#m_phone3').val();
+		
+		if(pw1.length<6 || pw2.length<6 || pw1.length>15 || pw2.length>15 || pw1 != pw2){
+			$('#alerttitle').html('비밀번호');
+            $('#alertcontent').html('비밀번호를 확인해주세요 6-15');
+            $('#alertModal').modal("show");
+			return false;
+		}else if (phone1.length<1 || phone2.length<2 || phone3.length<2 || isNaN(phone1) || isNaN(phone2) || isNaN(phone3)phone1.length>10 || phone2.length>10 || phone3.length>10 ) {
+			$('#alerttitle').html('핸드폰');
+            $('#alertcontent').html('핸드폰 번호를 확인해주세요');
+            $('#alertModal').modal("show");
+            return false;
+		}
+		
+	});
+	
+	$('#password').keyup(function() {
+		var pw1 = $('#password').val();
+		var pw2 = $('#passwordCheck').val();
+		if(pw1 == pw2){
+			$('#checkPwd').html('<font color="black">비밀번호가 일치합니다.</font>');
+		}else if(pw1 != pw2){
+			$('#checkPwd').html('<font color="red">동일한 암호를 입력하세요.</font>');
+		}
+	});
+	
+	$('#passwordCheck').keyup(function() {
+		var pw1 = $('#password').val();
+		var pw2 = $('#passwordCheck').val();
+		if(pw1 == pw2){
+			$('#checkPwd').html('<font color="black">비밀번호가 일치합니다.</font>');
+		}else if(pw1 != pw2){
+			$('#checkPwd').html('<font color="red">동일한 암호를 입력하세요.</font>');
+		}
+	});
+	
+	
+	
+	});//ready
+
+	
+
+
 	
 
 </script>
@@ -130,15 +185,14 @@ th {
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_pass">비밀번호<span class="required"></span></label></th>
-								<td><input id="m_pass" name="m_pass" type="password" value= ""  maxlength="20" /></td>
+								<td><input id="password" name="m_pass" type="password" /></td>
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_pass2">비밀번호확인<span class="required"></span></label></th>
-								<td><input id="m_pass" name="m_pass2" type="password" value= ""  maxlength="20" /></td>
-							</tr>
-							<tr id="tableInput">
-								<th><label for="m_no">회원번호<span class="required"></span></label></th>
-								<td><input id="m_no" name="m_no" type="text" value="${member.m_no }" readonly="readonly" style="background-color: #e2e2e2;"/></td>
+								<td><input id="passwordCheck" name="m_pass2" type="password" />
+								<div id="checkPwd">동일한 암호를 입력하세요.</div>
+								</td>
+								
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_name">이름<span class="required"></span></label></th>
@@ -146,12 +200,16 @@ th {
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_phone">휴대폰<span class="required"></span></label></th>
-								<td><input id="m_phone" name="m_phone" type="text" value="${member.m_phone }" maxlength="20" /></td>
+								<td colspan="3">
+								<input id="m_phone1" name="m_phone1" type="text"  style="width: 25%" value="${phone1}"/>-
+								<input id="m_phone2" name="m_phone2" type="text"   style="width: 34%" value="${phone2}"/>-
+								<input id="m_phone3" name="m_phone3" type="text"   style="width: 34%" value="${phone3}"/>
+								</td>
 							</tr>
 					
 							<tr id="tableInput2">
 								<td id="tableBtn" colspan="2">
-									<input type="submit" name="submit" class="btn btn-danger btn-sm" value="수정하기" /> 
+									<input type="submit" name="submit" class="btn btn-danger btn-sm" value="수정하기" id="modibtn"/> 
 									<input type="button" name="reset" class="btn btn-danger btn-sm" id="pageback" value="취소"/>
 								</td>
 							</tr>

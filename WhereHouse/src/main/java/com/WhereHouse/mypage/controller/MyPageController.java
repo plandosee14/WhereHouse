@@ -95,8 +95,12 @@ public class MyPageController {
 		//System.out.println("Session 체크 : "+m_id);
 		MemberVO member = mService.read(m_id);
 		//회원정보 보기 요청
+		String phone[] = member.getM_phone().split("-");
 		model.addAttribute(mService.read(m_id));
 		model.addAttribute("member",member);
+		model.addAttribute("phone1", phone[0].replaceAll(" ", ""));
+		model.addAttribute("phone2", phone[1].replaceAll(" ", ""));
+		model.addAttribute("phone3", phone[2].replaceAll(" ", ""));
 		attr.addFlashAttribute("msg","SUCCESS");
 
 		return "/mypage/mypageModify";
@@ -127,11 +131,13 @@ public class MyPageController {
 	}
 	
 	@RequestMapping("/update")
-    public String mypageUpdate(MemberVO member, Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session,String m_pass) throws Exception{
-		String m_id = (String) request.getSession().getAttribute("m_id");
+    public String mypageUpdate(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session,String m_pass, String m_id, String m_phone1, String m_phone2, String m_phone3) throws Exception{
 		Encryption enc = new Encryption("chlvlfgkschlvlfgks");
+		MemberVO member = new MemberVO();
+		member.setM_id(m_id);
 		member.setM_pass(enc.aesEncode(m_pass));
-		System.out.println("컨트롤러 비밀버노: "+member.getM_pass());
+		String m_phone = m_phone1+"-"+m_phone2+"-"+m_phone3;
+		member.setM_phone(m_phone.replace(" ", ""));
 		mService.modify(member);
 
 		model.addAttribute("member", mService.read(m_id));
