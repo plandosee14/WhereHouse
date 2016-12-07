@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="../header.jsp" %>
 <title>Insert title here</title>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
@@ -12,18 +13,21 @@
 </head>
 <body>
 <center>
+<br>
+<br>
+<br>
 <h2>숙소등록</h2>
 </center>
 <form action="register" method="post" enctype="multipart/form-data">
 <br>
 <br>
- 호스트 등록
+<호스트 등록>
 <div style="border: 1">	
 <input type="hidden" name="m_id" value="${m_id}">
-이름 : <input type="text" name="m_name"><br>
+이름 : <input type="text" name="m_name" value="${m_name}"><br>
 연락처 : <input type="text" name="phone1"> - <input type="text" name="phone2"> - <input type="text" name="phone3"><br>
 우편번호 : <input type="text" name="h_zip" id="h_zip"> <input type="button" value="주소찾기" id="findAd" onclick="openDaumPostcode()"><br> 
- <input type="text" name="h_address" id="h_address" width="100"><br>
+ <input type="text" name="h_address" id="h_address" size="40"><br>
 <input type="text" name="addr2" id="addr2" width="100"><br>
  <input type="hidden" name="h_pi_x" value="">
  <input type="hidden" name="h_pi_y" value="">
@@ -64,21 +68,8 @@
  <input type="checkbox" name="" value="4">4<br>
  <input type="checkbox" name="" value="5">5<br>
  <br><br>
- 안전시설 <br>
-  <input type="checkbox" name="" value="1">1<br>
- <input type="checkbox" name="" value="2">2<br>
- <input type="checkbox" name="" value="3">3<br>
- <input type="checkbox" name="" value="4">4<br>
- <input type="checkbox" name="" value="5">5<br>
-  <br><br>
-  사용공간<br>
-  <input type="checkbox" name="" value="1">1<br>
- <input type="checkbox" name="" value="2">2<br>
- <input type="checkbox" name="" value="3">3<br>
- <input type="checkbox" name="" value="4">4<br>
- <input type="checkbox" name="" value="5">5<br>
-  <br><br>
-</div> -->
+
+</div> <br>
 소개
 <div>
 <section id="wrapper">
