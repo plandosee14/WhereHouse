@@ -56,6 +56,7 @@ public class HouseRegisterController {
 			
 			
 			house.setH_thumnail(saveName);
+			
 			System.out.println(house.toString());
 			hservice.insertHouse(house);
 			

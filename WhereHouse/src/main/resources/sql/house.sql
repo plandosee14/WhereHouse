@@ -40,49 +40,6 @@ nocache;
 
 select * from house;
 
-insert into house (h_no,) values();
-
-
-
---Áý¿É¼Ç
-drop table hoption;
-create table hoption(
-   o_no number primary key,
-   o_name varchar2(200) not null
-);
-
-
-drop  sequence house_seq;
-create sequence hoption_seq
-start with 1
-increment by 1
-nocycle
-nocache;
-
-create table house_option(
- h_no   number   references    house(h_no),
- o_no   number   references    hoption(o_no),
- PRIMARY  KEY (h_no,o_no)
-);
-
-
- alter table house add(h_zip varchar2(20) not null);
- alter table house add(h_livetype  varchar2(1000)  not null);
- alter table house add(h_salefare  varchar2(1000)  not null);
- alter table house add(m_phone varchar2(20)   not null);
- alter table house add(h_title varchar2(100)   not null);
-  alter table house modify(h_salefare number not null);
-  
-  
-  alter table house modify(h_pi_x varchar2(50));
-  alter table house modify(h_pi_y varchar2(50));
-
-  
-  alter table house add(h_title varchar2(100) not null);  
-  alter table house modify(h_title varchar2(100));  
-
-  
-
  insert into house 
 (h_no,m_id,m_name,m_phone,h_title,
  h_zip,h_address, h_fare,
