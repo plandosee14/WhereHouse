@@ -6,7 +6,10 @@
 <head>
 <header><%@include file="header.jsp"%></header>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
+		async defer></script>
+		
 </head>
 <body>
 	<br>
@@ -36,10 +39,11 @@
 			var geocoder = new google.maps.Geocoder();
 			
 			 $('#selflocation').click(function() {
+				 $('#weatherlist').html('');
 				if (navigator.geolocation)
 			    {
 			    navigator.geolocation.getCurrentPosition(function (position) {
-			    	
+			    
 			    $('#searchlist').html('');
 			    var markergps;
 			    nearmarker=[];
@@ -65,6 +69,33 @@
 					icon : mylocationimage,
 					animation: google.maps.Animation.DROP,
 				});
+				    
+				    var lat = position.coords.latitude;
+					var lng = position.coords.longitude;
+					var cnt = 3;
+					var APPID = "3ef03001c2d4950720b7db7860ee228a";
+					
+					 var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
+				    $.ajax({
+				      dataType: "jsonp",
+				      url: weather,
+				      success: function(resultweather){
+				    	  if (resultweather != null) {
+				    		  var day = new Date();
+				    		  var day2 = new Date(day.valueOf() + (24*60*60*1000));
+				    		  var day3 = new Date(day2.valueOf() + (24*60*60*1000));
+				    		  	$('#weatherlist').append('<div>'+day.getDate()+'일'+day2.getDate()+'일'+day3.getDate()+'일</div>');
+				    		  for (var i = 0; i < cnt; i++) {
+				    			  var weatherimg = '/resources/img/weather/'+resultweather.list[i].weather[0].icon.substring(0, 2)+'.png';
+				    			  $('#weatherlist').append('<img src ="'+weatherimg+'">'+resultweather.list[i].main.temp_min+'~'+resultweather.list[i].main.temp_max+'°C ');
+								}
+						}else {
+							  $('#alerttitle').html('날씨 오류');
+			                  $('#alertcontent').html('날씨 정보를 가져오는 도중 오류가 발생하였습니다.');
+			                  $('#alertModal').modal("show");
+						}
+				      }
+				    }); 
 				    
 				    circle = new google.maps.Circle({
 				    	map: map,
@@ -150,7 +181,7 @@
 											 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
 											 $('#list'+this.title.substring(0, this.title.charAt('번'))).focusout(); */
 										 });
-										 $('#searchlist').append("<div onmouseover='nearroll("+resultnear[i].h_no+")' onmouseout='nearrollout("+resultnear[i].h_no+")' style='border-radius: 10px;' id=list"+resultnear[i].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+resultnear[i].h_no.toString()+"'> <img src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 300px; height: 250px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'> <br><br> 거리: "+resultnear[i].distance+"m<br>집 번호: "+resultnear[i].h_no.toString()+"번 <br> 주소: "+resultnear[i].h_address+"<br> 가격: "+resultnear[i].h_fare+"원 <br> 투숙가능인원: "+resultnear[i].h_peoplecnt.toString()+"<br> 집형태: "+resultnear[i].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
+										 $('#searchlist').append("<div onmouseover='nearroll("+resultnear[i].h_no+")' onmouseout='nearrollout("+resultnear[i].h_no+")' style='border-radius: 10px; font-size: small;' id=list"+resultnear[i].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+resultnear[i].h_no.toString()+"'> <img src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'>  거리: "+resultnear[i].distance+"m<br>집 번호: "+resultnear[i].h_no.toString()+"번 <br> 주소: "+resultnear[i].h_address+"<br> 가격: "+resultnear[i].h_fare+"원 <br> 투숙가능인원: "+resultnear[i].h_peoplecnt.toString()+"<br> 집형태: "+resultnear[i].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
 										 
 										 
 									}
@@ -180,6 +211,7 @@
 						  }
 						marker = [];
 						infowindow = [];
+						$('#weatherlist').html('');
 						map = new google.maps.Map(document.getElementById('map'), {
 							zoom : 11,
 							mapTypeId : google.maps.MapTypeId.ROADMAP,
@@ -212,8 +244,8 @@
 		                  $('#alertModal').modal("show");
  	            		}else {
  	            			idx=0;
- 	            			pilhan(result.length, result, geocoder, resultsMap);
  	            			setlocation(geocoder, resultsMap);
+ 	            			pilhan(result.length, result, geocoder, resultsMap);
 					}
  	            }
  	      	});
@@ -278,7 +310,7 @@
 										 $('#list'+this.title.substring(0, this.title.charAt('번'))).css('opacity','1');
 										 $('#list'+this.title.substring(0, this.title.charAt('번'))).focusout(); */
 									 });
-									 $('#searchlist').append("<div onmouseover='roll("+result[idx].h_no+")' onmouseout='rollout("+result[idx].h_no+")' style='border-radius: 10px;' id=list"+result[idx].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 300px; height: 250px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'><br> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"원 <br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
+									 $('#searchlist').append("<div onmouseover='roll("+result[idx].h_no+")' onmouseout='rollout("+result[idx].h_no+")' style='border-radius: 10px; font-size: small;' id=list"+result[idx].h_no+" class= 'list'><div style='display:inline-block;'><a href='/detail?h_no="+result[idx].h_no.toString()+"'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'><br> 집 번호: "+result[idx].h_no.toString()+"번 <br> 주소: "+result[idx].h_address+"<br> 가격: "+result[idx].h_fare+"원 <br> 투숙가능인원: "+result[idx].h_peoplecnt.toString()+"<br> 집형태: "+result[idx].h_type+"</div><div style='border-bottom: 1px dashed gray; height:1px; margin:1%;'></div></div>");
 									 /* google.maps.event.addListener(marker, "mouseout", function() {
 										 infowindow.close(map,this);
 										 this.setAnimation(null);
@@ -313,6 +345,32 @@
 					function(results, status) {
 						if (status === google.maps.GeocoderStatus.OK) {
 							resultsMap.setCenter(results[0].geometry.location);
+							var lat = results[0].geometry.location.lat();
+							var lng = results[0].geometry.location.lng();
+							var cnt = 3;
+							var APPID = "3ef03001c2d4950720b7db7860ee228a";
+							
+							 var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
+						    $.ajax({
+						      dataType: "jsonp",
+						      url: weather,
+						      success: function(resultweather){
+						    	  if (resultweather != null) {
+						    		  var day = new Date();
+						    		  var day2 = new Date(day.valueOf() + (24*60*60*1000));
+						    		  var day3 = new Date(day2.valueOf() + (24*60*60*1000));
+						    		  	$('#weatherlist').append('<div>'+day.getDate()+'일'+day2.getDate()+'일'+day3.getDate()+'일</div>');
+						    		  for (var i = 0; i < cnt; i++) {
+						    			  var weatherimg = '/resources/img/weather/'+resultweather.list[i].weather[0].icon.substring(0, 2)+'.png';
+						    			  $('#weatherlist').append('<img src ="'+weatherimg+'">'+resultweather.list[i].main.temp_min+'~'+resultweather.list[i].main.temp_max+'°C ');
+										}
+								}else {
+									  $('#alerttitle').html('날씨 오류');
+					                  $('#alertcontent').html('날씨 정보를 가져오는 도중 오류가 발생하였습니다.');
+					                  $('#alertModal').modal("show");
+								}
+						      }
+						    }); 
 						} 
 					});
 		}
@@ -358,28 +416,30 @@
 		}
 		
 		
+		
+		
 		$(document).ready(function () {
 			$('#address').attr('tabindex', -1).focus();
 				$('#address').keydown(function(event) {
 					if (event.which === 13) {
 						$('#serachhouse').click();
 					}
-				})
-			});
+				});
+				
+			});//ready
 		
 		
 		
 		
 	</script>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
-		async defer></script>
+	
 			<div style="width: 48%; position: absolute; margin: 1%;  height: 70%;">
 			<div style="margin-left: 20%">
 			<button id="selflocation" class="form-control2" style="width: 7%;"><i class="glyphicon glyphicon-screenshot"></i></button> 
 			<input id="address" type="textbox" value="" class="form-control2" style="width: 60%;" placeholder="Search here...">
 			<button id="serachhouse" class="form-control2" style="width: 10%;"><i class="glyphicon glyphicon-search"></i></button>
 			</div>
+			<div id="weatherlist" style="text-align: center;"></div>
 			<br>
 			<div id="searchlist" style="overflow:auto; overflow-x:hidden; height: 96%; margin: 1%;">
 			</div>
