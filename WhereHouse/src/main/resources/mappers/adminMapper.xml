@@ -16,7 +16,7 @@
 	
 	<select id="selectReservation" resultType="com.WhereHouse.reservation.domain.ReservationVO">
 		select *
-		from register
+		from reservation
 		order by r_no desc
 	</select>
 	
