@@ -14,7 +14,7 @@ public class MyPassDAOImpl implements MyPassDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public MemberVO selectPass(MemberVO vo) throws Exception {
+	public int selectPass(MemberVO vo) throws Exception {
 		return sqlSession.selectOne("mypage.selectPassword", vo);
 	}
 

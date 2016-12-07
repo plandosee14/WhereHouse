@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.WhereHouse.basket.domain.BasketVO;
@@ -42,19 +43,23 @@ public class MyPageController {
     
 	
     @RequestMapping(value="/check")
-    public String mypageCheck2(Model model, HttpServletRequest request, RedirectAttributes attr, String m_pass)throws Exception{
+    public @ResponseBody String mypageCheck2(Model model, HttpServletRequest request, RedirectAttributes attr, String m_pass)throws Exception{
     	String m_id = (String) request.getSession().getAttribute("m_id");
+    	//System.out.println(m_id);
     	Encryption enc = new Encryption("chlvlfgkschlvlfgks");
     	MemberVO vo = new MemberVO();	
+    	//System.out.println(m_pass);
+    	String result;
     	vo.setM_id(m_id);
     	vo.setM_pass(enc.aesEncode(m_pass));
-    	if (pService.selectPassword(vo) == null || pService.selectPassword(vo).equals("")) {
-    		return "redirect:/mypage/checkForm";
+    	if (pService.selectPassword(vo) != 1) {
+    		result = "NO";
 		}
     	else {
     		
-			return "redirect:/mypage/read";
+    		result = "OK";
 		}
+    	return result;
     }
     
     @RequestMapping("/checkDelForm")
@@ -65,32 +70,28 @@ public class MyPageController {
     
     
     @RequestMapping("/check2")
-    public String mypageCheck3(Model model, HttpServletRequest request, RedirectAttributes attr, String m_pass)throws Exception{
+    public @ResponseBody String mypageCheck3(Model model, HttpServletRequest request, RedirectAttributes attr, String m_pass)throws Exception{
     	String m_id = (String) request.getSession().getAttribute("m_id");
-    	System.out.println("check2 "+m_pass);
+    	//System.out.println(m_id);
     	Encryption enc = new Encryption("chlvlfgkschlvlfgks");
-    	//System.out.println("1 ");
     	MemberVO vo = new MemberVO();	
-    	//System.out.println("2 ");
+    	//System.out.println(m_pass);
+    	String result;
     	vo.setM_id(m_id);
-    	//System.out.println("3 ");
     	vo.setM_pass(enc.aesEncode(m_pass));
-    	if (pService.selectPassword(vo) == null || pService.selectPassword(vo).equals("")) {
-    		//System.out.println("1 µé¾î¿È ");
-    		return "redirect:/mypage/checkDelForm";
+    	if (pService.selectPassword(vo) != 1) {
+    		result = "NO";
 		}
     	else {
-    		//System.out.println("2 µé¾î¿È ");
-    		MemberVO member = mService.read(m_id);
-    		model.addAttribute(mService.read(m_id));
-    		model.addAttribute("member",member);
-			return "redirect:/mypage/deleteForm";
+    		
+    		result = "OK";
 		}
+    	return result;
     }
     
 	@RequestMapping("/read")
     public String mypageRead(Model model, HttpServletRequest request, RedirectAttributes attr, HttpSession session, String m_pass) throws Exception{
-		System.out.println(m_pass);
+		//System.out.println(m_pass);
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		//System.out.println("Session Ã¼Å© : "+m_id);
 		MemberVO member = mService.read(m_id);

@@ -67,7 +67,7 @@
 		<li><a href="/mypage/checkForm"> <i class="fa fa-pencil"></i> 
 		<span>회원정보 수정</span>
 		</a></li>
-		<li class="active read"><a href="/mypage/check4"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
+		<li class="active read"><a href="/mypage/deleteForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
 		</li>
 	</ul>
 	</aside>

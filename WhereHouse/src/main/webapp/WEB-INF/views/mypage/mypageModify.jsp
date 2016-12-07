@@ -88,7 +88,7 @@ th {
             $('#alertcontent').html('비밀번호를 확인해주세요 6-15');
             $('#alertModal').modal("show");
 			return false;
-		}else if (phone1.length<1 || phone2.length<2 || phone3.length<2 || isNaN(phone1) || isNaN(phone2) || isNaN(phone3)phone1.length>10 || phone2.length>10 || phone3.length>10 ) {
+		}else if (phone1.length<1 || phone2.length<2 || phone3.length<2 || isNaN(phone1) || isNaN(phone2) || isNaN(phone3) || phone1.length>10 || phone2.length>10 || phone3.length>10 ) {
 			$('#alerttitle').html('핸드폰');
             $('#alertcontent').html('핸드폰 번호를 확인해주세요');
             $('#alertModal').modal("show");

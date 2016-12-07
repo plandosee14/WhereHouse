@@ -52,8 +52,8 @@
 			and h.m_id = #{m_id}
 			and r.m_id = m.m_id
 	</select>
-	<select id="selectPassword" resultType="com.WhereHouse.member.domain.MemberVO">
-	select m_id
+	<select id="selectPassword" resultType="int">
+	select count(*)
 	from member
 	where m_id = #{m_id}
 		and m_pass = #{m_pass}

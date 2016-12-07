@@ -49,4 +49,18 @@
 	<context:component-scan base-package="com.WhereHouse.comment.controller" />
 	<context:component-scan base-package="com.WhereHouse.reservation.controller" />
 
+
+	<!-- 인터셉터 등록 -->
+	<beans:bean id="sampleIntercepter" class="com.WhereHouse.mypage.interceptor.MypageInterceptor"/>
+	
+	<interceptors>
+	  <interceptor>
+	    <mapping path="/mypage"/>
+	    <mapping path="/mypage/payinfo"/>
+	    <mapping path="/mypage/reginfo"/>
+	    <mapping path="/mypage/check"/>
+	    <mapping path="/mypage/check2"/>
+	    <beans:ref bean="sampleIntercepter"/>
+	  </interceptor>
+	</interceptors>
 </beans:beans>

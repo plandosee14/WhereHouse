@@ -17,7 +17,7 @@ public class MyRegisterController {
 	@Inject
 	private MyRegisterService regService;
 
-	@RequestMapping("reginfo")
+	@RequestMapping("/reginfo")
 	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		model.addAttribute("regList", regService.listAllById(m_id));

@@ -4,5 +4,5 @@ import com.WhereHouse.member.domain.MemberVO;
 
 public interface MyPassDAO {
 
-	public MemberVO selectPass(MemberVO vo)throws Exception;
+	public int selectPass(MemberVO vo)throws Exception;
 }

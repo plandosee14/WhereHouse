@@ -14,7 +14,7 @@ public class MyPassServiceImpl implements MyPassService{
 	private MyPassDAO dao;
 
 	@Override
-	public MemberVO selectPassword(MemberVO vo) throws Exception {
+	public int selectPassword(MemberVO vo) throws Exception {
 		return dao.selectPass(vo);
 	}
 
