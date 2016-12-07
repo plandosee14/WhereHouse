@@ -1,9 +1,8 @@
 package com.WhereHouse.memberGrade.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import javax.inject.Inject;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +22,17 @@ public class GradeController {
 
 	@RequestMapping(value="/{h_no}", method={RequestMethod.PUT, RequestMethod.PATCH})
 	public ResponseEntity<String> update(@PathVariable("h_no") int h_no, @RequestBody GradeVO vo) {
-		return null;
+		vo.setH_no(h_no);
+		ResponseEntity<String> entity = null;
+		
+		try {
+			service.updateGrade(vo);
+			entity=new ResponseEntity<>("SUCCESS",HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
 }

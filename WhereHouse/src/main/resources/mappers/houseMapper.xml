@@ -20,18 +20,18 @@
 	           #{h_type}, #{h_livetype}, #{h_checktime}, #{h_sale}, #{h_salefare}, #{h_rule}, #{h_thumnail})                  
 	</insert>
 	
-	<select id="selectgradeHouse">
-		select h_no, r_no
-		from reservation
-		where h_no=#{h_no}
-	</select>
-	
 	<insert id="gradescoreHouse">
-		insert into grade_house(h_no, r_no, g_rightscore, g_cleanscore, g_checkscore, g_commuscore)
-		values (#{h_no},#{r_no},#{g_rightscore},#{g_cleanscore},#{g_checkscore},#{g_commuscore})
+		insert into house_grade(h_no, r_no, g_rightscore, g_cleanscore, g_checkscore, g_commuscore)
+		values (#{h_no}, (select r_no
+		from reservation
+		where h_no=#{h_no}), #{g_rightscore}, #{g_cleanscore}, #{g_checkscore}, #{g_commuscore});
 	</insert>
 	<update id="updatescoreHouse">
-		update house set g_rightscore = g_rightscore+#{g_rightscore}, g_cleanscore = g_cleanscore+#{g_cleanscore}, g_checkscore = g_checkscore+#{g_checkscore}, g_commuscore = g_commuscore+#{g_commuscore}
+		update house set g_rightscore = g_rightscore+#{g_rightscore}, g_cleanscore = g_cleanscore+#{g_cleanscore}, g_checkscore = g_checkscore+#{g_checkscore}, g_commuscore = g_commuscore+#{g_commuscore}, h_scorecnt=h_scorecnt+1
+		where h_no=#{h_no}
+	</update>
+	<update id="allscoreHouse">
+		update house set h_avgscore=g_rightscore+g_cleanscore+g_checkscore+g_commuscore
 		where h_no=#{h_no}
 	</update>
 </mapper> 

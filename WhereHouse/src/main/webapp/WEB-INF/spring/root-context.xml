@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- DataSource 등록 -->
@@ -33,6 +35,14 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+	   <!-- 트랜잭션매니저 객체 등록 -->
+   <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+         id="transactionManager">
+      <property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+	<tx:annotation-driven/>
+	
 	<!-- DAOImpl클래스 객체 등록 -->
 	<context:component-scan base-package="com.WhereHouse.member.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.house.persistence"></context:component-scan>
@@ -42,7 +52,7 @@
 	<context:component-scan base-package="com.WhereHouse.reservation.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.mypage.persistence"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.reservation.persistence"></context:component-scan>
-	
+	<context:component-scan base-package="com.WhereHouse.memberGrade.persistence"></context:component-scan>
 	
 	
 	
@@ -55,5 +65,5 @@
 	<context:component-scan base-package="com.WhereHouse.admin.service"></context:component-scan>
 	<context:component-scan base-package="com.WhereHouse.mypage.service"></context:component-scan> 
 	<context:component-scan base-package="com.WhereHouse.reservation.service"></context:component-scan> 
-
+	<context:component-scan base-package="com.WhereHouse.memberGrade.service"></context:component-scan>
 </beans>

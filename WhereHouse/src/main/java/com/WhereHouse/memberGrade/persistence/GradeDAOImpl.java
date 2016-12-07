@@ -23,4 +23,9 @@ public class GradeDAOImpl implements GradeDAO {
 		sqlSession.update("house.updatescoreHouse", vo);		
 	}
 
+	@Override
+	public void allScorehouse(GradeVO vo) throws Exception {
+		sqlSession.update("house.allscoreHouse", vo);
+	}
+
 }

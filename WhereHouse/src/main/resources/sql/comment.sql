@@ -36,5 +36,10 @@ create table house_grade(
 	primary key(h_no, r_no)
 );
 
+select * from reservation;
 
-
+		insert into house_grade(h_no, r_no, g_rightscore, g_cleanscore, g_checkscore, g_commuscore)
+		values (10, (select r_no
+		from reservation
+		where h_no=10), 5, 5, 5, 5);
+	

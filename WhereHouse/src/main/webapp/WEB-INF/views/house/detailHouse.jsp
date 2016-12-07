@@ -103,9 +103,57 @@ textarea{
 		<div class="col-md-12">
 
 			<div class="box box-success">
+				<div>
+					<h3>평점</h3>
+				</div>
 				<div class="box-header">
 					<h3 class="box-title">후기</h3>
 				</div>
+				<font color="black" size="5">총점</font>
+				<span class="star-output1">
+			  		<span class="input">
+			  			<c:forEach var="j" begin="1" end="10" step="1">
+			    			<input type="radio" name="avgscore" id="a${j}" value="${house.h_avgscore/(5*house.h_scorecnt)}"><label for="a${j}"><c:out value="${0.5*j}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-output"><b>0</b>점</output>
+				</span><br>				
+				<font color="black" size="5">정확성</font>
+				<span class="star-output1">
+			  		<span class="input">
+			  			<c:forEach var="j" begin="1" end="10" step="1">
+			    			<input type="radio" name="rightscore" id="q${j}" value="${j}"><label for="q${j}"><c:out value="${0.5*j}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-output"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">청결도</font>
+				<span class="star-output2">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="cleanscore" id="w${i}" value="${i}"><label for="w${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-output2"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">체크인</font>
+				<span class="star-output3">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="checkscore" id="e${i}" value="${i}"><label for="e${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-output3"><b>0</b>점</output>
+				</span><br>
+				<font color="black" size="5">커뮤니케이션</font>
+				<span class="star-output4">
+			  		<span class="input">
+			  			<c:forEach var="i" begin="1" end="10" step="1">
+			    			<input type="radio" name="commuscore" id="f${i}" value="${i}"><label for="f${i}"><c:out value="${0.5*i}"/></label>
+			    		</c:forEach>
+			  		</span>
+			  		<output for="star-output4"><b>0</b>점</output>
+				</span>
 				<c:if test="${checkGrade == 'true'}" >
 				<font color="black" size="5">정확성</font>
 				<span class="star-input">
@@ -143,6 +191,7 @@ textarea{
 			  		</span>
 			  		<output for="star-input4"><b>0</b>점</output>
 				</span>
+				<button type="button" id="bt_grade">평점 입력</button>
 			</c:if>     
 			<c:if test="${m_id != null}"> 
 				<div class="box-body">
@@ -321,7 +370,6 @@ textarea{
 			}});
 	});
 
-
 	$(".timeline").on("click", ".commentLi", function(event){
 		
 		var comment = $(this);
@@ -353,6 +401,35 @@ textarea{
 						getPage("/comments/"+h_no+"/"+commentPage );
 					}
 			}});
+	});
+
+	$("#bt_grade").on("click",function(){
+		var g_rightObj = $("input[name=rightscore]");
+		var g_cleanObj = $("input[name=cleanscore]");
+		var g_checkObj = $("input[name=checkscore]");
+		var g_commuObj = $("input[name=commuscore]");
+		var g_right = g_rightObj.val();
+		var g_clean = g_cleanObj.val();
+		var g_check = g_checkObj.val();
+		var g_commu = g_commuObj.val();
+			$.ajax({
+				type:'put',
+				url:'/grades/',
+				headers: {
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "PUT" },
+				data:JSON.stringify({h_no=h_no, g_rightscore=g_right, g_cleanscore=g_clean, g_checkscore=g_check, g_commuscore=g_commu}),
+				dataType:'text',
+				success:function(result){
+					if(result=='SUCCESS'){
+						getPage("/grades/"+h_no);
+						g_rightObj.val("");
+						g_cleanObj.val("");
+						g_checkObj.val("");
+						g_commuObj.val("");
+					}
+				}
+			});
 	});
 
 	$("#commentDelBtn").on("click",function(){
