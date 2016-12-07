@@ -61,13 +61,14 @@ th {
 			location.reload();
 		});
 		
-		var result = '${msg}';
 
-		if (result == 'SUCCESS') {
-			alert("수정이 완료되었습니다.");
-		}
+	var result = '${msg}';
 
+	if (result == 'SUCCESS') {
+		alert("수정이 완료되었습니다.");
+	}
 	});//ready
+		
 	
 
 </script>
@@ -128,12 +129,12 @@ th {
 							</tr>
 							</tr>
 							<tr id="tableInput">
-								<th><label for="m_phone">비밀번호<span class="required"></span></label></th>
-								<td><input id="m_pass" name="m_pass" type="text" value= ""  maxlength="20" /></td>
+								<th><label for="m_pass">비밀번호<span class="required"></span></label></th>
+								<td><input id="m_pass" name="m_pass" type="password" value= ""  maxlength="20" /></td>
 							</tr>
 							<tr id="tableInput">
-								<th><label for="m_phone">비밀번호확인<span class="required"></span></label></th>
-								<td><input id="m_pass" name="m_pass2" type="text" value= ""  maxlength="20" /></td>
+								<th><label for="m_pass2">비밀번호확인<span class="required"></span></label></th>
+								<td><input id="m_pass" name="m_pass2" type="password" value= ""  maxlength="20" /></td>
 							</tr>
 							<tr id="tableInput">
 								<th><label for="m_no">회원번호<span class="required"></span></label></th>

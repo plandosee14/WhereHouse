@@ -34,12 +34,6 @@ public class MypageDAOImpl implements MypageDAO{
 		sqlSession.update("mypage.modifyMember", member);
 	}
 
-	@Override
-	public void deleteBasket(int b_no) throws Exception {
-		sqlSession.delete("mypage.deleteMyBasket", b_no);
-		
-	}
-
 
 
 }

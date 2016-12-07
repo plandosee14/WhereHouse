@@ -32,12 +32,6 @@ public class MyPageController {
 	@Inject
 	private MyPassService pService;
 	
-    @RequestMapping("/removebasket")
-    public String removeBasket(int b_no, RedirectAttributes attr)throws Exception{
-    	mService.removeBasket(b_no);
-    	attr.addFlashAttribute("msg","SUCCESS");
-    	return "redirect:/mypage";
-    }
     
     @RequestMapping("/checkForm")
     public String mypageCheck(){
@@ -141,8 +135,8 @@ public class MyPageController {
 		mService.modify(member);
 
 		model.addAttribute("member", mService.read(m_id));
-		attr.addFlashAttribute("msg","SUCCESS");
-		return "redirect:/mypage/read";
+		attr.addFlashAttribute("msg1","SUCCESS1");
+		return "redirect:/mypage";
     }
     
 

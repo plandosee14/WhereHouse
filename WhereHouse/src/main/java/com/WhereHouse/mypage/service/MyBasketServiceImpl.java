@@ -21,4 +21,10 @@ public class MyBasketServiceImpl implements MyBasketService{
 		return dao.selectMyBasket(m_id);
 	}
 
+	@Override
+	public void removeBasket(int b_no) throws Exception {
+		dao.deleteBasket(b_no);
+		
+	}
+
 }

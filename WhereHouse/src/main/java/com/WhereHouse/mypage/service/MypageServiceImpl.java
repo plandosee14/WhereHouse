@@ -33,12 +33,5 @@ public class MypageServiceImpl implements MypageService{
 		dao.delete(m_id);
 	}
 
-	@Override
-	public void removeBasket(int b_no) throws Exception {
-		dao.deleteBasket(b_no);
-	}
-
-
- 
  
 }

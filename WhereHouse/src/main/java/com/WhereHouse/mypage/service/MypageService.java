@@ -12,5 +12,5 @@ public interface MypageService {
    public MemberVO read(String m_id)throws Exception;
    public void modify(MemberVO member)throws Exception; 
    public void remove(String m_id)throws Exception;
-   public void removeBasket(int b_no)throws Exception;
+   
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.WhereHouse.mypage.domain.MyBasketVO;
 import com.WhereHouse.mypage.service.MyBasketService;
@@ -26,4 +27,11 @@ public class MyBasketController {
 		model.addAttribute("bList", bService.listAllById(m_id));
 		return "/mypage/mypageBasket";
 	}
+	
+    @RequestMapping("/removebasket")
+    public String removeBasket(int b_no, RedirectAttributes attr)throws Exception{
+    	bService.removeBasket(b_no);
+    	attr.addFlashAttribute("msg","SUCCESS");
+    	return "redirect:/mypage";
+    }
 }

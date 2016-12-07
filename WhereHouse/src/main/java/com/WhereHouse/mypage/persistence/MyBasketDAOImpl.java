@@ -21,4 +21,10 @@ public class MyBasketDAOImpl implements MyBasketDAO{
 		return sqlSession.selectList("mypage.selectMyBasket", m_id);
 	}
 
+	@Override
+	public void deleteBasket(int b_no) throws Exception {
+		sqlSession.delete("mypage.deleteMyBasket", b_no);
+		
+	}
+
 }
