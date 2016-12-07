@@ -39,6 +39,10 @@
 
 
 <script>
+
+
+
+
 	$(document).ready(function() {
 
 		var formObj = $("form[role='form']");
@@ -68,6 +72,10 @@
 	if (result == 'SUCCESS1') {
 		alert("수정가 완료되었습니다.");
 	}
+	
+	alert('${m_id}');
+	
+	
 </script>
 
 </head>

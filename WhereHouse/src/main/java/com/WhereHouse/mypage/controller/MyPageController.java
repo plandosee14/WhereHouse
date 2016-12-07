@@ -49,7 +49,7 @@ public class MyPageController {
     	vo.setM_id(m_id);
     	vo.setM_pass(enc.aesEncode(m_pass));
     	if (pService.selectPassword(vo) == null || pService.selectPassword(vo).equals("")) {
-    		return "/mypage/mypagepwd";
+    		return "redirect:/mypage/checkForm";
 		}
     	else {
     		
@@ -77,7 +77,7 @@ public class MyPageController {
     	vo.setM_pass(enc.aesEncode(m_pass));
     	if (pService.selectPassword(vo) == null || pService.selectPassword(vo).equals("")) {
     		//System.out.println("1 µé¾î¿È ");
-    		return "/mypage/mypagepwd2";
+    		return "redirect:/mypage/checkDelForm";
 		}
     	else {
     		//System.out.println("2 µé¾î¿È ");
