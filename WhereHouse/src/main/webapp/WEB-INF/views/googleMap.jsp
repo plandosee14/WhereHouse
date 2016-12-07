@@ -75,7 +75,7 @@
 					var cnt = 3;
 					var APPID = "3ef03001c2d4950720b7db7860ee228a";
 					
-					 var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
+					 var weather = 'http://api.openweathermap.org/data/2.5/forecast/city?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
 				    $.ajax({
 				      dataType: "jsonp",
 				      url: weather,
@@ -350,7 +350,7 @@
 							var cnt = 3;
 							var APPID = "3ef03001c2d4950720b7db7860ee228a";
 							
-							 var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
+							 var weather = 'http://api.openweathermap.org/data/2.5/forecast/city?lat='+lat+'&lon='+lng+'&cnt='+cnt+'&APPID='+APPID+'&units=metric';
 						    $.ajax({
 						      dataType: "jsonp",
 						      url: weather,
