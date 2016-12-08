@@ -21,7 +21,7 @@ import com.WhereHouse.mypage.service.MypageService;
 
 @Controller
 @RequestMapping("/mypage")
-public class MyRegisterController {
+public class MyRegisterController { 
 	
 	@Inject
 	private MyRegisterService regService;
