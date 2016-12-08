@@ -5,5 +5,16 @@
 		insert into reservation(r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
 		values (r_no, #{h_no}, #{m_id}, #{r_startdate}, r_enddate, r_fare, r_peoplecnt)
 	</insert>
+	
+	<select id="selectReservationByHno" resultType="com.WhereHouse.reservation.domain.ReservationVO">
+		select r_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt, r_state, r_sysdate
+		from reservation
+		where h_no = #{h_no}
+	</select>
+	<select id="selectReservationDate" resultType="com.WhereHouse.reservation.domain.ReservationDateVO">
+		select r_startdate, r_enddate, r_enddate-r_startdate as r_during
+		from reservation
+		where h_no=#{h_no}
+	</select>
 
 </mapper>

@@ -19,8 +19,8 @@ public class HouseDAOImpl implements HouseDAO{
 		
 	}
 	@Override
-	public void selectHouseByHno(int h_no) throws Exception {
-		sqlSession.selectOne("house.selectHouseByHno", h_no);
+	public HouseVO selectHouseByHno(int h_no) throws Exception {
+		return sqlSession.selectOne("house.selectHouseByHno", h_no);
 	}
 
 }
