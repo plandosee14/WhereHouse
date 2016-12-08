@@ -3,14 +3,14 @@ package com.WhereHouse.reservation.domain;
 import java.util.Date;
 
 public class ReservationDateVO {
-	private Date r_starddate;
+	private Date r_startdate;
 	private Date r_enddate;
 	private int r_during;
-	public Date getR_starddate() {
-		return r_starddate;
+	public Date getR_startdate() {
+		return r_startdate;
 	}
-	public void setR_starddate(Date r_starddate) {
-		this.r_starddate = r_starddate;
+	public void setR_startdate(Date r_startdate) {
+		this.r_startdate = r_startdate;
 	}
 	public Date getR_enddate() {
 		return r_enddate;
@@ -24,12 +24,7 @@ public class ReservationDateVO {
 	public void setR_during(int r_during) {
 		this.r_during = r_during;
 	}
-	@Override
-	public String toString() {
-		return "ReservationDateVO [r_starddate=" + r_starddate + ", r_enddate=" + r_enddate + ", r_during=" + r_during
-				+ "]";
-	}
-	
+
 	
 	
 
