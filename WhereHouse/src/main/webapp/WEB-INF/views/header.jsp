@@ -305,13 +305,12 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand page-scroll" href="/#first"><i
+			<a class="navbar-brand page-scroll" href="/"><i
 				class="glyphicon glyphicon-home"></i> WhereHouse</a>
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="/#one">Recommended destinatios</a></li>
-				<li><a class="page-scroll" href="/#two">About</a></li>
+				<li><a class="page-scroll" href="/google">Search House</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
@@ -327,9 +326,10 @@
    			 <span class="caret"></span>
   			</button>
   			<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">MyPage</a></li>
-    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google2" style="cursor: pointer;">최상균Google</a></li>
-    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/google3" style="cursor: pointer;">최필한Google3</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage" style="cursor: pointer;">장바구니</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage/payinfo" style="cursor: pointer;">결제정보</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage/reginfo" style="cursor: pointer;">등록정보</a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage/checkForm" style="cursor: pointer;">정보수정</a></li>
     			<li role="presentation" class="divider"></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">logout <i class="glyphicon glyphicon-log-out"></i></a></li>
   			</ul>
