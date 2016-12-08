@@ -37,7 +37,7 @@ jQuery(function($){
 
 	// 특정날짜들 배열
 
-	var disabledDays = ["2013-7-9","2013-7-24","2013-7-26"];
+	var disabledDays = ["2016-12-8","2016-12-25","2016-12-9"];
 
 	// 주말(토, 일요일) 선
 	function noWeekendsOrHolidays(date) {
@@ -78,7 +78,7 @@ jQuery(function($){
 	
 	    for (i = 0; i < disabledDays.length; i++) {
 	
-	        if($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1) {
+	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date < new Date())||(date >new Date(2016,11,26))) {
 	
 	            return [false];
 	
