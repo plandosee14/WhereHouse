@@ -292,6 +292,7 @@
       	    });//검색창으로 넘기기
       	    
       	    
+      	    
     	   });//ready
     	   
     </script>
@@ -311,10 +312,13 @@
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
 				<li><a class="page-scroll" href="/google">집 검색</a></li>
-
+			<% String m_name = (String)request.getSession().getAttribute("m_name"); %>
+			<%if(m_name == null || m_name.equals("")){%>
+			<% }else{%>
+				<li><a class="page-scroll" href="/house/registerForm">집 등록</a></li>
+			<%} %>
 			</ul>
-			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
-			if(m_name == null || m_name.equals("")){%>
+			<%if(m_name == null || m_name.equals("")){%>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a style="cursor: pointer;" id="loginmodalbtn">로그인</a></li>
 			</ul>
@@ -364,8 +368,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<h2 class="text-center">Login</h2>
-					<h5 class="text-center">Welcome WhereHouse</h5>
+					<h2 class="text-center">로그인</h2>
+					<h5 class="text-center">WhereHouse</h5>
 					<form action="Login">
 						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 							style="margin-top: 3%;" id="loginid"><br> <input type="password"
@@ -386,7 +390,6 @@
 				</div>
 			</div>
 		</div>
-		</canvas>
 	</div>
 	
 	<div id="RegisterModal" class="modal fade" tabindex="-1" role="dialog"
@@ -394,8 +397,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<h2 class="text-center">Register Account</h2>
-					<h5 class="text-center" style="margin-bottom: 3%;">Welcome WhereHouse</h5>
+					<h2 class="text-center">회원가입</h2>
+					<h5 class="text-center" style="margin-bottom: 3%;">WhereHouse</h5>
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 						id="registid" style=" margin-bottom: 3%;">
 						<p class="text-center" id="registidp"></p>
@@ -434,21 +437,21 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<h2 class="text-center">Check ID</h2>
-					<h5 class="text-center" style="margin-bottom: 20%">Please enter your email in the id field</h5>
+					<h2 class="text-center">아이디 확인</h2>
+					<h5 class="text-center" style="margin-bottom: 20%">WhereHouse</h5>
 					
 					<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 						id="checkidtext" style=" margin-bottom: 3%;">
 						<p class="text-center" id="successcheckid"></p>
 					<button type="button" id="checkid"
 						class="btn btn-primary btn-block btn-lg">
-						Send certification num <i class="ion-android-arrow-forward"></i>
+						인증번호 발송 <i class="ion-android-arrow-forward"></i>
 					</button>
 					<input type="text" class="form-control" placeholder="Certification number"
 						name="name" id="certificationtext" style="margin-bottom: 3%; margin-top: 3%;">
 					<button type="button" id="checkCertification"
 						class="btn btn-primary btn-block btn-lg">
-						Check certification num <i class="ion-android-arrow-forward"></i>
+						인증번호 발송 <i class="ion-android-arrow-forward"></i>
 					</button>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -464,8 +467,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
-					<h2 class="text-center">Find Account</h2>
-					<h5 class="text-center">Find ID</h5>
+					<h2 class="text-center">계정 찾기</h2>
+					<h5 class="text-center">ID 찾기</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="Name"
 							name="name" style="margin-top: 3%; margin-bottom: 3%;" id="findidnametext"> <input
@@ -486,7 +489,7 @@
 					</form>
 					<br>
 					<br>
-					<h5 class="text-center">Find Password</h5>
+					<h5 class="text-center">Password 찾기</h5>
 					<form>
 						<input type="text" class="form-control" placeholder="ID (E-mail)" name="id"
 							style="margin-top: 3%; margin-bottom: 3%;" id="findpassidtext">

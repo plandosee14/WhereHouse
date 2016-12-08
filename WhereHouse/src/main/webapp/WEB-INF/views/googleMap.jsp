@@ -6,19 +6,42 @@
 <head>
 <header><%@include file="header.jsp"%></header>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap"
-	async defer></script>
+
 
 </head>
 <body>
 	<br>
 	<br>
 	<br>
-
-
-
-	<script>
+	<div style="width: 48%; position: absolute; margin: 1%; height: 70%;">
+		<div style="margin-left: 20%">
+			<button id="selflocation" class="form-control2" style="width: 7%;">
+				<i class="glyphicon glyphicon-screenshot"></i>
+			</button>
+			<input id="address" type="textbox" value="" class="form-control2"
+				style="width: 60%;" placeholder="Search here...">
+			<button id="serachhouse" class="form-control2" style="width: 10%;">
+				<i class="glyphicon glyphicon-search"></i>
+			</button>
+		</div>
+		<center>
+			<div id="weatherlist" style="text-align: center; width: 80%;"></div>
+		</center>
+		<br>
+		<hr>
+		<br>
+		<div id="searchlist"
+			style="overflow: auto; overflow-x: hidden; height: 86.5%; margin: 1%;">
+		</div>
+	</div>
+	<div id="map"
+		style="width: 50%; height: 80%; position: fixed; left: 50%;"></div>
+		
+		<link rel="stylesheet" href="/resources/css/Nwagon.css" type="text/css">
+		<script src="/resources/js/Nwagon.js"></script>
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
+		<script>
 		var idx;
 		var marker = new Array();
 		var infowindow = new Array();
@@ -743,31 +766,34 @@
 				}
 			});
 
+			
+			
+		var options = {
+				'legend':{
+					names: [
+					'정확성',
+					'청결도',
+					'체크인',
+					'커뮤니케이션',
+				]
+			},
+			'dataset': {
+				title: 'Web accessibility status',
+				values: [[80,70,10,40]],
+				bgColor: '#f9f9f9',
+				fgColor: '#808080',
+			},
+			'chartDiv': 'Nwagon',
+			'chartType': 'radar',
+			'chartSize': { width: 300, height: 300 }
+		};
+		Nwagon.chart(options);
 		});//ready
-	</script>
+		
 
-	<div style="width: 48%; position: absolute; margin: 1%; height: 70%;">
-		<div style="margin-left: 20%">
-			<button id="selflocation" class="form-control2" style="width: 7%;">
-				<i class="glyphicon glyphicon-screenshot"></i>
-			</button>
-			<input id="address" type="textbox" value="" class="form-control2"
-				style="width: 60%;" placeholder="Search here...">
-			<button id="serachhouse" class="form-control2" style="width: 10%;">
-				<i class="glyphicon glyphicon-search"></i>
-			</button>
-		</div>
-		<center>
-			<div id="weatherlist" style="text-align: center; width: 80%;"></div>
-		</center>
-		<br>
-		<hr>
-		<br>
-		<div id="searchlist"
-			style="overflow: auto; overflow-x: hidden; height: 86.5%; margin: 1%;">
-		</div>
-	</div>
-	<div id="map"
-		style="width: 50%; height: 80%; position: fixed; left: 50%;"></div>
+
+		</script>
+
+		
 </body>
 </html>
