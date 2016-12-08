@@ -30,13 +30,12 @@ public class HouseDetailController {
 	@RequestMapping("/detail")
 	public String readPage(int h_no, Model model, @ModelAttribute("cri") Criteria cri, HttpSession session) throws Exception{
 		String m_id = (String) session.getAttribute("m_id");
+				
 		model.addAttribute(service.read(h_no));
-		System.out.println(m_id);
 		
 		boolean checkGrade = false;
 		if(m_id != null){
 		checkGrade = service.grade(m_id, h_no);
-		System.out.println(checkGrade);
 		}
 		model.addAttribute("checkGrade", checkGrade);
 		return "house/detailHouse";

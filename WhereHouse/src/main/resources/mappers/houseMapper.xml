@@ -21,13 +21,11 @@
 	</insert>
 	
 	<insert id="gradescoreHouse">
-		insert into house_grade(h_no, r_no, g_rightscore, g_cleanscore, g_checkscore, g_commuscore)
-		values (#{h_no}, (select r_no
-		from reservation
-		where h_no=#{h_no}), #{g_rightscore}, #{g_cleanscore}, #{g_checkscore}, #{g_commuscore});
+		insert into house_grade (h_no, r_no, g_rightscore, g_cleanscore, g_checkscore, g_commuscore)
+		values (#{h_no}, (select r_no from reservation where h_no=#{h_no} and m_id=#{m_id}), #{g_rightscore}, #{g_cleanscore}, #{g_checkscore}, #{g_commuscore})
 	</insert>
 	<update id="updatescoreHouse">
-		update house set g_rightscore = g_rightscore+#{g_rightscore}, g_cleanscore = g_cleanscore+#{g_cleanscore}, g_checkscore = g_checkscore+#{g_checkscore}, g_commuscore = g_commuscore+#{g_commuscore}, h_scorecnt=h_scorecnt+1
+		update house set h_rightscore = h_rightscore+#{g_rightscore}, h_cleanscore = h_cleanscore+#{g_cleanscore}, h_checkscore = h_checkscore+#{g_checkscore}, h_commuscore = h_commuscore+#{g_commuscore}, h_scorecnt=h_scorecnt+1
 		where h_no=#{h_no}
 	</update>
 	<update id="allscoreHouse">

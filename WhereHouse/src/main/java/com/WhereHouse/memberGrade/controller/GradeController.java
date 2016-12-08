@@ -1,11 +1,8 @@
 package com.WhereHouse.memberGrade.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,19 +17,18 @@ public class GradeController {
 	@Inject
 	private GradeService service;
 
-	@RequestMapping(value="/{h_no}", method={RequestMethod.PUT, RequestMethod.PATCH})
-	public ResponseEntity<String> update(@PathVariable("h_no") int h_no, @RequestBody GradeVO vo) {
-		vo.setH_no(h_no);
-		ResponseEntity<String> entity = null;
-		
+	@RequestMapping(value="/insert", method=RequestMethod.POST)
+	public String update(GradeVO vo, HttpSession session) {
+		System.out.println("vo1"+vo);
+		String m_id = (String) session.getAttribute("m_id");
+		vo.setM_id(m_id);
+		System.out.println("vo2"+vo);
 		try {
-			service.updateGrade(vo);
-			entity=new ResponseEntity<>("SUCCESS",HttpStatus.OK);
+			service.insertGrade(vo);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			entity = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
-		
-		return entity;
+		return "success";
 	}
 }

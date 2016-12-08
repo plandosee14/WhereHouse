@@ -95,10 +95,18 @@ textarea{
 			</div>
 		</form>
 	</div>
-	<div id="textb">
-		<textarea rows="100px" cols="110px">dlfklsjdkafpoasdjkoasd</textarea>
+	<div class="container-fluid">
+	  <div class="row">
+    	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
+    		<div style="border-top:2px solid #fff;font-size:40px;">숙소</div>
+    		<div style="border-top:2px solid #fff;font-size:40px;">집</div>
+    	</div>
+    	<div class="col-sm-5" style="background-color:lavender;">항목
+    		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
+    		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
+    	</div>
+  	  </div>
 	</div>
-	
 	<div class="row">
 		<div class="col-md-12">
 
@@ -109,57 +117,16 @@ textarea{
 				<div class="box-header">
 					<h3 class="box-title">후기</h3>
 				</div>
-				<font color="black" size="5">총점</font>
-				<span class="star-output1">
-			  		<span class="input">
-			  			<c:forEach var="j" begin="1" end="10" step="1">
-			    			<input type="radio" name="avgscore" id="a${j}" value="${house.h_avgscore/(5*house.h_scorecnt)}"><label for="a${j}"><c:out value="${0.5*j}"/></label>
-			    		</c:forEach>
-			  		</span>
-			  		<output for="star-output"><b>0</b>점</output>
-				</span><br>				
-				<font color="black" size="5">정확성</font>
-				<span class="star-output1">
-			  		<span class="input">
-			  			<c:forEach var="j" begin="1" end="10" step="1">
-			    			<input type="radio" name="rightscore" id="q${j}" value="${j}"><label for="q${j}"><c:out value="${0.5*j}"/></label>
-			    		</c:forEach>
-			  		</span>
-			  		<output for="star-output"><b>0</b>점</output>
-				</span><br>
-				<font color="black" size="5">청결도</font>
-				<span class="star-output2">
-			  		<span class="input">
-			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="cleanscore" id="w${i}" value="${i}"><label for="w${i}"><c:out value="${0.5*i}"/></label>
-			    		</c:forEach>
-			  		</span>
-			  		<output for="star-output2"><b>0</b>점</output>
-				</span><br>
-				<font color="black" size="5">체크인</font>
-				<span class="star-output3">
-			  		<span class="input">
-			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="checkscore" id="e${i}" value="${i}"><label for="e${i}"><c:out value="${0.5*i}"/></label>
-			    		</c:forEach>
-			  		</span>
-			  		<output for="star-output3"><b>0</b>점</output>
-				</span><br>
-				<font color="black" size="5">커뮤니케이션</font>
-				<span class="star-output4">
-			  		<span class="input">
-			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="commuscore" id="f${i}" value="${i}"><label for="f${i}"><c:out value="${0.5*i}"/></label>
-			    		</c:forEach>
-			  		</span>
-			  		<output for="star-output4"><b>0</b>점</output>
-				</span>
+			
+				<div id="Nwagon">
+					
+				</div>
 				<c:if test="${checkGrade == 'true'}" >
 				<font color="black" size="5">정확성</font>
 				<span class="star-input">
 			  		<span class="input">
 			  			<c:forEach var="j" begin="1" end="10" step="1">
-			    			<input type="radio" name="rightscore" id="p${j}" value="${j}"><label for="p${j}"><c:out value="${0.5*j}"/></label>
+			    			<input type="radio" name="rightscore" id="p${j}" value="${j}"><label for="p${j}"><c:out value="${j}"/></label>
 			    		</c:forEach>
 			  		</span>
 			  		<output for="star-input"><b>0</b>점</output>
@@ -168,7 +135,7 @@ textarea{
 				<span class="star-input2">
 			  		<span class="input">
 			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="cleanscore" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${0.5*i}"/></label>
+			    			<input type="radio" name="cleanscore" id="s${i}" value="${i}"><label for="s${i}"><c:out value="${i}"/></label>
 			    		</c:forEach>
 			  		</span>
 			  		<output for="star-input2"><b>0</b>점</output>
@@ -177,7 +144,7 @@ textarea{
 				<span class="star-input3">
 			  		<span class="input">
 			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="checkscore" id="r${i}" value="${i}"><label for="r${i}"><c:out value="${0.5*i}"/></label>
+			    			<input type="radio" name="checkscore" id="r${i}" value="${i}"><label for="r${i}"><c:out value="${i}"/></label>
 			    		</c:forEach>
 			  		</span>
 			  		<output for="star-input3"><b>0</b>점</output>
@@ -186,7 +153,7 @@ textarea{
 				<span class="star-input4">
 			  		<span class="input">
 			  			<c:forEach var="i" begin="1" end="10" step="1">
-			    			<input type="radio" name="commuscore" id="c${i}" value="${i}"><label for="c${i}"><c:out value="${0.5*i}"/></label>
+			    			<input type="radio" name="commuscore" id="c${i}" value="${i}"><label for="c${i}"><c:out value="${i}"/></label>
 			    		</c:forEach>
 			  		</span>
 			  		<output for="star-input4"><b>0</b>점</output>
@@ -242,7 +209,8 @@ textarea{
     </div>
   </div>
 </div> 
-	
+	<link rel="stylesheet" href="/resources/css/Nwagon.css" type="text/css">
+	<script src="/resources/js/Nwagon.js"></script>
 	<script src="/resources/js/star.js"></script>
 	<script id="template" type="text/x-handlebars-template">
 	{{#each .}}
@@ -301,7 +269,7 @@ textarea{
 	}
 	
 	var printPaging = function(pageMaker, target) {
-	
+
 		var str = "";
 	
 		if (pageMaker.prev) {
@@ -403,22 +371,49 @@ textarea{
 			}});
 	});
 
+	var h_no = ${houseVO.h_no};
 	$("#bt_grade").on("click",function(){
-		var g_rightObj = $("input[name=rightscore]");
+		
+		var pscore = $(':radio[name="rightscore"]:checked').val();
+		var sscore = $(':radio[name="cleanscore"]:checked').val();
+		var rscore = $(':radio[name="checkscore"]:checked').val();
+		var cscore = $(':radio[name="commuscore"]:checked').val();
+		alert(pscore);
+		$.ajax({
+	      		url:"/grades/insert",
+	            type: "post",
+	            data:{
+	            	h_no : h_no,
+	            	g_rightscore : pscore,
+	            	g_cleanscore : sscore,
+	            	g_checkscore : rscore,
+	            	g_commuscore : cscore
+	            },
+	            success:function(result){
+	            	if (result == "success") {
+		                  location.reload();
+				}else {
+					  $('#alerttitle').html('실패');
+	                  $('#alertcontent').html('ID, Passwor.');
+	                  $('#alertModal').modal("show");
+				}
+	            }
+	      	})
+		/* var g_rightObj = $("input[name=rightscore]");
 		var g_cleanObj = $("input[name=cleanscore]");
 		var g_checkObj = $("input[name=checkscore]");
 		var g_commuObj = $("input[name=commuscore]");
 		var g_right = g_rightObj.val();
 		var g_clean = g_cleanObj.val();
 		var g_check = g_checkObj.val();
-		var g_commu = g_commuObj.val();
-			$.ajax({
+		var g_commu = g_commuObj.val(); */
+			/* $.ajax({
 				type:'put',
 				url:'/grades/',
 				headers: {
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({h_no=h_no, g_rightscore=g_right, g_cleanscore=g_clean, g_checkscore=g_check, g_commuscore=g_commu}),
+				data:JSON.stringify({h_no:h_no, g_rightscore=g_right, g_cleanscore=g_clean, g_checkscore=g_check, g_commuscore=g_commu}),
 				dataType:'text',
 				success:function(result){
 					if(result=='SUCCESS'){
@@ -429,7 +424,7 @@ textarea{
 						g_commuObj.val("");
 					}
 				}
-			});
+			}); */
 	});
 
 	$("#commentDelBtn").on("click",function(){
@@ -452,7 +447,33 @@ textarea{
 					}
 			}});
 		});
-		
+	
+	
+	var rightscore = (${houseVO.h_rightscore}*10/${houseVO.h_scorecnt});
+	var cleanscore = (${houseVO.h_cleanscore}*10/${houseVO.h_scorecnt});
+	var checkscore = (${houseVO.h_checkscore}*10/${houseVO.h_scorecnt});
+	var commuscore = (${houseVO.h_commuscore}*10/${houseVO.h_scorecnt});
+	
+	var options = {
+			'legend':{
+				names: [
+				'정확성',
+				'청결도',
+				'체크인',
+				'커뮤니케이션',
+			]
+		},
+		'dataset': {
+			title: 'Web accessibility status',
+			values: [[rightscore,cleanscore,checkscore,commuscore]],
+			bgColor: '#f9f9f9',
+			fgColor: '#808080',
+		},
+		'chartDiv': 'Nwagon',
+		'chartType': 'radar',
+		'chartSize': { width: 300, height: 300 }
+	};
+	Nwagon.chart(options);
 	</script>
 	</body>
 </html>

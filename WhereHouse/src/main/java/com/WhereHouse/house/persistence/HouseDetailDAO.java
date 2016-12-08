@@ -6,4 +6,5 @@ public interface HouseDetailDAO {
 	public HouseVO read(int h_no) throws Exception;
 	
 	public boolean selectHouseReservation(String m_id, int h_no)throws Exception;
+	public void updateScore(int h_no)throws Exception;
 }

@@ -14,12 +14,9 @@ public class GradeServiceImpl implements GradeService {
 	@Inject
 	private GradeDAO dao;
 	
-	@Transactional
 	@Override
-	public void updateGrade(GradeVO vo) throws Exception {
-		dao.updateScorehouse(vo);
+	public void insertGrade(GradeVO vo) throws Exception {
 		dao.createScorehouse(vo);
-		dao.allScorehouse(vo);
+		dao.updateScorehouse(vo);
 	}
-
 }

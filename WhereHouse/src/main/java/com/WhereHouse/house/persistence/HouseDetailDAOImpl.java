@@ -26,13 +26,16 @@ public class HouseDetailDAOImpl implements HouseDetailDAO {
 		map.put("m_id", m_id);
 		map.put("h_no", h_no);
 		int cnt = sqlSession.selectOne("house.selectHouseReservation", map);
-		System.out.println(cnt);
 		if(cnt==0){
 			return true;
 		}else{
 			return false;
 		}
 		
+	}
+	@Override
+	public void updateScore(int h_no) throws Exception {
+		sqlSession.update("house.updatescoreHouse", h_no);
 	}
 
 
