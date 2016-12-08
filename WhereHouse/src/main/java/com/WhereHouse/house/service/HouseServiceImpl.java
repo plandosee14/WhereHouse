@@ -20,8 +20,8 @@ public class HouseServiceImpl implements HouseService {
 	}
 
 	@Override
-	public void selectHouseByHno(HouseVO vo)throws Exception{
-		
+	public void selectHouseByHno(int h_no)throws Exception{
+		dao.selectHouseByHno(h_no);
 	}
 
 }
