@@ -38,8 +38,14 @@
 </style>
 
 
-<script>
+<%-- <%
+if (session.getAttribute("m_id") == null || session.getAttribute("m_id") =="") {
+   out.print("<script type='text/javascript'>" + "alert('로그인을 하셔야합니다.');"
+         + "location.href('/');" + "</script>");
+}
+%> --%>
 
+<script>
 
 
 
@@ -64,16 +70,19 @@
 	var result = '${msg}';
 
 	if (result == 'SUCCESS') {
-		alert("처리가 완료되었습니다.");
+		$('#alerttitle').html('장바구니');
+        $('#alertcontent').html('선택하신 상품이 삭제되었습니다.');
+        $('#alertModal').modal("show");
 	}
 	
 	var result = '${msg1}';
 
 	if (result == 'SUCCESS1') {
-		alert("수정가 완료되었습니다.");
+		$('#alerttitle').html('회원정보');
+        $('#alertcontent').html('회원정보가 수정되었습니다.');
+        $('#alertModal').modal("show");
 	}
-	
-	alert('${m_id}');
+
 	
 	
 </script>

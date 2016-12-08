@@ -14,6 +14,17 @@
 	width: 85%;
 	float: right;
 }
+
+.btn_cancle {
+	color: #000;
+	background-color:#ccc;
+	border: 1px solid #ccc;
+	border-radius:20px;
+	padding:5px 10px;
+	font-size:12px;
+	line-height:1.5;
+}
+
 </style>
 
 <script>
@@ -80,7 +91,7 @@
 		</div><br><br>
 		<form method="post" action="delete">
 			<input type="submit" name="submit" class="btn btn-danger btn-sm" value="탈퇴하기" /> 
-			<input type="button" name="reset" class="btn btn-danger btn-sm" id="pageback" value="취소"/>
+			<input type="button" name="reset" class="btn_cancle" id="pageback" value="취소"/>
 		</form>	
 	</div>
    </div>

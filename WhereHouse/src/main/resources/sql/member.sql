@@ -12,6 +12,14 @@ create table member(
 	m_scorecnt number default 0
 );
 
+drop table member_grade;
+create table member_grade(
+	r_no number not null,
+	m_id varchar(50) not null,
+	g_score number not null,
+	primary key(r_no,m_id)
+);
+
 drop sequence member_seq;
 
 create sequence member_seq
@@ -58,4 +66,7 @@ insert into wido (h_no, pi_x, pi_y) values ('3','37.48082','126.88177');
 insert into wido (h_no, pi_x, pi_y) values ('4','37.48168','126.88234');
 insert into wido (h_no, pi_x, pi_y) values ('5','37.48261','126.88304');
 
+select count(*)
+from member_grade
+where r_no=1
 

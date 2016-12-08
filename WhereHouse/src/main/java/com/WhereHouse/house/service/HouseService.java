@@ -6,6 +6,6 @@ public interface HouseService {
 	
 	public void insertHouse(HouseVO vo)throws Exception;
 	
-	public void selectHouseByHno(HouseVO vo)throws Exception;
+	public HouseVO selectHouseByHno(int h_no)throws Exception;
 
 }

@@ -83,16 +83,15 @@
 			</aside>
 
 			<br>
-
-			<table class="table table-bordered">
-				<tr style="color: black">
-					<th>집 사진</th>
-					<th>예약 번호</th>
-					<th>예약한 집번호</th>
-					<th>예약한 날짜</th>
-					<th>가격</th>
-					<th>인원수</th>
-					<th>예약 전화번호</th>
+			<table class="table table-bordered" style="text-align: center">
+				<tr style="color: black; font-weight: bold; background-color: #C0C0C0 ">
+					<td>집 사진</td>
+					<td>예약 번호</td>
+					<td>예약한 집번호</td>
+					<td>예약한 날짜</td>
+					<td>가격</td>
+					<td>인원수</td>
+					<td>예약 전화번호</td>
 				</tr>
 
 
@@ -101,7 +100,7 @@
 					<tr style="color: black">
 						<td><img
 							src="../resources/img/house/${reservationVO.h_thumnail}"
-							width="70"></td>
+							width="70px" height="50px"></td>
 						<td>${reservationVO.r_no}</td>
 						<td>${reservationVO.h_no}</td>
 						<td>
@@ -115,7 +114,6 @@
 				</c:forEach>
 
 			</table>
-
 		</div>
 	</div>
 
