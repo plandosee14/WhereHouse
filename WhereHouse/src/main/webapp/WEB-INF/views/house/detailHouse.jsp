@@ -94,7 +94,7 @@ textarea{
 				<button type="button" id="reservation" class="reservation">예약하기</button>
 			</div>
 		</form>
-	</div>
+	</div>  
 	<div class="container-fluid">
 	  <div class="row">
     	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
