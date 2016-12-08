@@ -43,7 +43,7 @@
  	      });//sign in버튼 클릭시
     	   
     	   $('#loginmodalbtn').click(function() {
-    		   if ($('#loginmodalbtn').text() == "Login") {
+    		   if ($('#loginmodalbtn').text() == "로그인") {
     		   $('#LoginModal').modal({backdrop: 'static'});
 			}
     	   });//로그인 모달창 띄우기
@@ -310,13 +310,13 @@
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="/google">Search House</a></li>
+				<li><a class="page-scroll" href="/google">집 검색</a></li>
 
 			</ul>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); 
 			if(m_name == null || m_name.equals("")){%>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a style="cursor: pointer;" id="loginmodalbtn">Login</a></li>
+				<li><a style="cursor: pointer;" id="loginmodalbtn">로그인</a></li>
 			</ul>
 			<% }else{%>
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 1%; margin-top: 1%; " >
@@ -331,7 +331,7 @@
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage/reginfo" style="cursor: pointer;">등록정보</a></li>
     			<li role="presentation"><a role="menuitem" tabindex="-1" href="/mypage/checkForm" style="cursor: pointer;">정보수정</a></li>
     			<li role="presentation" class="divider"></li>
-    			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">logout <i class="glyphicon glyphicon-log-out"></i></a></li>
+    			<li role="presentation"><a role="menuitem" tabindex="-1" id="logout" style="cursor: pointer;">로그아웃 <i class="glyphicon glyphicon-log-out"></i></a></li>
   			</ul>
 			</li>
 			</ul>
@@ -373,12 +373,12 @@
 							style="margin-bottom: 3%;" id="loginpass">
 						<button type="button" 
 							class="btn btn-primary btn-block btn-lg" id="loginbtn">
-							Sign in <i class="ion-android-arrow-forward"></i>
+							로그인 <i class="ion-android-arrow-forward"></i>
 						</button>
 					</form>
 					<p class="text-center" style="margin-top: 3%;">
-						<a data-toggle="modal" data-target="#RegisterModal" data-backdrop='static' id="registeraccountbtn" style="cursor: pointer;">Sign up</a> /
-						<a data-toggle="modal" data-target="#FindModal" data-backdrop='static' id="findAccountbtn" style="cursor: pointer;">Find Account</a>
+						<a data-toggle="modal" data-target="#RegisterModal" data-backdrop='static' id="registeraccountbtn" style="cursor: pointer;">회원가입</a> /
+						<a data-toggle="modal" data-target="#FindModal" data-backdrop='static' id="findAccountbtn" style="cursor: pointer;">ID/PASS 찾기</a>
 					</p>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -419,7 +419,7 @@
 						id="registphone2" style="margin-bottom: 3%; width: 37.5%;">
 					<button type="button" id="registbtn"
 						class="btn btn-primary btn-block btn-lg">
-						Sign up <i class="glyphicon glyphicon-upload"></i>
+						회원가입 <i class="glyphicon glyphicon-upload"></i>
 					</button>
 					<br />
 					<button class="btn btn-primary btn-lg center-block"
@@ -480,7 +480,7 @@
 							type="text" class="form-control2" placeholder="Phone" name="phone"
 							style="margin-bottom: 3%; width: 37.5%;" id="findidphonetext2">
 						<button type="button" class="btn btn-primary btn-block btn-lg"  id="findidbtn">
-							Find ID <i class="glyphicon glyphicon-search"></i>
+							ID 찾기 <i class="glyphicon glyphicon-search"></i>
 						</button>
 						<h5 class="text-center" id="findidresult"> </h5>
 					</form>
@@ -506,7 +506,7 @@
 							style="margin-bottom: 3%; width: 37.5%;" id="findpassphonetext2">
 						<button type="button"
 							class="btn btn-primary btn-block btn-lg" id="findpassbtn">
-							Find Pass <i class="glyphicon glyphicon-search"></i>
+							Pass 찾기 <i class="glyphicon glyphicon-search"></i>
 						</button>
 						<br />
 					</form>

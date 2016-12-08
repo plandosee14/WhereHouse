@@ -39,12 +39,11 @@
 			$('#selflocation')
 					.click(
 							function() {
-								$('#weatherlist').html('');
 								if (navigator.geolocation) {
 									navigator.geolocation
 											.getCurrentPosition(function(
 													position) {
-
+												$('#weatherlist').html('');
 												$('#searchlist').html('');
 												var markergps;
 												nearmarker = [];
@@ -75,83 +74,7 @@
 															animation : google.maps.Animation.DROP,
 														});
 
-												var lat = position.coords.latitude;
-												var lng = position.coords.longitude;
-												var cnt = 3;
-												var APPID = "3ef03001c2d4950720b7db7860ee228a";
-
-												var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='
-														+ lat
-														+ '&lon='
-														+ lng
-														+ '&cnt='
-														+ cnt
-														+ '&APPID='
-														+ APPID
-														+ '&units=metric';
-												$
-														.ajax({
-															dataType : "jsonp",
-															url : weather,
-															success : function(
-																	resultweather) {
-																if (resultweather != null) {
-																	var day = new Date();
-																	var day2 = new Date(
-																			day
-																					.valueOf()
-																					+ (24 * 60 * 60 * 1000));
-																	var day3 = new Date(
-																			day2
-																					.valueOf()
-																					+ (24 * 60 * 60 * 1000));
-																	$(
-																			'#weatherlist')
-																			.append(
-																					'<br><div style="width:100%;">'
-																							+ '<div style="float:left;width:33.3%;">'
-																							+ day
-																									.getDate()
-																							+ '일</div><div style="float:left;width:33.3%;">'
-																							+ day2
-																									.getDate()
-																							+ '일</div><div style="float:left;width:33.3%;">'
-																							+ day3
-																									.getDate()
-																							+ '일</div></div>');
-																	for (var i = 0; i < cnt; i++) {
-																		var weatherimg = '/resources/img/weather/'
-																				+ resultweather.list[i].weather[0].icon
-																						.substring(
-																								0,
-																								2)
-																				+ '.png';
-																		$(
-																				'#weatherlist')
-																				.append(
-																						'<div style="float:left;width:33.3%;">'
-																								+ '<img src ="'+weatherimg+'">'
-																								+ resultweather.list[i].main.temp_min
-																								+ '~'
-																								+ resultweather.list[i].main.temp_max
-																								+ '°C </div>');
-																	}
-																} else {
-																	$(
-																			'#alerttitle')
-																			.html(
-																					'날씨 오류');
-																	$(
-																			'#alertcontent')
-																			.html(
-																					'날씨 정보를 가져오는 도중 오류가 발생하였습니다.');
-																	$(
-																			'#alertModal')
-																			.modal(
-																					"show");
-																}
-															}
-														});
+												
 
 												circle = new google.maps.Circle(
 														{
@@ -357,7 +280,87 @@
 															}
 														});
 
+												
+												var lat = position.coords.latitude;
+												var lng = position.coords.longitude;
+												var cnt = 3;
+												var APPID = "3ef03001c2d4950720b7db7860ee228a";
+
+												var weather = 'http://api.openweathermap.org/data/2.5/forecast?lat='
+														+ lat
+														+ '&lon='
+														+ lng
+														+ '&cnt='
+														+ cnt
+														+ '&APPID='
+														+ APPID
+														+ '&units=metric';
+												$
+														.ajax({
+															dataType : "jsonp",
+															url : weather,
+															success : function(
+																	resultweather) {
+																if (resultweather != null) {
+																	var day = new Date();
+																	var day2 = new Date(
+																			day
+																					.valueOf()
+																					+ (24 * 60 * 60 * 1000));
+																	var day3 = new Date(
+																			day2
+																					.valueOf()
+																					+ (24 * 60 * 60 * 1000));
+																	$(
+																			'#weatherlist')
+																			.append(
+																					'<br><div style="width:100%;">'
+																							+ '<div style="float:left;width:33.3%;border-right: 1px solid gray;">'
+																							+ day
+																									.getDate()
+																							+ '일</div><div style="float:left;width:33.3%;">'
+																							+ day2
+																									.getDate()
+																							+ '일</div><div style="float:left;width:33.3%;border-left: 1px solid gray;">'
+																							+ day3
+																									.getDate()
+																							+ '일</div></div><br>');
+																	for (var i = 0; i < cnt; i++) {
+																		var weatherimg = '/resources/img/weather/'
+																				+ resultweather.list[i].weather[0].icon
+																						.substring(
+																								0,
+																								2)
+																				+ '.png';
+																		$(
+																				'#weatherlist')
+																				.append(
+																						'<div style="float:left;width:33.3%;">'
+																								+ '<img src ="'+weatherimg+'">'
+																								+ resultweather.list[i].main.temp_min
+																								+ '~'
+																								+ resultweather.list[i].main.temp_max
+																								+ '°C </div>');
+																	}
+																} else {
+																	$(
+																			'#alerttitle')
+																			.html(
+																					'날씨 오류');
+																	$(
+																			'#alertcontent')
+																			.html(
+																					'날씨 정보를 가져오는 도중 오류가 발생하였습니다.');
+																	$(
+																			'#alertModal')
+																			.modal(
+																					"show");
+																}
+															}
+														});
 											});
+									
+									
 								} else {
 									$('#alerttitle').html('GPS오류');
 									$('#alertcontent').html(
@@ -379,13 +382,13 @@
 									$('#alertModal').modal("show");
 								} else {
 									$('#searchlist').html('');
+									$('#weatherlist').html('');
 									if (marker != null) {
 										for (var i = 0; i < marker.length; i++) {
 											marker[i].setMap(null);
 										}
 										marker = [];
 										infowindow = [];
-										$('#weatherlist').html('');
 										map = new google.maps.Map(
 												document.getElementById('map'),
 												{
@@ -642,13 +645,13 @@
 														$('#weatherlist')
 																.append(
 																		'<br><div style="width:100%;">'
-																				+ '<div style="float:left;width:33.3%;">'
+																				+ '<div style="float:left;width:33.3%;border-right: 1px solid gray;">'
 																				+ day
 																						.getDate()
 																				+ '일</div><div style="float:left;width:33.3%;">'
 																				+ day2
 																						.getDate()
-																				+ '일</div><div style="float:left;width:33.3%;">'
+																				+ '일</div><div style="float:left;width:33.3%;border-left: 1px solid gray;">'
 																				+ day3
 																						.getDate()
 																				+ '일</div></div>');
@@ -761,7 +764,7 @@
 		<hr>
 		<br>
 		<div id="searchlist"
-			style="overflow: auto; overflow-x: hidden; height: 96%; margin: 1%;">
+			style="overflow: auto; overflow-x: hidden; height: 86.5%; margin: 1%;">
 		</div>
 	</div>
 	<div id="map"

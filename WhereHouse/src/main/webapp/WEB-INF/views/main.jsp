@@ -47,7 +47,7 @@
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">Recommended destinations</h2>
+				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">여행 지역 추천</h2>
 				<br>
 			</div>
 		</div>
@@ -154,7 +154,7 @@
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: black;">About Us</h2>
+				<h2 class="margin-top-0 text-primary" style="color: black;">소개</h2>
 				<br>
 				<p class="text-faded" style="color: #1d1d1d; text-align: left;">
 				 WhereHouse는 2016년 12월에 창립되어 서울시 금천구 가산동에
