@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.mypage.domain.MyRegisterVO;
 import com.WhereHouse.mypage.persistence.MyRegisterDAO;
 
@@ -17,8 +18,17 @@ public class MyRegisterServiceImpl implements MyRegisterService{
 	
 	@Override
 	public List<MyRegisterVO> listAllById(String m_id) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.selectMyRegister(m_id);
+	}
+
+	@Override
+	public List<MyRegisterVO> listEstimateById(String m_id) throws Exception {
+		return dao.selectMyEstimate(m_id);
+	}
+
+	@Override
+	public void modifyScore(MemberVO member) throws Exception {
+		dao.updateScore(member);
 	}
 
 	

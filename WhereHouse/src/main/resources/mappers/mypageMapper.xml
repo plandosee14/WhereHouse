@@ -52,10 +52,34 @@
 			and h.m_id = #{m_id}
 			and r.m_id = m.m_id
 	</select>
+	
+	<select id="selectEstimateById" resultType="com.WhereHouse.mypage.domain.MyRegisterVO">
+		select h.h_thumnail, r.r_startdate, r.r_enddate, r.m_id, m.m_name, r.r_no
+		from house h, reservation r, member m
+		where h.h_no = r.h_no
+			and r.m_id = m.m_id
+			and r.m_id = #{m_id}
+	</select>
+	
 	<select id="selectPassword" resultType="int">
 	select count(*)
 	from member
 	where m_id = #{m_id}
 		and m_pass = #{m_pass}
+	</select>
+	
+	<update id="modifyScore">
+	    update member set m_score= m_score+#{m_score}, m_scorecnt=m_scorecnt+1
+        where m_id=#{m_id}
+	</update>
+	
+	<insert id="insertGrade">
+	insert into  member_grade(h_no, m_id, g_score)
+	values (#{h_no}, #{m_id}, #{g_score})	
+	</insert>
+	<select id="selectGrade" resultType="int">
+		select count(*)
+		from member_grade
+		where r_no=#{r_no}
 	</select>
 </mapper>

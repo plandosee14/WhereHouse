@@ -788,6 +788,8 @@
 			'chartSize': { width: 300, height: 300 }
 		};
 		Nwagon.chart(options);
+		
+		
 		});//ready
 		
 

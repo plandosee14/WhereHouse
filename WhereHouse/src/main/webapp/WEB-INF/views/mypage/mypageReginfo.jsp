@@ -29,6 +29,23 @@
 		$('#mypageLink2').click(function() {
 			location.reload();
 		});
+		
+/* 		$('#estimate').click(function() {
+			var m_score = $('#est_score').val();
+			
+			$.ajax({
+				url : '/mypage/reginfoAjax',
+				data : {"m_score":m_score},
+				success : function(data){
+					$('#alerttitle').html('회원평가');
+			        $('#alertcontent').html('회원평가가 완료되었습니다.');
+			        $('#alertModal').modal("show");
+					/* window.location.replace("/mypage/reginfo"); 
+				}
+			});
+		}); */
+		
+	
 
 	});
 </script>
@@ -77,13 +94,13 @@
 
 			<br>
 
-			<table class="table table-bordered">
-				<tr style="color: black">
-					<th>집 사진</th>
-					<th>예약한 ID(이름)</th>
-					<th>전화번호</th>
-					<th>예약한 날짜</th>
-					<th>인원</th>
+			<table class="table table-bordered" style="text-align: center">
+				<tr style="color: black; font-weight: bold; background-color: #C0C0C0">
+					<td>집 사진</td>
+					<td>예약한 ID(이름)</td>
+					<td>전화번호</td>
+					<td>예약한 날짜</td>
+					<td>인원</td>
 				</tr>
 
 
@@ -92,7 +109,7 @@
 					<tr style="color: black">
 						<td><img
 							src="../resources/img/house/${registerVO.h_thumnail}"
-							width="70"></td>
+							width="70px" height="50px"></td>
 						<td>${registerVO.m_id}(${registerVO.m_name})</td>
 						<td>${registerVO.m_phone}</td>
 						<td>
@@ -105,9 +122,79 @@
 				</c:forEach>
 
 			</table>
+			
+			<br><br><br>
+			
+			<table class="table table-bordered" style="text-align: center">
+				<tr style="color: black; font-weight: bold; background-color: #C0C0C0">
+					<td>집 사진</td>
+					<td>예약한 ID(이름)</td>
+					<td>숙박 날짜</td>
+					<td>평가</td>
+				</tr>
+
+
+				<c:forEach items="${estList}" var="estimateVO" varStatus="status">
+
+					<tr style="color: black">
+						<td>
+							<img src="../resources/img/house/${estimateVO.h_thumnail}" width="70px" height="50px">
+						</td>
+						<td>${estimateVO.m_id}(${estimateVO.m_name})</td>
+						<td>
+						<fmt:formatDate value="${estimateVO.r_startdate}" pattern="yyyy-MM-dd "/>~
+						<fmt:formatDate value="${estimateVO.r_enddate}" pattern="yyyy-MM-dd "/></td>
+						<td>
+						
+						<select name="score" id="est_score${estimateVO.r_no}">
+   						 <option selected value=3>-선택하세요-
+    					 <option value=2>2
+    					 <option value=1>1
+    					 <option value=0>0
+    					 <option value=-1>-1
+    					 <option value=-2>-2
+    					</select>
+    					<c:forEach items="${rList}" var="rno">
+    						<c:if test="${estimateVO.r_no !=rno}">					
+    						<input type="button" value="평가하기" id="estimate" onclick="grade('${estimateVO.m_id}','${estimateVO.r_no}' )">
+							</c:if>
+						</c:forEach>
+						</td>
+
+					</tr>
+
+				</c:forEach>
+
+			</table>
+			<c:forEach items="${rList}" var="rno">
+			   ${rList}, 
+			</c:forEach>
+			
 		</div>
 	</div>
 
 </body>
+<script type="text/javascript">
+
+function grade(m_id,r_no) {
+	alert('쨘');
+	var m_score = $('#est_score'+r_no).val();
+	alert(m_score);
+	
+	$.ajax({
+		url : '/mypage/reginfoAjax',
+		data : {"m_score":m_score,
+			    "m_id": m_id   ,
+			    "r_no": r_no  
+		},
+		success : function(data){
+			$('#alerttitle').html('회원평가');
+	        $('#alertcontent').html('회원평가가 완료되었습니다.');
+	        $('#alertModal').modal("show");
+			/* window.location.replace("/mypage/reginfo"); */
+		}
+	});
+};
+</script>
 
 </html>

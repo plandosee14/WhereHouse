@@ -40,7 +40,7 @@
 				        $('#alertModal').modal("show");
 					}else if(data == "OK"){
 						 window.location.replace("/mypage/read");
-				}
+					}
 				}
 			});
 		});
