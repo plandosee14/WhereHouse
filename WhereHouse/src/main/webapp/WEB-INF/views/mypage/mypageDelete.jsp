@@ -87,6 +87,11 @@
 
 		<div id="contact-form" class="contatct-form">
 			<div class="loader"></div>
+			탈퇴를 하시면 아이디를 사용하실수 없으며, <br>
+			30일이전 회원탈퇴를 철회하시려면 관리자에게<br>
+			문의해 주시기 바랍니다.<br>
+			30일후에는 회원님의 정보는 모두 삭제되고<br>
+			계정을 복구 하실수 없습니다.<br>
 			정말 탈퇴하시겠습니까? <br>
 		</div><br><br>
 		<form method="post" action="delete">
