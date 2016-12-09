@@ -22,5 +22,12 @@ public class HouseDAOImpl implements HouseDAO{
 	public HouseVO selectHouseByHno(int h_no) throws Exception {
 		return sqlSession.selectOne("house.selectHouseByHno", h_no);
 	}
+	
+	
+	@Override
+	public int selectNewHouseById(String m_id) throws Exception {
+		
+		return sqlSession.selectOne("house.selectNewHouseById", m_id);
+	}
 
 }

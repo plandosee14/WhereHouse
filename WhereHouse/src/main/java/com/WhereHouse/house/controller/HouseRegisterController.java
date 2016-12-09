@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
+import com.WhereHouse.option.domain.HouseOptionVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -47,12 +48,7 @@ public class HouseRegisterController {
 		
 		String saveName = uid.toString()+"_"+file.getOriginalFilename();
 		
-		//집 옵션 가져오기
-		String[] h_option = request.getParameterValues("h_option"); 
-	    System.out.println("체크박스 선택된 것 "+h_option.toString());
-	    for (int i = 0; i < h_option.length; i++) {
-	    	System.out.println(h_option[i]);			
-		}
+		
 	    
 	    
 		System.out.println("넌 무슨 네임이니?: "+saveName);
@@ -68,6 +64,20 @@ public class HouseRegisterController {
 			
 			System.out.println(house.toString());
 			//hservice.insertHouse(house);
+			
+			//집 옵션 가져오기
+			String[] h_option = request.getParameterValues("h_option"); 
+			
+		   /* for (int i = 0; i < h_option.length; i++) {
+		    	
+		    	HouseOptionVO hoption = new HouseOptionVO();
+		    	hoption.setH_no(hservice.selectNewHouseById(house.getM_id()));
+		    	hoption.setO_name(h_option[i]);
+		    	
+		    	hservice.insertHouseOption(hoption);;
+  	
+			}*/
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
