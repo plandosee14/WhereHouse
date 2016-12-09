@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hoption">
+	<insert id="insertHouseOption">
+		insert into house_option (o_no,h_no,o_name)
+		values(house_option_seq.nextval,#{o_no},#{h_no},#{o_name})
+	</insert>
+	<select id="selectHouseOption">
+		select o_name
+		from house_seq.nextval
+		where h_no=#{h_no}	
+	</select>
+</mapper>

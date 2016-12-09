@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
+import com.WhereHouse.option.domain.HouseOptionVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -26,15 +27,18 @@ public class HouseRegisterController {
 	@Inject
 	HouseService hservice;
 
+	//등록폼
 	@RequestMapping("registerForm")
 	public void RegisterForm(){
 		
 	}
+	
 	@RequestMapping("test")
 	public void test(){
 		
 	}
 	
+	//등록
 	@RequestMapping("/register")
 	public @ResponseBody void Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
 		System.out.println("등록폼 데이터: "+house);
@@ -45,7 +49,8 @@ public class HouseRegisterController {
 		String saveName = uid.toString()+"_"+file.getOriginalFilename();
 		
 		
-		
+	    
+	    
 		System.out.println("넌 무슨 네임이니?: "+saveName);
 		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/img/house"); 
 		
@@ -58,7 +63,21 @@ public class HouseRegisterController {
 			house.setH_thumnail(saveName);
 			
 			System.out.println(house.toString());
-			hservice.insertHouse(house);
+			//hservice.insertHouse(house);
+			
+			//집 옵션 가져오기
+			String[] h_option = request.getParameterValues("h_option"); 
+			
+		   /* for (int i = 0; i < h_option.length; i++) {
+		    	
+		    	HouseOptionVO hoption = new HouseOptionVO();
+		    	hoption.setH_no(hservice.selectNewHouseById(house.getM_id()));
+		    	hoption.setO_name(h_option[i]);
+		    	
+		    	hservice.insertHouseOption(hoption);;
+  	
+			}*/
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -69,28 +88,7 @@ public class HouseRegisterController {
 		}
 	
 	}
-	@RequestMapping("/register2")
-	public @ResponseBody void Register2(HttpServletRequest request, HttpSession session, HouseVO house){
-		System.out.println(house.toString());
-		int maxSize=15*1024*1024; //크기
-		String saveDirectory = request.getSession().getServletContext().getRealPath("/resources/img/house");
-		try {
-			//디렉토리설정
-			MultipartRequest mr =  new MultipartRequest(request,saveDirectory,maxSize,"UTF-8",
-							new DefaultFileRenamePolicy());
-			//사진저장
-			
-			String filename = mr.getFilesystemName("file");
-			//사진이름 얻어오기
-			
-			System.out.println("파일이름: "+filename);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
-		
-	}
+
 		
 	
 	
