@@ -2,6 +2,7 @@ package com.WhereHouse.house.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -48,7 +49,14 @@ public class HouseRegisterController {
 		
 		String saveName = uid.toString()+"_"+file.getOriginalFilename();
 		
+		String h_startdate = request.getParameter("startdate");
+		String h_enddate = request.getParameter("enddate");
+		System.out.println("h_startdate: "+h_startdate);
+		System.out.println("h_endtdate: "+h_enddate);
 		
+		String m_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
+		
+		//Date date = new Date(year, month, date)
 	    
 	    
 		System.out.println("³Í ¹«½¼ ³×ÀÓÀÌ´Ï?: "+saveName);

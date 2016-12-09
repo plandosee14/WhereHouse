@@ -16,6 +16,16 @@ nocycle
 nocache;
 
 
+insert into house_option(o_no,h_no,o_name)
+values(house_option_seq.nextval,10,'o_air');
+insert into house_option(o_no,h_no,o_name)
+values(house_option_seq.nextval,10,'o_park');
+insert into house_option(o_no,h_no,o_name)
+values(house_option_seq.nextval,10,'o_cook');
+insert into house_option(o_no,h_no,o_name)
+values(house_option_seq.nextval,10,'o_wifi');
+
+
 	o_air  varchar2(1) not null, --에어컨
 	o_kitchen  varchar2(1) not null, --주방
 	o_park  varchar2(1) not null, --주차장

@@ -37,10 +37,10 @@
 <div style="border: 1">	
 제목 : <input type="text" name="h_title"><br>
 가격 : <input type="text" name="h_fare"><br> 
-<!-- 할인률 : <input type="text" name="h_sale"><br>  -->
+ 할인률 : <input type="text" name="h_sale"><br> 
 
-<!-- 기간 : <input type="date" name="startdate" size=10 > ~ <input type="date" name="enddate" size=10 ><br> -->
-<!-- 최대인원 : <input type="text" name="h_peoplecnt"><br> -->
+ 기간 : <input type="date" name="startdate" size=10 > ~ <input type="date" name="enddate" size=10 ><br> 
+ 최대인원 : <input type="text" name="h_peoplecnt"><br> 
 
  집유형 : <select name="h_type">
 			<option>주택</option>
