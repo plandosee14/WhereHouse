@@ -74,8 +74,8 @@
 	</update>
 	
 	<insert id="insertGrade">
-	insert into  member_grade(h_no, m_id, g_score)
-	values (#{h_no}, #{m_id}, #{g_score})	
+	insert into  member_grade(r_no, m_id, g_score)
+	values (#{r_no}, #{m_id}, #{g_score})	
 	</insert>
 	<select id="selectGrade" resultType="int">
 		select count(*)
