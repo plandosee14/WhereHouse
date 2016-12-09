@@ -69,9 +69,7 @@
 	</select>
 	
 	<update id="modifyScore" statementType="CALLABLE">
-	    {
-	    call STOP_DATE(#{m_id, mode=IN},#{m_score, mode=IN})
-	    }
+	    { call STOP_DATE(#{m_id}, #{m_score}) }
 	</update>
 	
 	<insert id="insertGrade">
