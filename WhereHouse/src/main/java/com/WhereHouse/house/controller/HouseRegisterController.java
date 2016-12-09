@@ -86,7 +86,7 @@ public class HouseRegisterController {
 			house.setH_thumnail(saveName);
 			
 			System.out.println(house.toString());
-			hservice.insertHouse(house);
+			hservice.insertHouse(house); 
 			
 			//집 옵션 가져오기
 			String[] h_option = request.getParameterValues("h_option"); 
