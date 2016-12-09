@@ -38,6 +38,4 @@ public class HouseDetailDAOImpl implements HouseDetailDAO {
 		sqlSession.update("house.updatescoreHouse", h_no);
 	}
 
-
-
 }

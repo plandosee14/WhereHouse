@@ -22,6 +22,8 @@ public class HouseDetailController {
 	@Inject
 	private HouseDetailService service;
 	
+	
+	
 	@RequestMapping("/read")
 	public void read(int h_no, Model model) throws Exception{
 		model.addAttribute(service.read(h_no));
@@ -32,7 +34,6 @@ public class HouseDetailController {
 		String m_id = (String) session.getAttribute("m_id");
 				
 		model.addAttribute(service.read(h_no));
-		
 		boolean checkGrade = false;
 		if(m_id != null){
 			checkGrade = service.grade(m_id, h_no);
@@ -41,4 +42,5 @@ public class HouseDetailController {
 		return "house/detailHouse";
 	}
 	
+
 }
