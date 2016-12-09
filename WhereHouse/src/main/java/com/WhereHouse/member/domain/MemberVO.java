@@ -12,8 +12,30 @@ public class MemberVO {
 	private Date m_regdate;
 	private Date m_dropdate;
 	private int m_scorecnt;
+	private Date m_stopdate;
 	
 	public MemberVO() {
+	}
+	
+	public MemberVO(String m_id, int m_no, String m_name, String m_pass, String m_phone, int m_score, Date m_regdate,
+			Date m_dropdate, int m_scorecnt, Date m_stopdate) {
+		super();
+		this.m_id = m_id;
+		this.m_no = m_no;
+		this.m_name = m_name;
+		this.m_pass = m_pass;
+		this.m_phone = m_phone;
+		this.m_score = m_score;
+		this.m_regdate = m_regdate;
+		this.m_dropdate = m_dropdate;
+		this.m_scorecnt = m_scorecnt;
+		this.m_stopdate = m_stopdate;
+	}
+	@Override
+	public String toString() {
+		return "MemberVO [m_id=" + m_id + ", m_no=" + m_no + ", m_name=" + m_name + ", m_pass=" + m_pass + ", m_phone="
+				+ m_phone + ", m_score=" + m_score + ", m_regdate=" + m_regdate + ", m_dropdate=" + m_dropdate
+				+ ", m_scorecnt=" + m_scorecnt + ", m_stopdate=" + m_stopdate + "]";
 	}
 	public String getM_id() {
 		return m_id;
@@ -69,25 +91,12 @@ public class MemberVO {
 	public void setM_scorecnt(int m_scorecnt) {
 		this.m_scorecnt = m_scorecnt;
 	}
-	public MemberVO(String m_id, int m_no, String m_name, String m_pass, String m_phone, int m_score, Date m_regdate,
-			Date m_dropdate, int m_scorecnt) {
-		super();
-		this.m_id = m_id;
-		this.m_no = m_no;
-		this.m_name = m_name;
-		this.m_pass = m_pass;
-		this.m_phone = m_phone;
-		this.m_score = m_score;
-		this.m_regdate = m_regdate;
-		this.m_dropdate = m_dropdate;
-		this.m_scorecnt = m_scorecnt;
+	public Date getM_stopdate() {
+		return m_stopdate;
 	}
-	@Override
-	public String toString() {
-		return "MemberVO [m_id=" + m_id + ", m_no=" + m_no + ", m_name=" + m_name + ", m_pass=" + m_pass + ", m_phone="
-				+ m_phone + ", m_score=" + m_score + ", m_regdate=" + m_regdate + ", m_dropdate=" + m_dropdate
-				+ ", m_scorecnt=" + m_scorecnt + "]";
-	} 
-
+	public void setM_stopdate(Date m_stopdate) {
+		this.m_stopdate = m_stopdate;
+	}
+	
 	 
 }

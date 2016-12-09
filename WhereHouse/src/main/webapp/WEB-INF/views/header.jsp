@@ -31,11 +31,20 @@
  	            	m_pass : $('#loginpass').val()
  	            },
  	            success:function(result){
- 	            	if (result == null || result != "") {
- 		                  location.reload();
+ 	            	if (result == "fail") {
+ 	            		 $('#alerttitle').html('로그인 실패');
+		                  $('#alertcontent').html('ID, Password를 확인해주세요.');
+		                  $('#alertModal').modal("show");
+					 }
+ 	            	else if(result == "success"){
+ 	            		location.reload();
+					}else if (result.substring("정지") != null) {
+						  $('#alerttitle').html('로그인 실패');
+		                  $('#alertcontent').html(result);
+		                  $('#alertModal').modal("show");
 					}else {
 						  $('#alerttitle').html('로그인 실패');
-		                  $('#alertcontent').html('ID, Password를 확인해주세요.');
+		                  $('#alertcontent').html(result);
 		                  $('#alertModal').modal("show");
 					}
  	            }

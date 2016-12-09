@@ -9,6 +9,7 @@ create table member(
 	m_score number default 0,
 	m_regdate date default sysdate,
 	m_dropdate date,
+	m_stopdate date,
 	m_scorecnt number default 0
 );
 

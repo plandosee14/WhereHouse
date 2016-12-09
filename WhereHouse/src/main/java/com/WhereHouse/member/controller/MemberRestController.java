@@ -1,5 +1,6 @@
 package com.WhereHouse.member.controller;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -49,18 +50,29 @@ public class MemberRestController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public MemberVO login(MemberVO vo, HttpSession session) throws Exception {
+	public String login(MemberVO vo, HttpSession session) throws Exception {
+		DateFormat format1 = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		System.out.println(vo);
 		MemberVO m = new MemberVO();
 		m = service.login(vo);
+		System.out.println(m);
 		if (m==null) {
-			 return null;
-		}else {
+			 return "fail";
+		}
+		else if (m.getM_stopdate()!= null) {
+			
+			String stopdate = "정지된 ID입니다. 정지해제 날짜는 "+format1.format(m.getM_stopdate()).toString()+"입니다.";
+			return stopdate;
+		}else if (m.getM_dropdate() != null) {
+			String dropdate = "탈퇴 요청된 ID입니다. 탈퇴 처리 날짜는 "+format1.format(m.getM_dropdate()).toString()+"입니다.";
+			return dropdate;
+		}
+		else {
 			session.setAttribute("m_id", m.getM_id());
 			session.setAttribute("m_no", m.getM_no());
 			session.setAttribute("m_name", m.getM_name());
-			 return m;
+			 return "success";
 		}
-		
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
