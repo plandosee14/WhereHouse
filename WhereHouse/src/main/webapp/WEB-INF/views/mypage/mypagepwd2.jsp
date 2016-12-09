@@ -14,6 +14,47 @@
 	width: 85%;
 	float: right;
 }
+
+.btnStyle {
+	width: 70px;
+	color: #fff;
+	float: left;
+	border: none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.btn_confirm {
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.btn_confirm:hover {
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+
+.icon_span {
+	width: 50px;
+	padding: 5px;
+	border: 1px solid;
+	border-right: 3px solid;
+	float: left;
+	border-color: #d43f3a;
+}
+
+.pass_div {
+	float: center;
+	border: 2px solid;
+	border-radius: 5px;
+	width: 354px;
+	height: 30px;
+	border-color: #d43f3a;
+}
+
+.pass_input {
+	width: 230px;
+}
 </style>
 
 <script>
@@ -27,20 +68,22 @@
 		$('#mypageLink2').click(function() {
 			location.reload();
 		});
-		
+
 		$('#pass').click(function() {
 			var pass = $('#user_pass').val();
 			$.ajax({
-				url:'/mypage/check2',
-				data: {"m_pass":pass},
-				success : function(data){
-					if(data == "NO" ){
+				url : '/mypage/check2',
+				data : {
+					"m_pass" : pass
+				},
+				success : function(data) {
+					if (data == "NO") {
 						$('#alerttitle').html('비밀번호');
-				        $('#alertcontent').html('비밀번호를 확인해 주세요.');
-				        $('#alertModal').modal("show");
-					}else if(data == "OK"){
-						 window.location.replace("/mypage/deleteForm");
-				}
+						$('#alertcontent').html('비밀번호를 확인해 주세요.');
+						$('#alertModal').modal("show");
+					} else if (data == "OK") {
+						window.location.replace("/mypage/deleteForm");
+					}
 				}
 			});
 		});
@@ -51,52 +94,60 @@
 </head>
 
 <body>
-	<br><br><br>
-	<div class="container" id="mainDiv">	
-	  <div class="nav-tabs-custom">
-			<div id="mypageLink" style="cursor: pointer;">
-			</div>
+	<br>
+	<br>
+	<br>
+	<div class="container" id="mainDiv">
+		<div class="nav-tabs-custom">
+			<div id="mypageLink" style="cursor: pointer;"></div>
 			<hr>
-	<input type="checkbox" id="menu_state" checked>
-	<aside>
-	<ul>
-			  <div id="mypageLink2" style="cursor: pointer;">
-				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
-				  
-				 <span style="font-family: ; font-weight: bold;">MyPage</span>
-				</ul>
-			  </div>
-				<br>	  
-		<li data-content="3"><a href="/mypage">
-				<i class="fa fa-cart-plus"></i> <span>장바구니</span>
-		</a></li>
-		<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
-				<span>결제정보</span>
-		</a></li>
-		<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
-				<span>등록정보</span>
-		</a></li>
-		<li><a href="/mypage/checkForm"> <i class="fa fa-pencil"></i> 
-		<span>회원정보 수정</span>
-		</a></li>
-		<li class="active read"><a href="/mypage/checkDelForm"> <i class="fa fa-trash"></i> <span>회원탈퇴</span></a>
-		</li>
-	</ul>
-	</aside>
-	<div align="left">
-		<br>
-<center>
-	<h1>
-		<i class="fa fa-question-circle"></i>
-		<font color="black">비밀번호를 입력해주세요!</font>
-	</h1>
-<br><br>
-비밀번호 : <input type="password" name=m_pass id="user_pass" size="15"> 
-<input class="btn btn-danger" type="submit" value=확인 id="pass">
-</center>
+			<input type="checkbox" id="menu_state" checked>
+			<aside>
+			<ul>
+				<div id="mypageLink2" style="cursor: pointer;">
+					<ul style="font-size: 30; color: #3A3A3A">
+						&nbsp;
+
+						<span style="font-family:; font-weight: bold;">MyPage</span>
+					</ul>
+				</div>
+				<br>
+				<li data-content="3"><a href="/mypage"> <i
+						class="fa fa-cart-plus"></i> <span>장바구니</span>
+				</a></li>
+				<li><a href="/mypage/payinfo"> <i class="fa fa-credit-card"></i>
+						<span>결제정보</span>
+				</a></li>
+				<li><a href="/mypage/reginfo"> <i class="fa fa-info-circle"></i>
+						<span>등록정보</span>
+				</a></li>
+				<li><a href="/mypage/checkForm"> <i class="fa fa-pencil"></i>
+						<span>회원정보 수정</span>
+				</a></li>
+				<li class="active read"><a href="/mypage/checkDelForm"> <i
+						class="fa fa-trash"></i> <span>회원탈퇴</span></a></li>
+			</ul>
+			</aside>
+			<div align="left">
+				<br>
+				<center>
+					<h1>
+						<i class="fa fa-question-circle"></i> <font color="black">비밀번호를
+							입력해주세요!</font>
+					</h1>
+					<br>
+					<br>
+					<div class="pass_div">
+						<span class="icon_span">
+							<i class="fa fa-key fa-fw" ></i>
+						</span>
+						<input type="password" name="m_pass" id="user_pass" size="15" class="pass_input" style="float:left;">
+						<input class="btnStyle btn_confirm" type="submit" value="확 인" id="pass">
+					</div>
+				</center>
+			</div>
+		</div>
 	</div>
-   </div>
-  </div>
 </body>
 
 </html>

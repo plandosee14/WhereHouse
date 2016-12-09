@@ -48,6 +48,12 @@
 	
 
 	});
+	 var btn_off = function(r_no) {
+		  //btn = document.getElementById('estimate'+r_no);
+		  //btn.disabled = 'disabled';
+		  //$('#estimate'+r_no).hide();
+		  $('#abc_'+r_no).html('<font color=blue>평가되었습니다.</font>');
+    }
 </script>
 </head>
 
@@ -68,7 +74,7 @@
 			<input type="checkbox" id="menu_state" checked>
 			<aside>
 			<ul>
-			  <div id="mypageLink2" style="cursor: pointer;">
+			  <div id="mypageLink2" style="cursor: pointer;">  
 				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
 				  
 				 <span style="font-family: ; font-weight: bold;">MyPage</span>
@@ -144,7 +150,7 @@
 						<td>
 						<fmt:formatDate value="${estimateVO.r_startdate}" pattern="yyyy-MM-dd "/>~
 						<fmt:formatDate value="${estimateVO.r_enddate}" pattern="yyyy-MM-dd "/></td>
-						<td>
+						<td id="abc_${estimateVO.r_no}">
 						
 						<select name="score" id="est_score${estimateVO.r_no}">
    						 <option selected value=3>-선택하세요-
@@ -154,11 +160,16 @@
     					 <option value=-1>-1
     					 <option value=-2>-2
     					</select>
-    					<c:forEach items="${rList}" var="rno">
-    						<c:if test="${estimateVO.r_no !=rno}">					
-    						<input type="button" value="평가하기" id="estimate" onclick="grade('${estimateVO.m_id}','${estimateVO.r_no}' )">
-							</c:if>
-						</c:forEach>
+    						<input type="button" value="평가하기" id="estimate${estimateVO.r_no}" onclick="grade('${estimateVO.m_id}','${estimateVO.r_no}' )">
+    					 <c:forEach items="${rList}" var="rno"> 
+    						 <c:if test="${estimateVO.r_no ==rno}">	 
+    						 				<!-- 함수호출 -->
+    						 	<script type="text/javascript">
+    						 	   btn_off(${rno});
+    						 	
+    						 	</script>
+							 </c:if> 
+						 </c:forEach> 
 						</td>
 
 					</tr>
