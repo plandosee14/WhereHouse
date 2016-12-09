@@ -28,7 +28,7 @@
 	
 	
 	<delete id="deleteMember">
-        update member set m_dropdate = (sysdate+29)
+        update member set m_dropdate = (sysdate+30)
         where m_id=#{m_id}
 	</delete>
 	
