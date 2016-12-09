@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +14,7 @@ import com.WhereHouse.option.domain.HouseOptionVO;
 @Repository
 public class HouseOptionDAOImpl implements HouseOptionDAO {
 
-	
+	@Inject
 	SqlSession sqlSession;
 	
 	//窍快胶可记 持扁

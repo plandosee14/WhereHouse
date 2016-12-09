@@ -7,6 +7,7 @@ create table house_option(
 
 );
 
+select * from house_option;
 
 drop  sequence house_option_seq;
 create sequence house_option_seq

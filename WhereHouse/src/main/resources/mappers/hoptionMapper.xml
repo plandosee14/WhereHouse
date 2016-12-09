@@ -3,7 +3,7 @@
 <mapper namespace="hoption">
 	<insert id="insertHouseOption">
 		insert into house_option (o_no,h_no,o_name)
-		values(house_option_seq.nextval,#{o_no},#{h_no},#{o_name})
+		values(house_option_seq.nextval,#{h_no},#{o_name})
 	</insert>
 	<select id="selectHouseOption">
 		select o_name

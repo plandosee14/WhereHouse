@@ -15,7 +15,7 @@ public class HouseDAOImpl implements HouseDAO{
 	
 	@Override
 	public void insertHouse(HouseVO vo) throws Exception {
-		sqlSession.insert("house.insert", vo);
+		sqlSession.insert("house.insertHouse", vo);
 		
 	}
 	@Override

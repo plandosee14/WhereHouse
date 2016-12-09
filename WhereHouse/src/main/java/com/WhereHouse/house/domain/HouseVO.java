@@ -1,6 +1,6 @@
 package com.WhereHouse.house.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class HouseVO {
 	private int h_no;  	      

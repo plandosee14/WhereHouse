@@ -2,9 +2,10 @@ package com.WhereHouse.house.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -58,10 +59,10 @@ public class HouseRegisterController {
 
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			Date h_startdate = transFormat.parse(startdate);
-			Date h_enddate = transFormat.parse(enddate);
-			house.setH_startdate(h_startdate);
-			house.setH_enddate(h_enddate);
+			Date h_startdate =  transFormat.parse(startdate);
+			Date h_enddate =  transFormat.parse(enddate);
+			house.setH_startdate( new java.sql.Date(h_startdate.getTime()));
+			house.setH_enddate( new java.sql.Date(h_enddate.getTime()));
 		} catch (ParseException e1) {
 			
 			e1.printStackTrace();
@@ -85,20 +86,21 @@ public class HouseRegisterController {
 			house.setH_thumnail(saveName);
 			
 			System.out.println(house.toString());
-			//hservice.insertHouse(house);
+			hservice.insertHouse(house);
 			
 			//집 옵션 가져오기
 			String[] h_option = request.getParameterValues("h_option"); 
 			
-		   /* for (int i = 0; i < h_option.length; i++) {
+		    for (int i = 0; i < h_option.length; i++) {
 		    	
 		    	HouseOptionVO hoption = new HouseOptionVO();
 		    	hoption.setH_no(hservice.selectNewHouseById(house.getM_id()));
 		    	hoption.setO_name(h_option[i]);
 		    	
+		    	System.out.println("h_option: "+hoption.toString());
 		    	hservice.insertHouseOption(hoption);;
   	
-			}*/
+			}
 			
 			
 		} catch (IOException e) {

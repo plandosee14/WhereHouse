@@ -33,12 +33,13 @@ create table house(
 
 drop sequence house_seq;
 create sequence house_seq
-start with 1
+start with 13
 increment by 1
 nocycle
 nocache;
 
 select * from house;
+select house_seq.currval from dual;
 
  insert into house 
 (h_no,m_id,m_name,m_phone,h_title,
