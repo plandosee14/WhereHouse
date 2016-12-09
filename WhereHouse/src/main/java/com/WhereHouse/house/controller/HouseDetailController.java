@@ -15,7 +15,7 @@ import com.WhereHouse.comment.domain.Criteria;
 import com.WhereHouse.house.service.HouseDetailService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/house")
 public class HouseDetailController {
 	private static final Logger logger = LoggerFactory.getLogger(HouseDetailController.class);
 
@@ -35,7 +35,7 @@ public class HouseDetailController {
 		
 		boolean checkGrade = false;
 		if(m_id != null){
-		checkGrade = service.grade(m_id, h_no);
+			checkGrade = service.grade(m_id, h_no);
 		}
 		model.addAttribute("checkGrade", checkGrade);
 		return "house/detailHouse";

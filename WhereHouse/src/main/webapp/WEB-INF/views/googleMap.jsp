@@ -178,7 +178,7 @@
 																							+ resultnear[i].distance
 																							+ "m<br>"
 																							+ resultnear[i].h_title
-																							+ "<br><a href='/detail?h_no="
+																							+ "<br><a href='/house/detail?h_no="
 																							+ resultnear[i].h_no
 																									.toString()
 																							+ "'><img id = 'picture"+idx+"' src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"
