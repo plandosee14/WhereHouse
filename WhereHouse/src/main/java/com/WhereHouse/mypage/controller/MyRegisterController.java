@@ -32,20 +32,22 @@ public class MyRegisterController {
 	@RequestMapping("/reginfo")
 	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
+		System.out.println("mid : "+m_id);
 		model.addAttribute("regList", regService.listAllById(m_id));//등록정보
 		regService.listEstimateById(m_id);
 		MemberVO member = new MemberVO();
-		model.addAttribute("estList", regService.listEstimateById(m_id));//평가정보
-		List<Integer> rList = new ArrayList<>();
 		
 		List<MyRegisterVO> estList = regService.listEstimateById(m_id);
+		model.addAttribute("estList", estList);//평가정보
+		
+		List<Integer> rList = new ArrayList<>();		
 		for (int i = 0; i < estList.size(); i++) {
 			
 			int r_no = estList.get(i).getR_no();
 			if(mService.selectGrade(r_no))
 				rList.add(r_no);		    
 		}
-		
+		System.out.println("rList"+rList);
 		model.addAttribute("rList", rList);
 		
 		

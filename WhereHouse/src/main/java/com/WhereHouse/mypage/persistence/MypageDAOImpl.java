@@ -44,6 +44,7 @@ public class MypageDAOImpl implements MypageDAO{
 	@Override
 	public boolean selectGrade(int r_no) throws Exception {
 		int cnt = sqlSession.selectOne("mypage.selectGrade",r_no);
+		System.out.println("r_no: "+ r_no+", cnt: "+ cnt);
 		if(cnt>0){
 			return true;
 		}

@@ -28,8 +28,8 @@
 	
 	
 	<delete id="deleteMember">
-        delete from member
-        where m_id=#{m_id}		
+        update member set m_dropdate = (sysdate+29)
+        where m_id=#{m_id}
 	</delete>
 	
 	<select id="selectHouseById">
