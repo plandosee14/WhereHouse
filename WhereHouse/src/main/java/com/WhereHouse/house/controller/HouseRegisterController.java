@@ -2,6 +2,8 @@ package com.WhereHouse.house.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -49,11 +51,23 @@ public class HouseRegisterController {
 		
 		String saveName = uid.toString()+"_"+file.getOriginalFilename();
 		
-		String h_startdate = request.getParameter("startdate");
-		String h_enddate = request.getParameter("enddate");
-		System.out.println("h_startdate: "+h_startdate);
-		System.out.println("h_endtdate: "+h_enddate);
+		String startdate = request.getParameter("startdate");
+		String enddate = request.getParameter("enddate");
+		System.out.println("h_startdate: "+startdate);
+		System.out.println("h_endtdate: "+enddate);
+
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date h_startdate = transFormat.parse(startdate);
+			Date h_enddate = transFormat.parse(enddate);
+			house.setH_startdate(h_startdate);
+			house.setH_enddate(h_enddate);
+		} catch (ParseException e1) {
+			
+			e1.printStackTrace();
+		}
 		
+		//핸드폰 번호 가져오기
 		String m_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 		
 		//Date date = new Date(year, month, date)
@@ -67,7 +81,7 @@ public class HouseRegisterController {
 			FileCopyUtils.copy(file.getBytes(), target);
 			
 			
-			
+			house.setM_phone(m_phone);
 			house.setH_thumnail(saveName);
 			
 			System.out.println(house.toString());
