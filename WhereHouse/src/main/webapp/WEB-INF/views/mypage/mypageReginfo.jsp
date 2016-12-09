@@ -177,9 +177,7 @@
 				</c:forEach>
 
 			</table>
-			<c:forEach items="${rList}" var="rno">
-			   ${rList}, 
-			</c:forEach>
+	
 			
 		</div>
 	</div>
