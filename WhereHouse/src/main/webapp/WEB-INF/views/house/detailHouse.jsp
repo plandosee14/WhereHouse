@@ -92,7 +92,7 @@ textarea{
 				<input type="hidden" value="${m_id}" name="m_id">
 				<input type="hidden" value="${h_no}" name="h_no">
 				<button type="button" id="reservation" class="reservation">예약하기</button>
-				<button type="button" id="addbasket" class="addbasket">장바구니담기</button>
+				<button type="button" id="addbasket">장바구니담기</button>
 			</div>
 		</form>
 	</div>  
@@ -258,7 +258,6 @@ textarea{
 	
 	}
 	var h_no = ${houseVO.h_no};
-	var m_id = ${memberVO.m_id};
 	var commentPage = 3;
 	
 	function getPage(pageInfo) {
@@ -320,14 +319,18 @@ textarea{
 	});
 
 	$("#addbasket").on("click",function(){
+		alert(h_no);
 		$.ajax({
 			type:'post',
-			url:'/baskets/',
-			dataType:'text',
-			data: JSON.stringify({h_no:h_no, m_id:m_id}),
+			url:'/baskets/insert',
+			 /* headers: { 
+			      "Content-Type": "application/json",
+			      "X-HTTP-Method-Override": "POST" 
+			     },  */
+			data: {"h_no":h_no},
 			success:function(result){
 				if(result == 'SUCCESS'){
-					getPage("/baskets/");
+					location.reload();
 				}
 			}
 		});
@@ -402,7 +405,6 @@ textarea{
 		var sscore = $(':radio[name="cleanscore"]:checked').val();
 		var rscore = $(':radio[name="checkscore"]:checked').val();
 		var cscore = $(':radio[name="commuscore"]:checked').val();
-		alert(pscore);
 		$.ajax({
 	      		url:"/grades/insert",
 	            type: "post",
