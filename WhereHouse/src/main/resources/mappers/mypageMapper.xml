@@ -68,9 +68,10 @@
 		and m_pass = #{m_pass}
 	</select>
 	
-	<update id="modifyScore">
-	    update member set m_score= m_score+#{m_score}, m_scorecnt=m_scorecnt+1
-        where m_id=#{m_id}
+	<update id="modifyScore" statementType="CALLABLE">
+	    {
+	    call STOP_DATE(#{m_id, mode=IN},#{m_score, mode=IN})
+	    }
 	</update>
 	
 	<insert id="insertGrade">
