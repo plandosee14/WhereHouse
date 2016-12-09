@@ -98,7 +98,7 @@ textarea{
 	<div class="container-fluid">
 	  <div class="row">
     	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
-    		<div style="border-top:2px solid #fff;font-size:40px;">숙소</div>
+    		<div style="height:200px;border-top:2px solid #fff;font-size:40px;float:center">숙소</div>
     		<div style="border-top:2px solid #fff;font-size:40px;">집</div>
     	</div>
     	<div class="col-sm-5" style="background-color:lavender;">항목
@@ -109,7 +109,6 @@ textarea{
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-
 			<div class="box box-success">
 				<div>
 					<h3>평점</h3>
@@ -166,7 +165,6 @@ textarea{
 					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="90%" readonly="readonly"><br> 
 					<label for="exampleInputEmail1">Comment Text</label> <br>
 					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="90%">
-
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
@@ -222,14 +220,24 @@ textarea{
 	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{m_name}}</h3>
 	  <div class="timeline-body">{{c_content}} </div>
   	  <div class="timeline-footer">
+		{{#eqCommenter m_name}}
   	   <a class="bt btn-primary btn-xs" 
 		    data-toggle="modal" data-target="#modifyModal">Modify</a>
-    	</div>
+	{{/eqCommenter}}
+      </div>
 	  </div>			
 	</li>
 	{{/each}}
 	</script>
 	<script>
+	
+	Handlebars.registerHelper("eqCommenter",function(commenter, block){
+		var accum = '';
+		if(commenter == '${m_name}'){
+			accum += block.fn();
+		}
+		return accum;
+	});
 	
 	Handlebars.registerHelper("prettifyDate", function(timeValue) {
 		var dateObj = new Date(timeValue);
