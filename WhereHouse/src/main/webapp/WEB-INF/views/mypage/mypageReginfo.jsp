@@ -177,9 +177,7 @@
 				</c:forEach>
 
 			</table>
-			<c:forEach items="${rList}" var="rno">
-			   ${rList}, 
-			</c:forEach>
+	
 			
 		</div>
 	</div>
@@ -202,7 +200,6 @@ function grade(m_id,r_no) {
 			$('#alerttitle').html('회원평가');
 	        $('#alertcontent').html('회원평가가 완료되었습니다.');
 	        $('#alertModal').modal("show");
-	        location.reload();
 			/* window.location.replace("/mypage/reginfo"); */
 		}
 	});

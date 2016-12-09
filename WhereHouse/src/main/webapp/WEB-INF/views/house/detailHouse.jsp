@@ -92,6 +92,7 @@ textarea{
 				<input type="hidden" value="${m_id}" name="m_id">
 				<input type="hidden" value="${h_no}" name="h_no">
 				<button type="button" id="reservation" class="reservation">예약하기</button>
+				<button type="button" id="addbasket" class="addbasket">장바구니담기</button>
 			</div>
 		</form>
 	</div>  
@@ -257,6 +258,7 @@ textarea{
 	
 	}
 	var h_no = ${houseVO.h_no};
+	var m_id = ${memberVO.m_id};
 	var commentPage = 3;
 	
 	function getPage(pageInfo) {
@@ -317,7 +319,21 @@ textarea{
 		
 	});
 
-
+	$("#addbasket").on("click",function(){
+		$.ajax({
+			type:'post',
+			url:'/baskets/',
+			dataType:'text',
+			data: JSON.stringify({h_no:h_no, m_id:m_id}),
+			success:function(result){
+				if(result == 'SUCCESS'){
+					getPage("/baskets/");
+				}
+			}
+		});
+	});
+	  
+	
 	$("#commentAddBtn").on("click",function(){
 		 
 		 var commenterObj = $("#newCommentWriter");
@@ -407,32 +423,6 @@ textarea{
 				}
 	            }
 	      	})
-		/* var g_rightObj = $("input[name=rightscore]");
-		var g_cleanObj = $("input[name=cleanscore]");
-		var g_checkObj = $("input[name=checkscore]");
-		var g_commuObj = $("input[name=commuscore]");
-		var g_right = g_rightObj.val();
-		var g_clean = g_cleanObj.val();
-		var g_check = g_checkObj.val();
-		var g_commu = g_commuObj.val(); */
-			/* $.ajax({
-				type:'put',
-				url:'/grades/',
-				headers: {
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({h_no:h_no, g_rightscore=g_right, g_cleanscore=g_clean, g_checkscore=g_check, g_commuscore=g_commu}),
-				dataType:'text',
-				success:function(result){
-					if(result=='SUCCESS'){
-						getPage("/grades/"+h_no);
-						g_rightObj.val("");
-						g_cleanObj.val("");
-						g_checkObj.val("");
-						g_commuObj.val("");
-					}
-				}
-			}); */
 	});
 
 	$("#commentDelBtn").on("click",function(){
