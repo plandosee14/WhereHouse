@@ -62,11 +62,15 @@
 편의시설
 <div>
 편의시설 <br>
- <input type="checkbox" name="" value="1">1<br>
- <input type="checkbox" name="" value="2">2<br>
- <input type="checkbox" name="" value="3">3<br>
- <input type="checkbox" name="" value="4">4<br>
- <input type="checkbox" name="" value="5">5<br>
+ <input type="checkbox" name="h_option" value="o_air">에어컨<br>
+ <input type="checkbox" name="h_option" value="o_kitchen">주방<br>
+ <input type="checkbox" name="h_option" value="o_park">주차장<br>
+ <input type="checkbox" name="h_option" value="o_smoke">흡연<br>
+ <input type="checkbox" name="h_option" value="o_washer">세탁기<br>
+ <input type="checkbox" name="h_option" value="o_cook">조리도구<br>
+ <input type="checkbox" name="h_option" value="o_toiletries">세면도구<br>
+ <input type="checkbox" name="h_option" value="o_tv">tv<br>
+ <input type="checkbox" name="h_option" value="o_wifi">와이파이<br>
  <br><br>
 
 </div> <br>
@@ -118,7 +122,7 @@ upload.onchange = function (e) {
 
 <br>
 소개<br>
-<textarea rows="20" cols="50" name="info"></textarea>
+<textarea rows="20" cols="50" name="h_info"></textarea>
 <input type="submit" id="submit">
 
 </div>

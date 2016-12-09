@@ -32,4 +32,10 @@
 		update house set h_avgscore=g_rightscore+g_cleanscore+g_checkscore+g_commuscore
 		where h_no=#{h_no}
 	</update>
+	<select id="selectNewHouseById">
+		select max(h_no)
+		from house
+		where m_id=#{m_id}
+	
+	</select>
 </mapper> 
