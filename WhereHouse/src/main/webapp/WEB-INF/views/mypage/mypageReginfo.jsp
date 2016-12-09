@@ -74,7 +74,7 @@
 			<input type="checkbox" id="menu_state" checked>
 			<aside>
 			<ul>
-			  <div id="mypageLink2" style="cursor: pointer;">
+			  <div id="mypageLink2" style="cursor: pointer;">  
 				<ul style="font-size: 30; color: #3A3A3A">&nbsp;
 				  
 				 <span style="font-family: ; font-weight: bold;">MyPage</span>
