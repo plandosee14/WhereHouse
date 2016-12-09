@@ -37,8 +37,6 @@
 	<div id="map"
 		style="width: 50%; height: 80%; position: fixed; left: 50%;"></div>
 		
-		<link rel="stylesheet" href="/resources/css/Nwagon.css" type="text/css">
-		<script src="/resources/js/Nwagon.js"></script>
 		<script type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
 		<script>
@@ -279,7 +277,7 @@
 																								+ resultnear[i].h_no
 																								+ ")' style='font-size: small;float:left;width:100%;margin-bottom:10px;padding-bottom:10px;border-bottom: 1px dashed gray;' id=list"
 																								+ resultnear[i].h_no
-																								+ " class= 'list'><div style='display:inline-block;float:left;'><a href='/detail?h_no="
+																								+ " class= 'list'><div style='display:inline-block;float:left;'><a href='/house/detail?h_no="
 																								+ resultnear[i].h_no
 																										.toString()
 																								+ "'> <img src='/resources/img/house/"+resultnear[i].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;'>  <br>거리: "
@@ -487,7 +485,7 @@
 													title : result[idx].h_no
 															.toString(),
 													content : result[idx].h_title
-															+ "<br><a href='/detail?h_no="
+															+ "<br><a href='/house/detail?h_no="
 															+ result[idx].h_no
 																	.toString()
 															+ "'><img id = 'picture"+idx+"' src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;' '></a>"
@@ -583,7 +581,7 @@
 																+ result[idx].h_no
 																+ ")' style='font-size: small;float:left;width:100%;margin-bottom:10px;padding-bottom:10px;border-bottom: 1px dashed gray;' id=list"
 																+ result[idx].h_no
-																+ " class= 'list'><div style='display:inline-block;float:left;'><a href='/detail?h_no="
+																+ " class= 'list'><div style='display:inline-block;float:left;'><a href='/house/detail?h_no="
 																+ result[idx].h_no
 																		.toString()
 																+ "'> <img src='/resources/img/house/"+result[idx].h_thumnail+"' style='width: 210px; height: 140px; border-radius: 10px;'></a></div><div style='display:inline-block; margin-left : 1%;float:left;'><br>집 번호: "
@@ -768,27 +766,7 @@
 
 			
 			
-		var options = {
-				'legend':{
-					names: [
-					'정확성',
-					'청결도',
-					'체크인',
-					'커뮤니케이션',
-				]
-			},
-			'dataset': {
-				title: 'Web accessibility status',
-				values: [[80,70,10,40]],
-				bgColor: '#f9f9f9',
-				fgColor: '#808080',
-			},
-			'chartDiv': 'Nwagon',
-			'chartType': 'radar',
-			'chartSize': { width: 300, height: 300 }
-		};
-		Nwagon.chart(options);
-		
+
 		
 		});//ready
 		
