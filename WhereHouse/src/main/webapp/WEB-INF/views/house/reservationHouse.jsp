@@ -48,9 +48,16 @@ jQuery(function($){
 </head>
 <body>
 <br><br><br><br>
+<h3>${houseVO.h_title}</h3>
+
+
 <p>체크인 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
 <p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
-
+인원 : <select>
+		<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
+			<option>${status.index}</option>
+		</c:forEach>
+   </select>
 
 </body>
 </html>
