@@ -92,7 +92,9 @@ textarea{
 				<input type="hidden" value="${m_id}" name="m_id">
 				<input type="hidden" value="${h_no}" name="h_no">
 				<button type="button" id="reservation" class="reservation">예약하기</button>
-				<button type="button" id="addbasket">장바구니담기</button>
+				<c:if test="${m_id!=null}">
+					<button type="button" id="addbasket">장바구니담기</button>
+				</c:if>
 			</div>
 		</form>
 	</div>  
@@ -277,7 +279,7 @@ textarea{
 		target.html(str);
 	}
 	
-	var printPaging = function(pageMaker, target) {
+/* 	var printPaging = function(pageMaker, target) {
 
 		var str = "";
 	
@@ -296,7 +298,7 @@ textarea{
 		}
 	
 		target.html(str);
-	};
+	}; */
 	
 	getPage("/comments/" + h_no+"/3");
 	/*  $("#commentDiv").on("click", function() {
@@ -448,12 +450,17 @@ textarea{
 			}});
 		});
 	
-	
-	var rightscore = (${houseVO.h_rightscore}*10/${houseVO.h_scorecnt});
-	var cleanscore = (${houseVO.h_cleanscore}*10/${houseVO.h_scorecnt});
-	var checkscore = (${houseVO.h_checkscore}*10/${houseVO.h_scorecnt});
-	var commuscore = (${houseVO.h_commuscore}*10/${houseVO.h_scorecnt});
-	
+	if(${houseVO.h_scorecnt != 0}){
+		var rightscore = (${houseVO.h_rightscore}*10/${houseVO.h_scorecnt});
+		var cleanscore = (${houseVO.h_cleanscore}*10/${houseVO.h_scorecnt});
+		var checkscore = (${houseVO.h_checkscore}*10/${houseVO.h_scorecnt});
+		var commuscore = (${houseVO.h_commuscore}*10/${houseVO.h_scorecnt});
+	}else{
+		var rightscore = 0;
+		var cleanscore = 0;
+		var checkscore = 0;
+		var commuscore = 0;
+	}
 	var options = {
 			'legend':{
 				names: [
@@ -471,7 +478,7 @@ textarea{
 		},
 		'chartDiv': 'Nwagon',
 		'chartType': 'radar',
-		'chartSize': { width: 300, height: 300 }
+		'chartSize': { width: 600, height: 300 }
 	};
 	Nwagon.chart(options);
 	</script>

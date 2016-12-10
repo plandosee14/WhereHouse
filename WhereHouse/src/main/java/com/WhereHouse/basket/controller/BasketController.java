@@ -30,6 +30,8 @@ public class BasketController {
 		String m_id = (String) session.getAttribute("m_id");
 		vo.setH_no(h_no);
 		vo.setM_id(m_id);
+		System.out.println(h_no);
+		System.out.println(m_id);
 		
 		try {
 			service.read(vo);
