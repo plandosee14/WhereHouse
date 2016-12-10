@@ -57,7 +57,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall0div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery0"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -71,7 +71,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall1div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery1"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -85,7 +85,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall2div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery2"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -99,7 +99,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall3div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery3"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -113,7 +113,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall4div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery4"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
@@ -127,7 +127,7 @@
 			<div class="col-lg-4 col-sm-6" id="gall5div" style="cursor: pointer;">
 				<a class="gallery-box">
 					<img id="gallery5"
-					src="" style="width: 500px; height: 300px;"
+					src="/resources/img/event/altimage.jpg" style="width: 500px; height: 300px;"
 					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
