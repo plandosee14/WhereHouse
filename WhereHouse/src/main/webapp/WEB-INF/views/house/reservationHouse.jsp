@@ -49,7 +49,7 @@ jQuery(function($){
 <body>
 <br><br><br><br>
 <h3>${houseVO.h_title}</h3>
-
+<img alt="" src="/resource/img./house/${houseVO.h_thumnail}">
 
 <p>체크인 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
 <p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
@@ -58,6 +58,15 @@ jQuery(function($){
 			<option>${status.index}</option>
 		</c:forEach>
    </select>
+   <input type="hidden" name="m_id" value=${m_id}>
+   
+   카드번호 : <input type="text"><br>
+   만료일  : <input type="text"><br>
+   보안코드  : <input type="text"><br>
+   결제자이름 : <input type="text"><br>
+  우편번호 : <input type="text"><br>
+   
 
+1박 가격 : ${houseVO.h_fare}
 </body>
 </html>
