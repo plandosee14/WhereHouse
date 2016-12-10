@@ -108,7 +108,7 @@ textarea{
     		<div style="border-top:2px solid #fff;font-size:40px;">후기</div>
     	</div>
     	<div class="col-sm-5" style="background-color:lavender;">항목
-    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_type }</div>
+    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_type }<br>${houseVO.h_peoplecnt }</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_info }</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">
