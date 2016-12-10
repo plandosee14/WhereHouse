@@ -31,6 +31,7 @@ html, body {
 	right:33%;
 	padding-top:60px;
 	z-index: 10;
+	float:left;
 }
 
 #reserve>#reserveform>#reservediv {
@@ -48,7 +49,25 @@ textarea{
 .text-cente{
 	margin: 0 0 0 5%;
 }
+.categoryTitle {
+	width: 20%;
+	float: left;
+    border-top:2px solid #fff;
+    margin-top:10px;
+}
 
+.categorySub {
+	width: 80%;
+	float: left;
+	padding:10px;
+    border-top:2px solid #fff;
+    margin-top:10px;
+}
+
+.subContent {
+    width: 50%;
+    float: left;
+}
 </style>
 <link rel="stylesheet" href="/resources/css/star.css" />
 <script>
@@ -84,7 +103,7 @@ textarea{
 <body>
 	<br><br><br>
 	<div id="album">
-		<img id="back" src="../resources/img/house/${houseVO.h_thumnail}">
+		<img id="back" src="/resources/screenshot/seoul.jpg">
 	</div>
 	<div id="reserve">
 		<form id="reserveform">
@@ -98,20 +117,97 @@ textarea{
 			</div>
 		</form>
 	</div>  
-	<div class="container-fluid">
-	  <div class="row">
-    	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
-    		<div style="height:200px;border-top:2px solid #fff;font-size:40px;">숙소</div>
-    		<div style="border-top:2px solid #fff;font-size:40px;">편의사항</div>
-    		<div style="border-top:2px solid #fff;font-size:40px;">소개</div>
-    		<div style="border-top:2px solid #fff;font-size:40px;">평점</div>
-    		<div style="border-top:2px solid #fff;font-size:40px;">후기</div>
-    	</div>
-    	<div class="col-sm-5" style="background-color:lavender;">항목
-    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_type }<br>${houseVO.h_peoplecnt }</div>
-    		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
-    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_info }</div>
-    		<div style="border-top:2px solid #fff;font-size:20px;">
+<div style="float:left; width:59%; border:1px solid black; background-color:lavender;">
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>숙소</span>
+		</div>
+		<div class="categorySub">
+			<div class="subContent"><!-- 좌측 항목 -->
+				<div>
+					<span>${houseVO.h_type } : </span>
+					<span>${houseVO.h_peoplecnt }</span>
+				</div>
+				<div>
+					<span>항목1.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+			<div class="subContent"><!-- 우측 항목 -->
+				<div>
+					<span>항목2.1:</span>
+					<span>값</span>
+				</div>
+				<div>
+					<span>항목2.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>편의사항</span>
+		</div>
+		<div class="categorySub">
+			<div class="subContent"><!-- 좌측 항목 -->
+				<div>
+					<span>항목1.1:</span>
+					<span>사는사람</span>
+				</div>
+				<div>
+					<span>항목1.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+			<div class="subContent"><!-- 우측 항목 -->
+				<div>
+					<span>항목2.1:</span>
+					<span>값</span>
+				</div>
+				<div>
+					<span>항목2.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>소개</span>
+		</div>
+		<div class="categorySub">
+			<div class="subContent"><!-- 좌측 항목 -->
+				<div>
+					<span>${houseVO.h_info }</span>
+				</div>
+				<div>
+					<span>항목1.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+			<div class="subContent"><!-- 우측 항목 -->
+				<div>
+					<span>항목2.1:</span>
+					<span>값</span>
+				</div>
+				<div>
+					<span>항목2.2:</span>
+					<span>값</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>평점</span>
+		</div>
+		<div class="categorySub">
+			<!-- 그래프 -->
+			<div>
     			<div id="Nwagon"></div>
 				<c:if test="${checkGrade == 'true'}" >
 				<font color="black" size="5">정확성</font>
@@ -151,15 +247,24 @@ textarea{
 			  		<output for="star-input4"><b>0</b>점</output>
 				</span>
 				<button type="button" id="bt_grade">평점 입력</button>
-				</c:if>     
+				</c:if>    
 			</div>
-			<div style="border-top:2px solid #fff;font-size:20px;">
+		</div>
+	</div>
+	
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>후기</span>
+		</div>
+		<div class="categorySub">
+			<!-- 댓글 리스트 -->
+			<div>
 				<c:if test="${m_id != null}"> 
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
-					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="90%" readonly="readonly"><br> 
+					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="75%" readonly="readonly"><br> 
 					<label for="exampleInputEmail1">Comment Text</label> <br>
-					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="90%">
+					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="75%">
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
@@ -174,13 +279,12 @@ textarea{
 	
 				<div class='text-cente'>
 					<ul id="pagination" class="pagination pagination-sm no-margin ">
-	
 					</ul>
 				</div>
 			</div>
-    	</div>
-  	  </div>
+		</div>
 	</div>
+</div>
 		
           
 <!-- Modal -->
