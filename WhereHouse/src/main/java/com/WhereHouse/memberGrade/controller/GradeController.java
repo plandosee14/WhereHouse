@@ -19,10 +19,8 @@ public class GradeController {
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String update(GradeVO vo, HttpSession session) {
-		System.out.println("vo1"+vo);
 		String m_id = (String) session.getAttribute("m_id");
 		vo.setM_id(m_id);
-		System.out.println("vo2"+vo);
 		try {
 			service.insertGrade(vo);
 		} catch (Exception e) {

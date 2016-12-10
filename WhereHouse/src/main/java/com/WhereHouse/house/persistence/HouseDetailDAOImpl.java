@@ -33,9 +33,5 @@ public class HouseDetailDAOImpl implements HouseDetailDAO {
 		}
 		
 	}
-	@Override
-	public void updateScore(int h_no) throws Exception {
-		sqlSession.update("house.updatescoreHouse", h_no);
-	}
 
 }

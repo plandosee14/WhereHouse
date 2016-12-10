@@ -7,12 +7,15 @@
 		from house
 		where h_no=#{h_no}
 	</select>
-	<select id="selectHouseReservation" resultType="integer" parameterType="map">
+	<select id="selectHouseGrade" resultType="integer" parameterType="map">
 		select count(*)
 		from reservation
-		where m_id=#{m_id} and h_no=#{h_no} and
-		      r_state = 1
+		where m_id =#{m_id}
+		and h_no=#{h_no}
+		and r_state=1
+		
 	</select>
+
 	<insert id="insertHouse">
 	    insert into house (h_no, m_id, m_name, m_phone, h_zip, h_address,h_title, h_fare, h_startdate, h_enddate, h_info, h_peoplecnt, 
 	           h_type, h_livetype, h_checktime, h_sale, h_salefare, h_rule, h_thumnail)
@@ -26,10 +29,6 @@
 	</insert>
 	<update id="updatescoreHouse">
 		update house set h_rightscore = h_rightscore+#{g_rightscore}, h_cleanscore = h_cleanscore+#{g_cleanscore}, h_checkscore = h_checkscore+#{g_checkscore}, h_commuscore = h_commuscore+#{g_commuscore}, h_scorecnt=h_scorecnt+1
-		where h_no=#{h_no}
-	</update>
-	<update id="allscoreHouse">
-		update house set h_avgscore=g_rightscore+g_cleanscore+g_checkscore+g_commuscore
 		where h_no=#{h_no}
 	</update>
 	<select id="selectNewHouseById" resultType="int">

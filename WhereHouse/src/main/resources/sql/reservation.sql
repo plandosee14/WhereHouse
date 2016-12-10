@@ -7,7 +7,7 @@ create table reservation(
 	r_enddate   date    not null, --예약 끝날짜
 	r_fare      number  not null, --할인적용한 요금
 	r_peoplecnt    number not null, --예약인원
-	r_state        number default 0, --예약완료 '0', 집 다녀옴 '1'
+	r_state        number default 0, --예약완료 '0', 집 다녀옴 '1' , 평가완료 '2' 
 	r_sysdate    date default sysdate --결제완료한 시간
 );
 

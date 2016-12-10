@@ -16,5 +16,9 @@
 		from reservation
 		where h_no=#{h_no}
 	</select>
+	<update id="updateRGradeState">
+		update reservation set r_state=2
+		where h_no=#{h_no} and m_id=#{m_id}
+	</update>
 
 </mapper>

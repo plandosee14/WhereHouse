@@ -18,5 +18,6 @@ public class GradeServiceImpl implements GradeService {
 	public void insertGrade(GradeVO vo) throws Exception {
 		dao.createScorehouse(vo);
 		dao.updateScorehouse(vo);
+		dao.updaterGrade(vo);
 	}
 }
