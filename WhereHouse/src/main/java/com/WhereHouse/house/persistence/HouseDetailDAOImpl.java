@@ -25,7 +25,7 @@ public class HouseDetailDAOImpl implements HouseDetailDAO {
 		Map<String, Object> map = new HashMap<>();
 		map.put("m_id", m_id);
 		map.put("h_no", h_no);
-		int cnt = sqlSession.selectOne("house.selectHouseReservation", map);
+		int cnt = sqlSession.selectOne("house.selectHouseGrade", map);
 		if(cnt>=1){
 			return true;
 		}else{

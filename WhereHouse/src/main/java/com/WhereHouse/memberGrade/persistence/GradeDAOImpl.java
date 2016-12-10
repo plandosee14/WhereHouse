@@ -25,7 +25,7 @@ public class GradeDAOImpl implements GradeDAO {
 
 	@Override
 	public void updaterGrade(GradeVO vo) throws Exception {
-		sqlSession.update("house.updateRGadeState",vo);
+		sqlSession.update("reservation.updateRGradeState",vo);
 	}
 
 }

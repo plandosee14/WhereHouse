@@ -84,7 +84,7 @@ textarea{
 <body>
 	<br><br><br>
 	<div id="album">
-		<img id="back" src="/resources/screenshot/seoul.jpg">
+		<img id="back" src="../resources/img/house/${houseVO.h_thumnail}">
 	</div>
 	<div id="reserve">
 		<form id="reserveform">
@@ -103,12 +103,14 @@ textarea{
     	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
     		<div style="height:200px;border-top:2px solid #fff;font-size:40px;">숙소</div>
     		<div style="border-top:2px solid #fff;font-size:40px;">편의사항</div>
+    		<div style="border-top:2px solid #fff;font-size:40px;">소개</div>
     		<div style="border-top:2px solid #fff;font-size:40px;">평점</div>
     		<div style="border-top:2px solid #fff;font-size:40px;">후기</div>
     	</div>
     	<div class="col-sm-5" style="background-color:lavender;">항목
+    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_type }</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
-    		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
+    		<div style="border-top:2px solid #fff;font-size:20px;">${houseVO.h_info }</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">
     			<div id="Nwagon"></div>
 				<c:if test="${checkGrade == 'true'}" >
