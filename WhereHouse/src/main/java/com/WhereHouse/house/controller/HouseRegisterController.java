@@ -9,9 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,7 +78,8 @@ public class HouseRegisterController {
 	    
 		System.out.println("³Í ¹«½¼ ³×ÀÓÀÌ´Ï?: "+saveName);
 		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/img/house"); 
-		
+		System.out.println(uploadpath);
+		//String uploadpath = application.getRealPath("/resources/img/house");
 	    File target = new File(uploadpath, saveName);
         try {
 			FileCopyUtils.copy(file.getBytes(), target);
@@ -98,7 +101,7 @@ public class HouseRegisterController {
 		    	hoption.setO_name(h_option[i]);
 		    	
 		    	System.out.println("h_option: "+hoption.toString());
-		    	hservice.insertHouseOption(hoption);;
+		    	hservice.insertHouseOption(hoption);
   	
 			}
 			
