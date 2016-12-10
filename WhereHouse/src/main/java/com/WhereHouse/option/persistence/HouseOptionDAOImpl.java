@@ -1,8 +1,6 @@
 package com.WhereHouse.option.persistence;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -27,8 +25,7 @@ public class HouseOptionDAOImpl implements HouseOptionDAO {
 	//하우스옵션 불러오기
 	@Override
 	public List<String> selectHouseOption(int h_no) throws Exception {
-		
-		return sqlSession.selectList("hoption.insertHouseOption", h_no);
+		return sqlSession.selectList("hoption.selectHouseOption", h_no);
 	}
 
 

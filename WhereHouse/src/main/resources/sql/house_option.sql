@@ -17,6 +17,10 @@ nocycle
 nocache;
 
 
+select o_name
+		from house_option
+		where h_no=10;
+
 insert into house_option(o_no,h_no,o_name)
 values(house_option_seq.nextval,10,'o_air');
 insert into house_option(o_no,h_no,o_name)

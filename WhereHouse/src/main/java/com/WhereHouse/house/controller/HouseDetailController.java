@@ -34,6 +34,7 @@ public class HouseDetailController {
 		String m_id = (String) session.getAttribute("m_id");
 				
 		model.addAttribute(service.read(h_no));
+		model.addAttribute("oList",service.selectHouseOption(h_no));
 		boolean checkGrade = false;
 		if(m_id != null){
 			checkGrade = service.grade(m_id, h_no);

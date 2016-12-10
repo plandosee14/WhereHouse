@@ -27,8 +27,8 @@ html, body {
 #reserve {
 	position: fixed;
 	top:460px;
-	width:30px;
-	right:33%;
+	width:28px;
+	right:31%;
 	padding-top:60px;
 	z-index: 10;
 	float:left;
@@ -53,15 +53,19 @@ textarea{
 	width: 20%;
 	float: left;
     border-top:2px solid #fff;
-    margin-top:10px;
+    font-size:30px;
+    font-weight:bold;
+    min-height: 50px;
 }
 
 .categorySub {
 	width: 80%;
 	float: left;
 	padding:10px;
+	font-size:15px;
     border-top:2px solid #fff;
-    margin-top:10px;
+    border-left:2px solid #fff;
+    min-height: 50px;
 }
 
 .subContent {
@@ -103,7 +107,7 @@ textarea{
 <body>
 	<br><br><br>
 	<div id="album">
-		<img id="back" src="/resources/screenshot/seoul.jpg">
+		<img id="back" src="../resources/img/house/${houseVO.h_thumnail}">
 	</div>
 	<div id="reserve">
 		<form id="reserveform">
@@ -117,7 +121,7 @@ textarea{
 			</div>
 		</form>
 	</div>  
-<div style="float:left; width:59%; border:1px solid black; background-color:lavender;">
+<div style="float:left; width:60%; border:1px solid black; background-color:lavender;">
 	<div><!-- 항목 모음 Div -->
 		<div class="categoryTitle"><!--항목명  -->
 			<span>숙소</span>
@@ -125,22 +129,18 @@ textarea{
 		<div class="categorySub">
 			<div class="subContent"><!-- 좌측 항목 -->
 				<div>
-					<span>${houseVO.h_type } : </span>
-					<span>${houseVO.h_peoplecnt }</span>
+					<span>숙소 유형 : </span>
+					<span>${houseVO.h_type }</span>
 				</div>
 				<div>
-					<span>항목1.2:</span>
-					<span>값</span>
+					<span>체크 인 아웃 시간 : </span>
+					<span>${houseVO.h_checktime }</span>
 				</div>
 			</div>
 			<div class="subContent"><!-- 우측 항목 -->
 				<div>
-					<span>항목2.1:</span>
-					<span>값</span>
-				</div>
-				<div>
-					<span>항목2.2:</span>
-					<span>값</span>
+					<span>숙박 가능 인원 수 : </span>
+					<span>${houseVO.h_peoplecnt }</span>
 				</div>
 			</div>
 		</div>
@@ -151,53 +151,80 @@ textarea{
 			<span>편의사항</span>
 		</div>
 		<div class="categorySub">
+				<div>
+				<c:forEach items="${oList}" var="houseOptionVO">
+				<c:if test="${houseOptionVO=='o_air'}">
+				  에어컨
+				</c:if>
+				<c:if test="${houseOptionVO=='o_kitchen'}">
+				  주방
+				</c:if>
+				<c:if test="${houseOptionVO=='o_park'}">
+				  주차장
+				</c:if>
+				<c:if test="${houseOptionVO=='o_smoke'}">
+				  흡연
+				</c:if>
+				<c:if test="${houseOptionVO=='o_washer'}">
+				  세탁기
+				</c:if>
+				<c:if test="${houseOptionVO=='o_cook'}">
+				  조리도구
+				</c:if>
+				<c:if test="${houseOptionVO=='o_toiletries'}">
+				  세면도구
+				</c:if>
+				<c:if test="${houseOptionVO=='o_tv'}">
+				  tv
+				</c:if>
+				<c:if test="${houseOptionVO=='o_wifi'}">
+				  와이파이
+				</c:if>
+				</c:forEach>
+				</div>
+		</div>
+	</div>
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>판매자</span>
+		</div>
+		<div class="categorySub">
 			<div class="subContent"><!-- 좌측 항목 -->
 				<div>
-					<span>항목1.1:</span>
-					<span>사는사람</span>
+					<span>판매자 이름 : </span>
+					<span>${houseVO.m_name }</span>
 				</div>
 				<div>
-					<span>항목1.2:</span>
-					<span>값</span>
+					<span>체크 인 아웃 시간 : </span>
+					<span>${houseVO.m_phone }</span>
 				</div>
 			</div>
 			<div class="subContent"><!-- 우측 항목 -->
 				<div>
-					<span>항목2.1:</span>
-					<span>값</span>
-				</div>
-				<div>
-					<span>항목2.2:</span>
-					<span>값</span>
+					<span>숙박 가능 인원 수 : </span>
+					<span>${houseVO.m_id}</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+	<div><!-- 항목 모음 Div -->
+		<div class="categoryTitle"><!--항목명  -->
+			<span>이용 규칙</span>
+		</div>
+		<div class="categorySub">
+				<div>
+					<span>${houseVO.h_rule }</span>
+				</div>
+		</div>
+	</div>
 	<div><!-- 항목 모음 Div -->
 		<div class="categoryTitle"><!--항목명  -->
 			<span>소개</span>
 		</div>
 		<div class="categorySub">
-			<div class="subContent"><!-- 좌측 항목 -->
 				<div>
 					<span>${houseVO.h_info }</span>
 				</div>
-				<div>
-					<span>항목1.2:</span>
-					<span>값</span>
-				</div>
-			</div>
-			<div class="subContent"><!-- 우측 항목 -->
-				<div>
-					<span>항목2.1:</span>
-					<span>값</span>
-				</div>
-				<div>
-					<span>항목2.2:</span>
-					<span>값</span>
-				</div>
-			</div>
 		</div>
 	</div>
 	

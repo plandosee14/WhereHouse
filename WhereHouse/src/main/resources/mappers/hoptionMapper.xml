@@ -5,9 +5,9 @@
 		insert into house_option (o_no,h_no,o_name)
 		values(house_option_seq.nextval,#{h_no},#{o_name})
 	</insert>
-	<select id="selectHouseOption">
+	<select id="selectHouseOption" resultType="String">
 		select o_name
-		from house_seq.nextval
+		from house_option
 		where h_no=#{h_no}	
 	</select>
 </mapper>
