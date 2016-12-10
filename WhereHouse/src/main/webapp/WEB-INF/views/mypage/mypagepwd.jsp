@@ -14,47 +14,6 @@
 	width: 85%;
 	float: right;
 }
-
-.btnStyle {
-	width:70px;
-	color: #fff;
-	float:left;
-	border:none;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-.btn_confirm {
-	background-color: #d9534f;
-	border-color: #d43f3a;
-}
-
-.btn_confirm:hover {
-	background-color: #c9302c;
-	border-color: #ac2925;
-}
-
-.icon_span {
-	width:50px;
-	padding:5px;
-	border:1px solid;
-	border-right:3px solid;
-	float:left;
-	border-color: #d43f3a;
-}
-
-.pass_div {
-	float:center;
-	border:2px solid;
-	border-radius:5px;
-	width:354px;
-	height:30px;
-	border-color: #d43f3a;
-}
-
-.pass_input {
-	width:230px;
-}
 </style>
 
 <script>
