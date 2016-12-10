@@ -101,28 +101,16 @@ textarea{
 	<div class="container-fluid">
 	  <div class="row">
     	<div class="col-sm-2" style="background-color:lavender;border-right:2px solid #fff;">목록
-    		<div style="height:200px;border-top:2px solid #fff;font-size:40px;float:center">숙소</div>
-    		<div style="border-top:2px solid #fff;font-size:40px;">집</div>
+    		<div style="height:200px;border-top:2px solid #fff;font-size:40px;">숙소</div>
+    		<div style="border-top:2px solid #fff;font-size:40px;">편의사항</div>
+    		<div style="border-top:2px solid #fff;font-size:40px;">평점</div>
+    		<div style="border-top:2px solid #fff;font-size:40px;">후기</div>
     	</div>
     	<div class="col-sm-5" style="background-color:lavender;">항목
     		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
     		<div style="border-top:2px solid #fff;font-size:20px;">사는 사람</div>
-    	</div>
-  	  </div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box box-success">
-				<div>
-					<h3>평점</h3>
-				</div>
-				<div class="box-header">
-					<h3 class="box-title">후기</h3>
-				</div>
-			
-				<div id="Nwagon">
-					
-				</div>
+    		<div style="border-top:2px solid #fff;font-size:20px;">
+    			<div id="Nwagon"></div>
 				<c:if test="${checkGrade == 'true'}" >
 				<font color="black" size="5">정확성</font>
 				<span class="star-input">
@@ -161,8 +149,10 @@ textarea{
 			  		<output for="star-input4"><b>0</b>점</output>
 				</span>
 				<button type="button" id="bt_grade">평점 입력</button>
-			</c:if>     
-			<c:if test="${m_id != null}"> 
+				</c:if>     
+			</div>
+			<div style="border-top:2px solid #fff;font-size:20px;">
+				<c:if test="${m_id != null}"> 
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
 					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="90%" readonly="readonly"><br> 
@@ -173,21 +163,22 @@ textarea{
 				<div class="box-footer">
 					<button type="button" class="bt btn-primary" id="commentAddBtn">ADD COMMENT</button>
 				</div>
-			</div>
-			</c:if>
-			<!-- The time line -->
-			<ul class="timeline">
-				<!-- timeline time label -->
-				<li class="time-label" id="commentDiv"></li>
-			</ul>
-
-			<div class='text-cente'>
-				<ul id="pagination" class="pagination pagination-sm no-margin ">
-
+				</c:if>
+				<!-- The time line -->
+				<ul class="timeline">
+					<!-- timeline time label -->
+					<li class="time-label" id="commentDiv"></li>
 				</ul>
+	
+				<div class='text-cente'>
+					<ul id="pagination" class="pagination pagination-sm no-margin ">
+	
+					</ul>
+				</div>
 			</div>
-			</div>
-		</div>
+    	</div>
+  	  </div>
+	</div>
 		
           
 <!-- Modal -->
