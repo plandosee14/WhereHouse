@@ -83,6 +83,7 @@
 			</aside>
 
 			<br>
+			<div style="width:100%; height:600px; overflow:auto">
 			<table class="table table-bordered" style="text-align: center">
 				<tr style="color: black; font-weight: bold; background-color: #C0C0C0 ">
 					<td>집 사진</td>
@@ -93,10 +94,9 @@
 					<td>인원수</td>
 					<td>예약 전화번호</td>
 				</tr>
-
-
+			
 				<c:forEach items="${rList}" var="reservationVO">
-
+				  
 					<tr style="color: black">
 						<td><img
 							src="../resources/img/house/${reservationVO.h_thumnail}"
@@ -109,6 +109,7 @@
 						<td>${reservationVO.r_fare}</td>
 						<td>${reservationVO.r_peoplecnt}</td>
 						<td>${reservationVO.m_phone}</td>
+					  
 					</tr>
 
 				</c:forEach>
@@ -116,7 +117,7 @@
 			</table>
 		</div>
 	</div>
-
+  </div>
 </body>
 
 </html>

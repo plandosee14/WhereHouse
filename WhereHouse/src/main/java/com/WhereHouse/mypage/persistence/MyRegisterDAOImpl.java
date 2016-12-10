@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.mypage.domain.MyRegisterVO;
 
@@ -30,5 +31,10 @@ public class MyRegisterDAOImpl implements MyRegisterDAO{
 	public void updateScore(MemberVO member) throws Exception {
 		sqlSession.update("mypage.modifyScore", member);
 		
+	}
+
+	@Override
+	public List<HouseVO> selectMyHouse(String m_id) throws Exception {
+		return sqlSession.selectList("mypage.selectHouseById", m_id);
 	}
 }

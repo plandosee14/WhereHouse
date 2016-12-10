@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.member.domain.MemberVO;
 import com.WhereHouse.mypage.domain.MyRegisterVO;
 import com.WhereHouse.mypage.persistence.MyRegisterDAO;
@@ -29,6 +30,11 @@ public class MyRegisterServiceImpl implements MyRegisterService{
 	@Override
 	public void modifyScore(MemberVO member) throws Exception {
 		dao.updateScore(member);
+	}
+
+	@Override
+	public List<HouseVO> listHouseById(String m_id) throws Exception {
+		return dao.selectMyHouse(m_id);
 	}
 
 	

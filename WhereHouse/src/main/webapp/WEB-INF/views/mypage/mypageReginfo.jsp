@@ -99,7 +99,40 @@
 			</aside>
 
 			<br>
+				<h4>
+					<i class="fa fa-h-square"></i>
+					<font color="black">내가 등록한 집</font>
+				</h4>
+		<div style="width:100%; height:250px; overflow:auto">
+			<table class="table table-bordered" style="text-align: center">
+				<tr style="color: black; font-weight: bold; background-color: #C0C0C0">
+					<td>집 번호</td>
+					<td>집 사진</td>
+					<td>제목</td>
+				</tr>
 
+
+				<c:forEach items="${houseList}" var="houseVO">
+
+					<tr style="color: black">
+						<td>${houseVO.h_no}</td>
+						<td><img
+							src="../resources/img/house/${houseVO.h_thumnail}"
+							width="70px" height="50px"></td>
+						<td>${houseVO.h_title}</td>
+
+					</tr>
+
+				</c:forEach>
+
+			</table>
+		</div>
+			<br><br><br>
+				<h4>
+					<i class="fa fa-child"></i>
+					<font color="black">내 집에 예약한 사람</font>
+				</h4>
+		<div style="width:100%; height:300px; overflow:auto">
 			<table class="table table-bordered" style="text-align: center">
 				<tr style="color: black; font-weight: bold; background-color: #C0C0C0">
 					<td>집 사진</td>
@@ -128,9 +161,13 @@
 				</c:forEach>
 
 			</table>
-			
+		</div>
 			<br><br><br>
-			
+				<h4>
+					<i class="fa fa-user-times"></i>
+					<font color="black">투숙객 평가</font>
+				</h4>
+		<div style="width:100%; height:400px; overflow:auto">
 			<table class="table table-bordered" style="text-align: center">
 				<tr style="color: black; font-weight: bold; background-color: #C0C0C0">
 					<td>집 사진</td>
@@ -177,7 +214,7 @@
 				</c:forEach>
 
 			</table>
-	
+		</div>
 			
 		</div>
 	</div>

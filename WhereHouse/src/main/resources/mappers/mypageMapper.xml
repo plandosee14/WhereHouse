@@ -32,7 +32,7 @@
         where m_id=#{m_id}
 	</delete>
 	
-	<select id="selectHouseById">
+	<select id="selectHouseById" resultType="com.WhereHouse.house.domain.HouseVO">
 	  select h_no, h_thumnail, h_title
 	  from house
 	  where m_id = #{m_id}
@@ -59,6 +59,7 @@
 		where h.h_no = r.h_no
 			and r.m_id = m.m_id
 			and r.m_id = #{m_id}
+			and r.r_state >=1
 	</select>
 	
 	<select id="selectPassword" resultType="int">

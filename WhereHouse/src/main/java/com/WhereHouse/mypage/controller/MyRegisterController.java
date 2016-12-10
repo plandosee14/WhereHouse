@@ -33,6 +33,7 @@ public class MyRegisterController {
 	public String regInfo(Model model, HttpServletRequest request, RedirectAttributes attr)throws Exception{
 		String m_id = (String) request.getSession().getAttribute("m_id");
 		System.out.println("mid : "+m_id);
+		model.addAttribute("houseList",regService.listHouseById(m_id));
 		model.addAttribute("regList", regService.listAllById(m_id));//등록정보
 		regService.listEstimateById(m_id);
 		MemberVO member = new MemberVO();

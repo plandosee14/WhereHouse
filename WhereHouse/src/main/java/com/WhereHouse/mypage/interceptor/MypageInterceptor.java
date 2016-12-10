@@ -20,7 +20,7 @@ public class MypageInterceptor extends HandlerInterceptorAdapter{
 	      String m_id = (String) request.getSession().getAttribute("m_id");
 	      if(m_id!=null) return true;
 	      else{
-	         request.getSession().removeAttribute("m_id");
+	         //request.getSession().removeAttribute("m_id");
 	         response.sendRedirect("/");
 	         return false;
 	      }
