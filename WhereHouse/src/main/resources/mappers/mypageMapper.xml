@@ -15,7 +15,7 @@
 	
 	</delete>
 
-	<select id="selectMember" resultType="member">
+	<select id="selectMember" resultType="com.WhereHouse.member.domain.MemberVO">
 		select m_id, m_no, m_name, m_phone 
 		from  member 
 		where m_id = #{m_id}
