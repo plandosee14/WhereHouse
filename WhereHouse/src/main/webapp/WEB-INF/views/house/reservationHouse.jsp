@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,6 @@
 <title>예약</title>
 <link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script type="text/javascript">
 <script type="text/javascript">
 jQuery(function($){
 
@@ -22,14 +22,17 @@ jQuery(function($){
 
 	// 특정날짜들 배열
 
-	var disabledDays = ["2016-12-8","2016-12-25","2016-12-9"];
+	
+
+	var disabledDays = ${dateList};
+	alert(typeof(disabledDays[0]));
 	function disableAllTheseDays(date) {
 		
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 	
 	    for (i = 0; i < disabledDays.length; i++) {
 	
-	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date < new Date())||(date >new Date(2016,11,26))) {
+	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date >new Date(2016,11,26))) {
 	
 	            return [false];
 	
@@ -44,8 +47,10 @@ jQuery(function($){
 </script>
 </head>
 <body>
+<br><br><br><br>
 <p>체크인 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
 <p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
+
 
 </body>
 </html>

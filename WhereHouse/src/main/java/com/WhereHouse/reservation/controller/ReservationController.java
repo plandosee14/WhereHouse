@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
+import com.WhereHouse.reservation.service.ReservationService;
 
 @Controller
 @RequestMapping("/house")
@@ -16,6 +17,9 @@ public class ReservationController {
 	
 	@Inject
 	HouseService hservice;
+	
+	@Inject
+	ReservationService rservice;
 	
 	@RequestMapping("/testCalender")
 	public void CalcTest(){
@@ -25,6 +29,10 @@ public class ReservationController {
 	@RequestMapping("/reservationHouse")
 	public void reservationHouse(@RequestParam("h_no") int h_no,Model model)throws Exception{
 		HouseVO house  = hservice.selectHouseByHno(h_no);
+		
+		model.addAttribute(house);
+		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
+		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
 		
 		
 	}
