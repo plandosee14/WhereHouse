@@ -1,6 +1,9 @@
 package com.WhereHouse.member.controller;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -51,20 +54,25 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpSession session) throws Exception {
-		DateFormat format1 = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		SimpleDateFormat format = new SimpleDateFormat("yy년 MM월 dd일 hh시");
+		Calendar cal = Calendar.getInstance();
 		System.out.println(vo);
 		MemberVO m = new MemberVO();
 		m = service.login(vo);
+
 		System.out.println(m);
 		if (m==null) {
 			 return "fail";
 		}
 		else if (m.getM_stopdate()!= null) {
-			
-			String stopdate = "정지된 ID입니다. 정지해제 날짜는 "+format1.format(m.getM_stopdate()).toString()+"입니다.";
+			cal.setTime(m.getM_stopdate());
+			cal.add(Calendar.HOUR, 1);
+			String stopdate = "정지된 ID입니다. 정지해제 날짜는 "+format.format(cal.getTime()).toString()+"입니다.";
 			return stopdate;
 		}else if (m.getM_dropdate() != null) {
-			String dropdate = "탈퇴 요청된 ID입니다. 탈퇴 처리 날짜는 "+format1.format(m.getM_dropdate()).toString()+"입니다.";
+			cal.setTime(m.getM_dropdate());
+			cal.add(Calendar.HOUR, 1);
+			String dropdate = "탈퇴 요청된 ID입니다. 탈퇴 처리 날짜는 "+format.format(cal.getTime()).toString()+"입니다.";
 			return dropdate;
 		}
 		else {
