@@ -37,6 +37,11 @@
 	<div id="map"
 		style="width: 50%; height: 80%; position: fixed; left: 50%;"></div>
 		
+		
+		
+		
+		
+		
 		<script type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
 		<script>
