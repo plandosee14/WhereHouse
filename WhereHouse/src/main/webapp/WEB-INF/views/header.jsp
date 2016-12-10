@@ -297,7 +297,7 @@
       	      });
       	      
       	    $('#mainsearchbtn').click(function() {
-      	    	location.replace("/google");
+      	    	location.replace("/search");
       	    });//검색창으로 넘기기
       	    
       	    
@@ -320,7 +320,7 @@
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a class="page-scroll" href="/google">집 검색</a></li>
+				<li><a class="page-scroll" href="/search">집 검색</a></li>
 			<% String m_name = (String)request.getSession().getAttribute("m_name"); %>
 			<%if(m_name == null || m_name.equals("")){%>
 			<% }else{%>

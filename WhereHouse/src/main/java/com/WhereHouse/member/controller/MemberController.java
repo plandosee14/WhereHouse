@@ -11,7 +11,7 @@ public class MemberController {
 		return "main";
 	}
 	
-	@RequestMapping("/google")
+	@RequestMapping("/search")
 	public String google(){
 		return "googleMap";
 	}
