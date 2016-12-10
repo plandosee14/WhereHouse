@@ -95,7 +95,7 @@ if (typeof window.FileReader === 'undefined') {
   state.className = 'fail';
 } else {
   state.className = 'success';
-  state.innerHTML = 'File API & FileReader available';
+
 }
  
 upload.onchange = function (e) {
@@ -125,7 +125,7 @@ upload.onchange = function (e) {
 <br>
 소개<br>
 <textarea rows="20" cols="50" name="h_info"></textarea>
-<input type="submit" id="submit">
+<input type="submit" id="submit" value="등록">
 
 </div>
 </form>
@@ -142,13 +142,13 @@ function openDaumPostcode() {
 }
 </script>
 <script>
-
+h_address = $('#h_address').val;
 
 var geocoder = new google.maps.Geocoder();
 geocoder
       .geocode(
             {
-               'address' : h_address.val()//지오코더한테 보내줄값이야 주소들어가는 textbox? 에 id값 주고 넣어써줘
+               'address' : h_address//지오코더한테 보내줄값이야 주소들어가는 textbox? 에 id값 주고 넣어써줘
             },
             function(results, status) {
                if (status === google.maps.GeocoderStatus.OK) {
