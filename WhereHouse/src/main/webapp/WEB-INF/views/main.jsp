@@ -47,98 +47,92 @@
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">여행 지역 추천</h2>
+				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">국내 축제 순위 TOP6</h2>
 				<br>
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid" >
 		<div class="row no-gutter">
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://cfile29.uf.tistory.com/image/163226395022EA1329757B">
-					<img
-					src="/resources/screenshot/seoul1.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 1">
+			<div class="col-lg-4 col-sm-6" id="gall0div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery0"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">서울</font>
+								<font size="7" id="gallery0_title"></font>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://cfile211.uf.daum.net/image/2237DA4A534FD7200C0A09">
-					<img
-					src="/resources/screenshot/gyoungju.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 2">
+			<div class="col-lg-4 col-sm-6" id="gall1div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery1"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">경주</font>
+								<font size="7" id="gallery1_title"></font>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://chulsa.kr/files/attach/images/66/906/313/005/IMG_9479-1.jpg">
-					<img
-					src="/resources/screenshot/busan1.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 3">
+			<div class="col-lg-4 col-sm-6" id="gall2div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery2"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">부산</font>
+								<font size="7" id="gallery2_title"></font>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://chulsa.kr/files/attach/images/66/057/353/DSC_0082_10.jpg">
-					<img
-					src="/resources/screenshot/jeju2.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 4">
+			<div class="col-lg-4 col-sm-6" id="gall3div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery3"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">제주</font>
+								<font size="7" id="gallery3_title">\</font>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://cfile235.uf.daum.net/image/200ACA1A4B47F4632D7B79">
-					<img
-					src="/resources/screenshot/andong1.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 5">
+			<div class="col-lg-4 col-sm-6" id="gall4div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery4"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">안동</font>
+								<font size="7" id="gallery4_title"></font>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<a href="#galleryModal" class="gallery-box" data-toggle="modal"
-					data-src="http://cfile7.uf.tistory.com/image/15249F3B4F6AB7A81B5EAE">
-					<img
-					src="/resources/screenshot/yeosu.jpg" width="500" height="450"
-					class="img-responsive" alt="Image 6">
+			<div class="col-lg-4 col-sm-6" id="gall5div" style="cursor: pointer;">
+				<a class="gallery-box">
+					<img id="gallery5"
+					src="" style="width: 500px; height: 300px;"
+					class="img-responsive" alt="사진이 등록되지 않은 축제입니다.">
 					<div class="gallery-box-caption">
 						<div class="gallery-box-content">
 							<div>
-								<font size="15">여수</font>
+								<font size="7" id="gallery5_title"></font>
 							</div>
 						</div>
 					</div>
@@ -167,9 +161,161 @@
 	</div>
 	</section>
 	
+	<div id="galleryModal0" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage0" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery0content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="galleryModal1" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage1" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery1content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="galleryModal2" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage2" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery2content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="galleryModal3" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage3" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery3content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="galleryModal4" class="modal fade" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage4" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery4content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="galleryModal5" class="modal fade" tabindex="-1" role="dialog" 
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" >
+			<div class="modal-content">
+				<div class="modal-body">
+					<img id="galleryImage5" style="width: 100%; height: 400px;"
+						class="img-responsive" />
+					<p id="gallery5content">
+						<br />
+						<button class="btn btn-primary btn-lg center-block"
+							data-dismiss="modal" aria-hidden="true">
+							Close <i class="ion-android-close"></i>
+						</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 	<footer id="footer">
 	<%@include file="footer.jsp"%>
 	</footer>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function () {
+		var today = new Date();
+		var eventStartDate = (today.getFullYear().toString())+(today.getMonth()+1).toString()+(today.getDate().toString());
+		$.ajax({
+			type:'GET',
+			url:'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?ServiceKey=F1YqFG7AofwHKfv%2BUBL8cjOXTgbYubTNSVhqKl9oQXUjPGeCBtJit9s9RAw48Xkk6DORPMI8hKI78qozSz2NTg%3D%3D&eventStartDate='+eventStartDate+'&arrange=B&MobileOS=ETC&MobileApp=WhereHouseing&numOfRows=6&_type=json',
+			success:function(result){
+				for (var i = 0; i < 6; i++) {
+					$('#gallery'+i+'_title').text(result.response.body.items.item[i].title);
+					$('#gallery'+i).attr('src', result.response.body.items.item[i].firstimage);
+					$('#galleryImage'+i).attr('src', result.response.body.items.item[i].firstimage);
+					$('#gallery'+i+'content').html('<div align="center"><font size="10">'+result.response.body.items.item[i].title+'</font><br> 기간 : ('+result.response.body.items.item[i].eventstartdate+' ~ '+result.response.body.items.item[i].eventenddate+')<br> 주소 : '+result.response.body.items.item[i].addr1+'<br> 전화 : '+result.response.body.items.item[i].tel+'</div>');
+				}
+				
+			}
+		});
+		
+		$('#gall0div').click(function() {
+			$('#galleryModal0').modal("show");
+		});
+		$('#gall1div').click(function() {
+			$('#galleryModal1').modal("show");
+		});
+		$('#gall2div').click(function() {
+			$('#galleryModal2').modal("show");
+		});
+		$('#gall3div').click(function() {
+			$('#galleryModal3').modal("show");
+		});
+		$('#gall4div').click(function() {
+			$('#galleryModal4').modal("show");
+		});
+		$('#gall5div').click(function() {
+			$('#galleryModal5').modal("show");
+		});
+
+	});
+
+	</script>
 	
 </body>
 </html>
