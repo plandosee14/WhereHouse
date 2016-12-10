@@ -133,6 +133,14 @@ textarea{
 					<span>${houseVO.h_type }</span>
 				</div>
 				<div>
+					<span>숙소 방의 수 : </span>
+					<span>${houseVO.h_livetype }</span>
+				</div>				
+				<div>
+					<span>입실 가능 날짜 : </span>
+					<span>${houseVO.h_startdate }</span>
+				</div>
+				<div>
 					<span>체크 인 아웃 시간 : </span>
 					<span>${houseVO.h_checktime }</span>
 				</div>
@@ -141,6 +149,14 @@ textarea{
 				<div>
 					<span>숙박 가능 인원 수 : </span>
 					<span>${houseVO.h_peoplecnt }</span>
+				</div>
+				<div>
+					<span>숙박 가격 : </span>
+					<span>${houseVO.h_fare }</span>
+				</div>
+				<div>
+					<span>퇴실 날짜 : </span>
+					<span>${houseVO.h_enddate }</span>
 				</div>
 			</div>
 		</div>
@@ -195,14 +211,18 @@ textarea{
 					<span>${houseVO.m_name }</span>
 				</div>
 				<div>
-					<span>체크 인 아웃 시간 : </span>
+					<span>판매자 전화번호 : </span>
 					<span>${houseVO.m_phone }</span>
 				</div>
 			</div>
 			<div class="subContent"><!-- 우측 항목 -->
 				<div>
-					<span>숙박 가능 인원 수 : </span>
+					<span>판매자 이메일 주소 : </span>
 					<span>${houseVO.m_id}</span>
+				</div>
+				<div>
+					<span>주소 : </span>
+					<span>${houseVO.h_address}</span>
 				</div>
 			</div>
 		</div>
@@ -312,7 +332,8 @@ textarea{
 		</div>
 	</div>
 </div>
-		
+<div id="map"
+		style="height:60%;width:60%;position: fixed;"></div>		
           
 <!-- Modal -->
 <div id="modifyModal" class="modal modal-primary fade" role="dialog">
@@ -334,9 +355,13 @@ textarea{
     </div>
   </div>
 </div> 
+
+<%@include file="../footer.jsp" %>
 	<link rel="stylesheet" href="/resources/css/Nwagon.css" type="text/css">
 	<script src="/resources/js/Nwagon.js"></script>
 	<script src="/resources/js/star.js"></script>
+	<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>	
 	<script id="template" type="text/x-handlebars-template">
 	{{#each .}}
 	<li class="commentLi" data-c_no={{c_no}}>
@@ -357,7 +382,33 @@ textarea{
 	{{/each}}
 	</script>
 	<script>
-	
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom : 18,
+			mapTypeId : google.maps.MapTypeId.ROADMAP,
+			center : {
+				lat : ${houseVO.h_pi_x},
+				lng : ${houseVO.h_pi_y}
+			}
+		});
+		var geocoder = new google.maps.Geocoder();
+
+	var mylocationimage = '/resources/img/house/mylocation.png';
+	markergps = new google.maps.Marker(
+			{
+				map : map,
+				mapTypeId : google.maps.MapTypeId.ROADMAP,
+				position : {
+					lat : ${houseVO.h_pi_x},
+					lng : ${houseVO.h_pi_y}
+				},
+				title : '${houseVO.h_title}',
+				icon : mylocationimage,
+				animation : google.maps.Animation.DROP,
+			});
+	}
+
+
 	Handlebars.registerHelper("eqCommenter",function(commenter, block){
 		var accum = '';
 		if(commenter == '${m_name}'){
