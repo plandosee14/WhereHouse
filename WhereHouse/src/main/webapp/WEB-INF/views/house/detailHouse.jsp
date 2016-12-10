@@ -211,7 +211,7 @@ textarea{
 	  <span class="time">
 		{{prettifyDate c_regdate}}
 	  </span>
-	  <h3 class="timeline-header"><strong>{{c_no}}</strong> -{{m_name}}</h3>
+	  <h3 class="timeline-header"> -{{m_name}}</h3>
 	  <div class="timeline-body">{{c_content}} </div>
   	  <div class="timeline-footer">
 		{{#eqCommenter m_name}}
