@@ -169,6 +169,8 @@
 					<img id="galleryImage0" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery0content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
@@ -187,6 +189,8 @@
 					<img id="galleryImage1" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery1content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
@@ -205,6 +209,8 @@
 					<img id="galleryImage2" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery2content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
@@ -223,6 +229,8 @@
 					<img id="galleryImage3" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery3content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
@@ -241,6 +249,8 @@
 					<img id="galleryImage4" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery4content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
@@ -259,6 +269,8 @@
 					<img id="galleryImage5" style="width: 100%; height: 400px;"
 						class="img-responsive" />
 					<p id="gallery5content">
+					</p>
+					<p>
 						<br />
 						<button class="btn btn-primary btn-lg center-block"
 							data-dismiss="modal" aria-hidden="true">
