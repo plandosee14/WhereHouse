@@ -55,13 +55,15 @@
 침대  <input type="text" name="title"> 개 욕실 <input type="text" name="title"><br>
 방갯수 <input type="text" name=""> 개 <br>
 
-체크인아웃 <input type="text" name="h_checktime"> 개 <br>
-규칙 <input type="text" name="h_rule"> 개 <br>
+체크인아웃 <input type="text" name="h_checktime"> <br>
+규칙 
+<textarea rows="20" cols="50" name="h_rule"></textarea>
+<br>
 </div>
 
 편의시설
 <div>
-편의시설 <br>
+ <br>
  <input type="checkbox" name="h_option" value="o_air">에어컨<br>
  <input type="checkbox" name="h_option" value="o_kitchen">주방<br>
  <input type="checkbox" name="h_option" value="o_park">주차장<br>
