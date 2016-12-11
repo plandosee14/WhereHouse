@@ -8,7 +8,7 @@ import com.WhereHouse.reservation.domain.ReservationVO;
 public interface ReservationDAO {
 
 	//예약하기
-	public void insertReservation() throws Exception;
+	public void insertReservation(ReservationVO reservation) throws Exception;
 
 	//집의 예약가져오기
 	public List<ReservationVO> selectReservation(int h_no) throws Exception;

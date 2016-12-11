@@ -16,11 +16,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 	@Inject
 	private SqlSession sqlSession;
 	//예약하기
-	@Override
-	public void insertReservation() throws Exception {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	//하우스의 예약목록 가져오기
 	@Override
@@ -35,6 +31,14 @@ public class ReservationDAOImpl implements ReservationDAO {
 		
 		return sqlSession.selectList("reservation.selectReservationDate", h_no);
 	}
+
+	@Override
+	public void insertReservation(ReservationVO reservation) throws Exception {
+		sqlSession.insert("reservation.insertReservation", reservation);
+		
+	}
+
+
 	
 
 

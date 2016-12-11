@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
+import com.WhereHouse.reservation.domain.ReservationVO;
 import com.WhereHouse.reservation.service.ReservationService;
 
 @Controller
@@ -33,6 +34,12 @@ public class ReservationController {
 		model.addAttribute(house);
 		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
 		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
+		
+		
+	}
+	
+	@RequestMapping("/register")
+	public void reservation(ReservationVO reservation, Model model)throws Exception{
 		
 		
 	}
