@@ -7,73 +7,7 @@
 <%@include file="../header.jsp" %>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<style type="text/css">
-body {
- margin-left: 60px;
- margin-top: 0px;
- margin-right: 40px;
- margin-bottom: 0px;
-}
-#album{
-	top:0px;
-	left:0px;
-	height:450px;
-}
-#album #back{
-	top: 0px;
-	left: 0px;
-	width:90%;
-	max-height: 450px;
-}
-#reserve {
-	position: fixed;
-	top:460px;
-	width:28px;
-	right:33%;
-	padding-top:60px;
-	z-index: 10;
-	float:left;
-}
-
-#reserve>#reserveform>#reservediv {
-	width:1350%;
-}
-
-#textb{
-	top:450px;
-}
-
-textarea{
-	color:black;
-}
-
-.text-cente{
-	margin: 0 0 0 5%;
-}
-.categoryTitle {
-	width: 20%;
-	float: left;
-    border-top:2px solid #fff;
-    font-size:30px;
-    font-weight:bold;
-    min-height: 50px;
-}
-
-.categorySub {
-	width: 80%;
-	float: left;
-	padding:10px;
-	font-size:15px;
-    border-top:2px solid #fff;
-    border-left:2px solid #fff;
-    min-height: 50px;
-}
-
-.subContent {
-    width: 50%;
-    float: left;
-}
-</style>
+<link rel="stylesheet" href="/resources/css/detail.css" />
 <link rel="stylesheet" href="/resources/css/star.css" />
 <link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
 <script>
@@ -132,10 +66,10 @@ var emonth = endDay.substr(5,2);
 var eday = endDay.substr(8,2);
 
 
-alert(typeof(disabledDays[0]));
+/* alert(typeof(disabledDays[0]));
 alert(typeof(syear)+syear);
 alert(typeof(smonth)+smonth);
-alert(typeof(sday)+sday);
+alert(typeof(sday)+sday); */
 
 function disableAllTheseDays(date) {
 	
@@ -164,28 +98,36 @@ function disableAllTheseDays(date) {
 	</div>
 	<div id="reserve">
 		<form id="reserveform">
-			<div id="reservediv" style="border:1px solid red;height:600px">
+			<div id="reservediv" style="border:1px solid gray; background-color: lavender;">
 				<input type="hidden" value="${m_id}" name="m_id">
 				<input type="hidden" value="${h_no}" name="h_no">
-				<p>체크인 : <input type="text" name="date1" class="r_startdate"  value="" style="border:1px solid #ccc ; width: 50%;"><br /></p>
-				<p>체크아웃 : <input type="text" name="date1" class="r_startdate"  value="" style="border:1px solid #ccc; width: 50%;"><br /></p>
-				인원 : <select>
+				
+				<div class="font_price">${houseVO.h_fare} 원/1박</div>
+				<div class="contentList"><div class="contentList Title">체크인 : </div>
+				<input type="text" name="date1" class="r_startdate"  value="" readonly="readonly" style="border:1px solid #ccc; width: 50%;">
+				</div>
+				<div class="contentList"><div class="contentList Title">체크아웃 : </div>
+				<input type="text" name="date1" class="r_startdate"  value="" readonly="readonly" style="border:1px solid #ccc ; width: 50%; float:left;">
+				</div>
+				
+				<div class="contentList"><div class="contentList Title">인원 : </div> 
+				<select>
 					<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
 					<option>${status.index}</option>
 					</c:forEach>
-   					</select>
+   				</select> 명
+				</div>
 				
-				
-				<input type="submit" id="reservation" class="reservation" value="예약하기">
-				
-				
-				<c:if test="${m_id!=null}">
-					<button type="button" id="addbasket">장바구니담기</button>
-				</c:if>
-			</div>
+					<div align="center">
+						<input type="submit" id="reservation" class="reservation" value="예약하기">
+						<c:if test="${m_id!=null}">
+							<button type="button" id="addbasket" style="margin-left: 30px;">장바구니담기</button>
+						</c:if>
+					</div>
+				</div>
 		</form>
 	</div>  
-<div style="float:left; width:60%; border:1px solid black; background-color:lavender;">
+<div style="float:left; width:60%; border:1px solid gray; background-color:lavender;">
 	<div><!-- 항목 모음 Div -->
 		<div class="categoryTitle"><!--항목명  -->
 			<span>숙소</span>

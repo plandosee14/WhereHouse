@@ -1,0 +1,86 @@
+body {
+ margin-left: 60px;
+ margin-top: 0px;
+ margin-right: 40px;
+ margin-bottom: 0px;
+}
+#album{
+	top:0px;
+	left:0px;
+	height:450px;
+}
+#album #back{
+	top: 0px;
+	left: 0px;
+	width:90%;
+	max-height: 450px;
+}
+#reserve {
+	position: fixed;
+	top:460px;
+	width:28px;
+	right:33%;
+	padding-top:60px;
+	z-index: 10;
+	float:left;
+}
+
+#reserve>#reserveform>#reservediv {
+	width:1350%;
+	padding:15px;
+	padding-bottom:30px;
+	font-weight: bold;
+}
+
+#textb{
+	top:450px;
+}
+
+textarea{
+	color:black;
+}
+
+.text-cente{
+	margin: 0 0 0 5%;
+}
+.categoryTitle {
+	width: 20%;
+	float: left;
+    border-top:2px solid #fff;
+    font-size:30px;
+    font-weight:bold;
+    min-height: 50px;
+}
+
+.categorySub {
+	width: 80%;
+	float: left;
+	padding:10px;
+	font-size:15px;
+    border-top:2px solid #fff;
+    border-left:2px solid #fff;
+    min-height: 50px;
+}
+
+.subContent {
+    width: 50%;
+    float: left;
+}
+
+.font_price {
+	font-weight: bold;
+	font-size: 30px;
+	padding-bottom:20px;
+	text-align: center;
+}
+
+.contentList {
+	width: 100%;
+	margin-bottom: 20px;
+	margin-left:15px;
+}
+
+.contentList .Title {
+	width: 70px;
+	float: left;
+}
