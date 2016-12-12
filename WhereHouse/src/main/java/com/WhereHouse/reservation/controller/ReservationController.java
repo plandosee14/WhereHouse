@@ -72,8 +72,8 @@ public class ReservationController {
 		model.addAttribute(house);
 		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
 		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
-		model.addAttribute("r_startdate", r_startday);
-		model.addAttribute("r_enddate", r_endday);
+		model.addAttribute("r_startdate", "\""+r_startday+"\"");
+		model.addAttribute("r_enddate", "\""+r_endday+"\"");
 		model.addAttribute("r_peoplecnt", r_peoplecnt);
 		model.addAttribute(reservation);
 	}

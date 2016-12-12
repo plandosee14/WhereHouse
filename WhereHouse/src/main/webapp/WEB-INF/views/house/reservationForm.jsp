@@ -18,7 +18,19 @@ jQuery(function($){
 
 	    $('.r_startdate').datepicker({showOn: 'both',buttonText: "달력",changeMonth: true,changeYear: true,showButtonPanel:true,yearRange: 'c-99:c+99',constrainInput: true,maxDate: '+1y',beforeShowDay: disableAllTheseDays   });
 
-	});
+		var r_startday = ${r_startdate};
+		var r_endday = ${r_enddate}; 
+		var r_sdays = r_startday.split('-');
+		var r_edays = r_endday.split('-');
+		var arr2 = strDate2.split('-');
+	 	var dat1 = new Date(r_sdays[0], r_sdays[1], r_sdays[2]);
+	 	var dat2 = new Date(r_edays[0], r_edays[1], r_edays[2]);
+	 	var diff = dat2 - dat1;
+	    var currDay = 24 * 60 * 60 * 1000;
+	    var minus = parseInt(diff/currDay)
+	    alter(minus);
+
+});
 
 	// 특정날짜들 배열
 
@@ -61,6 +73,8 @@ jQuery(function($){
 	
 	}
 	
+
+	
 </script>
 </head>
 <body>
@@ -68,15 +82,18 @@ jQuery(function($){
 <h3>${houseVO.h_title}</h3>
 <img alt="" src="/resource/img./house/${houseVO.h_thumnail}">
 
-<p>체크인 : <input type="text" name="date1" class="r_startdate" value="${ reservationVO.r_startdate}" style="border:1px solid #ccc"><br /></p>
-<p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
-${r_startdate}
-${r_enddate}
-${r_peoplecnt}
+<p>체크인 : <input type="text" name="r_startdate" class="r_startdate" value="${r_startdate}" style="border:1px solid #ccc"><br /></p>
+<p>체크아웃 : <input type="text" name="r_enddate" class="r_startdate" value="${r_enddate}" style="border:1px solid #ccc"><br /></p>
 
 인원 : <select>
 		<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
-			<option>${status.index}</option>
+			<c:if test="${status.index==r_peoplecnt}">
+				<option selected="selected">${status.index}</option>
+			</c:if>
+			<c:if test="${status.index!=r_peoplecnt}">
+				<option>${status.index}</option>
+			</c:if>
+			
 		</c:forEach>
    </select>
    <input type="hidden" name="m_id" value=${m_id}>
@@ -88,6 +105,7 @@ ${r_peoplecnt}
    우편번호 : <input type="text"><br>
    
 
-1박 가격 : ${houseVO.h_fare}
+1박 가격 : ${houseVO.h_fare *2}
+<div id="price"></div>
 </body>
 </html>
