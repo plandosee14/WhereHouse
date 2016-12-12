@@ -75,6 +75,7 @@ textarea{
 }
 </style>
 <link rel="stylesheet" href="/resources/css/star.css" />
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
 <script>
 	var currentScrollTop = 0;
 	window.onload = function() {
@@ -120,7 +121,7 @@ jQuery(function($){
 	
 
 	var disabledDays = ${dateList};
-	alert(typeof(disabledDays[0]));
+	/* alert(typeof(disabledDays[0])); */
 	function disableAllTheseDays(date) {
 		
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
@@ -152,8 +153,8 @@ jQuery(function($){
 			<div id="reservediv" style="border:1px solid red;height:600px">
 				<input type="hidden" value="${m_id}" name="m_id">
 				<input type="hidden" value="${h_no}" name="h_no">
-				<p>체크인 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
-				<p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
+				<p>체크인 : <input type="text" name="date1" class="r_startdate"  value="" style="border:1px solid #ccc ; width: 50%;"><br /></p>
+				<p>체크아웃 : <input type="text" name="date1" class="r_startdate"  value="" style="border:1px solid #ccc; width: 50%;"><br /></p>
 				인원 : <select>
 					<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
 					<option>${status.index}</option>
