@@ -7,13 +7,6 @@
 <%@include file="../header.jsp" %>
 <title>Insert title here</title>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE" async defer>
-$(document).ready(function() {
-	alert('');
-});
-
-</script>
-
 
 </head>
 <body>

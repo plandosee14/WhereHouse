@@ -23,6 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseService;
 import com.WhereHouse.option.domain.HouseOptionVO;
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
+import com.google.code.geocoder.model.GeocoderStatus;
+import com.google.code.geocoder.model.LatLng;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -47,8 +54,26 @@ public class HouseRegisterController {
 	//등록
 	@RequestMapping("/register")
 	public @ResponseBody void Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
-		System.out.println("등록폼 데이터: "+house);
-		System.out.println("등록폼 파일: "+file);
+		System.out.println("house주소"+house.getH_address());
+		Geocoder geocoder = new Geocoder();
+		GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(house.getH_address()).setLanguage("ko").getGeocoderRequest();
+		GeocodeResponse geocoderResponse;
+
+		try {
+			geocoderResponse = geocoder.geocode(geocoderRequest);
+			if (geocoderResponse.getStatus() == GeocoderStatus.OK & !geocoderResponse.getResults().isEmpty()) {
+				GeocoderResult geocoderResult=geocoderResponse.getResults().iterator().next();
+				LatLng latitudeLongitude = geocoderResult.getGeometry().getLocation();
+				house.setH_pi_x(Float.toString(latitudeLongitude.getLat().floatValue()));
+				house.setH_pi_y(Float.toString(latitudeLongitude.getLng().floatValue()));
+			}
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		}
+		System.out.println(house.getH_pi_x());
+		System.out.println(house.getH_pi_y());
+		/*System.out.println("등록폼 데이터: "+house);
+		System.out.println("등록폼 파일: "+file);*/
 		
 		UUID uid = UUID.randomUUID();
 		
@@ -56,8 +81,8 @@ public class HouseRegisterController {
 		
 		String startdate = request.getParameter("startdate");
 		String enddate = request.getParameter("enddate");
-		System.out.println("h_startdate: "+startdate);
-		System.out.println("h_endtdate: "+enddate);
+		/*System.out.println("h_startdate: "+startdate);
+		System.out.println("h_endtdate: "+enddate);*/
 
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -76,7 +101,7 @@ public class HouseRegisterController {
 		//Date date = new Date(year, month, date)
 	    
 	    
-		System.out.println("넌 무슨 네임이니?: "+saveName);
+		/*System.out.println("넌 무슨 네임이니?: "+saveName);*/
 		String uploadpath = request.getSession().getServletContext().getRealPath("/resources/img/house"); 
 		System.out.println(uploadpath);
 		//String uploadpath = application.getRealPath("/resources/img/house");
@@ -88,7 +113,7 @@ public class HouseRegisterController {
 			house.setM_phone(m_phone);
 			house.setH_thumnail(saveName);
 			
-			System.out.println(house.toString());
+			/*System.out.println(house.toString());*/
 			hservice.insertHouse(house); 
 			
 			//집 옵션 가져오기
@@ -100,17 +125,15 @@ public class HouseRegisterController {
 		    	hoption.setH_no(hservice.selectNewHouseById(house.getM_id()));
 		    	hoption.setO_name(h_option[i]);
 		    	
-		    	System.out.println("h_option: "+hoption.toString());
+		    	/*System.out.println("h_option: "+hoption.toString());*/
 		    	hservice.insertHouseOption(hoption);
   	
 			}
 			
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
