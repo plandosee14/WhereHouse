@@ -410,9 +410,9 @@
 									$('#searchlist').html('');
 									$('#weatherlist').html('');
 									if (marker != null) {
-										for (var i = 0; i < marker.length; i++) {
+										/* for (var i = 0; i < marker.length; i++) {
 											marker[i].setMap(null);
-										}
+										} */
 										marker = [];
 										infowindow = [];
 										map = new google.maps.Map(

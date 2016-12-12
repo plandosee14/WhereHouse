@@ -47,7 +47,7 @@
 		<div class="row">
 			<div
 				class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">국내 축제 순위 TOP6</h2>
+				<h2 class="margin-top-0 text-primary" style="color: #1d1d1d;">인기 축제 추천 TOP6</h2>
 				<br>
 			</div>
 		</div>
