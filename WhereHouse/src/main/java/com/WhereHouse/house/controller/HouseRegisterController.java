@@ -53,7 +53,7 @@ public class HouseRegisterController {
 	
 	//등록
 	@RequestMapping("/register")
-	public @ResponseBody String Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
+	public String Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
 		int h_no = 0;
 		System.out.println("house주소"+house.getH_address());
 		Geocoder geocoder = new Geocoder();
@@ -71,13 +71,9 @@ public class HouseRegisterController {
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
-		System.out.println(house.getH_pi_x());
-		System.out.println(house.getH_pi_y());
-		/*System.out.println("등록폼 데이터: "+house);
-		System.out.println("등록폼 파일: "+file);*/
+	
 		
-		UUID uid = UUID.randomUUID();
-		
+		UUID uid = UUID.randomUUID();		
 		String saveName = uid.toString()+"_"+file.getOriginalFilename();
 		
 		String startdate = request.getParameter("startdate");
@@ -96,8 +92,7 @@ public class HouseRegisterController {
 			e1.printStackTrace();
 		}
 		
-		//핸드폰 번호 가져오기
-		String m_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
+		
 		
 		//Date date = new Date(year, month, date)
 	    
@@ -110,11 +105,19 @@ public class HouseRegisterController {
         try {
 			FileCopyUtils.copy(file.getBytes(), target);
 			
+			//HouseVO
+			//핸드폰 번호 가져오기
+			String m_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
+			//집주소 가져오기
+			house.setH_address(request.getParameter("h_address") + request.getParameter("addr2"));		
+			
+			//체크인 아웃시간
+			String h_checktime = request.getParameter("checkin")+" ~ "+request.getParameter("checkout");
 			
 			house.setM_phone(m_phone);
 			house.setH_thumnail(saveName);
-			
-			/*System.out.println(house.toString());*/
+			house.setH_checktime(h_checktime);
+		
 			hservice.insertHouse(house); 
 			
 			//집 옵션 가져오기

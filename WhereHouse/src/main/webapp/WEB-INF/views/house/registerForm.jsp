@@ -7,7 +7,6 @@
 <%@include file="../header.jsp" %>
 <title>Insert title here</title>
 
-
 </head>
 <body>
 <center>
@@ -53,7 +52,7 @@
 침대  <input type="text" name="title"> 개 욕실 <input type="text" name="title"><br>
 방갯수 <input type="text" name=""> 개 <br>
 
-체크인아웃 <input type="text" name="h_checktime"> <br>
+체크인: <input type="text" name="checkin"> ~ 체크아웃: <input type="text" name="checkout"> <br>
 규칙 
 <textarea rows="20" cols="50" name="h_rule"></textarea>
 <br>
@@ -138,11 +137,6 @@ function openDaumPostcode() {
         }
     }).open();
 }
-
-
-
-
-
 </script>
 
 </body>
