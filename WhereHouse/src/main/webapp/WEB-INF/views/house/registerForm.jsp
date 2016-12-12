@@ -7,7 +7,12 @@
 <%@include file="../header.jsp" %>
 <title>Insert title here</title>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE&signed_in=true&callback=initMap" async defer></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xicslxG92qCXj6ltH4xrVW96C5OhSIE" async defer>
+$(document).ready(function() {
+	alert('');
+});
+
+</script>
 
 
 </head>
@@ -140,27 +145,10 @@ function openDaumPostcode() {
         }
     }).open();
 }
-</script>
-<script>
-h_address = $('#h_address').val;
 
-var geocoder = new google.maps.Geocoder();
-geocoder
-      .geocode(
-            {
-               'address' : h_address//지오코더한테 보내줄값이야 주소들어가는 textbox? 에 id값 주고 넣어써줘
-            },
-            function(results, status) {
-               if (status === google.maps.GeocoderStatus.OK) {
-                  results[0].geometry.location//이게 나온 위도경도야 이거 스플릿(,)해서 위도컬럼에, 경도 컬럼에 넣으면 될거같음
-                  alert( results[0].geometry.location.lat());
-                  alert(results[0].geometry.location.lng());
-               } else {
-                    alert('주소를 변환하는 과정중 오류가 발생');
-               }
-            });
-            
-            submit;
+
+
+
 
 </script>
 
