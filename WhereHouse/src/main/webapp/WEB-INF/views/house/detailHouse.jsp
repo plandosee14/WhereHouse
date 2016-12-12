@@ -5,10 +5,11 @@
 <html lang="ko">
 <head>
 <%@include file="../header.jsp" %>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <style type="text/css">
-html, body {
- margin-left: 40px;
+body {
+ margin-left: 60px;
  margin-top: 0px;
  margin-right: 40px;
  margin-bottom: 0px;
@@ -28,7 +29,7 @@ html, body {
 	position: fixed;
 	top:460px;
 	width:28px;
-	right:31%;
+	right:33%;
 	padding-top:60px;
 	z-index: 10;
 	float:left;
@@ -309,9 +310,9 @@ textarea{
 				<c:if test="${m_id != null}"> 
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label><br>
-					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="75%" readonly="readonly"><br> 
+					<input class="form-controll" type="text" value="${m_name }" id="newCommentWriter" size="60%" readonly="readonly"><br> 
 					<label for="exampleInputEmail1">Comment Text</label> <br>
-					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="75%">
+					<input class="form-controll" type="text" placeholder="Comment TEXT" id="newCommentText" size="60%">
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
@@ -333,8 +334,8 @@ textarea{
 	</div>
 </div>
 <div id="map"
-		style="height:60%;width:60%;position: fixed;"></div>		
-          
+		style="height:60%;width:60%;position: fixed;"></div>	
+
 <!-- Modal -->
 <div id="modifyModal" class="modal modal-primary fade" role="dialog">
   <div class="modal-dialog">
@@ -356,7 +357,6 @@ textarea{
   </div>
 </div> 
 
-<%@include file="../footer.jsp" %>
 	<link rel="stylesheet" href="/resources/css/Nwagon.css" type="text/css">
 	<script src="/resources/js/Nwagon.js"></script>
 	<script src="/resources/js/star.js"></script>
@@ -657,5 +657,7 @@ textarea{
 	};
 	Nwagon.chart(options);
 	</script>
+	
 	</body>
+
 </html>
