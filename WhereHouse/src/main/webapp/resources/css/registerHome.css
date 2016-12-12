@@ -1,0 +1,65 @@
+h1 {
+	font-weight: bold;
+}
+
+.categoryOutbox {
+	width:50%;
+	margin-top:30px;
+}
+
+.categoryOutbox h3{
+	font-size: 25px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.categoryInbox {
+	border:2px solid black;
+	padding:40px;
+	font-size: 15px;
+}
+
+.contentList {
+	width:100%;
+	margin-bottom: 20px;
+}
+
+.contentList .Title {
+	width: 120px;
+	float: left;
+}
+
+.contentList p  {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.categoryInbox table {
+	width: 100%;
+}
+
+.categoryInbox td {
+	width: 33%;
+	padding-bottom:30px;
+}
+
+.submitBtn {
+	width:20%;
+	color: #fff;
+	border:none;
+	margin-top: 50px;
+	margin-bottom: 200px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-radius: 10px;
+}
+
+.btn_confirm {
+	background-color: #0080ff;
+	border-color: #0080ff;
+}
+
+.btn_confirm:hover {
+	background-color: #0000a0;
+	border-color: #0000a0;
+}
