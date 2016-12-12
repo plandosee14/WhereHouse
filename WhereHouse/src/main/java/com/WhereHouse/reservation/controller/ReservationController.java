@@ -38,7 +38,7 @@ public class ReservationController {
 		
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping("/regervation")
 	public void reservation(ReservationVO reservation, Model model)throws Exception{
 		
 		
