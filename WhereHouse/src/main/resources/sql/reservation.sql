@@ -27,7 +27,10 @@ nocache;
 select * from reservation;
 
 insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
-values (reservation_seq.nextval, 44,'plandosee14@gmail.com','2016-12-15','2016-12-17',140000,1);
+values (reservation_seq.nextval, 66,'plandosee14@gmail.com','2016-12-19','2016-12-21',45000,1);
+
+insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
+values (reservation_seq.nextval, 66,'plandosee14@gmail.com','2016-12-21','2016-12-22',15000,1);
 
 insert into reservation (r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
 values (reservation_seq.nextval, 9,'ojh5797@naver.com','2016-12-04','2016-12-05',45000,1);
