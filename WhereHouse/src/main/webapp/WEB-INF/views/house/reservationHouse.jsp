@@ -25,24 +25,29 @@ jQuery(function($){
 	
 
 	var disabledDays = ${dateList};
-	var startDay = ${startDate};
+	var startDay = ${startDate}; //string
 	var syear = startDay.substr(0,4);
-	var smonth = startDay.substr(0,4);
-	var sday = startDay.substr(0,4);
+	var smonth = startDay.substr(5,2);
+	var sday = startDay.substr(8,2);
 	
-	var endDay = ${endDate}
+	var endDay = ${endDate};
+	var eyear = endDay.substr(0,4);
+	var emonth = endDay.substr(5,2);
+	var eday = endDay.substr(8,2);
+	
+	
 	//alert(typeof(disabledDays[0]));
-	alert(typeof(startDay));
-	alert(startDay);
-	alert(typeof(endDay));
-	alert(endDay);
+	alert(typeof(syear)+syear);
+	alert(typeof(smonth)+smonth);
+	alert(typeof(sday)+sday);
+	
 	function disableAllTheseDays(date) {
 		
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 	
 	    for (i = 0; i < disabledDays.length; i++) {
 	
-	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date >new Date(2017,0,02))) {
+	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday))) {
 	
 	            return [false];
 	

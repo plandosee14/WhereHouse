@@ -40,8 +40,10 @@ public class HouseDetailController {
 	@RequestMapping("/detail")
 	public String readPage(int h_no, Model model, @ModelAttribute("cri") Criteria cri, HttpSession session) throws Exception{
 		String m_id = (String) session.getAttribute("m_id");
-				
-		model.addAttribute(service.read(h_no));
+		
+		HouseVO house = service.read(h_no);
+		
+		model.addAttribute(house);
 		model.addAttribute("oList",service.selectHouseOption(h_no));
 		boolean checkGrade = false;
 		if(m_id != null){
@@ -49,6 +51,8 @@ public class HouseDetailController {
 		}
 		model.addAttribute("checkGrade", checkGrade);
 		
+		model.addAttribute("startDate", "\""+house.getH_startdate()+"\"");
+		model.addAttribute("endDate", "\""+house.getH_enddate()+"\"");
 
 		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
 		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
