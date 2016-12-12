@@ -116,9 +116,9 @@
 
 					<tr style="color: black">
 						<td>${houseVO.h_no}</td>
-						<td><img
-							src="../resources/img/house/${houseVO.h_thumnail}"
-							width="70px" height="50px"></td>
+						<td>
+						<a href="/house/detail?h_no=${houseVO.h_no }"><img src="../resources/img/house/${houseVO.h_thumnail}"
+							width="70px" height="50px"></a></td>
 						<td>${houseVO.h_title}</td>
 
 					</tr>
@@ -142,13 +142,13 @@
 					<td>인원</td>
 				</tr>
 
-
+				<c:forEach items="${houseList}" var="houseVO">
 				<c:forEach items="${regList}" var="registerVO">
 
 					<tr style="color: black">
-						<td><img
-							src="../resources/img/house/${registerVO.h_thumnail}"
-							width="70px" height="50px"></td>
+						<td>
+						<a href="/house/detail?h_no=${houseVO.h_no }"><img src="../resources/img/house/${registerVO.h_thumnail}"
+							width="70px" height="50px"></a></td>
 						<td>${registerVO.m_id}(${registerVO.m_name})</td>
 						<td>${registerVO.m_phone}</td>
 						<td>
@@ -159,7 +159,7 @@
 					</tr>
 
 				</c:forEach>
-
+			    </c:forEach>
 			</table>
 		</div>
 			<br><br><br>
@@ -176,12 +176,13 @@
 					<td>평가</td>
 				</tr>
 
-
 				<c:forEach items="${estList}" var="estimateVO" varStatus="status">
 
 					<tr style="color: black">
 						<td>
+						 
 							<img src="../resources/img/house/${estimateVO.h_thumnail}" width="70px" height="50px">
+						  
 						</td>
 						<td>${estimateVO.m_id}(${estimateVO.m_name})</td>
 						<td>
@@ -212,7 +213,6 @@
 					</tr>
 
 				</c:forEach>
-
 			</table>
 		</div>
 			

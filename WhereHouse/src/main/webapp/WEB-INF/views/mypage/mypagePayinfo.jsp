@@ -98,9 +98,9 @@
 				<c:forEach items="${rList}" var="reservationVO">
 				  
 					<tr style="color: black">
-						<td><img
-							src="../resources/img/house/${reservationVO.h_thumnail}"
-							width="70px" height="50px"></td>
+						<td>
+						<a href="/house/detail?h_no=${reservationVO.h_no }"><img src="../resources/img/house/${reservationVO.h_thumnail}"
+							width="70px" height="50px"></a></td>
 						<td>${reservationVO.r_no}</td>
 						<td>${reservationVO.h_no}</td>
 						<td>

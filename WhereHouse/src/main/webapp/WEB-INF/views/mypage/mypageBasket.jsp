@@ -140,8 +140,8 @@ if (session.getAttribute("m_id") == null || session.getAttribute("m_id") =="") {
 				<div class="basketList">
 					<center>
 						<div style="width:100% ; height:300px; overflow: hidden;">
-						<img src="../resources/img/house/${myBasketVO.h_thumnail}"
-							width="95%" height="300px">
+						<a href="house/detail?h_no=${myBasketVO.h_no }"><img src="../resources/img/house/${myBasketVO.h_thumnail}"
+							width="95%" height="300px"></a>
 						</div>
 					</center>
 					<form role="form" method="post">
