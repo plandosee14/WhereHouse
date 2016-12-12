@@ -12,7 +12,14 @@ public class MyRegisterVO {
 	private Date r_enddate;
 	private int r_peoplecnt;
 	private int r_no;
+	private int h_no;
 
+	public int getH_no() {
+		return h_no;
+	}
+	public void setH_no(int h_no) {
+		this.h_no = h_no;
+	}
 	public int getR_no() {
 		return r_no;
 	}
@@ -65,10 +72,8 @@ public class MyRegisterVO {
 	public String toString() {
 		return "MyRegisterVO [h_thumnail=" + h_thumnail + ", m_id=" + m_id + ", m_name=" + m_name + ", m_phone="
 				+ m_phone + ", r_startdate=" + r_startdate + ", r_enddate=" + r_enddate + ", r_peoplecnt=" + r_peoplecnt
-				+ ", r_no=" + r_no + "]";
+				+ ", r_no=" + r_no + ", h_no=" + h_no + "]";
 	}
-
-
 	
 	
 }

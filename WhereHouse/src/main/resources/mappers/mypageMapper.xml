@@ -46,7 +46,7 @@
 	</select>
 	
 	<select id="selectRegisterById" resultType="com.WhereHouse.mypage.domain.MyRegisterVO">
-		select h.h_thumnail, r.m_id, m.m_name, m.m_phone, r.r_startdate, r.r_enddate, r.r_peoplecnt
+		select h.h_thumnail, r.m_id, m.m_name, m.m_phone, r.r_startdate, r.r_enddate, r.r_peoplecnt, h.h_no
 		from house h, reservation r, member m
 		where h.h_no = r.h_no
 			and h.m_id = #{m_id}
