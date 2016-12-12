@@ -1,4 +1,4 @@
-h1 {
+h2 {
 	font-weight: bold;
 }
 
@@ -14,7 +14,14 @@ h1 {
 }
 
 .categoryInbox {
-	border: 2px solid black;
+	/* border: 5px #e0e0e0;
+	border-style: outset; */
+	border-top:5px solid #e0e0e0;
+	border-left:5px solid #e0e0e0;
+	border-bottom:5px solid #b0b0b0;
+	border-right:5px solid #b0b0b0;
+	/* border: 1px solid black;
+	box-shadow: 10px 10px gray; */
 	padding: 40px;
 	font-size: 15px;
 }
@@ -25,7 +32,7 @@ h1 {
 }
 
 .contentList .Title {
-	width: 120px;
+	width: 100px;
 	float: left;
 }
 
@@ -60,6 +67,6 @@ h1 {
 }
 
 .btn_confirm:hover {
-	background-color: #0000a0;
-	border-color: #0000a0;
+	background-color: #0000ff;
+	border-color: #0000ff;
 }

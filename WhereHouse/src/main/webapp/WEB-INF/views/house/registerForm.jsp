@@ -11,7 +11,7 @@
 <body>
 	<center>
 		<br> <br> <br>
-		<h2>숙소등록</h2>
+		<h1>숙소등록</h1>
 	</center>
 	<form action="register" method="post" enctype="multipart/form-data">
 		<div align="center">
@@ -69,8 +69,10 @@
 				<input type="text" name="title"> 개</div>
 			<div class="contentList"><div class="contentList Title">방갯수</div>
 				<input type="text" name=""> 개</div>
-			<div class="contentList"><div class="contentList Title">체크인아웃</div>
-				<input type="text" name="h_checktime"></div>
+			<div class="contentList"><div class="contentList Title">체크인: </div>
+				<input type="text" name="checkin" style="width: 164px; float:left;">
+				<div class="contentList Title">&nbsp~ 체크아웃: </div>
+				<input type="text" name="checkout" style="width: 164px; float:left;"><div>&nbsp</div></div>
 			<div class="contentList"><div class="contentList Title">규칙</div>
 				<textarea rows="20" cols="45" name="h_rule"></textarea></div>
 		</div>
