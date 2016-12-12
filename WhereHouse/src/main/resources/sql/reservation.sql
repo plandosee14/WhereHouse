@@ -64,3 +64,15 @@ select r.r_no, h.h_no, r.r_startdate, r.r_enddate, r.r_fare, r.r_peoplecnt, h.h_
 		from house h, reservation r
 		where h.h_no = r.h_no
       		and r.m_id = 'ojh5797@naver.com';
+      		
+
+      		--Æ®¸®°Å
+create or replace trigger h_state_update
+after insert on reservation
+for each row
+begin 
+   update house set h_state=1
+      where (h_enddate-h_startdate)=h_rdays and
+       h_no = :new.h_no;
+end;
+/
