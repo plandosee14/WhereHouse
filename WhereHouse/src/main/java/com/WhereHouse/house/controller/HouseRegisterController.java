@@ -53,7 +53,8 @@ public class HouseRegisterController {
 	
 	//등록
 	@RequestMapping("/register")
-	public @ResponseBody void Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
+	public @ResponseBody String Register(HttpServletRequest request, HttpSession session, HouseVO house, MultipartFile file){
+		int h_no = 0;
 		System.out.println("house주소"+house.getH_address());
 		Geocoder geocoder = new Geocoder();
 		GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(house.getH_address()).setLanguage("ko").getGeocoderRequest();
@@ -122,6 +123,7 @@ public class HouseRegisterController {
 		    for (int i = 0; i < h_option.length; i++) {
 		    	
 		    	HouseOptionVO hoption = new HouseOptionVO();
+		    	h_no = hservice.selectNewHouseById(house.getM_id());
 		    	hoption.setH_no(hservice.selectNewHouseById(house.getM_id()));
 		    	hoption.setO_name(h_option[i]);
 		    	
@@ -136,6 +138,8 @@ public class HouseRegisterController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        
+        return "redirect:/house/detail?h_no="+h_no;
 	
         
 	}

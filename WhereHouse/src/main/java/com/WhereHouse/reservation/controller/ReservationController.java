@@ -40,7 +40,7 @@ public class ReservationController {
 	
 	@RequestMapping("/regervation")
 	public void reservation(ReservationVO reservation, Model model)throws Exception{
-		 
+		 rservice.insertReservation(reservation);
 		
 	}
 

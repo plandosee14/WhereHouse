@@ -25,11 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 
 
-	@Override
-	public void insertReservation() throws Exception {
-		
-		
-	}
+
 
 	@Override
 	public List<String> selectReservationImPossibleDate(int h_no) throws Exception {
@@ -61,6 +57,16 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return dayList;
 
+	}
+
+
+
+
+
+	@Override
+	public void insertReservation(ReservationVO reservation) throws Exception {
+		rdao.insertReservation(reservation);
+		
 	}
 
 }
