@@ -13,6 +13,7 @@
 		<br> <br> <br>
 		<h1>숙소등록</h1>
 	</center>
+	
 	<form action="register" method="post" enctype="multipart/form-data">
 		<div align="center">
 		<div class="categoryOutbox" align="left">
