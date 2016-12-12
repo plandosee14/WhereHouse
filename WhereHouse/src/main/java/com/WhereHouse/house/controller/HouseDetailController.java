@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.WhereHouse.comment.domain.Criteria;
+import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.service.HouseDetailService;
+import com.WhereHouse.house.service.HouseService;
+import com.WhereHouse.reservation.service.ReservationService;
 
 @Controller
 @RequestMapping("/house")
@@ -22,6 +25,11 @@ public class HouseDetailController {
 	@Inject
 	private HouseDetailService service;
 	
+	@Inject
+	private ReservationService rservice;
+	
+	@Inject
+	private HouseService hservice;
 	
 	
 	@RequestMapping("/read")
@@ -40,6 +48,11 @@ public class HouseDetailController {
 			checkGrade = service.grade(m_id, h_no);
 		}
 		model.addAttribute("checkGrade", checkGrade);
+		
+
+		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
+		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
+		
 		return "house/detailHouse";
 	}
 	
