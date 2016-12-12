@@ -109,7 +109,7 @@ public class HouseRegisterController {
 			//핸드폰 번호 가져오기
 			String m_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 			//집주소 가져오기
-			house.setH_address(request.getParameter("h_address") + request.getParameter("addr2"));		
+			house.setH_address(request.getParameter("h_address") +" " +request.getParameter("addr2"));		
 			
 			//체크인 아웃시간
 			String h_checktime = request.getParameter("checkin")+" ~ "+request.getParameter("checkout");

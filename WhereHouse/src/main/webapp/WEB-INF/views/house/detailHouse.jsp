@@ -122,6 +122,8 @@ jQuery(function($){
 
 	var disabledDays = ${dateList};
 	/* alert(typeof(disabledDays[0])); */
+	
+	
 	function disableAllTheseDays(date) {
 		
 	    var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();

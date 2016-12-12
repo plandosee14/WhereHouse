@@ -31,6 +31,8 @@ public class ReservationController {
 	public void reservationHouse(@RequestParam("h_no") int h_no,Model model)throws Exception{
 		HouseVO house  = hservice.selectHouseByHno(h_no);
 		
+		model.addAttribute("startDate", "\""+house.getH_startdate()+"\"");
+		model.addAttribute("endDate", "\""+house.getH_enddate()+"\"");
 		model.addAttribute(house);
 		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
 		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
