@@ -27,10 +27,19 @@ create table house(
 	h_rightscore      number		      	default 0,
 	h_cleanscore      number		     	default 0,
 	h_checkscore      number	     		default 0,
-	h_commuscore      number		     	default 0
+	h_commuscore      number		     	default 0,
+	h_rdays number default 0
 );
 
 
+  alter table house
+   add (h_rdays number default 0);
+
+   
+   update house set h_rdays = 3
+    where h_no = 66;
+   
+   
 drop sequence house_seq;
 create sequence house_seq
 start with 13
@@ -86,6 +95,7 @@ h_checktime, h_sale,h_salefare,
 
 alter house h_thumnail
 delete from house where m_name='±«º∫¡ÿ';
+
 
 
 select h.h_no, h.h_fare, h.h_type, h.h_livetype, h.h_thumnail ,b.b_no

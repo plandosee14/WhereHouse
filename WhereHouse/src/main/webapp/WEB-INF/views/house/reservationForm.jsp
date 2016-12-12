@@ -36,7 +36,7 @@ jQuery(function($){
 	var eday = endDay.substr(8,2);
 	
 	
-	alert(typeof(disabledDays[0]));
+	//alert(typeof(disabledDays[0]));
 	alert(typeof(syear)+syear);
 	alert(typeof(smonth)+smonth);
 	alert(typeof(sday)+sday);
@@ -47,16 +47,13 @@ jQuery(function($){
 	
 	    for (i = 0; i < disabledDays.length; i++) {
 	
-	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)) {
+	        if(($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1)||(date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday))) {
 	
 	            return [false];
 	
 	        }
-
+	
 	    }
-	    if((date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday)))
-        	return [false];
-	    
 	
 	    return [true];
 	
@@ -69,7 +66,7 @@ jQuery(function($){
 <h3>${houseVO.h_title}</h3>
 <img alt="" src="/resource/img./house/${houseVO.h_thumnail}">
 
-<p>체크인 : <input type="text" name="date1" class="r_startdate"  style="border:1px solid #ccc"><br /></p>
+<p>체크인 : <input type="text" name="date1" class="r_startdate" value="2016-12-20" style="border:1px solid #ccc"><br /></p>
 <p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
 인원 : <select>
 		<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
@@ -82,7 +79,7 @@ jQuery(function($){
    만료일  : <input type="text"><br>
    보안코드  : <input type="text"><br>
    결제자이름 : <input type="text"><br>
-  우편번호 : <input type="text"><br>
+   우편번호 : <input type="text"><br>
    
 
 1박 가격 : ${houseVO.h_fare}

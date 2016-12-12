@@ -40,9 +40,23 @@ public class ReservationController {
 		
 	}
 	
-	@RequestMapping("/regervation")
-	public void reservation(ReservationVO reservation, Model model)throws Exception{
-		 rservice.insertReservation(reservation);
+/*	@RequestMapping("/reservationForm")
+	public void reservation(@RequestParam("h_no") int h_no,ReservationVO reservation, Model model)throws Exception{
+		System.out.println("안들어오니?"); 
+		rservice.insertReservation(reservation);
+		 HouseVO house  = hservice.selectHouseByHno(h_no);
+			
+			model.addAttribute("startDate", "\""+house.getH_startdate()+"\"");
+			model.addAttribute("endDate", "\""+house.getH_enddate()+"\"");
+			model.addAttribute(house);
+			model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
+			model.addAttribute("reservation", reservation);
+			
+			
+	}*/
+	
+	@RequestMapping("/reservationForm")
+	public void test2(){
 		
 	}
 
