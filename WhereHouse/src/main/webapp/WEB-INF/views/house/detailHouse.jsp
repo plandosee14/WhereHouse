@@ -58,17 +58,17 @@ jQuery(function($){
 
     $.datepicker.setDefaults($.datepicker.regional['ko']);
 
-    $('.r_startdate').datepicker({showOn: 'both',buttonText: "달력",changeMonth: true,changeYear: true,showButtonPanel:true,yearRange: 'c-99:c+99',constrainInput: true,maxDate: '+1y',beforeShowDay: disableAllTheseDays   });
+    $('.r_date').datepicker({showOn: 'both',buttonText: "달력",changeMonth: true,changeYear: true,showButtonPanel:true,yearRange: 'c-99:c+99',constrainInput: true,maxDate: '+1y',beforeShowDay: disableAllTheseDays   });
 
 });
 // 특정날짜들 배열
 
 
 
-
+/* 
 alert(typeof(syear)+syear);
 alert(typeof(smonth)+smonth);
-alert(typeof(sday)+sday); 
+alert(typeof(sday)+sday);  */
 
 function disableAllTheseDays(date) {
 
@@ -98,21 +98,21 @@ function disableAllTheseDays(date) {
 		<img id="back" src="../resources/img/house/${houseVO.h_thumnail}">
 	</div>
 	<div id="reserve">
-		<form id="reserveform" action="reservationForm">
+		<form id="reserveform" action="reservationForm" >
 			<div id="reservediv" style="border:1px solid gray; background-color: lavender;">
-				<input type="hidden" value="${m_id}" name="m_id">
-				<input type="hidden" value="${h_no}" name="h_no">
+				
+				<input type="hidden" value="${houseVO.h_no}" name="h_no">
 				
 				<div class="font_price">${houseVO.h_fare} 원/1박</div>
 				<div class="contentList"><div class="contentList Title">체크인 : </div>
-				<input type="text" name="date1" class="r_startdate"  value=""  style="border:1px solid #ccc; width: 50%;">
+				<input type="text" name="startdate" class="r_date"  value=""  style="border:1px solid #ccc; width: 50%;">
 				</div>
 				<div class="contentList"><div class="contentList Title">체크아웃 : </div>
-				<input type="text" name="date1" class="r_startdate"  value=""  style="border:1px solid #ccc ; width: 50%; float:left;">
+				<input type="text" name="enddate" class="r_date"  value=""  style="border:1px solid #ccc ; width: 50%; float:left;">
 				</div>
 				
 				<div class="contentList"><div class="contentList Title">인원 : </div> 
-				<select>
+				<select name="peoplecnt">
 					<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
 					<option>${status.index}</option>
 					</c:forEach>
