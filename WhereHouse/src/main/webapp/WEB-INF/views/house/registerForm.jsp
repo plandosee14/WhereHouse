@@ -148,6 +148,7 @@
 			<input type="submit" id="submit" class="submitBtn btn_confirm" value="등록">
 		</div>
 	</form>
+	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script>
 		function openDaumPostcode() {
