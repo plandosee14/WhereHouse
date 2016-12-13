@@ -100,8 +100,8 @@ jQuery(function($){
             <div class="container_ctn">
             <form action="reservation">
                <div class="font1">${houseVO.h_title} 집</div>
-               <div align="center" style="width:100%; min-height: 150px; border:1px dotted black;">
-                  <img alt="" src="/resource/img./house/${houseVO.h_thumnail}" width="200"></div>
+               <div align="center" style="width:100%; min-height: 150px;">
+                  <img alt="" src="/resources/img/house/${houseVO.h_thumnail}" width="200"></div>
                <p>
                   <input type="hidden" value="${m_id}" name="m_id"> 
                   <input type="hidden" value="${houseVO.h_no}" name="h_no"> 
