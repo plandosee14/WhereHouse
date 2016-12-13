@@ -125,21 +125,25 @@
 			</td>
 			<td width=50%>
 				<div class="container_ctn">
+				<form action="/reservation">
 					<div class="font1">${houseVO.h_title} 집</div>
 					<div align="center" style="width:100%; min-height: 150px; border:1px dotted black;">
 						<img alt="" src="/resource/img./house/${houseVO.h_thumnail}" width="200"></div>
 					<p>
+						<input type="hidden" name="${m_id}"> 
+						<input type="hidden" name="${houseVO.h_no}"> 
+						<input type="hidden" name="${m_id}"> 
 						<div class="contentList"><div class="contentList Title">체크인 : </div>
-						<input type="text" name="r_startdate" class="r_startdate" value="${r_startdate}" 
+						<input type="text" name="rstartdate" class="r_startdate" value="${r_startdate}" 
 								style="border: 1px solid #ccc"></div>
 					</p>
 					<p>
 						<div class="contentList"><div class="contentList Title">체크아웃 : </div>
-						<input type="text" name="r_enddate" class="r_startdate" value="${r_enddate}" 
+						<input type="text" name="renddate" class="r_startdate" value="${r_enddate}" 
 								style="border:1px solid #ccc"></div>
 					</p>
 					<div class="contentList"><div class="contentList Title">인원 : </div>
-					<select>
+					<select name="r_peoplecnt">
 						<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
 							<c:if test="${status.index==r_peoplecnt}">
 								<option selected="selected">${status.index}</option>
@@ -150,8 +154,10 @@
 						</c:forEach>
    					</select></div>
 					<div class="contentList"><div class="contentList Title">1박 가격 : </div>${houseVO.h_fare} 원/1박</div>
+					<input type="hidden" name="r_fare" value="${houseVO.h_fare}">
 					<div id="price"></div>
 					<input type="submit" class="submitBtn btn_confirm" value="결재완료" align="middle">
+				 </form>
 				</div>
 			</td>
 		</tr>

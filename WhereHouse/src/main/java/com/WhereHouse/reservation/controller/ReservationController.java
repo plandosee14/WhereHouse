@@ -1,5 +1,9 @@
 package com.WhereHouse.reservation.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -80,6 +84,20 @@ public class ReservationController {
 
 	@RequestMapping("/reservation")
 	public String reservation(HttpServletRequest request, ReservationVO reservation){
+		String startdate = request.getParameter("rstartdate");
+		String enddate = request.getParameter("rendstartdate");
+		
+		try {
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date r_startdate = transFormat.parse("startdate");
+			Date r_enddate = transFormat.parse("enddate");
+			reservation.setR_startdate(r_startdate);
+			reservation.setR_enddate(r_enddate);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		return "/mypage/reginfo";
