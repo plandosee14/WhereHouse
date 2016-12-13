@@ -57,10 +57,26 @@
 	<interceptors>
 	  <interceptor>
 	    <mapping path="/mypage"/>
+	    <mapping path="/mypage/remmovebasket"/>
 	    <mapping path="/mypage/payinfo"/>
 	    <mapping path="/mypage/reginfo"/>
+	    <mapping path="/mypage/reginfoAjax"/>
+	    <mapping path="/mypage/deleteForm"/>
+	    <mapping path="/mypage/delete"/>
+	    <mapping path="/mypage/updateForm"/>
+	    <mapping path="/mypage/update"/>
 	    <mapping path="/mypage/check"/>
+	    <mapping path="/mypage/checkForm"/>
+	    <mapping path="/mypage/checkDelForm"/>
 	    <mapping path="/mypage/check2"/>
+	    <mapping path="/mypage/read"/>
+	    <mapping path="/house/registerForm"/>
+	    <mapping path="/house/register"/>
+	    <mapping path="/house/reservationHouse"/>
+	    <mapping path="/house/regervation"/>
+	    <mapping path="/house/reservationForm"/>
+	    <mapping path="/baskets/insert"/>
+	    <mapping path="/baskets/delete"/>
 	    <beans:ref bean="sampleIntercepter"/>
 	  </interceptor>
 	</interceptors>

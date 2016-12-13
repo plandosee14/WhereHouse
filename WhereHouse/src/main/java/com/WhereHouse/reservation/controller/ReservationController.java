@@ -1,6 +1,7 @@
 package com.WhereHouse.reservation.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,7 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("/reservationHouse")
-	public void reservationHouse(@RequestParam("h_no") int h_no,Model model)throws Exception{
+	public void reservationHouse(int h_no,Model model)throws Exception{
 		HouseVO house  = hservice.selectHouseByHno(h_no);
 		
 		model.addAttribute("startDate", "\""+house.getH_startdate()+"\"");
@@ -56,8 +57,32 @@ public class ReservationController {
 	}*/
 	
 	@RequestMapping("/reservationForm")
-	public void test2(){
+	public void test2(int h_no,Model model,HttpServletRequest request)throws Exception{
+		ReservationVO reservation = new ReservationVO();
+		System.out.println(h_no);
+		String r_startday = request.getParameter("startdate");
+		String r_endday = request.getParameter("enddate");
+		String r_peoplecnt = request.getParameter("peoplecnt");
+		HouseVO house  = hservice.selectHouseByHno(h_no);
 		
+		System.out.println(r_startday);
+		System.out.println(r_endday);
+		model.addAttribute("startDate", "\""+house.getH_startdate()+"\"");
+		model.addAttribute("endDate", "\""+house.getH_enddate()+"\"");
+		model.addAttribute(house);
+		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
+		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
+		model.addAttribute("r_startdate", "\""+r_startday+"\"");
+		model.addAttribute("r_enddate", "\""+r_endday+"\"");
+		model.addAttribute("r_peoplecnt", r_peoplecnt);
+		model.addAttribute(reservation);
 	}
 
+	@RequestMapping("/reservation")
+	public String reservation(){
+		
+		
+		return "/mypage/reginfo";
+		
+	}
 }
