@@ -58,7 +58,7 @@
 		from house h, reservation r, member m
 		where h.h_no = r.h_no
 			and r.m_id = m.m_id
-			and r.m_id = #{m_id}
+			and h.m_id = #{m_id}
 			and r.r_state >=1
 	</select>
 	

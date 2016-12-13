@@ -40,6 +40,10 @@ public class MyRegisterController {
 		
 		List<MyRegisterVO> estList = regService.listEstimateById(m_id);
 		model.addAttribute("estList", estList);//평가정보
+		for (int i = 0; i < estList.size(); i++) {
+			
+			System.out.println(estList.get(i).toString());
+		}
 		
 		List<Integer> rList = new ArrayList<>();		
 		for (int i = 0; i < estList.size(); i++) {
