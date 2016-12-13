@@ -1,0 +1,49 @@
+.font1 {
+	font-weight: bold;
+	font-size: 35px;
+	padding-bottom: 20px;
+	text-align: center;
+	min-height: 50px;
+}
+
+.contentList {
+	width: 100%;
+	margin-bottom: 20px;
+	margin-left: 15px;
+}
+
+.contentList .Title {
+	width: 120px;
+	float: left;
+	font-size: 15px;
+}
+
+.container_ctn {
+	border: 1px solid black;
+	width: 80%;
+	min-height: 500px;
+	border-top:5px solid #e0e0e0;
+	border-left:5px solid #e0e0e0;
+	border-bottom:5px solid #b0b0b0;
+	border-right:5px solid #b0b0b0;
+}
+
+.submitBtn {
+	width: 40%;
+	color: #fff;
+	border: none;
+	margin-top: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-radius: 10px;
+}
+
+.btn_confirm {
+	background-color: #0080ff;
+	border-color: #0080ff;
+}
+
+.btn_confirm:hover {
+	background-color: #0000ff;
+	border-color: #0000ff;
+}
