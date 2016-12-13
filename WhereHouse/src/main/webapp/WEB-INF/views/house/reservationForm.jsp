@@ -103,9 +103,9 @@ jQuery(function($){
 					<div align="center" style="width:100%; min-height: 150px; border:1px dotted black;">
 						<img alt="" src="/resource/img./house/${houseVO.h_thumnail}" width="200"></div>
 					<p>
-						<input type="hidden" name="${m_id}"> 
-						<input type="hidden" name="${houseVO.h_no}"> 
-						<input type="hidden" name="${m_id}"> 
+						<input type="hidden" value="${m_id}" name="m_id"> 
+						<input type="hidden" value="${houseVO.h_no}" name="h_no"> 
+					
 						<div class="contentList"><div class="contentList Title">체크인 : </div>
 						<input type="text" name="rstartdate" class="r_date" value="${r_startdate}" 
 								style="border: 1px solid #ccc"></div>

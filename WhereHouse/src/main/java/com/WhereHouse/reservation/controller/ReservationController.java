@@ -102,7 +102,7 @@ public class ReservationController {
 		}
 		
 		
-		return "redirect:/mypage/reginfo";
+		return "redirect:/mypage/payinfo";
 		
 	}
 }
