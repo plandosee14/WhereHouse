@@ -10,6 +10,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.WhereHouse.house.domain.HouseVO;
 import com.WhereHouse.house.persistence.HouseDAO;
@@ -65,7 +66,7 @@ public class ReservationServiceImpl implements ReservationService {
 
 
 
-
+	@Transactional
 	@Override
 	public void insertReservation(ReservationVO reservation) throws Exception {
 		

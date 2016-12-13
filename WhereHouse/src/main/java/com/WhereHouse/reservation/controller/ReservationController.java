@@ -79,7 +79,7 @@ public class ReservationController {
 	}
 
 	@RequestMapping("/reservation")
-	public String reservation(){
+	public String reservation(HttpServletRequest request, ReservationVO reservation){
 		
 		
 		return "/mypage/reginfo";
