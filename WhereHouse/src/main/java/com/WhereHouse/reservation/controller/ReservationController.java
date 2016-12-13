@@ -78,4 +78,11 @@ public class ReservationController {
 		model.addAttribute(reservation);
 	}
 
+	@RequestMapping("/reservation")
+	public String reservation(){
+		
+		
+		return "/mypage/reginfo";
+		
+	}
 }

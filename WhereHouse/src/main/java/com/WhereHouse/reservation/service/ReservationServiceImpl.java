@@ -23,6 +23,9 @@ public class ReservationServiceImpl implements ReservationService {
 	@Inject
 	ReservationDAO rdao;
 	
+	@Inject
+	HouseDAO hdao;
+	
 
 
 
@@ -65,6 +68,9 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public void insertReservation(ReservationVO reservation) throws Exception {
+		
+		
+		hdao.updateHouseDays(reservation);
 		rdao.insertReservation(reservation);
 		
 	}

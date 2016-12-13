@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.WhereHouse.house.domain.HouseVO;
+import com.WhereHouse.reservation.domain.ReservationVO;
 
 @Repository
 public class HouseDAOImpl implements HouseDAO{
@@ -28,6 +29,11 @@ public class HouseDAOImpl implements HouseDAO{
 	public int selectNewHouseById(String m_id) throws Exception {
 		
 		return sqlSession.selectOne("house.selectNewHouseById", m_id);
+	}
+	@Override
+	public void updateHouseDays(ReservationVO reservation) throws Exception {
+		sqlSession.update("house.updateHouseDays", reservation);
+		
 	}
 
 }
