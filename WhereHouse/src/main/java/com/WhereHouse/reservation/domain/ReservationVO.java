@@ -1,6 +1,6 @@
 package com.WhereHouse.reservation.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ReservationVO {
 

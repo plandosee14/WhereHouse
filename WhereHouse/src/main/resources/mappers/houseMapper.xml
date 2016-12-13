@@ -38,7 +38,7 @@
 	
 	</select>
 	<update id="updateHouseDays">
-		update house set r_days = r_days + (#{r_enddate}-#{r_startdate})
+		update house set h_rdays = h_rdays + (#{r_enddate}-#{r_startdate})
 		where h_no=#{h_no}
 	</update>
 </mapper> 

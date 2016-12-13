@@ -3,7 +3,7 @@
 <mapper namespace="reservation">
 	<insert id="insertReservation">
 		insert into reservation(r_no, h_no, m_id, r_startdate, r_enddate, r_fare, r_peoplecnt)
-		values (r_no, #{h_no}, #{m_id}, #{r_startdate}, #{r_enddate}, #{r_fare}*(#{r_enddate}-#{r_startdate}), r_peoplecnt)
+		values (reservation_seq.nextval, #{h_no}, #{m_id}, #{r_startdate}, #{r_enddate}, #{r_fare}*(#{r_enddate}-#{r_startdate}), #{r_peoplecnt})
 	</insert>
 	
 	<select id="selectReservationByHno" resultType="com.WhereHouse.reservation.domain.ReservationVO">

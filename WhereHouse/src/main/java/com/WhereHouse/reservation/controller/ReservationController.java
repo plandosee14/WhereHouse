@@ -88,18 +88,24 @@ public class ReservationController {
 		String enddate = request.getParameter("renddate");
 		System.out.println("startdate: "+startdate+" enddate: "+enddate);
 		
-		try {
-			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			Date r_startdate = transFormat.parse(startdate);
-			Date r_enddate = transFormat.parse(enddate);
-			reservation.setR_startdate(r_startdate);
-			reservation.setR_enddate(r_enddate);
-			System.out.println(reservation.toString());
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+			try {
+				SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+				Date r_startdate = transFormat.parse(startdate);
+				Date r_enddate = transFormat.parse(enddate);
+				reservation.setR_startdate(new java.sql.Date(r_startdate.getTime()));
+				reservation.setR_enddate(new java.sql.Date(r_enddate.getTime()));
+				System.out.println(reservation.toString());
+				
+				rservice.insertReservation(reservation);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 		
 		
 		return "redirect:/mypage/payinfo";
