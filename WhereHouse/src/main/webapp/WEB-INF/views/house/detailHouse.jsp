@@ -89,6 +89,17 @@ function disableAllTheseDays(date) {
     return [true];
 
 }
+
+$(document).ready(function() {
+	$('#reservation').click(function() {
+		if ($('#checkindate').val() == null || $('#checkindate').val() == "") {
+			alert('');
+			return false;
+		}else if ($('#checkoutdate').val() == null || $('#checkoutdate').val() =="") {
+			return false;
+		}
+	});
+});
 </script>
 
 </head>
@@ -105,10 +116,10 @@ function disableAllTheseDays(date) {
 				
 				<div class="font_price">${houseVO.h_fare} 원/1박</div>
 				<div class="contentList"><div class="contentList Title">체크인 : </div>
-				<input type="text" name="startdate" class="r_date"  value=""  style="border:1px solid #ccc; width: 50%;">
+				<input type="text" name="startdate" class="r_date"  value=""  style="border:1px solid #ccc; width: 50%;" id="checkindate">
 				</div>
 				<div class="contentList"><div class="contentList Title">체크아웃 : </div>
-				<input type="text" name="enddate" class="r_date"  value=""  style="border:1px solid #ccc ; width: 50%; float:left;">
+				<input type="text" name="enddate" class="r_date"  value=""  style="border:1px solid #ccc ; width: 50%; float:left;" id="checkoutdate">
 				</div>
 				
 				<div class="contentList"><div class="contentList Title">인원 : </div> 
