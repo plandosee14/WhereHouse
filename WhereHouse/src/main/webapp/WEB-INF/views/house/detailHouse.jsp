@@ -83,7 +83,7 @@ function disableAllTheseDays(date) {
         }
 
     }
-    if((date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday)))
+    if((date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday))||(date <new Date()))
     	return [false];
 
     return [true];
