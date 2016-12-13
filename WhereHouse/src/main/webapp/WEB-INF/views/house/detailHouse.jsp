@@ -104,7 +104,7 @@ $(document).ready(function() {
 	</div>
 	<div id="reserve">
 		<form id="reserveform" action="reservationForm" >
-			<div id="reservediv" style="border:1px solid gray; background-color: lavender;">
+			<div id="reservediv" style="border:1px solid gray;">
 				
 				<input type="hidden" value="${houseVO.h_no}" name="h_no">
 				
@@ -327,7 +327,7 @@ $(document).ready(function() {
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
-					<button type="button" class="bt btn-primary" id="commentAddBtn">ADD COMMENT</button>
+					<button type="button" class="bt btn-primary" id="commentAddBtn">후기 등록</button>
 				</div>
 				</c:if>
 				<!-- The time line -->
