@@ -18,7 +18,9 @@ jQuery(function($){
 
 	    $('.r_startdate').datepicker({showOn: 'both',buttonText: "달력",changeMonth: true,changeYear: true,showButtonPanel:true,yearRange: 'c-99:c+99',constrainInput: true,maxDate: '+1y',beforeShowDay: disableAllTheseDays   });
 
-	});
+		
+
+});
 
 	// 특정날짜들 배열
 
@@ -37,9 +39,9 @@ jQuery(function($){
 	
 	
 	//alert(typeof(disabledDays[0]));
-	alert(typeof(syear)+syear);
+/* 	alert(typeof(syear)+syear);
 	alert(typeof(smonth)+smonth);
-	alert(typeof(sday)+sday);
+	alert(typeof(sday)+sday); */
 	
 	function disableAllTheseDays(date) {
 		
@@ -54,10 +56,14 @@ jQuery(function($){
 	        }
 	
 	    }
+	    if((date >new Date(eyear,emonth-1,eday))||(date <new Date(syear,smonth-1,sday)))
+	    	return [false];
 	
 	    return [true];
 	
 	}
+	
+
 	
 </script>
 </head>
@@ -66,11 +72,19 @@ jQuery(function($){
 <h3>${houseVO.h_title}</h3>
 <img alt="" src="/resource/img./house/${houseVO.h_thumnail}">
 
-<p>체크인 : <input type="text" name="date1" class="r_startdate" value="2016-12-20" style="border:1px solid #ccc"><br /></p>
-<p>체크아웃 : <input type="text" name="date1" class="r_startdate" value="" style="border:1px solid #ccc"><br /></p>
+<form action="reservation">
+<p>체크인 : <input type="text" name="r_startdate" class="r_startdate" value="${r_startdate}" style="border:1px solid #ccc"><br /></p>
+<p>체크아웃 : <input type="text" name="r_enddate" class="r_startdate" value="${r_enddate}" style="border:1px solid #ccc"><br /></p>
+
 인원 : <select>
 		<c:forEach begin="1" end="${houseVO.h_peoplecnt}" varStatus="status">
-			<option>${status.index}</option>
+			<c:if test="${status.index==r_peoplecnt}">
+				<option selected="selected">${status.index}</option>
+			</c:if>
+			<c:if test="${status.index!=r_peoplecnt}">
+				<option>${status.index}</option>
+			</c:if>
+			
 		</c:forEach>
    </select>
    <input type="hidden" name="m_id" value=${m_id}>
@@ -83,5 +97,8 @@ jQuery(function($){
    
 
 1박 가격 : ${houseVO.h_fare}
+<div id="price"></div>
+<input type="submit">
+</form>
 </body>
 </html>
