@@ -89,7 +89,7 @@ jQuery(function($){
                <div class="contentList"><div class="contentList Title">만료일 : </div>
                   <input type="text"></div>
                <div class="contentList"><div class="contentList Title">보안코드 : </div>
-                  <input type="text"></div>
+                  <input type="password"></div>
                <div class="contentList"><div class="contentList Title">결제자이름 : </div>
                   <input type="text"></div>
                <div class="contentList"><div class="contentList Title">우편번호 : </div>
