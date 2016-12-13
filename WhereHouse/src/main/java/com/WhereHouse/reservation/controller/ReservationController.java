@@ -76,8 +76,8 @@ public class ReservationController {
 		model.addAttribute(house);
 		System.out.println(rservice.selectReservationImPossibleDate(h_no).toString());
 		model.addAttribute("dateList", rservice.selectReservationImPossibleDate(h_no));
-		model.addAttribute("r_startdate", "\""+r_startday+"\"");
-		model.addAttribute("r_enddate", "\""+r_endday+"\"");
+		model.addAttribute("r_startdate", r_startday);
+		model.addAttribute("r_enddate", r_endday);
 		model.addAttribute("r_peoplecnt", r_peoplecnt);
 		model.addAttribute(reservation);
 	}
@@ -85,14 +85,16 @@ public class ReservationController {
 	@RequestMapping("/reservation")
 	public String reservation(HttpServletRequest request, ReservationVO reservation){
 		String startdate = request.getParameter("rstartdate");
-		String enddate = request.getParameter("rendstartdate");
+		String enddate = request.getParameter("renddate");
+		System.out.println("startdate: "+startdate+" enddate: "+enddate);
 		
 		try {
 			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			Date r_startdate = transFormat.parse("startdate");
-			Date r_enddate = transFormat.parse("enddate");
+			Date r_startdate = transFormat.parse(startdate);
+			Date r_enddate = transFormat.parse(enddate);
 			reservation.setR_startdate(r_startdate);
 			reservation.setR_enddate(r_enddate);
+			System.out.println(reservation.toString());
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +102,7 @@ public class ReservationController {
 		}
 		
 		
-		return "/mypage/reginfo";
+		return "redirect:/mypage/reginfo";
 		
 	}
 }
