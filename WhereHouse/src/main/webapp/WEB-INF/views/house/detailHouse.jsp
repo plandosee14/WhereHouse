@@ -133,7 +133,7 @@ $(document).ready(function() {
 				</div>
 		</form>
 	</div>  
-<div style="float:left; width:60%; border:1px solid gray; background-color:lavender;">
+<div style="float:left; width:60%; border:1px solid gray;">
 	<div><!-- 항목 모음 Div -->
 		<div class="categoryTitle"><!--항목명  -->
 			<span>숙소</span>
