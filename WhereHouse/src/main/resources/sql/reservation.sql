@@ -72,7 +72,7 @@ after insert on reservation
 for each row
 begin 
    update house set h_state=1
-      where (h_enddate-h_startdate)=h_rdays and
+      where (h_enddate-h_startdate)<=h_rdays and
        h_no = :new.h_no;
 end;
 /
