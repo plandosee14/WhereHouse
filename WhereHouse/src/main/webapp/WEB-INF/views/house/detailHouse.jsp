@@ -93,7 +93,6 @@ function disableAllTheseDays(date) {
 $(document).ready(function() {
 	$('#reservation').click(function() {
 		if ($('#checkindate').val() == null || $('#checkindate').val() == "") {
-			alert('');
 			return false;
 		}else if ($('#checkoutdate').val() == null || $('#checkoutdate').val() =="") {
 			return false;
