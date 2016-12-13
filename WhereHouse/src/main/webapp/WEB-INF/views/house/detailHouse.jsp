@@ -65,11 +65,6 @@ jQuery(function($){
 
 
 
-/* 
-alert(typeof(syear)+syear);
-alert(typeof(smonth)+smonth);
-alert(typeof(sday)+sday);  */
-
 function disableAllTheseDays(date) {
 
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
@@ -512,7 +507,6 @@ $(document).ready(function() {
 	});
 
 	$("#addbasket").on("click",function(){
-		alert(h_no);
 		$.ajax({
 			type:'post',
 			url:'/baskets/insert',
