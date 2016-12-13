@@ -108,12 +108,12 @@ jQuery(function($){
                
                   <div class="contentList"><div class="contentList Title">체크인 : </div>
                   <input type="text" name="rstartdate" class="r_date" value="${r_startdate}" 
-                        style="border: 1px solid #ccc"></div>
+                        style="border: 1px solid #ccc" readonly="readonly"></div>
                </p>
                <p>
                   <div class="contentList"><div class="contentList Title">체크아웃 : </div>
                   <input type="text" name="renddate" class="r_date" value="${r_enddate}" 
-                        style="border:1px solid #ccc"></div>
+                        style="border:1px solid #ccc" readonly="readonly"></div>
                </p>
                <div class="contentList"><div class="contentList Title">인원 : </div>
                <select name="r_peoplecnt">
